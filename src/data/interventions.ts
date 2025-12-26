@@ -253,7 +253,7 @@ export const quadrantDetails: QuadrantDetail[] = [
   {
     id: 'mindset',
     title: 'Mindset & Behaviors',
-    items: ['Ways of Working', 'Comms & Engagement', 'Leadership', 'Habits'],
+    items: ['Ways of Working', 'Comms & Engagement', 'Routines'],
     color: '#718096',
   },
 ];

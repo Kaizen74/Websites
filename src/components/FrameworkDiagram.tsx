@@ -6,47 +6,49 @@ import { getScoreColor } from '../utils/scoring';
 interface QuadrantData {
   id: Quadrant;
   title: string;
-  shortTitle: string;
   items: string[];
-  angle: number; // Starting angle in degrees (0 = right, 90 = bottom)
-  labelAngle: number; // Angle for the label position
+  startAngle: number;
+  labelRotation: number;
+  itemsPosition: { x: number; y: number };
 }
 
 // Configurable outer ring label
 const OUTER_RING_LABEL = 'SATS People Values';
 
+// Quadrants positioned to match reference image:
+// TOP-LEFT: Structure, TOP-RIGHT: People, BOTTOM-RIGHT: Process, BOTTOM-LEFT: Mindset
 const quadrants: QuadrantData[] = [
   {
     id: 'structure',
     title: 'Structure & Accountabilities',
-    shortTitle: 'Structure',
-    items: ['Roles & Responsibilities', 'Spans, Layers & Reporting Lines', 'Decision Rights / FOAL'],
-    angle: 270, // Top-right quadrant
-    labelAngle: 315,
+    items: ['Roles &', 'Responsibilities', '', 'Spans, Layers &', 'Reporting Lines', '', 'Decision Rights'],
+    startAngle: 180, // Top-left quadrant (180-270 degrees)
+    labelRotation: -45,
+    itemsPosition: { x: 115, y: 115 },
   },
   {
     id: 'people',
     title: 'People & Skills',
-    shortTitle: 'People',
-    items: ['Workforce Size & Location', 'Diversity', 'Knowledge & Skills'],
-    angle: 0, // Bottom-right quadrant
-    labelAngle: 45,
+    items: ['Workforce Size', '& Distribution', '', 'Diversity', '', 'Knowledge &', 'Skills'],
+    startAngle: 270, // Top-right quadrant (270-360 degrees)
+    labelRotation: 45,
+    itemsPosition: { x: 285, y: 115 },
   },
   {
     id: 'process',
     title: 'Process & Systems',
-    shortTitle: 'Process',
-    items: ['Performance Management', 'Workflows & Handoffs', 'Data & Digital Tools', 'Cadence / Routine'],
-    angle: 90, // Bottom-left quadrant
-    labelAngle: 135,
+    items: ['Performance Mgmt', '', 'Workflows &', 'Handoffs', '', 'Data & Digital Tools', '', 'Cadence / Routine'],
+    startAngle: 0, // Bottom-right quadrant (0-90 degrees)
+    labelRotation: 135,
+    itemsPosition: { x: 285, y: 285 },
   },
   {
     id: 'mindset',
     title: 'Mindset & Behaviors',
-    shortTitle: 'Mindset',
-    items: ['Ways of Working', 'Comms & Engagement', 'Leadership', 'Habits'],
-    angle: 180, // Top-left quadrant
-    labelAngle: 225,
+    items: ['Ways of Working', '', 'Comms &', 'Engagement', '', 'Routines'],
+    startAngle: 90, // Bottom-left quadrant (90-180 degrees)
+    labelRotation: -135,
+    itemsPosition: { x: 115, y: 285 },
   },
 ];
 
@@ -72,18 +74,16 @@ function createArcPath(
   const x2Inner = centerX + innerRadius * Math.cos(startRad);
   const y2Inner = centerY + innerRadius * Math.sin(startRad);
 
-  const largeArc = endAngle - startAngle > 180 ? 1 : 0;
-
   return `M ${x1Outer} ${y1Outer}
-          A ${outerRadius} ${outerRadius} 0 ${largeArc} 1 ${x2Outer} ${y2Outer}
+          A ${outerRadius} ${outerRadius} 0 0 1 ${x2Outer} ${y2Outer}
           L ${x1Inner} ${y1Inner}
-          A ${innerRadius} ${innerRadius} 0 ${largeArc} 0 ${x2Inner} ${y2Inner}
+          A ${innerRadius} ${innerRadius} 0 0 0 ${x2Inner} ${y2Inner}
           Z`;
 }
 
-// Get position for label on the gray ring
-function getLabelPosition(centerX: number, centerY: number, radius: number, angle: number) {
-  const rad = (angle * Math.PI) / 180;
+// Get position on circle
+function getPointOnCircle(centerX: number, centerY: number, radius: number, angleDeg: number) {
+  const rad = (angleDeg * Math.PI) / 180;
   return {
     x: centerX + radius * Math.cos(rad),
     y: centerY + radius * Math.sin(rad),
@@ -119,14 +119,15 @@ export function FrameworkDiagram({
   const centerX = 200;
   const centerY = 200;
   const outerRingRadius = 180;
-  const grayRingOuterRadius = 155;
+  const grayRingOuterRadius = 160;
   const grayRingInnerRadius = 125;
   const coralRingOuterRadius = 120;
-  const coralRingInnerRadius = 55;
-  const leadershipRadius = 50;
+  const coralRingInnerRadius = 50;
+  const leadershipRadius = 45;
+  const labelRadius = (grayRingOuterRadius + grayRingInnerRadius) / 2;
 
-  // Default coral color for quadrants
-  const coralColor = 'var(--color-accent-coral)';
+  const coralColor = '#E8A5A5';
+  const grayColor = '#6B7280';
 
   return (
     <div className="relative w-full max-w-lg mx-auto" data-testid="framework-diagram">
@@ -154,9 +155,7 @@ export function FrameworkDiagram({
           cx={centerX}
           cy={centerY}
           r={grayRingOuterRadius}
-          fill="#F1F5F9"
-          stroke="#E2E8F0"
-          strokeWidth="1"
+          fill={grayColor}
         />
         <circle
           cx={centerX}
@@ -167,27 +166,33 @@ export function FrameworkDiagram({
 
         {/* Quadrant divider lines on gray ring */}
         {[0, 90, 180, 270].map((angle) => {
-          const rad = (angle * Math.PI) / 180;
-          const x1 = centerX + grayRingInnerRadius * Math.cos(rad);
-          const y1 = centerY + grayRingInnerRadius * Math.sin(rad);
-          const x2 = centerX + grayRingOuterRadius * Math.cos(rad);
-          const y2 = centerY + grayRingOuterRadius * Math.sin(rad);
+          const inner = getPointOnCircle(centerX, centerY, grayRingInnerRadius, angle);
+          const outer = getPointOnCircle(centerX, centerY, grayRingOuterRadius, angle);
           return (
             <line
               key={angle}
-              x1={x1}
-              y1={y1}
-              x2={x2}
-              y2={y2}
-              stroke="#CBD5E1"
-              strokeWidth="1"
+              x1={inner.x}
+              y1={inner.y}
+              x2={outer.x}
+              y2={outer.y}
+              stroke="white"
+              strokeWidth="2"
             />
           );
         })}
 
-        {/* Gray ring quadrant labels */}
+        {/* Curved text labels on gray ring */}
         {quadrants.map((quadrant) => {
-          const pos = getLabelPosition(centerX, centerY, (grayRingOuterRadius + grayRingInnerRadius) / 2, quadrant.labelAngle);
+          const midAngle = quadrant.startAngle + 45;
+          const pos = getPointOnCircle(centerX, centerY, labelRadius, midAngle);
+
+          // Determine text rotation for readability
+          let textRotation = midAngle;
+          // For bottom half, flip text so it's not upside down
+          if (midAngle > 90 && midAngle < 270) {
+            textRotation = midAngle + 180;
+          }
+
           return (
             <text
               key={`label-${quadrant.id}`}
@@ -195,12 +200,13 @@ export function FrameworkDiagram({
               y={pos.y}
               textAnchor="middle"
               dominantBaseline="middle"
-              fill="#64748B"
-              fontSize="11"
+              fill="white"
+              fontSize="9"
               fontWeight="600"
+              transform={`rotate(${textRotation}, ${pos.x}, ${pos.y})`}
               className="pointer-events-none"
             >
-              {quadrant.shortTitle}
+              {quadrant.title}
             </text>
           );
         })}
@@ -211,7 +217,7 @@ export function FrameworkDiagram({
           const isHovered = hoveredQuadrant === quadrant.id;
           const isActive = activeQuadrant === quadrant.id;
           const color = getQuadrantColor(score, coralColor);
-          const startAngle = quadrant.angle;
+          const startAngle = quadrant.startAngle;
           const endAngle = startAngle + 90;
 
           const path = createArcPath(
@@ -223,16 +229,11 @@ export function FrameworkDiagram({
             endAngle
           );
 
-          // Position for score badge
-          const midAngle = startAngle + 45;
-          const badgeRadius = (coralRingOuterRadius + coralRingInnerRadius) / 2;
-          const badgePos = getLabelPosition(centerX, centerY, badgeRadius, midAngle);
-
           return (
             <g
               key={quadrant.id}
               data-testid={`quadrant-${quadrant.id}`}
-              className="cursor-pointer transition-all duration-200"
+              className="cursor-pointer"
               role="button"
               tabIndex={0}
               aria-label={`${QUADRANT_LABELS[quadrant.id]}${score !== undefined ? ` - Score: ${score}%` : ''}`}
@@ -248,35 +249,56 @@ export function FrameworkDiagram({
               <path
                 d={path}
                 fill={color}
-                fillOpacity={isHovered || isActive ? 0.95 : 0.85}
+                fillOpacity={isHovered || isActive ? 1 : 0.9}
                 stroke="white"
                 strokeWidth="2"
                 style={{
-                  transform: isHovered || isActive ? 'scale(1.03)' : 'scale(1)',
+                  transform: isHovered || isActive ? 'scale(1.02)' : 'scale(1)',
                   transformOrigin: `${centerX}px ${centerY}px`,
                   transition: 'transform 0.2s ease-out, fill-opacity 0.2s ease-out',
                 }}
               />
 
-              {/* Score Badge */}
+              {/* Items text within coral quadrant - always visible */}
+              <text
+                x={quadrant.itemsPosition.x}
+                y={quadrant.itemsPosition.y - 25}
+                textAnchor="middle"
+                fill="white"
+                fontSize="7"
+                fontWeight="500"
+                className="pointer-events-none"
+              >
+                {quadrant.items.map((item, i) => (
+                  <tspan
+                    key={i}
+                    x={quadrant.itemsPosition.x}
+                    dy={i === 0 ? 0 : item === '' ? 5 : 9}
+                  >
+                    {item}
+                  </tspan>
+                ))}
+              </text>
+
+              {/* Score Badge - overlay when score exists */}
               {score !== undefined && (
                 <g>
                   <circle
-                    cx={badgePos.x}
-                    cy={badgePos.y}
-                    r="16"
+                    cx={quadrant.itemsPosition.x}
+                    cy={quadrant.itemsPosition.y}
+                    r="22"
                     fill="white"
                     fillOpacity="0.95"
                     stroke={color}
-                    strokeWidth="1"
+                    strokeWidth="2"
                   />
                   <text
-                    x={badgePos.x}
-                    y={badgePos.y + 1}
+                    x={quadrant.itemsPosition.x}
+                    y={quadrant.itemsPosition.y + 1}
                     textAnchor="middle"
                     dominantBaseline="middle"
                     fill={color}
-                    fontSize="11"
+                    fontSize="14"
                     fontWeight="bold"
                   >
                     {score}%
@@ -289,18 +311,15 @@ export function FrameworkDiagram({
 
         {/* Quadrant divider lines on coral ring */}
         {[0, 90, 180, 270].map((angle) => {
-          const rad = (angle * Math.PI) / 180;
-          const x1 = centerX + coralRingInnerRadius * Math.cos(rad);
-          const y1 = centerY + coralRingInnerRadius * Math.sin(rad);
-          const x2 = centerX + coralRingOuterRadius * Math.cos(rad);
-          const y2 = centerY + coralRingOuterRadius * Math.sin(rad);
+          const inner = getPointOnCircle(centerX, centerY, coralRingInnerRadius, angle);
+          const outer = getPointOnCircle(centerX, centerY, coralRingOuterRadius, angle);
           return (
             <line
               key={`coral-line-${angle}`}
-              x1={x1}
-              y1={y1}
-              x2={x2}
-              y2={y2}
+              x1={inner.x}
+              y1={inner.y}
+              x2={outer.x}
+              y2={outer.y}
               stroke="white"
               strokeWidth="2"
             />
@@ -313,43 +332,29 @@ export function FrameworkDiagram({
           cy={centerY}
           r={leadershipRadius}
           fill="white"
-          stroke="var(--color-accent-coral)"
-          strokeWidth="3"
+          stroke={coralColor}
+          strokeWidth="2"
         />
 
         {/* Leadership text */}
         <text
           x={centerX}
-          y={centerY - 5}
+          y={centerY + 2}
           textAnchor="middle"
           dominantBaseline="middle"
-          fill="var(--color-primary)"
-          fontSize="10"
+          fill="#1F2937"
+          fontSize="11"
           fontWeight="700"
         >
-          LEADERSHIP
-        </text>
-        <text
-          x={centerX}
-          y={centerY + 8}
-          textAnchor="middle"
-          dominantBaseline="middle"
-          fill="var(--color-charcoal)"
-          fontSize="8"
-          fontWeight="500"
-        >
-          Integration Hub
+          Leadership
         </text>
 
-        {/* Circular arrows around leadership (continuous improvement) */}
-        <g fill="none" stroke="var(--color-primary)" strokeWidth="2" strokeLinecap="round">
-          {/* Top-left arrow arc */}
-          <path d="M 178 178 A 28 28 0 0 1 222 178" />
-          {/* Bottom-right arrow arc */}
-          <path d="M 222 222 A 28 28 0 0 1 178 222" />
-          {/* Arrow heads */}
-          <polygon points="176,180 182,173 183,183" fill="var(--color-primary)" stroke="none" />
-          <polygon points="224,220 218,227 217,217" fill="var(--color-primary)" stroke="none" />
+        {/* Circular arrows around leadership */}
+        <g fill="none" stroke={grayColor} strokeWidth="2" strokeLinecap="round">
+          <path d="M 177 188 A 27 27 0 0 1 223 188" />
+          <path d="M 223 212 A 27 27 0 0 1 177 212" />
+          <polygon points="175,190 180,183 182,193" fill={grayColor} stroke="none" />
+          <polygon points="225,210 220,217 218,207" fill={grayColor} stroke="none" />
         </g>
       </svg>
 
@@ -360,7 +365,7 @@ export function FrameworkDiagram({
             {QUADRANT_LABELS[hoveredQuadrant]}
           </h4>
           <ul className="text-sm text-[var(--color-secondary)] space-y-1">
-            {quadrants.find((q) => q.id === hoveredQuadrant)?.items.map((item, i) => (
+            {quadrants.find((q) => q.id === hoveredQuadrant)?.items.filter(item => item !== '').map((item, i) => (
               <li key={i}>• {item}</li>
             ))}
           </ul>
