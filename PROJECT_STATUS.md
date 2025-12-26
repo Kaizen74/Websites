@@ -28,13 +28,19 @@ Note: Vercel deploys only the dist folder (~637KB), well under limits.
 ## Recent Updates (Phase 5+)
 
 ### Visual Design Updates
-- Added coral/salmon accent color (#E8A5A5) to design tokens
+- Updated color palette to match SATS branding:
+  - SATS Vibrant Red: #FF2E36 (outer ring, diagram border)
+  - Soft Salmon: #FF9EA2 (inner coral quadrants)
+  - Charcoal Grey: #636466 (middle ring for quadrant labels)
+  - Canvas Light Grey: #DCDCDC (background)
 - Updated FrameworkDiagram to concentric ring design with:
-  - Outer ring: "SATS People Values" (configurable)
-  - Middle gray ring for quadrant labels
-  - Inner coral quadrant areas
+  - Outer ring with SATS Vibrant Red border
+  - "SATS People Values" badge with red background
+  - Middle charcoal grey ring for quadrant labels
+  - Inner soft salmon quadrant areas
   - Leadership center with integration hub narrative
   - Circular arrows indicating continuous improvement
+- Framework title: "Integrated Organizational Capability and Change Framework"
 - Created FrameworkLogo simplified component for header
 
 ### Content Enhancements
@@ -132,7 +138,8 @@ Note: Vercel deploys only the dist folder (~637KB), well under limits.
 
 ### Design Features
 - Professional consulting aesthetic with corporate red (#C41E3A)
-- Coral/salmon accent color (#E8A5A5) for framework visualization
+- SATS color palette for framework visualization:
+  - Vibrant Red (#FF2E36), Soft Salmon (#FF9EA2), Charcoal Grey (#636466)
 - Playfair Display headlines, DM Sans body text
 - Smooth animations and transitions
 - Mobile-responsive design

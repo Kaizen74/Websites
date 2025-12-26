@@ -126,36 +126,38 @@ export function FrameworkDiagram({
   const leadershipRadius = 45;
   const labelRadius = (grayRingOuterRadius + grayRingInnerRadius) / 2;
 
-  const coralColor = '#E8A5A5';
-  const grayColor = '#6B7280';
+  // Color palette matching reference
+  const satsVibrantRed = '#FF2E36'; // Outer ring, diagram border
+  const softSalmon = '#FF9EA2'; // Inner coral quadrants
+  const charcoalGrey = '#636466'; // Middle ring for quadrant labels
 
   return (
     <div className="relative w-full max-w-lg mx-auto" data-testid="framework-diagram">
       {/* Outer Ring Label */}
       <div className="absolute -top-8 left-1/2 -translate-x-1/2 text-center">
-        <span className="text-sm font-semibold text-[var(--color-primary)] bg-white px-4 py-1.5 rounded-full shadow-sm border border-[var(--color-accent-coral)]">
+        <span className="text-sm font-semibold text-white bg-[#FF2E36] px-4 py-1.5 rounded-full shadow-sm">
           {OUTER_RING_LABEL}
         </span>
       </div>
 
       <svg viewBox="0 0 400 400" className="w-full h-auto">
-        {/* Outer decorative ring (dashed) */}
+        {/* Outer decorative ring - SATS Vibrant Red */}
         <circle
           cx={centerX}
           cy={centerY}
           r={outerRingRadius}
           fill="none"
-          stroke="#E2E8F0"
-          strokeWidth="2"
-          strokeDasharray="6 4"
+          stroke={satsVibrantRed}
+          strokeWidth="3"
+          strokeDasharray="8 4"
         />
 
-        {/* Gray middle ring background */}
+        {/* Charcoal Grey middle ring background */}
         <circle
           cx={centerX}
           cy={centerY}
           r={grayRingOuterRadius}
-          fill={grayColor}
+          fill={charcoalGrey}
         />
         <circle
           cx={centerX}
@@ -216,7 +218,7 @@ export function FrameworkDiagram({
           const score = scores?.[quadrant.id];
           const isHovered = hoveredQuadrant === quadrant.id;
           const isActive = activeQuadrant === quadrant.id;
-          const color = getQuadrantColor(score, coralColor);
+          const color = getQuadrantColor(score, softSalmon);
           const startAngle = quadrant.startAngle;
           const endAngle = startAngle + 90;
 
@@ -332,7 +334,7 @@ export function FrameworkDiagram({
           cy={centerY}
           r={leadershipRadius}
           fill="white"
-          stroke={coralColor}
+          stroke={softSalmon}
           strokeWidth="2"
         />
 
@@ -350,17 +352,17 @@ export function FrameworkDiagram({
         </text>
 
         {/* Circular arrows around leadership */}
-        <g fill="none" stroke={grayColor} strokeWidth="2" strokeLinecap="round">
+        <g fill="none" stroke={charcoalGrey} strokeWidth="2" strokeLinecap="round">
           <path d="M 177 188 A 27 27 0 0 1 223 188" />
           <path d="M 223 212 A 27 27 0 0 1 177 212" />
-          <polygon points="175,190 180,183 182,193" fill={grayColor} stroke="none" />
-          <polygon points="225,210 220,217 218,207" fill={grayColor} stroke="none" />
+          <polygon points="175,190 180,183 182,193" fill={charcoalGrey} stroke="none" />
+          <polygon points="225,210 220,217 218,207" fill={charcoalGrey} stroke="none" />
         </g>
       </svg>
 
       {/* Tooltip */}
       {hoveredQuadrant && (
-        <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 bg-white shadow-lg rounded-lg p-4 w-64 pointer-events-none z-10 animate-fade-in border border-[var(--color-accent-coral-light)]">
+        <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 bg-white shadow-lg rounded-lg p-4 w-64 pointer-events-none z-10 animate-fade-in border-2 border-[#FF9EA2]">
           <h4 className="font-semibold text-[var(--color-charcoal)] mb-2">
             {QUADRANT_LABELS[hoveredQuadrant]}
           </h4>
