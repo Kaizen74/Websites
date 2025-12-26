@@ -8,10 +8,16 @@
   --color-primary-light: #D3334F;
   --color-primary-dark: #9D182E;
 
-  /* Accent Colors */
-  --color-accent-coral: #E8A5A5;
-  --color-accent-coral-light: #F0C0C0;
-  --color-accent-coral-dark: #D88080;
+  /* SATS Color Palette */
+  --color-sats-vibrant-red: #FF2E36;
+  --color-soft-salmon: #FF9EA2;
+  --color-charcoal-grey: #636466;
+  --color-canvas-light-grey: #DCDCDC;
+
+  /* Accent Colors (legacy) */
+  --color-accent-coral: #FF9EA2;
+  --color-accent-coral-light: #FFB8BB;
+  --color-accent-coral-dark: #FF7A80;
 
   /* Secondary Colors */
   --color-secondary: #4A5568;

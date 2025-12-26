@@ -8,7 +8,6 @@ interface QuadrantData {
   title: string;
   items: string[];
   startAngle: number;
-  labelRotation: number;
   itemsPosition: { x: number; y: number };
 }
 
@@ -23,7 +22,6 @@ const quadrants: QuadrantData[] = [
     title: 'Structure & Accountabilities',
     items: ['Roles &', 'Responsibilities', '', 'Spans, Layers &', 'Reporting Lines', '', 'Decision Rights'],
     startAngle: 180, // Top-left quadrant (180-270 degrees)
-    labelRotation: -45,
     itemsPosition: { x: 115, y: 115 },
   },
   {
@@ -31,15 +29,13 @@ const quadrants: QuadrantData[] = [
     title: 'People & Skills',
     items: ['Workforce Size', '& Distribution', '', 'Diversity', '', 'Knowledge &', 'Skills'],
     startAngle: 270, // Top-right quadrant (270-360 degrees)
-    labelRotation: 45,
     itemsPosition: { x: 285, y: 115 },
   },
   {
     id: 'process',
     title: 'Process & Systems',
-    items: ['Performance Mgmt', '', 'Workflows &', 'Handoffs', '', 'Data & Digital Tools', '', 'Cadence / Routine'],
+    items: ['Performance Mgmt', '', 'Workflows &', 'Handoffs', '', 'Data & Digital Tools', '', 'Cadence /', 'Routine'],
     startAngle: 0, // Bottom-right quadrant (0-90 degrees)
-    labelRotation: 135,
     itemsPosition: { x: 285, y: 285 },
   },
   {
@@ -47,7 +43,6 @@ const quadrants: QuadrantData[] = [
     title: 'Mindset & Behaviors',
     items: ['Ways of Working', '', 'Comms &', 'Engagement', '', 'Routines'],
     startAngle: 90, // Bottom-left quadrant (90-180 degrees)
-    labelRotation: -135,
     itemsPosition: { x: 115, y: 285 },
   },
 ];
@@ -90,6 +85,29 @@ function getPointOnCircle(centerX: number, centerY: number, radius: number, angl
   };
 }
 
+// Create arc path for text (for textPath)
+function createTextArcPath(
+  centerX: number,
+  centerY: number,
+  radius: number,
+  startAngle: number,
+  endAngle: number,
+  clockwise: boolean = true
+): string {
+  const startRad = (startAngle * Math.PI) / 180;
+  const endRad = (endAngle * Math.PI) / 180;
+
+  const x1 = centerX + radius * Math.cos(startRad);
+  const y1 = centerY + radius * Math.sin(startRad);
+  const x2 = centerX + radius * Math.cos(endRad);
+  const y2 = centerY + radius * Math.sin(endRad);
+
+  const sweepFlag = clockwise ? 1 : 0;
+  const largeArcFlag = Math.abs(endAngle - startAngle) > 180 ? 1 : 0;
+
+  return `M ${x1} ${y1} A ${radius} ${radius} 0 ${largeArcFlag} ${sweepFlag} ${x2} ${y2}`;
+}
+
 function getQuadrantColor(score: number | undefined, baseColor: string): string {
   if (score === undefined) return baseColor;
   const scoreColor = getScoreColor(score);
@@ -118,7 +136,8 @@ export function FrameworkDiagram({
 
   const centerX = 200;
   const centerY = 200;
-  const outerRingRadius = 180;
+  const outerRingOuterRadius = 190;
+  const outerRingInnerRadius = 165;
   const grayRingOuterRadius = 160;
   const grayRingInnerRadius = 125;
   const coralRingOuterRadius = 120;
@@ -126,36 +145,81 @@ export function FrameworkDiagram({
   const leadershipRadius = 45;
   const labelRadius = (grayRingOuterRadius + grayRingInnerRadius) / 2;
 
-  const coralColor = '#E8A5A5';
-  const grayColor = '#6B7280';
+  // Color palette matching reference
+  const satsVibrantRed = '#FF2E36'; // Outer ring
+  const softSalmon = '#FF9EA2'; // Inner coral quadrants
+  const charcoalGrey = '#636466'; // Middle ring for quadrant labels
 
   return (
     <div className="relative w-full max-w-lg mx-auto" data-testid="framework-diagram">
-      {/* Outer Ring Label */}
-      <div className="absolute -top-8 left-1/2 -translate-x-1/2 text-center">
-        <span className="text-sm font-semibold text-[var(--color-primary)] bg-white px-4 py-1.5 rounded-full shadow-sm border border-[var(--color-accent-coral)]">
-          {OUTER_RING_LABEL}
-        </span>
-      </div>
-
       <svg viewBox="0 0 400 400" className="w-full h-auto">
-        {/* Outer decorative ring (dashed) */}
+        <defs>
+          {/* Arc path for outer ring text (top arc) */}
+          <path
+            id="outerRingTextPath"
+            d={createTextArcPath(centerX, centerY, (outerRingOuterRadius + outerRingInnerRadius) / 2, 200, 340, true)}
+            fill="none"
+          />
+          {/* Arc paths for quadrant labels */}
+          <path
+            id="structureLabelPath"
+            d={createTextArcPath(centerX, centerY, labelRadius, 195, 255, true)}
+            fill="none"
+          />
+          <path
+            id="peopleLabelPath"
+            d={createTextArcPath(centerX, centerY, labelRadius, 285, 345, true)}
+            fill="none"
+          />
+          <path
+            id="processLabelPath"
+            d={createTextArcPath(centerX, centerY, labelRadius, 75, 15, false)}
+            fill="none"
+          />
+          <path
+            id="mindsetLabelPath"
+            d={createTextArcPath(centerX, centerY, labelRadius, 165, 105, false)}
+            fill="none"
+          />
+        </defs>
+
+        {/* Outer solid red ring */}
         <circle
           cx={centerX}
           cy={centerY}
-          r={outerRingRadius}
-          fill="none"
-          stroke="#E2E8F0"
-          strokeWidth="2"
-          strokeDasharray="6 4"
+          r={outerRingOuterRadius}
+          fill={satsVibrantRed}
+        />
+        <circle
+          cx={centerX}
+          cy={centerY}
+          r={outerRingInnerRadius}
+          fill="white"
         />
 
-        {/* Gray middle ring background */}
+        {/* SATS People Values curved text on outer ring */}
+        <text
+          fill="white"
+          fontSize="22"
+          fontWeight="700"
+          fontStyle="italic"
+          letterSpacing="2"
+        >
+          <textPath
+            href="#outerRingTextPath"
+            startOffset="50%"
+            textAnchor="middle"
+          >
+            {OUTER_RING_LABEL}
+          </textPath>
+        </text>
+
+        {/* Charcoal Grey middle ring background */}
         <circle
           cx={centerX}
           cy={centerY}
           r={grayRingOuterRadius}
-          fill={grayColor}
+          fill={charcoalGrey}
         />
         <circle
           cx={centerX}
@@ -176,47 +240,39 @@ export function FrameworkDiagram({
               x2={outer.x}
               y2={outer.y}
               stroke="white"
-              strokeWidth="2"
+              strokeWidth="3"
             />
           );
         })}
 
         {/* Curved text labels on gray ring */}
-        {quadrants.map((quadrant) => {
-          const midAngle = quadrant.startAngle + 45;
-          const pos = getPointOnCircle(centerX, centerY, labelRadius, midAngle);
-
-          // Determine text rotation for readability
-          let textRotation = midAngle;
-          // For bottom half, flip text so it's not upside down
-          if (midAngle > 90 && midAngle < 270) {
-            textRotation = midAngle + 180;
-          }
-
-          return (
-            <text
-              key={`label-${quadrant.id}`}
-              x={pos.x}
-              y={pos.y}
-              textAnchor="middle"
-              dominantBaseline="middle"
-              fill="white"
-              fontSize="9"
-              fontWeight="600"
-              transform={`rotate(${textRotation}, ${pos.x}, ${pos.y})`}
-              className="pointer-events-none"
-            >
-              {quadrant.title}
-            </text>
-          );
-        })}
+        <text fill="white" fontSize="12" fontWeight="600" fontStyle="italic">
+          <textPath href="#structureLabelPath" startOffset="50%" textAnchor="middle">
+            Structure & Accountabilities
+          </textPath>
+        </text>
+        <text fill="white" fontSize="12" fontWeight="600" fontStyle="italic">
+          <textPath href="#peopleLabelPath" startOffset="50%" textAnchor="middle">
+            People & Skills
+          </textPath>
+        </text>
+        <text fill="white" fontSize="12" fontWeight="600" fontStyle="italic">
+          <textPath href="#processLabelPath" startOffset="50%" textAnchor="middle">
+            Process & Systems
+          </textPath>
+        </text>
+        <text fill="white" fontSize="12" fontWeight="600" fontStyle="italic">
+          <textPath href="#mindsetLabelPath" startOffset="50%" textAnchor="middle">
+            Mindset & Behaviors
+          </textPath>
+        </text>
 
         {/* Coral inner quadrants */}
         {quadrants.map((quadrant) => {
           const score = scores?.[quadrant.id];
           const isHovered = hoveredQuadrant === quadrant.id;
           const isActive = activeQuadrant === quadrant.id;
-          const color = getQuadrantColor(score, coralColor);
+          const color = getQuadrantColor(score, softSalmon);
           const startAngle = quadrant.startAngle;
           const endAngle = startAngle + 90;
 
@@ -249,7 +305,7 @@ export function FrameworkDiagram({
               <path
                 d={path}
                 fill={color}
-                fillOpacity={isHovered || isActive ? 1 : 0.9}
+                fillOpacity={isHovered || isActive ? 1 : 0.95}
                 stroke="white"
                 strokeWidth="2"
                 style={{
@@ -265,15 +321,15 @@ export function FrameworkDiagram({
                 y={quadrant.itemsPosition.y - 25}
                 textAnchor="middle"
                 fill="white"
-                fontSize="7"
-                fontWeight="500"
+                fontSize="9"
+                fontWeight="600"
                 className="pointer-events-none"
               >
                 {quadrant.items.map((item, i) => (
                   <tspan
                     key={i}
                     x={quadrant.itemsPosition.x}
-                    dy={i === 0 ? 0 : item === '' ? 5 : 9}
+                    dy={i === 0 ? 0 : item === '' ? 4 : 11}
                   >
                     {item}
                   </tspan>
@@ -332,7 +388,7 @@ export function FrameworkDiagram({
           cy={centerY}
           r={leadershipRadius}
           fill="white"
-          stroke={coralColor}
+          stroke={softSalmon}
           strokeWidth="2"
         />
 
@@ -343,24 +399,24 @@ export function FrameworkDiagram({
           textAnchor="middle"
           dominantBaseline="middle"
           fill="#1F2937"
-          fontSize="11"
+          fontSize="12"
           fontWeight="700"
         >
           Leadership
         </text>
 
-        {/* Circular arrows around leadership */}
-        <g fill="none" stroke={grayColor} strokeWidth="2" strokeLinecap="round">
-          <path d="M 177 188 A 27 27 0 0 1 223 188" />
-          <path d="M 223 212 A 27 27 0 0 1 177 212" />
-          <polygon points="175,190 180,183 182,193" fill={grayColor} stroke="none" />
-          <polygon points="225,210 220,217 218,207" fill={grayColor} stroke="none" />
+        {/* Circular arrows around leadership - white color to match reference */}
+        <g fill="none" stroke="white" strokeWidth="3" strokeLinecap="round">
+          <path d="M 175 188 A 30 30 0 0 1 225 188" />
+          <path d="M 225 212 A 30 30 0 0 1 175 212" />
+          <polygon points="173,191 179,182 182,194" fill="white" stroke="none" />
+          <polygon points="227,209 221,218 218,206" fill="white" stroke="none" />
         </g>
       </svg>
 
       {/* Tooltip */}
       {hoveredQuadrant && (
-        <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 bg-white shadow-lg rounded-lg p-4 w-64 pointer-events-none z-10 animate-fade-in border border-[var(--color-accent-coral-light)]">
+        <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 bg-white shadow-lg rounded-lg p-4 w-64 pointer-events-none z-10 animate-fade-in border-2 border-[#FF9EA2]">
           <h4 className="font-semibold text-[var(--color-charcoal)] mb-2">
             {QUADRANT_LABELS[hoveredQuadrant]}
           </h4>

@@ -29,7 +29,7 @@ export function FrameworkSection({ scores }: FrameworkSectionProps) {
             <Target className="w-8 h-8 text-[var(--color-primary)]" />
           </div>
           <h2 className="text-3xl sm:text-4xl font-display font-bold text-[var(--color-charcoal)] mb-4">
-            The Organizational Design Framework
+            Integrated Organizational Capability and Change Framework
           </h2>
           <p className="text-lg text-[var(--color-secondary)] max-w-2xl mx-auto">
             A holistic view of organizational design across four interconnected dimensions.
