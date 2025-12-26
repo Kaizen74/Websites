@@ -6,61 +6,89 @@ import { getScoreColor } from '../utils/scoring';
 interface QuadrantData {
   id: Quadrant;
   title: string;
+  shortTitle: string;
   items: string[];
-  position: {
-    path: string;
-    labelX: number;
-    labelY: number;
-  };
-  baseColor: string;
+  angle: number; // Starting angle in degrees (0 = right, 90 = bottom)
+  labelAngle: number; // Angle for the label position
 }
+
+// Configurable outer ring label
+const OUTER_RING_LABEL = 'SATS People Values';
 
 const quadrants: QuadrantData[] = [
   {
     id: 'structure',
     title: 'Structure & Accountabilities',
+    shortTitle: 'Structure',
     items: ['Roles & Responsibilities', 'Spans, Layers & Reporting Lines', 'Decision Rights / FOAL'],
-    position: {
-      path: 'M 200 200 L 200 50 A 150 150 0 0 1 350 200 Z',
-      labelX: 275,
-      labelY: 125,
-    },
-    baseColor: '#C41E3A',
+    angle: 270, // Top-right quadrant
+    labelAngle: 315,
   },
   {
     id: 'people',
     title: 'People & Skills',
+    shortTitle: 'People',
     items: ['Workforce Size & Location', 'Diversity', 'Knowledge & Skills'],
-    position: {
-      path: 'M 200 200 L 350 200 A 150 150 0 0 1 200 350 Z',
-      labelX: 275,
-      labelY: 275,
-    },
-    baseColor: '#4A5568',
+    angle: 0, // Bottom-right quadrant
+    labelAngle: 45,
   },
   {
     id: 'process',
     title: 'Process & Systems',
+    shortTitle: 'Process',
     items: ['Performance Management', 'Workflows & Handoffs', 'Data & Digital Tools', 'Cadence / Routine'],
-    position: {
-      path: 'M 200 200 L 200 350 A 150 150 0 0 1 50 200 Z',
-      labelX: 125,
-      labelY: 275,
-    },
-    baseColor: '#2D3748',
+    angle: 90, // Bottom-left quadrant
+    labelAngle: 135,
   },
   {
     id: 'mindset',
     title: 'Mindset & Behaviors',
+    shortTitle: 'Mindset',
     items: ['Ways of Working', 'Comms & Engagement', 'Leadership', 'Habits'],
-    position: {
-      path: 'M 200 200 L 50 200 A 150 150 0 0 1 200 50 Z',
-      labelX: 125,
-      labelY: 125,
-    },
-    baseColor: '#718096',
+    angle: 180, // Top-left quadrant
+    labelAngle: 225,
   },
 ];
+
+// Create SVG arc path for a quadrant
+function createArcPath(
+  centerX: number,
+  centerY: number,
+  innerRadius: number,
+  outerRadius: number,
+  startAngle: number,
+  endAngle: number
+): string {
+  const startRad = (startAngle * Math.PI) / 180;
+  const endRad = (endAngle * Math.PI) / 180;
+
+  const x1Outer = centerX + outerRadius * Math.cos(startRad);
+  const y1Outer = centerY + outerRadius * Math.sin(startRad);
+  const x2Outer = centerX + outerRadius * Math.cos(endRad);
+  const y2Outer = centerY + outerRadius * Math.sin(endRad);
+
+  const x1Inner = centerX + innerRadius * Math.cos(endRad);
+  const y1Inner = centerY + innerRadius * Math.sin(endRad);
+  const x2Inner = centerX + innerRadius * Math.cos(startRad);
+  const y2Inner = centerY + innerRadius * Math.sin(startRad);
+
+  const largeArc = endAngle - startAngle > 180 ? 1 : 0;
+
+  return `M ${x1Outer} ${y1Outer}
+          A ${outerRadius} ${outerRadius} 0 ${largeArc} 1 ${x2Outer} ${y2Outer}
+          L ${x1Inner} ${y1Inner}
+          A ${innerRadius} ${innerRadius} 0 ${largeArc} 0 ${x2Inner} ${y2Inner}
+          Z`;
+}
+
+// Get position for label on the gray ring
+function getLabelPosition(centerX: number, centerY: number, radius: number, angle: number) {
+  const rad = (angle * Math.PI) / 180;
+  return {
+    x: centerX + radius * Math.cos(rad),
+    y: centerY + radius * Math.sin(rad),
+  };
+}
 
 function getQuadrantColor(score: number | undefined, baseColor: string): string {
   if (score === undefined) return baseColor;
@@ -88,41 +116,123 @@ export function FrameworkDiagram({
     onQuadrantClick?.(quadrant);
   };
 
+  const centerX = 200;
+  const centerY = 200;
+  const outerRingRadius = 180;
+  const grayRingOuterRadius = 155;
+  const grayRingInnerRadius = 125;
+  const coralRingOuterRadius = 120;
+  const coralRingInnerRadius = 55;
+  const leadershipRadius = 50;
+
+  // Default coral color for quadrants
+  const coralColor = 'var(--color-accent-coral)';
+
   return (
     <div className="relative w-full max-w-lg mx-auto" data-testid="framework-diagram">
       {/* Outer Ring Label */}
       <div className="absolute -top-8 left-1/2 -translate-x-1/2 text-center">
-        <span className="text-sm font-medium text-[var(--color-secondary)] bg-white px-3 py-1 rounded-full shadow-sm border border-gray-100">
-          Values-Driven Design
+        <span className="text-sm font-semibold text-[var(--color-primary)] bg-white px-4 py-1.5 rounded-full shadow-sm border border-[var(--color-accent-coral)]">
+          {OUTER_RING_LABEL}
         </span>
       </div>
 
       <svg viewBox="0 0 400 400" className="w-full h-auto">
-        {/* Outer circle */}
+        {/* Outer decorative ring (dashed) */}
         <circle
-          cx="200"
-          cy="200"
-          r="175"
+          cx={centerX}
+          cy={centerY}
+          r={outerRingRadius}
           fill="none"
           stroke="#E2E8F0"
           strokeWidth="2"
-          strokeDasharray="4 4"
+          strokeDasharray="6 4"
         />
 
-        {/* Quadrants */}
+        {/* Gray middle ring background */}
+        <circle
+          cx={centerX}
+          cy={centerY}
+          r={grayRingOuterRadius}
+          fill="#F1F5F9"
+          stroke="#E2E8F0"
+          strokeWidth="1"
+        />
+        <circle
+          cx={centerX}
+          cy={centerY}
+          r={grayRingInnerRadius}
+          fill="white"
+        />
+
+        {/* Quadrant divider lines on gray ring */}
+        {[0, 90, 180, 270].map((angle) => {
+          const rad = (angle * Math.PI) / 180;
+          const x1 = centerX + grayRingInnerRadius * Math.cos(rad);
+          const y1 = centerY + grayRingInnerRadius * Math.sin(rad);
+          const x2 = centerX + grayRingOuterRadius * Math.cos(rad);
+          const y2 = centerY + grayRingOuterRadius * Math.sin(rad);
+          return (
+            <line
+              key={angle}
+              x1={x1}
+              y1={y1}
+              x2={x2}
+              y2={y2}
+              stroke="#CBD5E1"
+              strokeWidth="1"
+            />
+          );
+        })}
+
+        {/* Gray ring quadrant labels */}
+        {quadrants.map((quadrant) => {
+          const pos = getLabelPosition(centerX, centerY, (grayRingOuterRadius + grayRingInnerRadius) / 2, quadrant.labelAngle);
+          return (
+            <text
+              key={`label-${quadrant.id}`}
+              x={pos.x}
+              y={pos.y}
+              textAnchor="middle"
+              dominantBaseline="middle"
+              fill="#64748B"
+              fontSize="11"
+              fontWeight="600"
+              className="pointer-events-none"
+            >
+              {quadrant.shortTitle}
+            </text>
+          );
+        })}
+
+        {/* Coral inner quadrants */}
         {quadrants.map((quadrant) => {
           const score = scores?.[quadrant.id];
           const isHovered = hoveredQuadrant === quadrant.id;
           const isActive = activeQuadrant === quadrant.id;
-          const color = getQuadrantColor(score, quadrant.baseColor);
+          const color = getQuadrantColor(score, coralColor);
+          const startAngle = quadrant.angle;
+          const endAngle = startAngle + 90;
+
+          const path = createArcPath(
+            centerX,
+            centerY,
+            coralRingInnerRadius,
+            coralRingOuterRadius,
+            startAngle,
+            endAngle
+          );
+
+          // Position for score badge
+          const midAngle = startAngle + 45;
+          const badgeRadius = (coralRingOuterRadius + coralRingInnerRadius) / 2;
+          const badgePos = getLabelPosition(centerX, centerY, badgeRadius, midAngle);
 
           return (
             <g
               key={quadrant.id}
               data-testid={`quadrant-${quadrant.id}`}
-              className={`quadrant cursor-pointer transition-all duration-200 ${
-                score !== undefined ? `score-${getScoreColor(score)}` : ''
-              }`}
+              className="cursor-pointer transition-all duration-200"
               role="button"
               tabIndex={0}
               aria-label={`${QUADRANT_LABELS[quadrant.id]}${score !== undefined ? ` - Score: ${score}%` : ''}`}
@@ -134,58 +244,39 @@ export function FrameworkDiagram({
               }}
               onMouseEnter={() => setHoveredQuadrant(quadrant.id)}
               onMouseLeave={() => setHoveredQuadrant(null)}
-              style={{
-                transform: isHovered || isActive ? 'scale(1.02)' : 'scale(1)',
-                transformOrigin: `${quadrant.position.labelX}px ${quadrant.position.labelY}px`,
-              }}
             >
               <path
-                d={quadrant.position.path}
+                d={path}
                 fill={color}
-                fillOpacity={isHovered || isActive ? 0.9 : 0.8}
+                fillOpacity={isHovered || isActive ? 0.95 : 0.85}
                 stroke="white"
-                strokeWidth="3"
+                strokeWidth="2"
+                style={{
+                  transform: isHovered || isActive ? 'scale(1.03)' : 'scale(1)',
+                  transformOrigin: `${centerX}px ${centerY}px`,
+                  transition: 'transform 0.2s ease-out, fill-opacity 0.2s ease-out',
+                }}
               />
-
-              {/* Quadrant Label */}
-              <text
-                x={quadrant.position.labelX}
-                y={quadrant.position.labelY - 10}
-                textAnchor="middle"
-                fill="white"
-                fontSize="11"
-                fontWeight="600"
-                className="pointer-events-none"
-              >
-                {quadrant.title.split(' & ')[0]}
-              </text>
-              <text
-                x={quadrant.position.labelX}
-                y={quadrant.position.labelY + 6}
-                textAnchor="middle"
-                fill="white"
-                fontSize="10"
-                className="pointer-events-none"
-              >
-                {quadrant.title.split(' & ')[1] ? `& ${quadrant.title.split(' & ')[1]}` : ''}
-              </text>
 
               {/* Score Badge */}
               {score !== undefined && (
                 <g>
                   <circle
-                    cx={quadrant.position.labelX}
-                    cy={quadrant.position.labelY + 30}
-                    r="20"
+                    cx={badgePos.x}
+                    cy={badgePos.y}
+                    r="16"
                     fill="white"
                     fillOpacity="0.95"
+                    stroke={color}
+                    strokeWidth="1"
                   />
                   <text
-                    x={quadrant.position.labelX}
-                    y={quadrant.position.labelY + 35}
+                    x={badgePos.x}
+                    y={badgePos.y + 1}
                     textAnchor="middle"
+                    dominantBaseline="middle"
                     fill={color}
-                    fontSize="14"
+                    fontSize="11"
                     fontWeight="bold"
                   >
                     {score}%
@@ -196,21 +287,75 @@ export function FrameworkDiagram({
           );
         })}
 
-        {/* Center Circle */}
-        <circle cx="200" cy="200" r="40" fill="white" stroke="#E2E8F0" strokeWidth="2" />
+        {/* Quadrant divider lines on coral ring */}
+        {[0, 90, 180, 270].map((angle) => {
+          const rad = (angle * Math.PI) / 180;
+          const x1 = centerX + coralRingInnerRadius * Math.cos(rad);
+          const y1 = centerY + coralRingInnerRadius * Math.sin(rad);
+          const x2 = centerX + coralRingOuterRadius * Math.cos(rad);
+          const y2 = centerY + coralRingOuterRadius * Math.sin(rad);
+          return (
+            <line
+              key={`coral-line-${angle}`}
+              x1={x1}
+              y1={y1}
+              x2={x2}
+              y2={y2}
+              stroke="white"
+              strokeWidth="2"
+            />
+          );
+        })}
 
-        {/* Center Arrows (continuous improvement) */}
-        <g fill="none" stroke="#C41E3A" strokeWidth="2">
-          <path d="M 185 190 A 20 20 0 0 1 215 190" />
-          <path d="M 215 210 A 20 20 0 0 1 185 210" />
-          <polygon points="185,188 180,195 190,193" fill="#C41E3A" />
-          <polygon points="215,212 220,205 210,207" fill="#C41E3A" />
+        {/* Center Leadership Circle */}
+        <circle
+          cx={centerX}
+          cy={centerY}
+          r={leadershipRadius}
+          fill="white"
+          stroke="var(--color-accent-coral)"
+          strokeWidth="3"
+        />
+
+        {/* Leadership text */}
+        <text
+          x={centerX}
+          y={centerY - 5}
+          textAnchor="middle"
+          dominantBaseline="middle"
+          fill="var(--color-primary)"
+          fontSize="10"
+          fontWeight="700"
+        >
+          LEADERSHIP
+        </text>
+        <text
+          x={centerX}
+          y={centerY + 8}
+          textAnchor="middle"
+          dominantBaseline="middle"
+          fill="var(--color-charcoal)"
+          fontSize="8"
+          fontWeight="500"
+        >
+          Integration Hub
+        </text>
+
+        {/* Circular arrows around leadership (continuous improvement) */}
+        <g fill="none" stroke="var(--color-primary)" strokeWidth="2" strokeLinecap="round">
+          {/* Top-left arrow arc */}
+          <path d="M 178 178 A 28 28 0 0 1 222 178" />
+          {/* Bottom-right arrow arc */}
+          <path d="M 222 222 A 28 28 0 0 1 178 222" />
+          {/* Arrow heads */}
+          <polygon points="176,180 182,173 183,183" fill="var(--color-primary)" stroke="none" />
+          <polygon points="224,220 218,227 217,217" fill="var(--color-primary)" stroke="none" />
         </g>
       </svg>
 
       {/* Tooltip */}
       {hoveredQuadrant && (
-        <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 bg-white shadow-lg rounded-lg p-4 w-64 pointer-events-none z-10 animate-fade-in">
+        <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 bg-white shadow-lg rounded-lg p-4 w-64 pointer-events-none z-10 animate-fade-in border border-[var(--color-accent-coral-light)]">
           <h4 className="font-semibold text-[var(--color-charcoal)] mb-2">
             {QUADRANT_LABELS[hoveredQuadrant]}
           </h4>
@@ -228,6 +373,12 @@ export function FrameworkDiagram({
           )}
         </div>
       )}
+
+      {/* Framework Legend */}
+      <div className="mt-6 text-center text-sm text-[var(--color-secondary)]">
+        <p className="font-medium text-[var(--color-charcoal)]">Integrated Org Capability & Change Framework</p>
+        <p className="text-xs mt-1">Click any quadrant to explore playbook modules</p>
+      </div>
     </div>
   );
 }

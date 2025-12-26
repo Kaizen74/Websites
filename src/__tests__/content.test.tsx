@@ -19,7 +19,9 @@ describe('Static Content', () => {
     render(<ChangeLevers />);
     expect(screen.getByText(/COMMUNICATE/i)).toBeTruthy();
     expect(screen.getByText(/CO-CREATE/i)).toBeTruthy();
-    expect(screen.getByText(/CADENCE/i)).toBeTruthy();
+    // Use getAllByText since "CADENCE" appears in both the lever title and TCCAR section
+    const cadenceElements = screen.getAllByText(/CADENCE/i);
+    expect(cadenceElements.length).toBeGreaterThan(0);
   });
 
   test('Hero CTAs are present', () => {

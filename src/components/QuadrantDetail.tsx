@@ -2,6 +2,7 @@ import { X } from 'lucide-react';
 import type { Quadrant } from '../types';
 import { quadrantDetails } from '../data/interventions';
 import { diagnosticQuestions } from '../data/questions';
+import { PlaybookModules } from './PlaybookModules';
 
 interface QuadrantDetailProps {
   quadrant: Quadrant;
@@ -70,6 +71,11 @@ export function QuadrantDetail({ quadrant, onClose, score }: QuadrantDetailProps
                 </div>
               ))}
             </div>
+          </div>
+
+          {/* Playbook Modules */}
+          <div className="mb-8">
+            <PlaybookModules quadrant={quadrant} />
           </div>
 
           {/* Related Diagnostic Questions */}
