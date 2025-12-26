@@ -1,12 +1,12 @@
 # OrgDesign Playbook - Project Status
 
 ## Current State
-- **Phase**: 5 - COMPLETE
-- **Milestone**: All milestones completed
+- **Phase**: 5+ - ENHANCED
+- **Milestone**: Revised requirements implemented
 - **Last Updated**: 2025-12-26
 - **Build Status**: passing
 - **Test Status**: 47 tests passing
-- **Bundle Size**: 614KB (dist), 226MB (node_modules)
+- **Bundle Size**: 637KB (dist), 226MB (node_modules)
 
 ## Completed Checkpoints
 - [x] Phase 1: Project Setup & Design System
@@ -14,20 +14,39 @@
 - [x] Phase 3: Interactive Framework Diagram
 - [x] Phase 4: Diagnostic Survey Engine
 - [x] Phase 5: Results Dashboard & Export
+- [x] Phase 5+: Revised Requirements (Concentric Ring Design, T.C.C.A.R., Playbook Modules)
 
 ## Bundle Size Tracking
 | Checkpoint | Build Size | node_modules | Total | Status |
 |------------|------------|--------------|-------|--------|
 | Phase 1    | <1 MB      | 85 MB        | 86MB  | ✅     |
 | Phase 5    | 614 KB     | 226 MB       | 227MB | ✅     |
+| Phase 5+   | 637 KB     | 226 MB       | 227MB | ✅     |
 
-Note: Vercel deploys only the dist folder (~614KB), well under limits.
+Note: Vercel deploys only the dist folder (~637KB), well under limits.
 
-## Current Work in Progress
-Project is complete and ready for deployment.
+## Recent Updates (Phase 5+)
 
-## Pending Tests
-None - all 47 tests passing.
+### Visual Design Updates
+- Added coral/salmon accent color (#E8A5A5) to design tokens
+- Updated FrameworkDiagram to concentric ring design with:
+  - Outer ring: "SATS People Values" (configurable)
+  - Middle gray ring for quadrant labels
+  - Inner coral quadrant areas
+  - Leadership center with integration hub narrative
+  - Circular arrows indicating continuous improvement
+- Created FrameworkLogo simplified component for header
+
+### Content Enhancements
+- Enhanced ChangeLevers with T.C.C.A.R. framework:
+  - Interactive pyramid visualization
+  - Expandable dimension details (Trust, Conflict, Commitment, Accountability, Results)
+  - Healthy behaviors vs warning signs for each dimension
+- Added PlaybookModules per quadrant:
+  - Structure: Role Clarity & RACI, Spans & Layers Optimization
+  - People: Skills & Capability Building, Workforce Planning
+  - Process: Workflow & Handoff Design, Performance Management
+  - Mindset: Culture & Ways of Working, Leadership Development
 
 ## Known Issues
 - Recharts warns about container dimensions in test environment (expected, non-blocking)
@@ -37,7 +56,7 @@ None - all 47 tests passing.
 2. Test live site functionality
 3. Verify mobile responsiveness
 
-## File Manifest (Key Files Created)
+## File Manifest (Key Files Created/Updated)
 
 ### Configuration Files
 - /PROJECT_STATUS.md ✓
@@ -49,19 +68,19 @@ None - all 47 tests passing.
 - /scripts/check-size.js ✓
 
 ### Source Files
-- /src/index.css ✓
+- /src/index.css ✓ (updated with coral accent color)
 - /src/App.tsx ✓
 - /src/main.tsx ✓
 - /src/constants.ts ✓
 - /src/setupTests.ts ✓
 
 ### Type Definitions
-- /src/types/index.ts ✓
+- /src/types/index.ts ✓ (added TCCAR, PlaybookModule types)
 
 ### Data Files
 - /src/data/questions.ts ✓
 - /src/data/activators.ts ✓
-- /src/data/interventions.ts ✓
+- /src/data/interventions.ts ✓ (added TCCAR items, playbook modules)
 
 ### Utility Functions
 - /src/utils/scoring.ts ✓
@@ -70,19 +89,22 @@ None - all 47 tests passing.
 - /src/hooks/useDiagnostic.ts ✓
 
 ### Components
-- /src/components/Header.tsx ✓
+- /src/components/Header.tsx ✓ (updated with FrameworkLogo)
 - /src/components/Hero.tsx ✓
 - /src/components/ActivatorCard.tsx ✓
 - /src/components/ActivatorsSection.tsx ✓
-- /src/components/ChangeLevers.tsx ✓
-- /src/components/FrameworkDiagram.tsx ✓
+- /src/components/ChangeLevers.tsx ✓ (enhanced with TCCAR)
+- /src/components/FrameworkDiagram.tsx ✓ (concentric ring design)
+- /src/components/FrameworkLogo.tsx ✓ (NEW)
 - /src/components/FrameworkSection.tsx ✓
-- /src/components/QuadrantDetail.tsx ✓
+- /src/components/QuadrantDetail.tsx ✓ (added playbook modules)
 - /src/components/QuestionCard.tsx ✓
 - /src/components/DiagnosticSurvey.tsx ✓
 - /src/components/DimensionChart.tsx ✓
 - /src/components/ExportButton.tsx ✓
 - /src/components/ResultsDashboard.tsx ✓
+- /src/components/TCCARAssessment.tsx ✓ (NEW)
+- /src/components/PlaybookModules.tsx ✓ (NEW)
 
 ### Test Files
 - /src/__tests__/content.test.tsx ✓
@@ -96,9 +118,9 @@ None - all 47 tests passing.
 ## Features Implemented
 
 ### Core Features
-- Interactive 4-quadrant framework diagram with hover/click interactions
+- Interactive concentric ring framework diagram with hover/click interactions
 - 5 Activators section (Kates-Kesler framework) with expandable cards
-- 3 C's of Change section (Communicate, Co-Create, Cadence)
+- 3 C's of Change section with T.C.C.A.R. framework integration
 - 20-question diagnostic survey with LocalStorage persistence
 - Results dashboard with:
   - Overall score and dimension breakdown
@@ -106,9 +128,11 @@ None - all 47 tests passing.
   - Bar chart for dimension scores
   - Priority activator recommendations
   - JSON export functionality
+- Playbook modules per quadrant with interventions and tools
 
 ### Design Features
 - Professional consulting aesthetic with corporate red (#C41E3A)
+- Coral/salmon accent color (#E8A5A5) for framework visualization
 - Playfair Display headlines, DM Sans body text
 - Smooth animations and transitions
 - Mobile-responsive design

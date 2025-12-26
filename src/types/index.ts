@@ -81,3 +81,24 @@ export interface SurveyState {
   responses: Map<string, LikertValue>;
   isComplete: boolean;
 }
+
+// T.C.C.A.R. Framework types
+export type TCCARDimension = 'trust' | 'conflict' | 'commitment' | 'accountability' | 'results';
+
+export interface TCCARItem {
+  id: TCCARDimension;
+  title: string;
+  description: string;
+  healthyBehaviors: string[];
+  dysfunctionSigns: string[];
+}
+
+// Playbook Module interface
+export interface PlaybookModule {
+  id: string;
+  quadrant: Quadrant;
+  title: string;
+  description: string;
+  interventions: string[];
+  tools: string[];
+}

@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { Menu, X, Compass } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { SECTION_IDS } from '../constants';
+import { FrameworkLogo } from './FrameworkLogo';
 
 interface NavItem {
   label: string;
@@ -30,7 +31,7 @@ export function Header() {
             href={`#${SECTION_IDS.hero}`}
             className="flex items-center gap-2 text-[var(--color-charcoal)] hover:text-[var(--color-primary)] transition-colors"
           >
-            <Compass className="w-8 h-8 text-[var(--color-primary)]" />
+            <FrameworkLogo size={36} />
             <span className="font-display font-bold text-xl hidden sm:block">
               OrgDesign Playbook
             </span>
