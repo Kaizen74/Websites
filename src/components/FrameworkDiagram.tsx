@@ -22,28 +22,28 @@ const quadrants: QuadrantData[] = [
     title: 'Structure & Accountabilities',
     items: ['Roles &', 'Responsibilities', '', 'Spans, Layers &', 'Reporting Lines', '', 'Decision Rights'],
     startAngle: 180, // Top-left quadrant (180-270 degrees)
-    itemsPosition: { x: 130, y: 130 },
+    itemsPosition: { x: 145, y: 145 },
   },
   {
     id: 'people',
     title: 'People & Skills',
     items: ['Workforce Size', '& Distribution', '', 'Diversity', '', 'Knowledge &', 'Skills'],
     startAngle: 270, // Top-right quadrant (270-360 degrees)
-    itemsPosition: { x: 270, y: 130 },
+    itemsPosition: { x: 255, y: 145 },
   },
   {
     id: 'process',
     title: 'Process & Systems',
     items: ['Performance Mgmt', '', 'Workflows &', 'Handoffs', '', 'Data & Digital Tools', '', 'Cadence /', 'Routine'],
     startAngle: 0, // Bottom-right quadrant (0-90 degrees)
-    itemsPosition: { x: 270, y: 270 },
+    itemsPosition: { x: 255, y: 255 },
   },
   {
     id: 'mindset',
     title: 'Mindset & Behaviors',
     items: ['Ways of Working', '', 'Comms &', 'Engagement', '', 'Routines'],
     startAngle: 90, // Bottom-left quadrant (90-180 degrees)
-    itemsPosition: { x: 130, y: 270 },
+    itemsPosition: { x: 145, y: 255 },
   },
 ];
 
@@ -154,31 +154,31 @@ export function FrameworkDiagram({
     <div className="relative w-full max-w-lg mx-auto" data-testid="framework-diagram">
       <svg viewBox="0 0 400 400" className="w-full h-auto">
         <defs>
-          {/* Arc path for outer ring text (top arc - from left to right) */}
+          {/* Arc path for outer ring text (top arc - positioned lower/centered in red ring) */}
           <path
             id="outerRingTextPath"
-            d={createTextArcPath(centerX, centerY, (outerRingOuterRadius + outerRingInnerRadius) / 2, 210, 330, true)}
+            d={createTextArcPath(centerX, centerY, outerRingInnerRadius + 8, 215, 325, true)}
             fill="none"
           />
-          {/* Arc paths for quadrant labels */}
+          {/* Arc paths for quadrant labels - wider arcs to fit full text */}
           <path
             id="structureLabelPath"
-            d={createTextArcPath(centerX, centerY, labelRadius, 195, 255, true)}
+            d={createTextArcPath(centerX, centerY, labelRadius, 190, 260, true)}
             fill="none"
           />
           <path
             id="peopleLabelPath"
-            d={createTextArcPath(centerX, centerY, labelRadius, 285, 345, true)}
+            d={createTextArcPath(centerX, centerY, labelRadius, 280, 350, true)}
             fill="none"
           />
           <path
             id="processLabelPath"
-            d={createTextArcPath(centerX, centerY, labelRadius, 75, 15, false)}
+            d={createTextArcPath(centerX, centerY, labelRadius, 80, 10, false)}
             fill="none"
           />
           <path
             id="mindsetLabelPath"
-            d={createTextArcPath(centerX, centerY, labelRadius, 165, 105, false)}
+            d={createTextArcPath(centerX, centerY, labelRadius, 170, 100, false)}
             fill="none"
           />
         </defs>
