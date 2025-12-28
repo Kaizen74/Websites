@@ -21,8 +21,8 @@ export const changeLevers: ChangeLever[] = [
   {
     id: 3,
     title: 'CADENCE',
-    goal: 'Embed new behaviors into daily rhythm',
-    method: 'T.C.C.A.R. Integration (Trust, Conflict, Commitment, Accountability, Results)',
+    goal: 'Align goals and embed new behaviors into daily rhythm',
+    method: 'Goal-setting alignment; T.C.C.A.R. Integration (Trust, Conflict, Commitment, Accountability, Results)',
     tool: 'Flash Pulse Checks after key meetings',
     description:
       'Establish regular rhythms and rituals that reinforce desired behaviors. Use quick feedback loops to maintain momentum and course-correct as needed.',
