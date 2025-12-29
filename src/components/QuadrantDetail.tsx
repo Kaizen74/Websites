@@ -33,7 +33,7 @@ export function QuadrantDetail({ quadrant, onClose, score }: QuadrantDetailProps
         >
           <div className="flex items-center justify-between">
             <div>
-              <h2 className="text-2xl font-display font-bold">{detail.title}</h2>
+              <h2 className="text-2xl font-display font-bold text-white">{detail.title}</h2>
               {score !== undefined && (
                 <p className="text-white/80 mt-1">
                   Current Score: <span className="font-bold">{score}%</span>
