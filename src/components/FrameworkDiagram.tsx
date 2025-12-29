@@ -34,14 +34,14 @@ const quadrants: QuadrantData[] = [
   {
     id: 'process',
     title: 'Process & Systems',
-    items: ['Performance Mgmt', '', 'Workflows &', 'Handoffs', '', 'Data & Digital Tools', '', 'Cadence /', 'Routine'],
+    items: ['Performance Mgmt', '', 'Workflows &', 'Handoffs', '', 'Data & Digital Tools', '', 'Cadence'],
     startAngle: 0, // Bottom-right quadrant (0-90 degrees)
     itemsPosition: { x: 255, y: 255 },
   },
   {
     id: 'mindset',
     title: 'Mindset & Behaviors',
-    items: ['Ways of Working', '', 'Comms &', 'Engagement', '', 'Routines'],
+    items: ['Ways of Working', '', 'Comms &', 'Engagement', '', 'Habits'],
     startAngle: 90, // Bottom-left quadrant (90-180 degrees)
     itemsPosition: { x: 145, y: 255 },
   },
