@@ -1,10 +1,16 @@
 import type { Dimension, Quadrant } from './types';
 
 // Number of diagnostic questions
-export const QUESTION_COUNT = 20;
+export const QUESTION_COUNT = 18;
 
-// Questions per dimension
-export const QUESTIONS_PER_DIMENSION = 4;
+// Questions per dimension (varies by dimension)
+export const QUESTIONS_PER_DIMENSION: Record<Dimension, number> = {
+  structure: 3,
+  people: 4,
+  process: 5,
+  mindset: 4,
+  leadership: 2,
+};
 
 // Dimension labels for UI
 export const DIMENSION_LABELS: Record<Dimension, string> = {
