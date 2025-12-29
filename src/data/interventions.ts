@@ -246,14 +246,14 @@ export const quadrantDetails: QuadrantDetail[] = [
       'Performance Management',
       'Workflows & Handoffs',
       'Data & Digital Tools',
-      'Cadence / Routine',
+      'Cadence',
     ],
     color: '#2D3748',
   },
   {
     id: 'mindset',
     title: 'Mindset & Behaviors',
-    items: ['Ways of Working', 'Comms & Engagement', 'Routines'],
+    items: ['Ways of Working', 'Comms & Engagement', 'Habits'],
     color: '#718096',
   },
 ];
