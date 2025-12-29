@@ -120,7 +120,7 @@ function App() {
               Ready to Assess Your Organization?
             </h2>
             <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-              Take the 20-question diagnostic to understand your organizational health
+              Take the 18-question diagnostic to understand your organizational health
               and receive personalized recommendations for improvement.
             </p>
             <button
@@ -130,18 +130,27 @@ function App() {
               Start Diagnostic
             </button>
             {results && (
-              <p className="text-gray-400 mt-4 text-sm">
-                You have previous results.{' '}
-                <button
-                  onClick={() => {
-                    setCurrentView('results');
-                    window.location.hash = '#results';
-                  }}
-                  className="text-white underline hover:no-underline"
-                >
-                  View Results
-                </button>
-              </p>
+              <div className="mt-4">
+                <p className="text-gray-400 text-sm">
+                  You have previous results.{' '}
+                  <button
+                    onClick={() => {
+                      setCurrentView('results');
+                      window.location.hash = '#results';
+                    }}
+                    className="text-white underline hover:no-underline"
+                  >
+                    View Results
+                  </button>
+                  {' | '}
+                  <button
+                    onClick={handleReset}
+                    className="text-gray-300 underline hover:no-underline"
+                  >
+                    Reset & Start Fresh
+                  </button>
+                </p>
+              </div>
             )}
           </div>
         </section>
