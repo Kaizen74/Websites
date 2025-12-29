@@ -1,16 +1,17 @@
 import { diagnosticQuestions } from '../../data/questions';
 import { DIMENSION_LABELS, QUESTION_COUNT, QUESTIONS_PER_DIMENSION } from '../../constants';
+import type { Dimension } from '../../types';
 
 describe('Questions Data Alignment', () => {
   test('Total question count matches expectation', () => {
     expect(diagnosticQuestions.length).toBe(QUESTION_COUNT);
   });
 
-  test('All dimensions have exactly 4 questions', () => {
+  test('All dimensions have correct number of questions', () => {
     const dimensions = ['structure', 'people', 'process', 'mindset', 'leadership'] as const;
-    dimensions.forEach((dim) => {
+    dimensions.forEach((dim: Dimension) => {
       const count = diagnosticQuestions.filter((q) => q.dimension === dim).length;
-      expect(count).toBe(QUESTIONS_PER_DIMENSION);
+      expect(count).toBe(QUESTIONS_PER_DIMENSION[dim]);
     });
   });
 

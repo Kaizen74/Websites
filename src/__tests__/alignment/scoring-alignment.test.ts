@@ -32,10 +32,10 @@ describe('Scoring Alignment', () => {
   });
 
   test('calculateScore handles partial responses', () => {
-    // Only answer 2 out of 4 structure questions
+    // Only answer 2 out of 3 structure questions
     const responses = new Map<string, LikertValue>([
-      ['S1.2', 5],
-      ['S2.1', 5],
+      ['S1', 5],
+      ['S2', 5],
     ]);
     const score = calculateScore(responses, 'structure');
     // (5+5) / (2*5) * 100 = 10/10 * 100 = 100

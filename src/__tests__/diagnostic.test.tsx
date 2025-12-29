@@ -10,13 +10,13 @@ describe('Diagnostic Survey', () => {
     localStorage.clear();
   });
 
-  test('All 20 questions load from data file', () => {
-    expect(diagnosticQuestions).toHaveLength(20);
-    expect(diagnosticQuestions.filter((q) => q.dimension === 'structure')).toHaveLength(4);
+  test('All 18 questions load from data file', () => {
+    expect(diagnosticQuestions).toHaveLength(18);
+    expect(diagnosticQuestions.filter((q) => q.dimension === 'structure')).toHaveLength(3);
     expect(diagnosticQuestions.filter((q) => q.dimension === 'people')).toHaveLength(4);
-    expect(diagnosticQuestions.filter((q) => q.dimension === 'process')).toHaveLength(4);
+    expect(diagnosticQuestions.filter((q) => q.dimension === 'process')).toHaveLength(5);
     expect(diagnosticQuestions.filter((q) => q.dimension === 'mindset')).toHaveLength(4);
-    expect(diagnosticQuestions.filter((q) => q.dimension === 'leadership')).toHaveLength(4);
+    expect(diagnosticQuestions.filter((q) => q.dimension === 'leadership')).toHaveLength(2);
   });
 
   test('All question IDs are unique', () => {
@@ -32,27 +32,27 @@ describe('Diagnostic Survey', () => {
         currentAnswer={undefined}
         onAnswer={() => {}}
         questionNumber={1}
-        totalQuestions={20}
+        totalQuestions={18}
       />
     );
-    expect(screen.getByText(/Question 1 of 20/i)).toBeTruthy();
+    expect(screen.getByText(/Question 1 of 18/i)).toBeTruthy();
   });
 
   test('Survey shows first question initially', () => {
     render(<DiagnosticSurvey />);
-    expect(screen.getByText(/Question 1 of 20/i)).toBeTruthy();
+    expect(screen.getByText(/Question 1 of 18/i)).toBeTruthy();
   });
 
   test('Survey progresses through questions', async () => {
     render(<DiagnosticSurvey />);
-    expect(screen.getByText(/Question 1 of 20/i)).toBeTruthy();
+    expect(screen.getByText(/Question 1 of 18/i)).toBeTruthy();
 
     // Select "Neutral" answer using the radio input's aria-label
     fireEvent.click(screen.getByLabelText('Neutral'));
     fireEvent.click(screen.getByText(/Next/i));
 
     await waitFor(() => {
-      expect(screen.getByText(/Question 2 of 20/i)).toBeTruthy();
+      expect(screen.getByText(/Question 2 of 18/i)).toBeTruthy();
     });
   });
 
@@ -64,7 +64,7 @@ describe('Diagnostic Survey', () => {
         currentAnswer={undefined}
         onAnswer={() => {}}
         questionNumber={1}
-        totalQuestions={20}
+        totalQuestions={18}
       />
     );
     expect(screen.getByText(/Strongly Disagree/i)).toBeTruthy();
@@ -81,13 +81,12 @@ describe('Diagnostic Survey', () => {
 describe('Scoring Logic', () => {
   test('calculateScore returns correct percentage', () => {
     const responses = new Map<string, LikertValue>([
-      ['S1.2', 5],
-      ['S2.1', 4],
-      ['S3.2', 3],
-      ['S3.4', 4],
+      ['S1', 5],
+      ['S2', 4],
+      ['S3', 3],
     ]);
     const score = calculateScore(responses, 'structure');
-    // (5+4+3+4) / (4*5) * 100 = 16/20 * 100 = 80
+    // (5+4+3) / (3*5) * 100 = 12/15 * 100 = 80
     expect(score).toBe(80);
   });
 
