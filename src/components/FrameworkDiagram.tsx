@@ -12,7 +12,7 @@ interface QuadrantData {
 }
 
 // Configurable outer ring label
-const OUTER_RING_LABEL = 'SATS People Values';
+const OUTER_RING_LABEL = 'Culture Values';
 
 // Quadrants positioned to match reference image:
 // TOP-LEFT: Structure, TOP-RIGHT: People, BOTTOM-RIGHT: Process, BOTTOM-LEFT: Mindset
