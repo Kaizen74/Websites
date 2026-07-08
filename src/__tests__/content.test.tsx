@@ -26,8 +26,8 @@ describe('Static Content', () => {
 
   test('Hero CTAs are present', () => {
     render(<Hero />);
-    expect(screen.getByText(/Explore Framework/i)).toBeTruthy();
-    const diagnosticButtons = screen.getAllByText(/Start Diagnostic/i);
+    expect(screen.getByText(/Explore the framework/i)).toBeTruthy();
+    const diagnosticButtons = screen.getAllByText(/Start the diagnostic/i);
     expect(diagnosticButtons.length).toBeGreaterThan(0);
   });
 

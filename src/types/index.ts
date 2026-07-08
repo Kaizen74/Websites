@@ -64,6 +64,7 @@ export interface ChangeLever {
 export interface QuadrantDetail {
   id: Quadrant;
   title: string;
+  summary?: string;
   items: string[];
   color: string;
 }
@@ -91,6 +92,13 @@ export interface TCCARItem {
   description: string;
   healthyBehaviors: string[];
   dysfunctionSigns: string[];
+}
+
+// Targeted intervention prescribed for a weak dimension
+export interface DimensionIntervention {
+  title: string;
+  description: string;
+  timeframe: string;
 }
 
 // Playbook Module interface

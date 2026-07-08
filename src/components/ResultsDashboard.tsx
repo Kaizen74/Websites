@@ -1,16 +1,48 @@
-import { Award, RefreshCcw, TrendingUp, AlertTriangle } from 'lucide-react';
 import { FrameworkDiagram } from './FrameworkDiagram';
 import { DimensionChart } from './DimensionChart';
 import { ExportButton } from './ExportButton';
-import { ActivatorCard } from './ActivatorCard';
 import { activators } from '../data/activators';
-import type { DiagnosticResults } from '../types';
-import { SECTION_IDS, DIMENSION_LABELS } from '../constants';
+import { dimensionInterventions } from '../data/interventions';
+import type { DiagnosticResults, Dimension, Quadrant } from '../types';
+import { SECTION_IDS, DIMENSION_LABELS, STORAGE_KEYS } from '../constants';
 import { getScoreLabel, getScoreColor, mapToActivators } from '../utils/scoring';
+
+const QUADRANT_DIMENSIONS: Quadrant[] = ['structure', 'people', 'process', 'mindset'];
+
+function rememberFocusQuadrant(dimension: Dimension) {
+  try {
+    sessionStorage.setItem(STORAGE_KEYS.focusQuadrant, dimension);
+  } catch {
+    // sessionStorage unavailable — deep link still lands on the framework section
+  }
+}
 
 interface ResultsDashboardProps {
   results: DiagnosticResults;
   onReset: () => void;
+}
+
+const statusColor = {
+  green: 'var(--color-score-green)',
+  amber: 'var(--color-score-amber)',
+  red: 'var(--color-score-red)',
+};
+
+/**
+ * Readiness interpretation, adapted from change-readiness band guidance:
+ * proceed / proceed-with-interventions / readiness sprint / foundations first.
+ */
+function interpretation(overall: number, weakestLabel: string): string {
+  if (overall >= 80) {
+    return `A strong foundation — protect what got you here, and use ${weakestLabel} as your stretch dimension.`;
+  }
+  if (overall >= 65) {
+    return `Conditionally ready for change — proceed, with named interventions on ${weakestLabel} sequenced before or alongside launch.`;
+  }
+  if (overall >= 50) {
+    return `At risk — run a focused readiness sprint on ${weakestLabel} before launching major change.`;
+  }
+  return `Foundations first — fix the fundamentals, starting with ${weakestLabel}, and re-measure in 8–12 weeks before any large-scale launch.`;
 }
 
 export function ResultsDashboard({ results, onReset }: ResultsDashboardProps) {
@@ -19,191 +51,266 @@ export function ResultsDashboard({ results, onReset }: ResultsDashboardProps) {
   const overallLabel = getScoreLabel(overallScore);
   const overallColor = getScoreColor(overallScore);
 
-  // Find lowest scoring dimensions
+  // Two lowest-scoring dimensions
   const sortedDimensions = Object.entries(dimensionScores)
     .sort(([, a], [, b]) => a - b)
     .slice(0, 2);
-
-  const colorClasses = {
-    green: 'text-green-600 bg-green-50',
-    amber: 'text-amber-600 bg-amber-50',
-    red: 'text-red-600 bg-red-50',
-  };
+  const weakestLabel =
+    DIMENSION_LABELS[sortedDimensions[0][0] as keyof typeof DIMENSION_LABELS];
 
   return (
-    <section id={SECTION_IDS.results} className="py-20 bg-gray-50 min-h-screen">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[var(--color-primary)] bg-opacity-10 mb-4">
-            <Award className="w-8 h-8 text-[var(--color-primary)]" />
+    <section
+      id={SECTION_IDS.results}
+      className="py-16 min-h-screen"
+      style={{ background: 'var(--color-paper)' }}
+    >
+      <div className="max-w-[1140px] mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Top bar */}
+        <div className="no-print flex flex-wrap items-center justify-between gap-4 mb-12">
+          <a
+            href={`#${SECTION_IDS.hero}`}
+            className="text-sm font-medium text-[var(--color-secondary)] hover:text-[var(--color-primary)]"
+          >
+            ← Back to playbook
+          </a>
+          <div className="flex items-center gap-3">
+            <ExportButton results={results} />
+            <button
+              onClick={() => window.print()}
+              className="text-sm font-medium px-5 py-2.5 text-[var(--color-secondary)] hover:text-[var(--color-ink)]"
+              style={{ border: '1px solid var(--color-hairline)', borderRadius: 2 }}
+            >
+              Save as PDF
+            </button>
+            <button
+              onClick={onReset}
+              className="text-sm font-medium px-5 py-2.5 text-[var(--color-secondary)] hover:text-[var(--color-ink)]"
+              style={{ border: '1px solid var(--color-hairline)', borderRadius: 2 }}
+            >
+              Retake diagnostic
+            </button>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-display font-bold text-[var(--color-charcoal)] mb-4">
-            Diagnostic Results
+        </div>
+
+        {/* Header */}
+        <div className="mb-12">
+          <p className="eyebrow mb-4">Diagnostic results</p>
+          <h2
+            className="font-display font-bold text-[var(--color-ink)] mb-2"
+            style={{ fontSize: 'clamp(32px, 4.5vw, 44px)', lineHeight: 1.12 }}
+          >
+            Your organizational health snapshot
           </h2>
-          <p className="text-[var(--color-secondary)]">
+          <p className="text-sm text-[var(--color-faint)]">
             Completed on {new Date(results.completedAt).toLocaleDateString()}
           </p>
         </div>
 
-        {/* Overall Score Card */}
-        <div className="bg-white rounded-xl shadow-lg p-8 mb-8">
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
-            <div className="text-center lg:text-left">
-              <h3 className="text-lg font-medium text-[var(--color-secondary)] mb-2">
-                Overall Score
-              </h3>
-              <div className="flex items-baseline gap-3">
-                <span className="text-6xl font-display font-bold text-[var(--color-charcoal)]">
-                  {overallScore}%
-                </span>
-                <span
-                  className={`px-3 py-1 rounded-full text-sm font-medium ${colorClasses[overallColor]}`}
-                >
-                  {overallLabel}
-                </span>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-4">
-              <ExportButton results={results} />
-              <button
-                onClick={onReset}
-                className="flex items-center gap-2 px-4 py-2 text-[var(--color-secondary)] hover:text-[var(--color-charcoal)] hover:bg-gray-100 rounded-lg transition-colors"
+        {/* Overall score card */}
+        <div className="card p-8 sm:p-10 mb-8">
+          <div className="flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-10">
+            <span
+              className="font-display font-bold text-[var(--color-ink)] leading-none"
+              style={{ fontSize: 76 }}
+            >
+              {overallScore}%
+            </span>
+            <div>
+              <span
+                className="inline-block text-[12px] uppercase font-semibold px-3 py-1 rounded-full mb-3"
+                style={{
+                  letterSpacing: '.12em',
+                  color: statusColor[overallColor],
+                  border: `1px solid ${statusColor[overallColor]}`,
+                }}
               >
-                <RefreshCcw className="w-4 h-4" />
-                Retake
-              </button>
+                {overallLabel}
+              </span>
+              <p
+                className="text-[15px] leading-relaxed text-[var(--color-secondary)]"
+                style={{ maxWidth: 560 }}
+              >
+                {interpretation(overallScore, weakestLabel)}
+              </p>
             </div>
           </div>
         </div>
 
-        {/* Main Content Grid */}
-        <div className="grid lg:grid-cols-2 gap-8 mb-12">
-          {/* Framework Diagram */}
-          <div className="bg-white rounded-xl shadow-lg p-6">
-            <h3 className="text-xl font-display font-bold text-[var(--color-charcoal)] mb-6">
-              Framework Overview
+        {/* Diagram + dimension bars */}
+        <div className="grid lg:grid-cols-2 gap-8 mb-8">
+          <div className="card p-8">
+            <h3 className="font-display font-bold text-xl text-[var(--color-ink)] mb-8">
+              Framework overview
             </h3>
             <FrameworkDiagram scores={dimensionScores} />
           </div>
 
-          {/* Dimension Chart */}
-          <div className="bg-white rounded-xl shadow-lg p-6">
-            <h3 className="text-xl font-display font-bold text-[var(--color-charcoal)] mb-6">
-              Dimension Breakdown
+          <div className="card p-8">
+            <h3 className="font-display font-bold text-xl text-[var(--color-ink)] mb-6">
+              Dimension breakdown
             </h3>
             <DimensionChart scores={dimensionScores} />
-
-            {/* Dimension Details */}
-            <div className="mt-6 space-y-3">
-              {Object.entries(dimensionScores).map(([dimension, score]) => (
-                <div
-                  key={dimension}
-                  className="flex items-center justify-between p-3 bg-gray-50 rounded-lg"
-                >
-                  <span className="text-[var(--color-charcoal)] font-medium">
-                    {DIMENSION_LABELS[dimension as keyof typeof DIMENSION_LABELS]}
-                  </span>
-                  <div className="flex items-center gap-3">
-                    <span
-                      className={`px-2 py-0.5 rounded text-sm font-medium ${
-                        colorClasses[getScoreColor(score)]
-                      }`}
-                    >
-                      {score}%
-                    </span>
-                  </div>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
 
-        {/* Priority Areas */}
+        {/* Where to focus first — intervention plan for the weakest dimensions */}
         {sortedDimensions.length > 0 && sortedDimensions[0][1] < 70 && (
-          <div className="bg-amber-50 border border-amber-200 rounded-xl p-6 mb-12">
-            <div className="flex items-start gap-4">
-              <AlertTriangle className="w-6 h-6 text-amber-600 flex-shrink-0 mt-1" />
-              <div>
-                <h3 className="text-lg font-semibold text-amber-800 mb-2">
-                  Priority Areas for Improvement
-                </h3>
-                <p className="text-amber-700 mb-4">
-                  Based on your scores, consider focusing on these dimensions:
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {sortedDimensions.map(([dimension, score]) => (
-                    <span
-                      key={dimension}
-                      className="px-3 py-1 bg-white rounded-full text-sm font-medium text-amber-800 border border-amber-300"
-                    >
-                      {DIMENSION_LABELS[dimension as keyof typeof DIMENSION_LABELS]} ({score}%)
-                    </span>
-                  ))}
-                </div>
-              </div>
+          <div className="card p-8 mb-12">
+            <p
+              className="text-[11px] uppercase font-semibold mb-3"
+              style={{ letterSpacing: '.16em', color: 'var(--color-score-amber)' }}
+            >
+              Where to focus first
+            </p>
+            <p className="text-[15px] text-[var(--color-secondary)] mb-2" style={{ maxWidth: 640 }}>
+              A targeted intervention for each of your two lowest-scoring
+              dimensions. Targeted beats comprehensive — never run more than two
+              interventions at once in the same population.
+            </p>
+            {sortedDimensions.some(([dimension]) => dimension === 'leadership') && (
+              <p className="text-[13px] font-medium text-[var(--color-primary)] mb-2">
+                Leadership is among your weakest dimensions — sequence the
+                alignment work first; other interventions fail without it.
+              </p>
+            )}
+
+            <div className="mt-4">
+              {sortedDimensions.map(([dimension, score], i) => {
+                const intervention = dimensionInterventions[dimension as Dimension];
+                const isQuadrant = QUADRANT_DIMENSIONS.includes(dimension as Quadrant);
+                return (
+                  <div
+                    key={dimension}
+                    className="py-5 grid sm:grid-cols-[220px_1fr] gap-2 sm:gap-8"
+                    style={{
+                      borderTop: i === 0 ? '1px solid var(--color-hairline)' : undefined,
+                      borderBottom: '1px solid var(--color-hairline)',
+                    }}
+                  >
+                    <div>
+                      <p className="text-sm font-semibold text-[var(--color-ink)]">
+                        {DIMENSION_LABELS[dimension as keyof typeof DIMENSION_LABELS]}
+                      </p>
+                      <p
+                        className="text-sm font-bold mt-0.5"
+                        style={{ color: statusColor[getScoreColor(score)] }}
+                      >
+                        {score}%
+                      </p>
+                    </div>
+                    <div>
+                      <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                        <h4 className="font-display font-semibold text-[18px] text-[var(--color-ink)]">
+                          {intervention.title}
+                        </h4>
+                        <span
+                          className="text-[11px] uppercase font-semibold text-[var(--color-faint)]"
+                          style={{ letterSpacing: '.1em' }}
+                        >
+                          {intervention.timeframe}
+                        </span>
+                      </div>
+                      <p className="text-sm leading-relaxed text-[var(--color-secondary)] mt-1.5">
+                        {intervention.description}
+                      </p>
+                      {isQuadrant && (
+                        <a
+                          href={`#${SECTION_IDS.framework}`}
+                          onClick={() => rememberFocusQuadrant(dimension as Dimension)}
+                          className="no-print inline-block text-sm font-medium text-[var(--color-primary)] hover:text-[var(--color-primary-dark)] mt-2"
+                        >
+                          View playbook modules →
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
         )}
 
-        {/* Recommended Activators */}
+        {/* Recommended activators */}
         {priorityActivators.length > 0 && (
-          <div className="mb-12">
-            <div className="flex items-center gap-3 mb-6">
-              <TrendingUp className="w-6 h-6 text-[var(--color-primary)]" />
-              <h3 className="text-2xl font-display font-bold text-[var(--color-charcoal)]">
-                Recommended Activators
-              </h3>
-            </div>
-            <p className="text-[var(--color-secondary)] mb-6">
-              Based on your diagnostic results, focus on these activators to drive improvement:
+          <div className="mb-16">
+            <h3 className="font-display font-bold text-2xl text-[var(--color-ink)] mb-2">
+              Recommended activators
+            </h3>
+            <p className="text-[15px] text-[var(--color-secondary)] mb-6" style={{ maxWidth: 640 }}>
+              Based on your lowest dimensions, these Kates-Kesler activators are
+              where design work will pay back fastest.
             </p>
-            <div className="space-y-4">
+            <div className="grid md:grid-cols-2 gap-5">
               {activators
                 .filter((a) => priorityActivators.includes(a.title))
                 .map((activator) => (
-                  <ActivatorCard
+                  <div
                     key={activator.id}
-                    activator={activator}
-                    isPriority={true}
-                  />
+                    className="card p-6"
+                    style={{ borderTop: '2px solid var(--color-primary)' }}
+                  >
+                    <p
+                      className="text-[11px] uppercase font-semibold text-[var(--color-faint)] mb-2"
+                      style={{ letterSpacing: '.14em' }}
+                    >
+                      Activator 0{activator.id}
+                    </p>
+                    <h4 className="font-display font-bold text-[19px] text-[var(--color-ink)]">
+                      {activator.title}
+                    </h4>
+                    <p className="text-[13px] text-[var(--color-faint)] mt-1 mb-4">
+                      {activator.tagline}
+                    </p>
+                    <ul className="space-y-1.5">
+                      {activator.principles.slice(0, 3).map((principle, i) => (
+                        <li
+                          key={i}
+                          className="flex items-start gap-2 text-[13px] text-[var(--color-secondary)]"
+                        >
+                          <span className="text-[var(--color-primary)] font-bold">·</span>
+                          {principle}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 ))}
             </div>
           </div>
         )}
 
-        {/* Action Items */}
-        <div className="bg-white rounded-xl shadow-lg p-6">
-          <h3 className="text-xl font-display font-bold text-[var(--color-charcoal)] mb-4">
-            Next Steps
+        {/* Next steps */}
+        <div>
+          <h3 className="font-display font-bold text-2xl text-[var(--color-ink)] mb-8">
+            Next steps
           </h3>
-          <ul className="space-y-3">
-            <li className="flex items-start gap-3">
-              <span className="w-6 h-6 rounded-full bg-[var(--color-primary)] text-white flex items-center justify-center text-sm font-bold flex-shrink-0">
-                1
-              </span>
-              <span className="text-[var(--color-secondary)]">
-                Review the priority areas and discuss findings with key stakeholders
-              </span>
-            </li>
-            <li className="flex items-start gap-3">
-              <span className="w-6 h-6 rounded-full bg-[var(--color-primary)] text-white flex items-center justify-center text-sm font-bold flex-shrink-0">
-                2
-              </span>
-              <span className="text-[var(--color-secondary)]">
-                Deep-dive into recommended activators and develop an action plan
-              </span>
-            </li>
-            <li className="flex items-start gap-3">
-              <span className="w-6 h-6 rounded-full bg-[var(--color-primary)] text-white flex items-center justify-center text-sm font-bold flex-shrink-0">
-                3
-              </span>
-              <span className="text-[var(--color-secondary)]">
-                Export results and schedule follow-up diagnostic in 3-6 months
-              </span>
-            </li>
-          </ul>
+          <div className="grid md:grid-cols-3 gap-10">
+            {[
+              {
+                n: '1',
+                text: 'Share these results with the leaders who own the weakest dimensions — alignment at the top comes before any intervention.',
+              },
+              {
+                n: '2',
+                text: 'Pick at most two interventions from the recommended activators and name a business owner and a 30-day first move for each.',
+              },
+              {
+                n: '3',
+                text: 'Export the results as your baseline and re-run the diagnostic in 3–6 months — readiness is re-measured, not assumed.',
+              },
+            ].map((step) => (
+              <div key={step.n}>
+                <span
+                  className="block font-display font-bold leading-none mb-3"
+                  style={{ fontSize: 56, color: 'var(--color-placeholder)' }}
+                >
+                  {step.n}
+                </span>
+                <p className="text-sm leading-relaxed text-[var(--color-secondary)]">
+                  {step.text}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -24,7 +24,7 @@ describe('Diagnostic Survey', () => {
     expect(new Set(ids).size).toBe(ids.length);
   });
 
-  test('QuestionCard renders with correct question number', () => {
+  test('QuestionCard renders the question text', () => {
     const question = diagnosticQuestions[0];
     render(
       <QuestionCard
@@ -35,7 +35,7 @@ describe('Diagnostic Survey', () => {
         totalQuestions={18}
       />
     );
-    expect(screen.getByText(/Question 1 of 18/i)).toBeTruthy();
+    expect(screen.getByText(question.text)).toBeTruthy();
   });
 
   test('Survey shows first question initially', () => {

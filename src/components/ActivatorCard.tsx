@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { ChevronDown, ChevronUp, CheckCircle, AlertCircle } from 'lucide-react';
 import type { Activator } from '../types';
 
 interface ActivatorCardProps {
@@ -7,6 +6,37 @@ interface ActivatorCardProps {
   isExpanded?: boolean;
   onToggle?: () => void;
   isPriority?: boolean;
+}
+
+interface SignalColumnProps {
+  label: string;
+  labelColor: string;
+  glyph: string;
+  glyphColor: string;
+  items: string[];
+}
+
+function SignalColumn({ label, labelColor, glyph, glyphColor, items }: SignalColumnProps) {
+  return (
+    <div>
+      <p
+        className="text-[11px] uppercase font-semibold mb-3"
+        style={{ letterSpacing: '.16em', color: labelColor }}
+      >
+        {label}
+      </p>
+      <ul className="space-y-2">
+        {items.map((item, index) => (
+          <li key={index} className="flex items-start gap-2 text-sm text-[var(--color-secondary)]">
+            <span className="font-bold" style={{ color: glyphColor }}>
+              {glyph}
+            </span>
+            {item}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 }
 
 export function ActivatorCard({
@@ -29,94 +59,72 @@ export function ActivatorCard({
 
   return (
     <div
-      className={`card overflow-hidden transition-all duration-300 ${
-        isPriority ? 'ring-2 ring-[var(--color-primary)] ring-opacity-50' : ''
-      }`}
       data-testid="activator-card"
+      style={{ borderBottom: '1px solid var(--color-hairline)' }}
     >
-      {/* Header */}
+      {/* Row header */}
       <button
         onClick={handleToggle}
-        className="w-full flex items-center justify-between p-6 text-left hover:bg-gray-50 transition-colors"
+        className="w-full flex items-center gap-6 py-6 text-left transition-colors hover:bg-[var(--color-hover-wash)]"
         aria-expanded={expanded}
       >
-        <div className="flex-1">
-          <div className="flex items-center gap-3 mb-1">
-            <span className="text-sm font-semibold text-[var(--color-primary)] bg-red-50 px-2 py-0.5 rounded">
-              {activator.id}
+        <span
+          className="font-display font-bold flex-shrink-0 text-center"
+          style={{ width: 72, fontSize: 44, lineHeight: 1, color: 'var(--color-placeholder)' }}
+        >
+          {activator.id}
+        </span>
+        <span className="flex-1">
+          <span className="flex items-center gap-3">
+            <span className="font-display font-bold text-[23px] text-[var(--color-ink)]">
+              {activator.title}
             </span>
             {isPriority && (
-              <span className="text-xs font-medium text-white bg-[var(--color-primary)] px-2 py-0.5 rounded">
+              <span
+                className="text-[11px] uppercase font-semibold text-[var(--color-primary)]"
+                style={{ letterSpacing: '.14em' }}
+              >
                 Priority
               </span>
             )}
-          </div>
-          <h3 className="text-xl font-display font-bold text-[var(--color-charcoal)]">
-            {activator.title}
-          </h3>
-          <p className="text-[var(--color-secondary)] mt-1">{activator.tagline}</p>
-        </div>
-        <div className="ml-4 text-[var(--color-secondary)]">
-          {expanded ? (
-            <ChevronUp className="w-6 h-6" />
-          ) : (
-            <ChevronDown className="w-6 h-6" />
-          )}
-        </div>
+          </span>
+          <span className="block text-sm text-[var(--color-faint)] mt-1">
+            {activator.tagline}
+          </span>
+        </span>
+        <span
+          className="text-2xl font-light text-[var(--color-primary)] flex-shrink-0 pr-2"
+          aria-hidden="true"
+        >
+          {expanded ? '–' : '+'}
+        </span>
       </button>
 
-      {/* Content */}
+      {/* Expanded body: three columns */}
       {expanded && (
-        <div className="px-6 pb-6 animate-fade-in">
-          <div className="border-t border-gray-100 pt-6">
-            {/* Principles */}
-            <div className="mb-6">
-              <h4 className="font-semibold text-[var(--color-charcoal)] mb-3">
-                Key Principles
-              </h4>
-              <ul className="space-y-2">
-                {activator.principles.map((principle, index) => (
-                  <li key={index} className="flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-primary)] mt-2 flex-shrink-0" />
-                    <span className="text-[var(--color-secondary)]">{principle}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-6">
-              {/* Healthy Signals */}
-              <div className="bg-green-50 rounded-lg p-4">
-                <div className="flex items-center gap-2 mb-3">
-                  <CheckCircle className="w-5 h-5 text-green-600" />
-                  <h4 className="font-semibold text-green-800">Healthy Signals</h4>
-                </div>
-                <ul className="space-y-2">
-                  {activator.healthySignals.map((signal, index) => (
-                    <li key={index} className="flex items-start gap-2 text-sm">
-                      <span className="w-1 h-1 rounded-full bg-green-600 mt-2 flex-shrink-0" />
-                      <span className="text-green-700">{signal}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Dysfunction Signals */}
-              <div className="bg-red-50 rounded-lg p-4">
-                <div className="flex items-center gap-2 mb-3">
-                  <AlertCircle className="w-5 h-5 text-red-600" />
-                  <h4 className="font-semibold text-red-800">Dysfunction Signals</h4>
-                </div>
-                <ul className="space-y-2">
-                  {activator.dysfunctionSignals.map((signal, index) => (
-                    <li key={index} className="flex items-start gap-2 text-sm">
-                      <span className="w-1 h-1 rounded-full bg-red-600 mt-2 flex-shrink-0" />
-                      <span className="text-red-700">{signal}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
+        <div className="pb-8 animate-fade-in" style={{ paddingLeft: 96 }}>
+          <div className="grid md:grid-cols-3 gap-8 pr-4">
+            <SignalColumn
+              label="Key principles"
+              labelColor="var(--color-primary)"
+              glyph="·"
+              glyphColor="var(--color-primary)"
+              items={activator.principles}
+            />
+            <SignalColumn
+              label="Healthy signals"
+              labelColor="var(--color-score-green)"
+              glyph="✓"
+              glyphColor="var(--color-score-green)"
+              items={activator.healthySignals}
+            />
+            <SignalColumn
+              label="Dysfunction signals"
+              labelColor="var(--color-score-red)"
+              glyph="×"
+              glyphColor="var(--color-score-red)"
+              items={activator.dysfunctionSignals}
+            />
           </div>
         </div>
       )}

@@ -1,4 +1,11 @@
-import type { ChangeLever, QuadrantDetail, TCCARItem, PlaybookModule } from '../types';
+import type {
+  ChangeLever,
+  QuadrantDetail,
+  TCCARItem,
+  PlaybookModule,
+  Dimension,
+  DimensionIntervention,
+} from '../types';
 
 export const changeLevers: ChangeLever[] = [
   {
@@ -226,37 +233,77 @@ export const quadrantDetails: QuadrantDetail[] = [
   {
     id: 'structure',
     title: 'Structure & Accountabilities',
+    summary: 'Who owns what — roles, layers, and the decision rights that let work move.',
     items: [
       'Roles & Responsibilities',
       'Spans, Layers & Reporting Lines',
       'Decision Rights / FOAL',
     ],
-    color: '#C41E3A',
+    color: 'var(--quad-structure)',
   },
   {
     id: 'people',
     title: 'People & Skills',
+    summary: 'Whether the organization has — or can build — the capabilities its strategy demands.',
     items: ['Workforce Size & Location', 'Diversity', 'Knowledge & Skills'],
-    color: '#4A5568',
+    color: 'var(--quad-people)',
   },
   {
     id: 'process',
     title: 'Process & Systems',
+    summary: 'How work actually flows — handoffs, tools, goals, and operating rhythm.',
     items: [
       'Performance Management',
       'Workflows & Handoffs',
       'Data & Digital Tools',
       'Cadence',
     ],
-    color: '#2D3748',
+    color: 'var(--quad-process)',
   },
   {
     id: 'mindset',
     title: 'Mindset & Behaviors',
+    summary: 'The daily behaviors, habits, and conversations that make the design real.',
     items: ['Ways of Working', 'Comms & Engagement', 'Habits'],
-    color: '#718096',
+    color: 'var(--quad-mindset)',
   },
 ];
+
+// Targeted intervention per dimension (adapted from the change-readiness
+// intervention map). Prescribed for the weakest dimensions in results —
+// a score without an intervention plan is half a deliverable.
+export const dimensionInterventions: Record<Dimension, DimensionIntervention> = {
+  structure: {
+    title: 'Re-contract ownership & decision rights',
+    description:
+      'Move activation accountability to named business leaders and make decision rights explicit — who decides, who is consulted, who executes.',
+    timeframe: '2–3 weeks',
+  },
+  people: {
+    title: 'Map the make-or-break capabilities',
+    description:
+      'Name the 3–5 capabilities the strategy depends on most, baseline current maturity, and embed learning in real work rather than event-based training.',
+    timeframe: '4–8 weeks',
+  },
+  process: {
+    title: 'Interface & bottleneck relief',
+    description:
+      'Run interface workshops between the units that must collaborate; quantify the queue on overloaded enabling teams and re-sequence demands before adding more.',
+    timeframe: '3–6 weeks',
+  },
+  mindset: {
+    title: 'Equip managers to localize the story',
+    description:
+      'Manager toolkits that answer "what changes for my team", two-way forums instead of broadcast, and visible recognition for people who model the stated values.',
+    timeframe: '3–6 weeks',
+  },
+  leadership: {
+    title: 'Leadership alignment working session',
+    description:
+      'Surface disagreements privately first, then converge on one story with named personal commitments per leader. Nothing else survives misaligned leaders.',
+    timeframe: '2–4 weeks',
+  },
+};
 
 // Map dimension scores to recommended activators
 export const dimensionToActivators: Record<string, string[]> = {

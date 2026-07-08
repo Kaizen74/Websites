@@ -1,68 +1,131 @@
-import { ArrowRight, BarChart3 } from 'lucide-react';
 import { SECTION_IDS } from '../constants';
+
+interface IndexRow {
+  number: string;
+  title: string;
+  description: string;
+  href: string;
+}
+
+const indexRows: IndexRow[] = [
+  {
+    number: '01',
+    title: 'The framework',
+    description: 'Four interconnected dimensions around a leadership core',
+    href: `#${SECTION_IDS.framework}`,
+  },
+  {
+    number: '02',
+    title: 'The five activators',
+    description: 'What turns an org design into performance (Kates-Kesler)',
+    href: `#${SECTION_IDS.activators}`,
+  },
+  {
+    number: '03',
+    title: 'The change model',
+    description: 'Communicate, Co-create, Cadence — plus the T.C.C.A.R. lens',
+    href: `#${SECTION_IDS.changeLevers}`,
+  },
+  {
+    number: '04',
+    title: 'The diagnostic',
+    description: '18 questions, scored across five dimensions, saved locally',
+    href: `#${SECTION_IDS.diagnostic}`,
+  },
+];
 
 export function Hero() {
   return (
     <section
       id={SECTION_IDS.hero}
-      className="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden"
+      className="pt-16"
+      style={{ background: 'var(--color-paper)' }}
     >
-      {/* Animated Gradient Background */}
-      <div className="absolute inset-0 gradient-bg">
-        <div className="absolute inset-0 opacity-30">
-          <div
-            className="absolute top-1/4 left-1/4 w-96 h-96 bg-[var(--color-primary)] rounded-full mix-blend-multiply filter blur-3xl animate-pulse"
-            style={{ animationDuration: '4s' }}
-          />
-          <div
-            className="absolute top-1/3 right-1/4 w-96 h-96 bg-[var(--color-secondary)] rounded-full mix-blend-multiply filter blur-3xl animate-pulse"
-            style={{ animationDuration: '5s', animationDelay: '1s' }}
-          />
-          <div
-            className="absolute bottom-1/4 left-1/3 w-96 h-96 bg-[var(--color-charcoal)] rounded-full mix-blend-multiply filter blur-3xl animate-pulse"
-            style={{ animationDuration: '6s', animationDelay: '2s' }}
-          />
-        </div>
-      </div>
-
-      {/* Content */}
-      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div className="animate-slide-up">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold text-[var(--color-charcoal)] leading-tight mb-6">
-            Navigate Organizational{' '}
-            <span className="text-[var(--color-primary)]">Transformation</span>{' '}
-            with Confidence
-          </h1>
-
-          <p className="text-lg sm:text-xl text-[var(--color-secondary)] max-w-3xl mx-auto mb-10 leading-relaxed">
-            A comprehensive digital playbook for organizational design consultants.
-            Assess organizational health, understand transformation frameworks,
-            and prescribe evidence-based interventions.
-          </p>
-
-          {/* CTAs */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a
-              href={`#${SECTION_IDS.framework}`}
-              className="btn btn-secondary group w-full sm:w-auto"
+      <div className="max-w-[1140px] mx-auto px-4 sm:px-6 lg:px-8 py-24">
+        <div className="grid lg:grid-cols-[1.08fr_.92fr] gap-12 lg:gap-20 items-center">
+          {/* Left: editorial intro */}
+          <div className="animate-slide-up">
+            <p className="eyebrow mb-5">A playbook for organizational design</p>
+            <h1
+              className="font-display font-bold text-[var(--color-ink)] mb-6"
+              style={{
+                fontSize: 'clamp(38px, 5vw, 56px)',
+                lineHeight: 1.1,
+                letterSpacing: '-.5px',
+                textWrap: 'balance',
+              }}
             >
-              Explore Framework
-              <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-            </a>
-            <a
-              href={`#${SECTION_IDS.diagnostic}`}
-              className="btn btn-primary group w-full sm:w-auto"
+              Navigate organizational{' '}
+              <em className="text-[var(--color-primary)]">transformation</em>{' '}
+              with confidence
+            </h1>
+
+            <p
+              className="text-[17px] leading-[1.65] text-[var(--color-secondary)] mb-4"
+              style={{ maxWidth: 560, textWrap: 'pretty' }}
             >
-              <BarChart3 className="w-5 h-5 mr-2" />
-              Start Diagnostic
-            </a>
+              Assess organizational health, understand the frameworks that
+              connect design to performance, and prescribe evidence-based
+              interventions.
+            </p>
+            <p
+              className="text-sm leading-relaxed text-[var(--color-faint)] mb-9"
+              style={{ maxWidth: 560 }}
+            >
+              Healthy organizations are roughly three times more likely to
+              outperform their peers — and effective sponsorship is the single
+              strongest predictor that a change will land.
+            </p>
+
+            <div className="flex flex-wrap items-center gap-6">
+              <a href={`#${SECTION_IDS.diagnostic}`} className="btn btn-primary">
+                Start the diagnostic →
+              </a>
+              <a
+                href={`#${SECTION_IDS.framework}`}
+                className="text-sm font-medium text-[var(--color-ink)] underline underline-offset-4 hover:text-[var(--color-primary)]"
+              >
+                Explore the framework
+              </a>
+            </div>
           </div>
-        </div>
 
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 border-2 border-[var(--color-secondary)] rounded-full flex items-start justify-center p-2">
-            <div className="w-1.5 h-3 bg-[var(--color-secondary)] rounded-full animate-pulse" />
+          {/* Right: numbered index card */}
+          <div className="card animate-slide-up">
+            <p
+              className="text-[11px] uppercase font-semibold text-[var(--color-faint)] px-6 pt-5 pb-3"
+              style={{ letterSpacing: '.16em' }}
+            >
+              In this playbook
+            </p>
+            <nav>
+              {indexRows.map((row, i) => (
+                <a
+                  key={row.number}
+                  href={row.href}
+                  className="flex items-center gap-5 px-6 py-4 group transition-colors hover:bg-[var(--color-hover-wash)]"
+                  style={{
+                    borderTop: i === 0 ? '1px solid var(--color-hairline)' : undefined,
+                    borderBottom: i < indexRows.length - 1 ? '1px solid var(--color-hairline)' : undefined,
+                  }}
+                >
+                  <span className="font-display text-lg font-semibold text-[var(--color-primary)]">
+                    {row.number}
+                  </span>
+                  <span className="flex-1">
+                    <span className="block font-display text-[19px] font-semibold text-[var(--color-ink)]">
+                      {row.title}
+                    </span>
+                    <span className="block text-[13px] text-[var(--color-faint)] mt-0.5">
+                      {row.description}
+                    </span>
+                  </span>
+                  <span className="text-[var(--color-faint)] group-hover:text-[var(--color-primary)] transition-colors">
+                    →
+                  </span>
+                </a>
+              ))}
+            </nav>
           </div>
         </div>
       </div>

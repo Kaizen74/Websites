@@ -1,37 +1,40 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@400;500;600;700&display=swap');
 
-/* Design Tokens */
+/* OrgDesign Playbook — editorial design tokens */
 :root {
-  /* Primary Colors */
-  --color-primary: #C41E3A;
-  --color-primary-light: #D3334F;
-  --color-primary-dark: #9D182E;
-
-  /* SATS Color Palette */
-  --color-sats-vibrant-red: #FF2E36;
-  --color-soft-salmon: #FF9EA2;
-  --color-charcoal-grey: #636466;
-  --color-canvas-light-grey: #DCDCDC;
-
-  /* Accent Colors (legacy) */
-  --color-accent-coral: #FF9EA2;
-  --color-accent-coral-light: #FFB8BB;
-  --color-accent-coral-dark: #FF7A80;
-
-  /* Secondary Colors */
-  --color-secondary: #4A5568;
-  --color-charcoal: #2D3748;
-  --color-slate: #718096;
-
-  /* Score Colors */
-  --color-score-green: #10B981;
-  --color-score-amber: #F59E0B;
-  --color-score-red: #EF4444;
-
-  /* Backgrounds */
-  --color-bg-light: #F7FAFC;
+  /* Surfaces */
+  --color-paper: #FAF7F3;
   --color-bg-white: #FFFFFF;
+  --color-hairline: #E7E0D8;
+  --color-hover-wash: #F6F1EA;
+
+  /* Text */
+  --color-ink: #1C1F24;
+  --color-secondary: #575C63;
+  --color-faint: #8A8F96;
+  --color-placeholder: #D8CFC2;
+
+  /* Accent */
+  --color-primary: #C41E3A;
+  --color-primary-dark: #9D182E;
+  --color-red-tint: #FBEEF0;
+  --color-red-on-dark: #D98A94;
+
+  /* Framework quadrants */
+  --quad-structure: #C41E3A;
+  --quad-people: #4A5568;
+  --quad-process: #2D3748;
+  --quad-mindset: #9C6B72;
+  --quad-leadership: #B97F24;
+
+  /* Score status */
+  --color-score-green: #257A55;
+  --color-score-amber: #B97F24;
+  --color-score-red: #B02E2E;
+
+  /* Legacy alias (heading color used across components) */
+  --color-charcoal: #1C1F24;
 
   /* Typography */
   --font-display: 'Playfair Display', Georgia, serif;
@@ -46,18 +49,22 @@ html {
 body {
   margin: 0;
   font-family: var(--font-body);
-  background-color: var(--color-bg-white);
-  color: var(--color-charcoal);
+  background-color: var(--color-paper);
+  color: var(--color-ink);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Typography */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
   font-weight: 700;
-  color: var(--color-charcoal);
+  color: var(--color-ink);
 }
+
+a { text-decoration: none; }
+
+/* Anchor targets clear the 64px fixed header */
+section[id] { scroll-margin-top: 72px; }
 
 /* Focus Styles */
 :focus-visible {
@@ -65,30 +72,23 @@ h1, h2, h3, h4, h5, h6 {
   outline-offset: 2px;
 }
 
+/* Eyebrow label */
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: 12px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
 /* Score Color Classes */
-.score-green {
-  color: var(--color-score-green);
-}
-
-.score-amber {
-  color: var(--color-score-amber);
-}
-
-.score-red {
-  color: var(--color-score-red);
-}
-
-.score-bg-green {
-  background-color: var(--color-score-green);
-}
-
-.score-bg-amber {
-  background-color: var(--color-score-amber);
-}
-
-.score-bg-red {
-  background-color: var(--color-score-red);
-}
+.score-green { color: var(--color-score-green); }
+.score-amber { color: var(--color-score-amber); }
+.score-red { color: var(--color-score-red); }
+.score-bg-green { background-color: var(--color-score-green); }
+.score-bg-amber { background-color: var(--color-score-amber); }
+.score-bg-red { background-color: var(--color-score-red); }
 
 /* Animations */
 @keyframes fadeIn {
@@ -96,59 +96,20 @@ h1, h2, h3, h4, h5, h6 {
   to { opacity: 1; }
 }
 
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes slideInRight {
-  from {
-    opacity: 0;
-    transform: translateX(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
+.animate-fade-in { animation: fadeIn 0.3s ease-out; }
+.animate-slide-up { animation: fadeUp 0.3s ease-out; }
 
-.animate-fade-in {
-  animation: fadeIn 0.5s ease-out;
-}
-
-.animate-slide-up {
-  animation: slideUp 0.5s ease-out;
-}
-
-.animate-slide-in-right {
-  animation: slideInRight 0.3s ease-out;
-}
-
-/* Gradient Background */
-.gradient-bg {
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-}
-
-.gradient-primary {
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
-}
-
-/* Card Styles */
+/* Card: hairline, no shadow, no hover lift */
 .card {
   background: var(--color-bg-white);
-  border-radius: 12px;
-  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
-}
-
-.card:hover {
-  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  border: 1px solid var(--color-hairline);
+  border-radius: 2px;
+  box-shadow: none;
 }
 
 /* Button Base */
@@ -156,50 +117,35 @@ h1, h2, h3, h4, h5, h6 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.75rem 1.5rem;
+  gap: 10px;
+  padding: 14px 28px;
   font-family: var(--font-body);
   font-weight: 600;
-  font-size: 1rem;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
+  font-size: 15px;
+  border-radius: 2px;
   border: none;
+  cursor: pointer;
+  transition: background .15s ease, color .15s ease, border-color .15s ease;
   text-decoration: none;
 }
 
-.btn-primary {
-  background-color: var(--color-primary);
-  color: white;
-}
-
-.btn-primary:hover {
-  background-color: var(--color-primary-dark);
-  transform: translateY(-1px);
-}
-
-.btn-secondary {
-  background-color: transparent;
-  color: var(--color-primary);
-  border: 2px solid var(--color-primary);
-}
-
-.btn-secondary:hover {
-  background-color: var(--color-primary);
-  color: white;
-}
+.btn-primary { background: var(--color-primary); color: #fff; }
+.btn-primary:hover { background: var(--color-primary-dark); }
+.btn-secondary { background: none; border: 1px solid var(--color-ink); color: var(--color-ink); }
+.btn-secondary:hover { background: var(--color-ink); color: #fff; }
 
 /* Progress Bar */
 .progress-bar {
-  height: 8px;
-  background-color: #E2E8F0;
-  border-radius: 4px;
+  height: 3px;
+  background-color: var(--color-hairline);
+  border-radius: 2px;
   overflow: hidden;
 }
 
 .progress-fill {
   height: 100%;
   background-color: var(--color-primary);
-  border-radius: 4px;
+  border-radius: 2px;
   transition: width 0.3s ease-in-out;
 }
 
@@ -207,33 +153,39 @@ h1, h2, h3, h4, h5, h6 {
 .likert-option {
   display: flex;
   align-items: center;
-  padding: 0.75rem 1rem;
-  border: 2px solid #E2E8F0;
-  border-radius: 8px;
+  padding: 14px 18px;
+  border: 1px solid var(--color-hairline);
+  border-radius: 2px;
+  background: var(--color-bg-white);
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
+  transition: border-color .15s ease, background .15s ease;
 }
 
-.likert-option:hover {
-  border-color: var(--color-primary-light);
-  background-color: #FEF2F2;
-}
-
+.likert-option:hover { border-color: var(--color-primary); }
 .likert-option.selected {
   border-color: var(--color-primary);
-  background-color: #FEF2F2;
+  background-color: var(--color-red-tint);
 }
 
-/* Framework Diagram */
-.quadrant {
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
-.quadrant:hover {
-  transform: scale(1.02);
-}
-
-.quadrant.active {
-  filter: brightness(1.1);
+/* Print: results page as a clean one-pager */
+@media print {
+  header, .no-print { display: none !important; }
+  body { background: #fff; }
+  section { padding: 8px 0 !important; min-height: 0 !important; }
+  main { padding-top: 0 !important; }
+  .card { break-inside: avoid; }
+  * {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
 }

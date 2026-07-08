@@ -48,7 +48,24 @@ describe('Results Dashboard', () => {
 
   test('Priority areas are shown for low scores', () => {
     render(<ResultsDashboard results={mockResults} onReset={mockOnReset} />);
-    expect(screen.getByText(/Priority Areas for Improvement/i)).toBeTruthy();
+    expect(screen.getByText(/Where to focus first/i)).toBeTruthy();
+  });
+
+  test('Targeted intervention appears for the weakest dimension', () => {
+    // process (45) is the lowest score in mockResults
+    render(<ResultsDashboard results={mockResults} onReset={mockOnReset} />);
+    expect(screen.getByText(/Interface & bottleneck relief/i)).toBeTruthy();
+  });
+
+  test('Focus areas link to playbook modules', () => {
+    render(<ResultsDashboard results={mockResults} onReset={mockOnReset} />);
+    const links = screen.getAllByText(/View playbook modules/i);
+    expect(links.length).toBeGreaterThan(0);
+  });
+
+  test('Save as PDF button is present', () => {
+    render(<ResultsDashboard results={mockResults} onReset={mockOnReset} />);
+    expect(screen.getByText(/Save as PDF/i)).toBeTruthy();
   });
 
   test('Next steps section is present', () => {

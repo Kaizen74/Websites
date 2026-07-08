@@ -1,64 +1,75 @@
 import { useState } from 'react';
-import { Target } from 'lucide-react';
 import { FrameworkDiagram } from './FrameworkDiagram';
 import { QuadrantDetail } from './QuadrantDetail';
 import type { Quadrant, DimensionScores } from '../types';
-import { SECTION_IDS } from '../constants';
+import { SECTION_IDS, STORAGE_KEYS } from '../constants';
 
 interface FrameworkSectionProps {
   scores?: Partial<DimensionScores>;
 }
 
+const QUADRANTS: Quadrant[] = ['structure', 'people', 'process', 'mindset'];
+
+/** One-shot handoff from the results page's "View playbook modules" links */
+function consumeFocusQuadrant(): Quadrant {
+  try {
+    const stored = sessionStorage.getItem(STORAGE_KEYS.focusQuadrant);
+    if (stored && (QUADRANTS as string[]).includes(stored)) {
+      sessionStorage.removeItem(STORAGE_KEYS.focusQuadrant);
+      return stored as Quadrant;
+    }
+  } catch {
+    // sessionStorage unavailable — fall through to default
+  }
+  return 'structure';
+}
+
 export function FrameworkSection({ scores }: FrameworkSectionProps) {
-  const [activeQuadrant, setActiveQuadrant] = useState<Quadrant | null>(null);
+  // Side panel always shows content; clicking a quadrant swaps it
+  const [activeQuadrant, setActiveQuadrant] = useState<Quadrant>(consumeFocusQuadrant);
 
   const handleQuadrantClick = (quadrant: Quadrant) => {
     setActiveQuadrant(quadrant);
   };
 
-  const handleCloseDetail = () => {
-    setActiveQuadrant(null);
-  };
-
   return (
-    <section id={SECTION_IDS.framework} className="py-20 bg-white">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section
+      id={SECTION_IDS.framework}
+      className="py-24"
+      style={{ background: 'var(--color-paper)' }}
+    >
+      <div className="max-w-[1140px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[var(--color-primary)] bg-opacity-10 mb-4">
-            <Target className="w-8 h-8 text-[var(--color-primary)]" />
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-display font-bold text-[var(--color-charcoal)] mb-4">
+        <div className="mb-14" style={{ maxWidth: 760 }}>
+          <p className="eyebrow mb-4">01 · The framework</p>
+          <h2
+            className="font-display font-bold text-[var(--color-ink)] mb-4"
+            style={{ fontSize: 'clamp(30px, 4vw, 40px)', lineHeight: 1.15 }}
+          >
             Integrated Organizational Capability and Change Framework
           </h2>
-          <p className="text-lg text-[var(--color-secondary)] max-w-2xl mx-auto">
-            A holistic view of organizational design across four interconnected dimensions.
-            Click any quadrant to explore its components and diagnostic questions.
+          <p className="text-[17px] leading-[1.65] text-[var(--color-secondary)]" style={{ maxWidth: 640 }}>
+            A holistic view of organizational design across four interconnected
+            dimensions around a leadership core. Select a quadrant to explore its
+            components, playbook modules, and diagnostic questions.
           </p>
         </div>
 
-        {/* Framework Diagram */}
-        <div className="relative">
-          <FrameworkDiagram
-            scores={scores}
-            onQuadrantClick={handleQuadrantClick}
-            activeQuadrant={activeQuadrant}
-          />
+        {/* Diagram + side panel */}
+        <div className="grid lg:grid-cols-[460px_1fr] gap-10 lg:gap-14 items-start">
+          <div className="lg:sticky" style={{ top: 96 }}>
+            <FrameworkDiagram
+              scores={scores}
+              onQuadrantClick={handleQuadrantClick}
+              activeQuadrant={activeQuadrant}
+            />
+          </div>
 
-          {/* Instructions */}
-          <p className="text-center text-sm text-[var(--color-secondary)] mt-8">
-            Click on any quadrant to view details and related diagnostic questions
-          </p>
-        </div>
-
-        {/* Quadrant Detail Modal */}
-        {activeQuadrant && (
           <QuadrantDetail
             quadrant={activeQuadrant}
-            onClose={handleCloseDetail}
             score={scores?.[activeQuadrant]}
           />
-        )}
+        </div>
       </div>
     </section>
   );

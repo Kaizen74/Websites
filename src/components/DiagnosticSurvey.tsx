@@ -1,11 +1,22 @@
-import { ChevronLeft, ChevronRight, RotateCcw } from 'lucide-react';
+import { useEffect, useRef } from 'react';
 import { QuestionCard } from './QuestionCard';
 import { useDiagnostic } from '../hooks/useDiagnostic';
-import { SECTION_IDS } from '../constants';
+import { SECTION_IDS, DIMENSION_LABELS } from '../constants';
+import type { LikertValue, Dimension } from '../types';
 
 interface DiagnosticSurveyProps {
   onComplete?: (results: ReturnType<ReturnType<typeof useDiagnostic>['calculateResults']>) => void;
 }
+
+const dimensionColor: Record<Dimension, string> = {
+  structure: 'var(--quad-structure)',
+  people: 'var(--quad-people)',
+  process: 'var(--quad-process)',
+  mindset: 'var(--quad-mindset)',
+  leadership: 'var(--quad-leadership)',
+};
+
+const AUTO_ADVANCE_MS = 280;
 
 export function DiagnosticSurvey({ onComplete }: DiagnosticSurveyProps) {
   const {
@@ -22,6 +33,15 @@ export function DiagnosticSurvey({ onComplete }: DiagnosticSurveyProps) {
     resetSurvey,
   } = useDiagnostic();
 
+  // Refs so the auto-advance timer sees the latest state and only fires
+  // if the user hasn't already navigated away from the answered question
+  const currentQuestionRef = useRef(currentQuestion);
+  const goToNextRef = useRef(goToNext);
+  useEffect(() => {
+    currentQuestionRef.current = currentQuestion;
+    goToNextRef.current = goToNext;
+  });
+
   // Handle completion
   if (isComplete && results) {
     onComplete?.(results);
@@ -36,27 +56,74 @@ export function DiagnosticSurvey({ onComplete }: DiagnosticSurveyProps) {
   const canGoNext = currentAnswer !== undefined;
   const isLastQuestion = currentQuestion === totalQuestions - 1;
 
+  const handleAnswer = (value: LikertValue) => {
+    answerQuestion(value);
+    // Auto-advance after a beat, except on the last question
+    if (!isLastQuestion) {
+      const answeredIndex = currentQuestion;
+      window.setTimeout(() => {
+        if (currentQuestionRef.current === answeredIndex) {
+          goToNextRef.current();
+        }
+      }, AUTO_ADVANCE_MS);
+    }
+  };
+
   return (
-    <section id={SECTION_IDS.diagnostic} className="py-20 bg-gray-50 min-h-screen">
+    <section
+      id={SECTION_IDS.diagnostic}
+      className="py-16 min-h-screen"
+      style={{ background: 'var(--color-paper)' }}
+    >
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Top bar */}
+        <div className="flex items-center justify-between mb-12">
+          <a
+            href={`#${SECTION_IDS.hero}`}
+            className="text-sm font-medium text-[var(--color-secondary)] hover:text-[var(--color-primary)]"
+          >
+            ← Back to playbook
+          </a>
+          <button
+            onClick={resetSurvey}
+            className="text-sm font-medium text-[var(--color-faint)] hover:text-[var(--color-primary)]"
+          >
+            Start over
+          </button>
+        </div>
+
         {/* Header */}
-        <div className="text-center mb-8">
-          <h2 className="text-3xl sm:text-4xl font-display font-bold text-[var(--color-charcoal)] mb-4">
-            Organizational Health Diagnostic
+        <div className="mb-10">
+          <p className="eyebrow mb-4">04 · The diagnostic</p>
+          <h2
+            className="font-display font-bold text-[var(--color-ink)] mb-3"
+            style={{ fontSize: 'clamp(28px, 4vw, 38px)', lineHeight: 1.15 }}
+          >
+            Organizational health diagnostic
           </h2>
-          <p className="text-[var(--color-secondary)]">
-            Answer each question honestly to get an accurate assessment
+          <p className="text-[15px] text-[var(--color-secondary)]">
+            Answer each statement honestly for an accurate read of your
+            organization. Takes about five minutes.
           </p>
         </div>
 
-        {/* Progress Bar */}
+        {/* Progress row + bar */}
         <div className="mb-8">
           <div className="flex items-center justify-between mb-2">
-            <span className="text-sm font-medium text-[var(--color-secondary)]">
-              Progress
+            <span className="text-sm font-medium text-[var(--color-ink)]">
+              Question {currentQuestion + 1} of {totalQuestions}
             </span>
-            <span className="text-sm font-medium text-[var(--color-charcoal)]">
-              {Math.round(progress)}%
+            <span className="flex items-center gap-2 text-sm text-[var(--color-secondary)]">
+              <span
+                aria-hidden="true"
+                className="inline-block"
+                style={{
+                  width: 9,
+                  height: 9,
+                  background: dimensionColor[currentQuestionData.dimension],
+                }}
+              />
+              {DIMENSION_LABELS[currentQuestionData.dimension]}
             </span>
           </div>
           <div className="progress-bar">
@@ -75,9 +142,7 @@ export function DiagnosticSurvey({ onComplete }: DiagnosticSurveyProps) {
         <QuestionCard
           question={currentQuestionData}
           currentAnswer={currentAnswer}
-          onAnswer={answerQuestion}
-          questionNumber={currentQuestion + 1}
-          totalQuestions={totalQuestions}
+          onAnswer={handleAnswer}
         />
 
         {/* Navigation */}
@@ -85,62 +150,31 @@ export function DiagnosticSurvey({ onComplete }: DiagnosticSurveyProps) {
           <button
             onClick={goToPrevious}
             disabled={currentQuestion === 0}
-            className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-colors ${
-              currentQuestion === 0
-                ? 'text-gray-400 cursor-not-allowed'
-                : 'text-[var(--color-secondary)] hover:text-[var(--color-charcoal)] hover:bg-gray-100'
-            }`}
+            className="text-sm font-medium transition-colors disabled:cursor-not-allowed"
+            style={{
+              color: currentQuestion === 0 ? 'var(--color-placeholder)' : 'var(--color-secondary)',
+            }}
           >
-            <ChevronLeft className="w-5 h-5" />
-            Back
+            ← Back
           </button>
 
-          <div className="flex items-center gap-4">
-            <button
-              onClick={resetSurvey}
-              className="flex items-center gap-2 px-4 py-2 text-[var(--color-secondary)] hover:text-[var(--color-charcoal)] hover:bg-gray-100 rounded-lg transition-colors"
-              title="Start over"
-            >
-              <RotateCcw className="w-4 h-4" />
-              <span className="hidden sm:inline">Reset</span>
-            </button>
-
-            <button
-              onClick={goToNext}
-              disabled={!canGoNext}
-              className={`flex items-center gap-2 px-6 py-3 rounded-lg font-medium transition-all ${
-                canGoNext
-                  ? 'btn btn-primary'
-                  : 'bg-gray-200 text-gray-400 cursor-not-allowed'
-              }`}
-            >
-              {isLastQuestion ? 'View Results' : 'Next'}
-              {!isLastQuestion && <ChevronRight className="w-5 h-5" />}
-            </button>
-          </div>
+          <button
+            onClick={goToNext}
+            disabled={!canGoNext}
+            className="btn btn-primary"
+            style={
+              !canGoNext
+                ? { background: 'var(--color-placeholder)', cursor: 'not-allowed' }
+                : undefined
+            }
+          >
+            {isLastQuestion ? 'See your results' : 'Next →'}
+          </button>
         </div>
 
-        {/* Question Indicators */}
-        <div className="flex justify-center gap-1 mt-8 flex-wrap">
-          {Array.from({ length: totalQuestions }, (_, i) => {
-            const isCurrent = i === currentQuestion;
-            const isAnswered = i < responses.size;
-
-            return (
-              <div
-                key={i}
-                className={`w-3 h-3 rounded-full transition-all ${
-                  isCurrent
-                    ? 'bg-[var(--color-primary)] scale-125'
-                    : isAnswered
-                    ? 'bg-[var(--color-primary)] opacity-50'
-                    : 'bg-gray-300'
-                }`}
-                title={`Question ${i + 1}`}
-              />
-            );
-          })}
-        </div>
+        <p className="text-center text-[13px] text-[var(--color-faint)] mt-8">
+          Your answers save automatically — you can leave and come back.
+        </p>
       </div>
     </section>
   );

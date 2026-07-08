@@ -1,13 +1,3 @@
-import {
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
-  Cell,
-} from 'recharts';
 import type { DimensionScores } from '../types';
 import { DIMENSION_LABELS } from '../constants';
 import { getScoreColor } from '../utils/scoring';
@@ -16,57 +6,56 @@ interface DimensionChartProps {
   scores: DimensionScores;
 }
 
-const colorMap = {
-  green: '#10B981',
-  amber: '#F59E0B',
-  red: '#EF4444',
+const fillColor = {
+  green: 'var(--color-score-green)',
+  amber: 'var(--color-score-amber)',
+  red: 'var(--color-score-red)',
 };
 
+/** Plain-div horizontal bars — no charting dependency */
 export function DimensionChart({ scores }: DimensionChartProps) {
-  const data = Object.entries(scores).map(([dimension, score]) => ({
-    dimension: DIMENSION_LABELS[dimension as keyof typeof DIMENSION_LABELS],
-    shortName: dimension.charAt(0).toUpperCase() + dimension.slice(1),
-    score,
-    color: colorMap[getScoreColor(score)],
-  }));
-
   return (
-    <div className="w-full h-72">
-      <ResponsiveContainer width="100%" height="100%">
-        <BarChart
-          data={data}
-          layout="vertical"
-          margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
-        >
-          <CartesianGrid strokeDasharray="3 3" horizontal={true} vertical={false} />
-          <XAxis
-            type="number"
-            domain={[0, 100]}
-            tickFormatter={(value) => `${value}%`}
-          />
-          <YAxis
-            type="category"
-            dataKey="shortName"
-            width={80}
-            tick={{ fontSize: 12 }}
-          />
-          <Tooltip
-            formatter={(value) => [`${value}%`, 'Score']}
-            labelFormatter={(label) => data.find((d) => d.shortName === label)?.dimension}
-            contentStyle={{
-              backgroundColor: 'white',
-              border: '1px solid #E5E7EB',
-              borderRadius: '8px',
-              boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)',
-            }}
-          />
-          <Bar dataKey="score" radius={[0, 4, 4, 0]}>
-            {data.map((entry, index) => (
-              <Cell key={`cell-${index}`} fill={entry.color} />
-            ))}
-          </Bar>
-        </BarChart>
-      </ResponsiveContainer>
+    <div>
+      <div className="space-y-5">
+        {Object.entries(scores).map(([dimension, score]) => (
+          <div key={dimension}>
+            <div className="flex items-baseline justify-between mb-1.5">
+              <span className="text-sm font-medium text-[var(--color-ink)]">
+                {DIMENSION_LABELS[dimension as keyof typeof DIMENSION_LABELS]}
+              </span>
+              <span
+                className="text-sm font-bold"
+                style={{ color: fillColor[getScoreColor(score)] }}
+              >
+                {score}%
+              </span>
+            </div>
+            <div
+              className="w-full rounded-full overflow-hidden"
+              style={{ height: 6, background: '#EFE9E1' }}
+              role="img"
+              aria-label={`${DIMENSION_LABELS[dimension as keyof typeof DIMENSION_LABELS]}: ${score}%`}
+            >
+              <div
+                className="h-full rounded-full transition-[width] duration-500"
+                style={{
+                  width: `${Math.max(0, Math.min(100, score))}%`,
+                  background: fillColor[getScoreColor(score)],
+                }}
+              />
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Legend */}
+      <p className="text-xs text-[var(--color-faint)] mt-6">
+        <span style={{ color: 'var(--color-score-green)' }}>●</span> Healthy ≥ 70
+        <span className="mx-2">·</span>
+        <span style={{ color: 'var(--color-score-amber)' }}>●</span> Developing 50–69
+        <span className="mx-2">·</span>
+        <span style={{ color: 'var(--color-score-red)' }}>●</span> Needs attention &lt; 50
+      </p>
     </div>
   );
 }
