@@ -226,35 +226,39 @@ export const quadrantDetails: QuadrantDetail[] = [
   {
     id: 'structure',
     title: 'Structure & Accountabilities',
+    summary: 'Who owns what — roles, layers, and the decision rights that let work move.',
     items: [
       'Roles & Responsibilities',
       'Spans, Layers & Reporting Lines',
       'Decision Rights / FOAL',
     ],
-    color: '#C41E3A',
+    color: 'var(--quad-structure)',
   },
   {
     id: 'people',
     title: 'People & Skills',
+    summary: 'Whether the organization has — or can build — the capabilities its strategy demands.',
     items: ['Workforce Size & Location', 'Diversity', 'Knowledge & Skills'],
-    color: '#4A5568',
+    color: 'var(--quad-people)',
   },
   {
     id: 'process',
     title: 'Process & Systems',
+    summary: 'How work actually flows — handoffs, tools, goals, and operating rhythm.',
     items: [
       'Performance Management',
       'Workflows & Handoffs',
       'Data & Digital Tools',
       'Cadence',
     ],
-    color: '#2D3748',
+    color: 'var(--quad-process)',
   },
   {
     id: 'mindset',
     title: 'Mindset & Behaviors',
+    summary: 'The daily behaviors, habits, and conversations that make the design real.',
     items: ['Ways of Working', 'Comms & Engagement', 'Habits'],
-    color: '#718096',
+    color: 'var(--quad-mindset)',
   },
 ];
 

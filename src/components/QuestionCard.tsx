@@ -1,99 +1,72 @@
 import type { DiagnosticQuestion, LikertValue } from '../types';
-import { LIKERT_OPTIONS, DIMENSION_LABELS } from '../constants';
+import { LIKERT_OPTIONS } from '../constants';
 
 interface QuestionCardProps {
   question: DiagnosticQuestion;
   currentAnswer: LikertValue | undefined;
   onAnswer: (value: LikertValue) => void;
-  questionNumber: number;
-  totalQuestions: number;
+  /** Accepted for backward compatibility; the survey renders progress itself */
+  questionNumber?: number;
+  totalQuestions?: number;
 }
 
-export function QuestionCard({
-  question,
-  currentAnswer,
-  onAnswer,
-  questionNumber,
-  totalQuestions,
-}: QuestionCardProps) {
+export function QuestionCard({ question, currentAnswer, onAnswer }: QuestionCardProps) {
   return (
-    <div className="bg-white rounded-xl shadow-lg p-6 sm:p-8 animate-fade-in">
-      {/* Question Header */}
-      <div className="flex items-center justify-between mb-6">
-        <span className="text-sm font-medium text-[var(--color-secondary)]">
-          Question {questionNumber} of {totalQuestions}
-        </span>
-        <span
-          className="text-xs font-medium px-3 py-1 rounded-full"
-          style={{
-            backgroundColor:
-              question.dimension === 'structure'
-                ? '#FEE2E2'
-                : question.dimension === 'people'
-                ? '#E5E7EB'
-                : question.dimension === 'process'
-                ? '#E5E7EB'
-                : question.dimension === 'mindset'
-                ? '#F3F4F6'
-                : '#FEF3C7',
-            color:
-              question.dimension === 'structure'
-                ? '#991B1B'
-                : question.dimension === 'leadership'
-                ? '#92400E'
-                : '#374151',
-          }}
-        >
-          {DIMENSION_LABELS[question.dimension]}
-        </span>
-      </div>
-
+    <div className="card p-6 sm:p-10 animate-fade-in">
       {/* Question Text */}
-      <h3 className="text-xl sm:text-2xl font-display font-bold text-[var(--color-charcoal)] mb-8 leading-relaxed">
+      <h3
+        className="font-display font-semibold text-[var(--color-ink)] mb-9"
+        style={{ fontSize: 25, lineHeight: 1.4, textWrap: 'pretty' }}
+      >
         {question.text}
       </h3>
 
-      {/* Likert Scale Options */}
-      <div className="space-y-3">
-        {LIKERT_OPTIONS.map((option) => (
-          <label
-            key={option.value}
-            className={`likert-option ${currentAnswer === option.value ? 'selected' : ''}`}
-          >
-            <input
-              type="radio"
-              name={`question-${question.id}`}
-              value={option.value}
-              checked={currentAnswer === option.value}
-              onChange={() => onAnswer(option.value as LikertValue)}
-              className="sr-only"
-              aria-label={option.label}
-            />
-            <span
-              className={`w-6 h-6 rounded-full border-2 flex items-center justify-center mr-4 transition-all ${
-                currentAnswer === option.value
-                  ? 'border-[var(--color-primary)] bg-[var(--color-primary)]'
-                  : 'border-gray-300'
+      {/* Likert Scale: 5-column grid */}
+      <div
+        className="grid grid-cols-5 gap-2 sm:gap-3"
+        role="radiogroup"
+        aria-label="Answer scale"
+      >
+        {LIKERT_OPTIONS.map((option) => {
+          const selected = currentAnswer === option.value;
+          return (
+            <label
+              key={option.value}
+              className={`likert-option flex-col justify-center gap-1 text-center ${
+                selected ? 'selected' : ''
               }`}
+              style={{ padding: '14px 6px' }}
             >
-              {currentAnswer === option.value && (
-                <span className="w-2 h-2 rounded-full bg-white" />
-              )}
-            </span>
-            <span
-              className={`text-base ${
-                currentAnswer === option.value
-                  ? 'text-[var(--color-charcoal)] font-medium'
-                  : 'text-[var(--color-secondary)]'
-              }`}
-            >
-              {option.label}
-            </span>
-            <span className="ml-auto text-sm text-[var(--color-slate)]">
-              {option.value}
-            </span>
-          </label>
-        ))}
+              <input
+                type="radio"
+                name={`question-${question.id}`}
+                value={option.value}
+                checked={selected}
+                onChange={() => onAnswer(option.value as LikertValue)}
+                className="sr-only"
+                aria-label={option.label}
+              />
+              <span
+                className="font-display font-semibold"
+                style={{
+                  fontSize: 21,
+                  color: selected ? 'var(--color-primary)' : 'var(--color-ink)',
+                }}
+              >
+                {option.value}
+              </span>
+              <span
+                className="leading-tight"
+                style={{
+                  fontSize: 11.5,
+                  color: selected ? 'var(--color-ink)' : 'var(--color-faint)',
+                }}
+              >
+                {option.label}
+              </span>
+            </label>
+          );
+        })}
       </div>
     </div>
   );

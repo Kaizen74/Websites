@@ -64,6 +64,7 @@ export interface ChangeLever {
 export interface QuadrantDetail {
   id: Quadrant;
   title: string;
+  summary?: string;
   items: string[];
   color: string;
 }

@@ -48,7 +48,7 @@ describe('Results Dashboard', () => {
 
   test('Priority areas are shown for low scores', () => {
     render(<ResultsDashboard results={mockResults} onReset={mockOnReset} />);
-    expect(screen.getByText(/Priority Areas for Improvement/i)).toBeTruthy();
+    expect(screen.getByText(/Where to focus first/i)).toBeTruthy();
   });
 
   test('Next steps section is present', () => {

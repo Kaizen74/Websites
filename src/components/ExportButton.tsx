@@ -1,4 +1,3 @@
-import { Download, FileJson } from 'lucide-react';
 import type { DiagnosticResults } from '../types';
 
 interface ExportButtonProps {
@@ -33,11 +32,14 @@ export function ExportButton({ results }: ExportButtonProps) {
   return (
     <button
       onClick={handleExport}
-      className="flex items-center gap-2 px-4 py-2 bg-white border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors text-[var(--color-secondary)]"
+      className="text-sm font-medium px-5 py-2.5 transition-colors"
+      style={{
+        border: '1px solid var(--color-ink)',
+        borderRadius: 2,
+        color: 'var(--color-ink)',
+      }}
     >
-      <Download className="w-4 h-4" />
-      <span>Export</span>
-      <FileJson className="w-4 h-4" />
+      Export JSON
     </button>
   );
 }

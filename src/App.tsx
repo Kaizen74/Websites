@@ -7,7 +7,7 @@ import { ChangeLevers } from './components/ChangeLevers';
 import { DiagnosticSurvey } from './components/DiagnosticSurvey';
 import { ResultsDashboard } from './components/ResultsDashboard';
 import type { DiagnosticResults } from './types';
-import { STORAGE_KEYS } from './constants';
+import { STORAGE_KEYS, SECTION_IDS } from './constants';
 import { mapToActivators } from './utils/scoring';
 import './index.css';
 
@@ -54,6 +54,19 @@ function App() {
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, [results]);
 
+  // When returning home with a section hash from another view, scroll after
+  // mount with a fixed-header offset (scrollIntoView would hide the heading)
+  useEffect(() => {
+    if (currentView !== 'home') return;
+    const hash = window.location.hash;
+    if (!hash || hash === `#${SECTION_IDS.hero}`) return;
+    const target = document.querySelector(hash);
+    if (target) {
+      const top = target.getBoundingClientRect().top + window.scrollY - 72;
+      window.scrollTo({ top, behavior: 'auto' });
+    }
+  }, [currentView]);
+
   const handleSurveyComplete = (newResults: DiagnosticResults) => {
     setResults(newResults);
     setPriorityActivators(mapToActivators(newResults.dimensionScores));
@@ -83,7 +96,7 @@ function App() {
   // Render based on current view
   if (currentView === 'results' && results) {
     return (
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen" style={{ background: 'var(--color-paper)' }}>
         <Header />
         <main className="pt-16">
           <ResultsDashboard results={results} onReset={handleReset} />
@@ -94,7 +107,7 @@ function App() {
 
   if (currentView === 'survey') {
     return (
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen" style={{ background: 'var(--color-paper)' }}>
         <Header />
         <main className="pt-16">
           <DiagnosticSurvey onComplete={handleSurveyComplete} />
@@ -113,57 +126,69 @@ function App() {
         <ActivatorsSection priorityActivators={priorityActivators} />
         <ChangeLevers />
 
-        {/* CTA Section */}
-        <section className="py-20 bg-gradient-to-br from-[var(--color-charcoal)] to-[var(--color-secondary)]">
+        {/* CTA Section — solid ink band */}
+        <section className="py-24" style={{ background: 'var(--color-ink)' }}>
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl sm:text-4xl font-display font-bold text-white mb-6">
-              Ready to Assess Your Organization?
-            </h2>
-            <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-              Take the 18-question diagnostic to understand your organizational health
-              and receive personalized recommendations for improvement.
+            <p className="eyebrow mb-4" style={{ color: 'var(--color-red-on-dark)' }}>
+              04 · The diagnostic
             </p>
-            <button
-              onClick={handleStartDiagnostic}
-              className="btn btn-primary text-lg px-8 py-4"
+            <h2
+              className="font-display font-bold text-white mb-5"
+              style={{ fontSize: 'clamp(30px, 4vw, 40px)', lineHeight: 1.15 }}
             >
-              Start Diagnostic
+              Ready to assess your organization?
+            </h2>
+            <p
+              className="text-[16px] leading-relaxed mb-9 mx-auto"
+              style={{ color: 'rgba(255,255,255,.72)', maxWidth: 560 }}
+            >
+              Eighteen questions across five dimensions — a baseline read of
+              organizational health and where design work will pay back fastest.
+            </p>
+            <button onClick={handleStartDiagnostic} className="btn btn-primary text-lg px-8 py-4">
+              Start the diagnostic
             </button>
             {results && (
-              <div className="mt-4">
-                <p className="text-gray-400 text-sm">
-                  You have previous results.{' '}
-                  <button
-                    onClick={() => {
-                      setCurrentView('results');
-                      window.location.hash = '#results';
-                    }}
-                    className="text-white underline hover:no-underline"
-                  >
-                    View Results
-                  </button>
-                  {' | '}
-                  <button
-                    onClick={handleReset}
-                    className="text-gray-300 underline hover:no-underline"
-                  >
-                    Reset & Start Fresh
-                  </button>
-                </p>
-              </div>
+              <p className="mt-6 text-sm" style={{ color: 'rgba(255,255,255,.55)' }}>
+                You have saved results.{' '}
+                <button
+                  onClick={() => {
+                    setCurrentView('results');
+                    window.location.hash = '#results';
+                  }}
+                  className="underline hover:no-underline"
+                  style={{ color: 'var(--color-red-on-dark)' }}
+                >
+                  View results
+                </button>
+                {' · '}
+                <button
+                  onClick={handleReset}
+                  className="underline hover:no-underline"
+                  style={{ color: 'var(--color-red-on-dark)' }}
+                >
+                  Reset & start fresh
+                </button>
+              </p>
             )}
           </div>
         </section>
 
-        {/* Footer */}
-        <footer className="bg-[var(--color-charcoal)] text-gray-400 py-8">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <p className="text-sm">
-              OrgDesign Playbook - A framework for organizational transformation
-            </p>
-            <p className="text-xs mt-2">
-              Based on the Kates-Kesler framework for organizational design
-            </p>
+        {/* Footer — hairline on paper */}
+        <footer
+          className="py-10"
+          style={{
+            background: 'var(--color-paper)',
+            borderTop: '1px solid var(--color-hairline)',
+          }}
+        >
+          <div className="max-w-[1140px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3">
+            <span className="font-display font-bold text-[var(--color-ink)]">
+              OrgDesign Playbook
+            </span>
+            <span className="text-sm text-[var(--color-faint)]">
+              Built on the Kates-Kesler activation framework
+            </span>
           </div>
         </footer>
       </main>
