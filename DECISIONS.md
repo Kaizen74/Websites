@@ -4,6 +4,11 @@ One line of reasoning per decision, newest first.
 
 | Date | Decision | Why |
 |---|---|---|
+| 2026-07-08 | Results now prescribe one targeted intervention (+ timeframe) per weak dimension | change-readiness-rubric: "a readiness score without an intervention plan is half a deliverable"; content adapted from its intervention map |
+| 2026-07-08 | Leadership-sequences-first note when leadership is among the weakest dimensions | Intervention-map sequencing rule #1; consistent with Prosci's sponsorship-is-#1 finding |
+| 2026-07-08 | Deep link results → framework via one-shot sessionStorage key + hash nav | Survives the view remount without new routing machinery; falls back gracefully to the default quadrant |
+| 2026-07-08 | "Save as PDF" = print stylesheet + window.print(), not a PDF library | Zero dependencies; browsers' print-to-PDF is universal, and consultants get a clean one-pager |
+| 2026-07-08 | Added prefers-reduced-motion overrides | Accessibility: animation/auto-scroll suppressed for users who request it |
 | 2026-07-08 | Replaced the SATS concentric-ring SVG diagram with four quarter-discs + side panel | The `orgdesign-visual-design` skill (authored after the ring iterations — it references the current "Culture values" pill) explicitly prescribes the simpler, crisper build; labels stay legible at every size |
 | 2026-07-08 | Removed `recharts`; dimension chart is plain divs | Only one consumer; drops 350 KB from the bundle and kills the container-size test warnings |
 | 2026-07-08 | Survey auto-advances 280 ms after an answer (guarded), except the last question | Fewer clicks per question; guard prevents double-advance when the user clicks Next first |

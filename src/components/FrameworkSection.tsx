@@ -2,15 +2,31 @@ import { useState } from 'react';
 import { FrameworkDiagram } from './FrameworkDiagram';
 import { QuadrantDetail } from './QuadrantDetail';
 import type { Quadrant, DimensionScores } from '../types';
-import { SECTION_IDS } from '../constants';
+import { SECTION_IDS, STORAGE_KEYS } from '../constants';
 
 interface FrameworkSectionProps {
   scores?: Partial<DimensionScores>;
 }
 
+const QUADRANTS: Quadrant[] = ['structure', 'people', 'process', 'mindset'];
+
+/** One-shot handoff from the results page's "View playbook modules" links */
+function consumeFocusQuadrant(): Quadrant {
+  try {
+    const stored = sessionStorage.getItem(STORAGE_KEYS.focusQuadrant);
+    if (stored && (QUADRANTS as string[]).includes(stored)) {
+      sessionStorage.removeItem(STORAGE_KEYS.focusQuadrant);
+      return stored as Quadrant;
+    }
+  } catch {
+    // sessionStorage unavailable — fall through to default
+  }
+  return 'structure';
+}
+
 export function FrameworkSection({ scores }: FrameworkSectionProps) {
   // Side panel always shows content; clicking a quadrant swaps it
-  const [activeQuadrant, setActiveQuadrant] = useState<Quadrant>('structure');
+  const [activeQuadrant, setActiveQuadrant] = useState<Quadrant>(consumeFocusQuadrant);
 
   const handleQuadrantClick = (quadrant: Quadrant) => {
     setActiveQuadrant(quadrant);

@@ -60,11 +60,12 @@ export const LIKERT_OPTIONS = [
   { value: 5, label: 'Strongly Agree' },
 ] as const;
 
-// LocalStorage keys
+// LocalStorage keys (focusQuadrant uses sessionStorage — one-shot handoff)
 export const STORAGE_KEYS = {
   responses: 'diagnostic_responses',
   progress: 'diagnostic_progress',
   results: 'diagnostic_results',
+  focusQuadrant: 'playbook_focus_quadrant',
 };
 
 // Section IDs for navigation

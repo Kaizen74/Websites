@@ -28,9 +28,11 @@ Testing Library. No charting library (plain-div bars). Deploys as a static
 - **Results:** giant score + status pill + readiness interpretation
   (bands: ≥80 build on strength · 65–79 conditionally ready · 50–64
   readiness sprint · <50 foundations first), plain-div dimension bars with
-  legend, "Where to focus first" (two lowest dimensions), recommended
-  activators, three next steps.
-- **Tests:** 47 passing across 7 suites. **Build:** clean, no warnings.
+  legend, "Where to focus first" intervention plan (targeted intervention +
+  timeframe for the two lowest dimensions, leadership-sequences-first rule,
+  deep links to the matching playbook modules), recommended activators,
+  three next steps, "Save as PDF" print one-pager.
+- **Tests:** 53 passing across 8 suites. **Build:** clean, no warnings.
 
 ## How to resume
 
@@ -61,8 +63,7 @@ working increment.
 
 ## Next (open)
 
-- Optional: per-dimension intervention deep-links from results to the
-  matching playbook modules.
 - Optional: shareable results link (URL-encoded scores) for client
   conversations.
-- Optional: print stylesheet so results export as a clean PDF one-pager.
+- Optional: multi-respondent mode — aggregate several people's diagnostics
+  into one team view.

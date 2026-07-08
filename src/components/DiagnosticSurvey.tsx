@@ -102,7 +102,8 @@ export function DiagnosticSurvey({ onComplete }: DiagnosticSurveyProps) {
             Organizational health diagnostic
           </h2>
           <p className="text-[15px] text-[var(--color-secondary)]">
-            Answer each statement honestly for an accurate read of your organization.
+            Answer each statement honestly for an accurate read of your
+            organization. Takes about five minutes.
           </p>
         </div>
 

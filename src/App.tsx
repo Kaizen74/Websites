@@ -142,8 +142,9 @@ function App() {
               className="text-[16px] leading-relaxed mb-9 mx-auto"
               style={{ color: 'rgba(255,255,255,.72)', maxWidth: 560 }}
             >
-              Eighteen questions across five dimensions — a baseline read of
-              organizational health and where design work will pay back fastest.
+              Eighteen questions across five dimensions, in about five minutes —
+              a baseline read of organizational health, where to focus first,
+              and a targeted intervention for each weak spot.
             </p>
             <button onClick={handleStartDiagnostic} className="btn btn-primary text-lg px-8 py-4">
               Start the diagnostic

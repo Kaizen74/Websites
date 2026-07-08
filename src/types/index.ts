@@ -94,6 +94,13 @@ export interface TCCARItem {
   dysfunctionSigns: string[];
 }
 
+// Targeted intervention prescribed for a weak dimension
+export interface DimensionIntervention {
+  title: string;
+  description: string;
+  timeframe: string;
+}
+
 // Playbook Module interface
 export interface PlaybookModule {
   id: string;

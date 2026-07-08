@@ -166,3 +166,26 @@ section[id] { scroll-margin-top: 72px; }
   border-color: var(--color-primary);
   background-color: var(--color-red-tint);
 }
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Print: results page as a clean one-pager */
+@media print {
+  header, .no-print { display: none !important; }
+  body { background: #fff; }
+  section { padding: 8px 0 !important; min-height: 0 !important; }
+  main { padding-top: 0 !important; }
+  .card { break-inside: avoid; }
+  * {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+}

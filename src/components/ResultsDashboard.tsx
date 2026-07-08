@@ -2,9 +2,20 @@ import { FrameworkDiagram } from './FrameworkDiagram';
 import { DimensionChart } from './DimensionChart';
 import { ExportButton } from './ExportButton';
 import { activators } from '../data/activators';
-import type { DiagnosticResults } from '../types';
-import { SECTION_IDS, DIMENSION_LABELS } from '../constants';
+import { dimensionInterventions } from '../data/interventions';
+import type { DiagnosticResults, Dimension, Quadrant } from '../types';
+import { SECTION_IDS, DIMENSION_LABELS, STORAGE_KEYS } from '../constants';
 import { getScoreLabel, getScoreColor, mapToActivators } from '../utils/scoring';
+
+const QUADRANT_DIMENSIONS: Quadrant[] = ['structure', 'people', 'process', 'mindset'];
+
+function rememberFocusQuadrant(dimension: Dimension) {
+  try {
+    sessionStorage.setItem(STORAGE_KEYS.focusQuadrant, dimension);
+  } catch {
+    // sessionStorage unavailable — deep link still lands on the framework section
+  }
+}
 
 interface ResultsDashboardProps {
   results: DiagnosticResults;
@@ -55,7 +66,7 @@ export function ResultsDashboard({ results, onReset }: ResultsDashboardProps) {
     >
       <div className="max-w-[1140px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Top bar */}
-        <div className="flex flex-wrap items-center justify-between gap-4 mb-12">
+        <div className="no-print flex flex-wrap items-center justify-between gap-4 mb-12">
           <a
             href={`#${SECTION_IDS.hero}`}
             className="text-sm font-medium text-[var(--color-secondary)] hover:text-[var(--color-primary)]"
@@ -64,6 +75,13 @@ export function ResultsDashboard({ results, onReset }: ResultsDashboardProps) {
           </a>
           <div className="flex items-center gap-3">
             <ExportButton results={results} />
+            <button
+              onClick={() => window.print()}
+              className="text-sm font-medium px-5 py-2.5 text-[var(--color-secondary)] hover:text-[var(--color-ink)]"
+              style={{ border: '1px solid var(--color-hairline)', borderRadius: 2 }}
+            >
+              Save as PDF
+            </button>
             <button
               onClick={onReset}
               className="text-sm font-medium px-5 py-2.5 text-[var(--color-secondary)] hover:text-[var(--color-ink)]"
@@ -135,7 +153,7 @@ export function ResultsDashboard({ results, onReset }: ResultsDashboardProps) {
           </div>
         </div>
 
-        {/* Where to focus first */}
+        {/* Where to focus first — intervention plan for the weakest dimensions */}
         {sortedDimensions.length > 0 && sortedDimensions[0][1] < 70 && (
           <div className="card p-8 mb-12">
             <p
@@ -144,20 +162,70 @@ export function ResultsDashboard({ results, onReset }: ResultsDashboardProps) {
             >
               Where to focus first
             </p>
-            <p className="text-[15px] text-[var(--color-secondary)] mb-4">
-              Your two lowest-scoring dimensions. Targeted beats comprehensive —
-              never run more than two interventions at once in the same population.
+            <p className="text-[15px] text-[var(--color-secondary)] mb-2" style={{ maxWidth: 640 }}>
+              A targeted intervention for each of your two lowest-scoring
+              dimensions. Targeted beats comprehensive — never run more than two
+              interventions at once in the same population.
             </p>
-            <div className="flex flex-wrap gap-2">
-              {sortedDimensions.map(([dimension, score]) => (
-                <span
-                  key={dimension}
-                  className="text-[13px] font-medium text-[var(--color-ink)] px-3 py-1.5 rounded-full bg-white"
-                  style={{ border: '1px solid var(--color-hairline)' }}
-                >
-                  {DIMENSION_LABELS[dimension as keyof typeof DIMENSION_LABELS]} · {score}%
-                </span>
-              ))}
+            {sortedDimensions.some(([dimension]) => dimension === 'leadership') && (
+              <p className="text-[13px] font-medium text-[var(--color-primary)] mb-2">
+                Leadership is among your weakest dimensions — sequence the
+                alignment work first; other interventions fail without it.
+              </p>
+            )}
+
+            <div className="mt-4">
+              {sortedDimensions.map(([dimension, score], i) => {
+                const intervention = dimensionInterventions[dimension as Dimension];
+                const isQuadrant = QUADRANT_DIMENSIONS.includes(dimension as Quadrant);
+                return (
+                  <div
+                    key={dimension}
+                    className="py-5 grid sm:grid-cols-[220px_1fr] gap-2 sm:gap-8"
+                    style={{
+                      borderTop: i === 0 ? '1px solid var(--color-hairline)' : undefined,
+                      borderBottom: '1px solid var(--color-hairline)',
+                    }}
+                  >
+                    <div>
+                      <p className="text-sm font-semibold text-[var(--color-ink)]">
+                        {DIMENSION_LABELS[dimension as keyof typeof DIMENSION_LABELS]}
+                      </p>
+                      <p
+                        className="text-sm font-bold mt-0.5"
+                        style={{ color: statusColor[getScoreColor(score)] }}
+                      >
+                        {score}%
+                      </p>
+                    </div>
+                    <div>
+                      <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                        <h4 className="font-display font-semibold text-[18px] text-[var(--color-ink)]">
+                          {intervention.title}
+                        </h4>
+                        <span
+                          className="text-[11px] uppercase font-semibold text-[var(--color-faint)]"
+                          style={{ letterSpacing: '.1em' }}
+                        >
+                          {intervention.timeframe}
+                        </span>
+                      </div>
+                      <p className="text-sm leading-relaxed text-[var(--color-secondary)] mt-1.5">
+                        {intervention.description}
+                      </p>
+                      {isQuadrant && (
+                        <a
+                          href={`#${SECTION_IDS.framework}`}
+                          onClick={() => rememberFocusQuadrant(dimension as Dimension)}
+                          className="no-print inline-block text-sm font-medium text-[var(--color-primary)] hover:text-[var(--color-primary-dark)] mt-2"
+                        >
+                          View playbook modules →
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
         )}
