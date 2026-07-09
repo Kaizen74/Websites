@@ -1,4 +1,4 @@
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import { render, screen, fireEvent, waitFor, within } from '@testing-library/react';
 import { FrameworkDiagram } from '../components/FrameworkDiagram';
 import { FrameworkSection } from '../components/FrameworkSection';
 
@@ -34,6 +34,8 @@ describe('Framework Diagram', () => {
 
   test('Quadrant click expands detail panel', async () => {
     render(<FrameworkSection />);
+    // Default is the overview; clicking a quadrant swaps in its detail panel
+    expect(screen.queryByTestId('quadrant-detail-panel')).toBeNull();
     fireEvent.click(screen.getByTestId('quadrant-structure'));
     await waitFor(() => {
       expect(screen.getByTestId('quadrant-detail-panel')).toBeTruthy();
@@ -71,10 +73,38 @@ describe('FrameworkSection (homepage — educational, never scored)', () => {
     expect(container.textContent).not.toMatch(/\d+%/);
   });
 
-  test('side panel shows the quadrant title without a score badge', () => {
+  test('shows the overview narrative by default, before any quadrant is clicked', () => {
     render(<FrameworkSection />);
+    expect(screen.getByTestId('framework-overview')).toBeTruthy();
+    expect(screen.getByText(/One integrated system, not four separate fixes/i)).toBeTruthy();
+    expect(screen.queryByTestId('quadrant-detail-panel')).toBeNull();
+  });
+
+  test('clicking a quadrant swaps overview for that quadrant detail (with back link)', async () => {
+    render(<FrameworkSection />);
+    fireEvent.click(screen.getByTestId('quadrant-process'));
+    await waitFor(() => {
+      expect(screen.getByTestId('quadrant-detail-panel')).toBeTruthy();
+    });
+    expect(screen.queryByTestId('framework-overview')).toBeNull();
     const panel = screen.getByTestId('quadrant-detail-panel');
-    expect(panel.textContent).toContain('Structure & Accountabilities');
+    expect(panel.textContent).toContain('Process & Systems');
     expect(panel.textContent).not.toMatch(/\d+%/);
+
+    // Back link returns to the overview
+    fireEvent.click(screen.getByText(/← Framework overview/i));
+    expect(screen.getByTestId('framework-overview')).toBeTruthy();
+  });
+
+  test('overview domain rows deep-link into a quadrant', async () => {
+    render(<FrameworkSection />);
+    const overview = screen.getByTestId('framework-overview');
+    // Click the "People & Skills" domain row inside the overview
+    const peopleRow = within(overview).getByText(/whether you have the capability to deliver/i);
+    fireEvent.click(peopleRow);
+    await waitFor(() => {
+      expect(screen.getByTestId('quadrant-detail-panel')).toBeTruthy();
+    });
+    expect(screen.getByTestId('quadrant-detail-panel').textContent).toContain('People & Skills');
   });
 });

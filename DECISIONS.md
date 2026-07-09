@@ -4,6 +4,8 @@ One line of reasoning per decision, newest first.
 
 | Date | Decision | Why |
 |---|---|---|
+| 2026-07-09 | Framework panel defaults to an overarching narrative (FrameworkOverview), not a quadrant | A blank-until-you-click panel buried the framework's core idea; the overview teaches the IOMA integrated-activation model (four interdependent domains, leadership core, culture-values ring, activated together) before drill-down |
+| 2026-07-09 | Quadrant labels re-centered in the fat readable band of each pie slice (43/57% × 40/60%) with a subtle text-shadow | Corner-anchored labels drifted into the narrow point near the Leadership circle and clipped; the quarter-disc mass fans out from center, so the outer-middle is the only reliably readable zone |
 | 2026-07-09 | Homepage FrameworkSection no longer accepts/shows diagnostic scores | It is an educational explainer; stale localStorage results were painting score badges onto the quadrants and side-panel title, conflating "explore the model" with "your results." Scores live only on the results dashboard's own diagram |
 | 2026-07-09 | Cohort mode stores up to 20 named responses in localStorage (no backend) | Stays a static, zero-infrastructure app; a facilitator passes one device/browser around, which fits the workshop use case |
 | 2026-07-09 | Replaced the no-op localStorage mock in tests with a real in-memory Storage | The jest.fn() stub silently hid every persistence bug — round-trips were never actually tested; found while testing cohort saves |

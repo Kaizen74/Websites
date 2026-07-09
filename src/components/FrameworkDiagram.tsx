@@ -10,43 +10,41 @@ interface QuadrantSpec {
   lines: [string, string];
   /** border-radius that rounds the OUTER corner into a quarter disc */
   radius: string;
-  /** label placement toward the outer corner */
-  labelPosition: React.CSSProperties;
-  textAlign: 'left' | 'right';
+  /** center point of the label, in the fat readable band of the pie slice */
+  labelCenter: { left: string; top: string };
   color: string;
 }
 
+// Each quarter-disc fans out from the diagram center; the readable band is
+// the outer-middle of the slice. Labels are centered there (translate -50%)
+// so they clear both the Leadership circle and the rounded outer corner.
 const quadrantSpecs: QuadrantSpec[] = [
   {
     id: 'structure',
     lines: ['Structure &', 'Accountabilities'],
     radius: '100% 0 0 0',
-    labelPosition: { top: '26%', left: '15%' },
-    textAlign: 'left',
+    labelCenter: { left: '43%', top: '40%' },
     color: 'var(--quad-structure)',
   },
   {
     id: 'people',
     lines: ['People &', 'Skills'],
     radius: '0 100% 0 0',
-    labelPosition: { top: '26%', right: '15%' },
-    textAlign: 'right',
+    labelCenter: { left: '57%', top: '40%' },
     color: 'var(--quad-people)',
   },
   {
     id: 'mindset',
     lines: ['Mindset &', 'Behaviors'],
     radius: '0 0 0 100%',
-    labelPosition: { bottom: '26%', left: '15%' },
-    textAlign: 'left',
+    labelCenter: { left: '43%', top: '60%' },
     color: 'var(--quad-mindset)',
   },
   {
     id: 'process',
     lines: ['Process &', 'Systems'],
     radius: '0 0 100% 0',
-    labelPosition: { bottom: '26%', right: '15%' },
-    textAlign: 'right',
+    labelCenter: { left: '57%', top: '60%' },
     color: 'var(--quad-process)',
   },
 ];
@@ -124,12 +122,17 @@ export function FrameworkDiagram({
                 }}
               >
                 <div
-                  className="absolute pointer-events-none"
-                  style={{ ...spec.labelPosition, textAlign: spec.textAlign }}
+                  className="absolute pointer-events-none text-center"
+                  style={{
+                    left: spec.labelCenter.left,
+                    top: spec.labelCenter.top,
+                    transform: 'translate(-50%, -50%)',
+                    width: '46%',
+                  }}
                 >
                   <span
                     className="block text-white font-semibold"
-                    style={{ fontSize: 13, lineHeight: 1.35 }}
+                    style={{ fontSize: 12.5, lineHeight: 1.3, textShadow: '0 1px 2px rgba(0,0,0,.22)' }}
                   >
                     {spec.lines[0]}
                     <br />
@@ -137,7 +140,7 @@ export function FrameworkDiagram({
                   </span>
                   {score !== undefined && (
                     <span
-                      className={`inline-block mt-2 px-2.5 py-0.5 rounded-full bg-white text-xs font-bold ${
+                      className={`inline-block mt-1.5 px-2.5 py-0.5 rounded-full bg-white text-xs font-bold ${
                         scoreTextClass[getScoreColor(score)]
                       }`}
                     >
