@@ -94,6 +94,20 @@ export interface TCCARItem {
   dysfunctionSigns: string[];
 }
 
+// One respondent's saved diagnostic within a cohort
+export interface CohortMember {
+  id: string;
+  name: string;
+  results: DiagnosticResults;
+}
+
+// Aggregate statistics for one dimension across a cohort
+export interface DimensionStats {
+  average: number;
+  min: number;
+  max: number;
+}
+
 // Targeted intervention prescribed for a weak dimension
 export interface DimensionIntervention {
   title: string;

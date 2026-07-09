@@ -1,10 +1,16 @@
+import { useState } from 'react';
 import { FrameworkDiagram } from './FrameworkDiagram';
 import { DimensionChart } from './DimensionChart';
 import { ExportButton } from './ExportButton';
 import { activators } from '../data/activators';
 import { dimensionInterventions } from '../data/interventions';
 import type { DiagnosticResults, Dimension, Quadrant } from '../types';
-import { SECTION_IDS, DIMENSION_LABELS, STORAGE_KEYS } from '../constants';
+import {
+  SECTION_IDS,
+  DIMENSION_LABELS,
+  STORAGE_KEYS,
+  MAX_COHORT_SIZE,
+} from '../constants';
 import { getScoreLabel, getScoreColor, mapToActivators } from '../utils/scoring';
 
 const QUADRANT_DIMENSIONS: Quadrant[] = ['structure', 'people', 'process', 'mindset'];
@@ -20,6 +26,11 @@ function rememberFocusQuadrant(dimension: Dimension) {
 interface ResultsDashboardProps {
   results: DiagnosticResults;
   onReset: () => void;
+  /** Cohort mode (optional): current cohort size and save/navigate handlers */
+  cohortSize?: number;
+  onSaveToCohort?: (name: string) => { ok: boolean; reason?: 'full' | 'empty-name' };
+  onViewCohort?: () => void;
+  onNextRespondent?: () => void;
 }
 
 const statusColor = {
@@ -45,7 +56,36 @@ function interpretation(overall: number, weakestLabel: string): string {
   return `Foundations first — fix the fundamentals, starting with ${weakestLabel}, and re-measure in 8–12 weeks before any large-scale launch.`;
 }
 
-export function ResultsDashboard({ results, onReset }: ResultsDashboardProps) {
+export function ResultsDashboard({
+  results,
+  onReset,
+  cohortSize,
+  onSaveToCohort,
+  onViewCohort,
+  onNextRespondent,
+}: ResultsDashboardProps) {
+  const [respondentName, setRespondentName] = useState('');
+  const [cohortMessage, setCohortMessage] = useState<
+    { kind: 'saved'; name: string } | { kind: 'error'; text: string } | null
+  >(null);
+
+  const handleSaveToCohort = () => {
+    if (!onSaveToCohort) return;
+    const outcome = onSaveToCohort(respondentName);
+    if (outcome.ok) {
+      setCohortMessage({ kind: 'saved', name: respondentName.trim() });
+      setRespondentName('');
+    } else {
+      setCohortMessage({
+        kind: 'error',
+        text:
+          outcome.reason === 'full'
+            ? `The cohort is full (${MAX_COHORT_SIZE} respondents). Remove a response from the cohort dashboard to add another.`
+            : 'Enter a name or label for this respondent first.',
+      });
+    }
+  };
+
   const { dimensionScores, overallScore } = results;
   const priorityActivators = mapToActivators(dimensionScores);
   const overallLabel = getScoreLabel(overallScore);
@@ -136,6 +176,81 @@ export function ResultsDashboard({ results, onReset }: ResultsDashboardProps) {
           </div>
         </div>
 
+        {/* Save to cohort */}
+        {onSaveToCohort && (
+          <div className="card no-print p-6 sm:p-8 mb-8">
+            <div className="flex flex-wrap items-baseline justify-between gap-2 mb-2">
+              <p
+                className="text-[11px] uppercase font-semibold text-[var(--color-faint)]"
+                style={{ letterSpacing: '.16em' }}
+              >
+                Cohort mode
+              </p>
+              {cohortSize !== undefined && cohortSize > 0 && (
+                <span className="text-[13px] text-[var(--color-faint)]">
+                  {cohortSize} of {MAX_COHORT_SIZE} responses saved
+                </span>
+              )}
+            </div>
+            <p className="text-[15px] text-[var(--color-secondary)] mb-4" style={{ maxWidth: 640 }}>
+              Running this diagnostic with a team? Save this response under a name
+              or label, hand the survey to the next person, and compare everyone
+              on the cohort dashboard.
+            </p>
+            <div className="flex flex-wrap items-center gap-3">
+              <input
+                type="text"
+                value={respondentName}
+                onChange={(e) => setRespondentName(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter') handleSaveToCohort();
+                }}
+                placeholder="Respondent name or label"
+                aria-label="Respondent name or label"
+                className="text-sm px-4 py-2.5 bg-white"
+                style={{ border: '1px solid var(--color-hairline)', borderRadius: 2, minWidth: 220 }}
+              />
+              <button
+                onClick={handleSaveToCohort}
+                className="btn btn-primary text-sm"
+                style={{ padding: '10px 20px' }}
+              >
+                Save to cohort
+              </button>
+              {cohortSize !== undefined && cohortSize > 0 && onViewCohort && (
+                <button
+                  onClick={onViewCohort}
+                  className="text-sm font-medium text-[var(--color-primary)] hover:text-[var(--color-primary-dark)]"
+                >
+                  View cohort dashboard →
+                </button>
+              )}
+            </div>
+            {cohortMessage?.kind === 'saved' && (
+              <p className="text-sm mt-3" style={{ color: 'var(--color-score-green)' }}>
+                Saved “{cohortMessage.name}” to the cohort.
+                {onNextRespondent && (
+                  <>
+                    {' '}
+                    <button
+                      onClick={onNextRespondent}
+                      className="font-medium underline underline-offset-2 hover:no-underline"
+                      style={{ color: 'var(--color-primary)' }}
+                    >
+                      Start next respondent →
+                    </button>
+                  </>
+                )}
+              </p>
+            )}
+            {cohortMessage?.kind === 'error' && (
+              <p className="text-sm mt-3" style={{ color: 'var(--color-score-red)' }}>
+                {cohortMessage.text}
+              </p>
+            )}
+          </div>
+        )}
+
         {/* Diagram + dimension bars */}
         <div className="grid lg:grid-cols-2 gap-8 mb-8">
           <div className="card p-8">
@@ -167,7 +282,8 @@ export function ResultsDashboard({ results, onReset }: ResultsDashboardProps) {
               dimensions. Targeted beats comprehensive — never run more than two
               interventions at once in the same population.
             </p>
-            {sortedDimensions.some(([dimension]) => dimension === 'leadership') && (
+            {(sortedDimensions.some(([dimension]) => dimension === 'leadership') ||
+              dimensionScores.leadership < 50) && (
               <p className="text-[13px] font-medium text-[var(--color-primary)] mb-2">
                 Leadership is among your weakest dimensions — sequence the
                 alignment work first; other interventions fail without it.
@@ -237,8 +353,8 @@ export function ResultsDashboard({ results, onReset }: ResultsDashboardProps) {
               Recommended activators
             </h3>
             <p className="text-[15px] text-[var(--color-secondary)] mb-6" style={{ maxWidth: 640 }}>
-              Based on your lowest dimensions, these Kates-Kesler activators are
-              where design work will pay back fastest.
+              Based on your lowest dimensions, these activators are where design
+              work will pay back fastest.
             </p>
             <div className="grid md:grid-cols-2 gap-5">
               {activators

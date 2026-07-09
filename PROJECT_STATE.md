@@ -29,10 +29,20 @@ Testing Library. No charting library (plain-div bars). Deploys as a static
   (bands: ≥80 build on strength · 65–79 conditionally ready · 50–64
   readiness sprint · <50 foundations first), plain-div dimension bars with
   legend, "Where to focus first" intervention plan (targeted intervention +
-  timeframe for the two lowest dimensions, leadership-sequences-first rule,
-  deep links to the matching playbook modules), recommended activators,
-  three next steps, "Save as PDF" print one-pager.
-- **Tests:** 53 passing across 8 suites. **Build:** clean, no warnings.
+  timeframe for the two lowest dimensions, leadership-sequences-first rule
+  that also fires whenever leadership < 50, deep links to the matching
+  playbook modules), recommended activators, three next steps, "Save as
+  PDF" print one-pager.
+- **Cohort mode:** up to 20 respondents. Each result can be saved under a
+  name ("Save to cohort" on results), the survey resets for the next
+  person, and the cohort dashboard (#cohort) compares everyone: cohort
+  average + overall range, per-dimension averages with min–max, a
+  respondent × dimension heatmap table, a widest-divergence insight,
+  cohort-level focus interventions, remove/clear members, JSON export and
+  print. Stored in localStorage under `cohort_results`.
+- **Tests:** 72 passing across 10 suites (unit, integration, App smoke),
+  plus a Playwright browser E2E script covering the full two-respondent
+  cohort journey. **Build:** clean, no warnings.
 
 ## How to resume
 

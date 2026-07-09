@@ -1,18 +1,29 @@
 import '@testing-library/jest-dom';
 
-// Mock localStorage
-const localStorageMock = {
-  getItem: jest.fn(),
-  setItem: jest.fn(),
-  removeItem: jest.fn(),
-  clear: jest.fn(),
-  length: 0,
-  key: jest.fn(),
-};
+// Real in-memory Storage implementation so persistence round-trips are
+// genuinely exercised in tests (a no-op mock would hide data-layer bugs).
+function createMemoryStorage(): Storage {
+  let store: Record<string, string> = {};
+  return {
+    getItem: (key: string) => (key in store ? store[key] : null),
+    setItem: (key: string, value: string) => {
+      store[key] = String(value);
+    },
+    removeItem: (key: string) => {
+      delete store[key];
+    },
+    clear: () => {
+      store = {};
+    },
+    key: (index: number) => Object.keys(store)[index] ?? null,
+    get length() {
+      return Object.keys(store).length;
+    },
+  } as Storage;
+}
 
-Object.defineProperty(window, 'localStorage', {
-  value: localStorageMock,
-});
+Object.defineProperty(window, 'localStorage', { value: createMemoryStorage() });
+Object.defineProperty(window, 'sessionStorage', { value: createMemoryStorage() });
 
 // Mock matchMedia
 Object.defineProperty(window, 'matchMedia', {
@@ -29,8 +40,9 @@ Object.defineProperty(window, 'matchMedia', {
   })),
 });
 
-// Reset mocks before each test
+// Clean state before each test
 beforeEach(() => {
   jest.clearAllMocks();
-  localStorageMock.getItem.mockReturnValue(null);
+  window.localStorage.clear();
+  window.sessionStorage.clear();
 });

@@ -87,8 +87,9 @@ export function DiagnosticSurvey({ onComplete }: DiagnosticSurveyProps) {
           <button
             onClick={resetSurvey}
             className="text-sm font-medium text-[var(--color-faint)] hover:text-[var(--color-primary)]"
+            title="Clear all answers and start from question 1"
           >
-            Start over
+            Reset survey
           </button>
         </div>
 

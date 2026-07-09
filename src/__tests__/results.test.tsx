@@ -68,6 +68,22 @@ describe('Results Dashboard', () => {
     expect(screen.getByText(/Save as PDF/i)).toBeTruthy();
   });
 
+  test('Leadership-first warning fires when leadership < 50, even outside bottom two', () => {
+    const results: DiagnosticResults = {
+      ...mockResults,
+      dimensionScores: {
+        structure: 35,
+        people: 60,
+        process: 30,
+        mindset: 65,
+        leadership: 45,
+      },
+      overallScore: 47,
+    };
+    render(<ResultsDashboard results={results} onReset={mockOnReset} />);
+    expect(screen.getByText(/sequence the alignment work first/i)).toBeTruthy();
+  });
+
   test('Next steps section is present', () => {
     render(<ResultsDashboard results={mockResults} onReset={mockOnReset} />);
     expect(screen.getByText(/Next Steps/i)).toBeTruthy();

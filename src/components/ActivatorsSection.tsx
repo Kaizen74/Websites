@@ -35,9 +35,8 @@ export function ActivatorsSection({ priorityActivators = [] }: ActivatorsSection
             What turns a design into performance
           </h2>
           <p className="text-[17px] leading-[1.65] text-[var(--color-secondary)]" style={{ maxWidth: 640 }}>
-            Based on the Kates-Kesler framework, these five activators bridge
-            organization design and results — the right connections, the right
-            conversations, and the right know-how.
+            These five activators bridge organization design and results — the
+            right connections, the right conversations, and the right know-how.
           </p>
         </div>
 

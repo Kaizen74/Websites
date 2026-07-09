@@ -4,6 +4,11 @@ One line of reasoning per decision, newest first.
 
 | Date | Decision | Why |
 |---|---|---|
+| 2026-07-09 | Cohort mode stores up to 20 named responses in localStorage (no backend) | Stays a static, zero-infrastructure app; a facilitator passes one device/browser around, which fits the workshop use case |
+| 2026-07-09 | Replaced the no-op localStorage mock in tests with a real in-memory Storage | The jest.fn() stub silently hid every persistence bug — round-trips were never actually tested; found while testing cohort saves |
+| 2026-07-09 | Leadership-first warning now also fires whenever leadership < 50 (not only bottom-two) | Browser E2E caught ties slipping past the bottom-two slice; rubric hard-override says weak leadership must always be addressed |
+| 2026-07-09 | Removed Kates-Kesler naming from all visual labels (kept in docs/README only) | User request; UI copy is now framework-neutral |
+| 2026-07-09 | Cohort dashboard shows a "widest divergence" insight (max min–max spread) | Disagreement between respondents is itself diagnostic — surfaces where to have the alignment conversation |
 | 2026-07-08 | Results now prescribe one targeted intervention (+ timeframe) per weak dimension | change-readiness-rubric: "a readiness score without an intervention plan is half a deliverable"; content adapted from its intervention map |
 | 2026-07-08 | Leadership-sequences-first note when leadership is among the weakest dimensions | Intervention-map sequencing rule #1; consistent with Prosci's sponsorship-is-#1 finding |
 | 2026-07-08 | Deep link results → framework via one-shot sessionStorage key + hash nav | Survives the view remount without new routing machinery; falls back gracefully to the default quadrant |
