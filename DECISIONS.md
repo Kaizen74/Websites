@@ -4,6 +4,7 @@ One line of reasoning per decision, newest first.
 
 | Date | Decision | Why |
 |---|---|---|
+| 2026-07-09 | Homepage FrameworkSection no longer accepts/shows diagnostic scores | It is an educational explainer; stale localStorage results were painting score badges onto the quadrants and side-panel title, conflating "explore the model" with "your results." Scores live only on the results dashboard's own diagram |
 | 2026-07-09 | Cohort mode stores up to 20 named responses in localStorage (no backend) | Stays a static, zero-infrastructure app; a facilitator passes one device/browser around, which fits the workshop use case |
 | 2026-07-09 | Replaced the no-op localStorage mock in tests with a real in-memory Storage | The jest.fn() stub silently hid every persistence bug — round-trips were never actually tested; found while testing cohort saves |
 | 2026-07-09 | Leadership-first warning now also fires whenever leadership < 50 (not only bottom-two) | Browser E2E caught ties slipping past the bottom-two slice; rubric hard-override says weak leadership must always be addressed |

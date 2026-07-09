@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import App from '../App';
 import { addCohortMember } from '../utils/cohort';
+import { STORAGE_KEYS, SECTION_IDS } from '../constants';
 import type { DiagnosticResults, DimensionScores, LikertValue } from '../types';
 
 function makeResults(scores: DimensionScores, overall: number): DiagnosticResults {
@@ -40,6 +41,24 @@ describe('App smoke tests', () => {
     // No framework-attribution label anywhere on the page
     expect(screen.queryByText(/Kates/i)).toBeNull();
     expect(screen.queryByText(/Kesler/i)).toBeNull();
+  });
+
+  test('homepage framework stays score-free even with saved results', () => {
+    // Regression for the reported bug: stale diagnostic results in
+    // localStorage were painting score badges onto the homepage framework.
+    localStorage.setItem(
+      STORAGE_KEYS.results,
+      JSON.stringify({
+        dimensionScores: scores,
+        overallScore: 62,
+        responses: { S1: 4 },
+        completedAt: new Date().toISOString(),
+      })
+    );
+    render(<App />);
+    const framework = document.getElementById(SECTION_IDS.framework);
+    expect(framework).not.toBeNull();
+    expect(framework!.textContent).not.toMatch(/\d+%/);
   });
 
   test('#cohort hash without a saved cohort falls back to home', () => {

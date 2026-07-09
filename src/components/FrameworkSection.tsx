@@ -1,12 +1,8 @@
 import { useState } from 'react';
 import { FrameworkDiagram } from './FrameworkDiagram';
 import { QuadrantDetail } from './QuadrantDetail';
-import type { Quadrant, DimensionScores } from '../types';
+import type { Quadrant } from '../types';
 import { SECTION_IDS, STORAGE_KEYS } from '../constants';
-
-interface FrameworkSectionProps {
-  scores?: Partial<DimensionScores>;
-}
 
 const QUADRANTS: Quadrant[] = ['structure', 'people', 'process', 'mindset'];
 
@@ -24,7 +20,9 @@ function consumeFocusQuadrant(): Quadrant {
   return 'structure';
 }
 
-export function FrameworkSection({ scores }: FrameworkSectionProps) {
+export function FrameworkSection() {
+  // The homepage framework is an educational explainer — never scored.
+  // Diagnostic scores live on the results dashboard's own diagram.
   // Side panel always shows content; clicking a quadrant swaps it
   const [activeQuadrant, setActiveQuadrant] = useState<Quadrant>(consumeFocusQuadrant);
 
@@ -59,16 +57,12 @@ export function FrameworkSection({ scores }: FrameworkSectionProps) {
         <div className="grid lg:grid-cols-[460px_1fr] gap-10 lg:gap-14 items-start">
           <div className="lg:sticky" style={{ top: 96 }}>
             <FrameworkDiagram
-              scores={scores}
               onQuadrantClick={handleQuadrantClick}
               activeQuadrant={activeQuadrant}
             />
           </div>
 
-          <QuadrantDetail
-            quadrant={activeQuadrant}
-            score={scores?.[activeQuadrant]}
-          />
+          <QuadrantDetail quadrant={activeQuadrant} />
         </div>
       </div>
     </section>

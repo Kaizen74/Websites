@@ -56,4 +56,25 @@ describe('Framework Diagram', () => {
     render(<FrameworkDiagram />);
     expect(screen.getByTestId('framework-diagram')).toBeTruthy();
   });
+
+  test('FrameworkDiagram renders no score badges when unscored', () => {
+    const { container } = render(<FrameworkDiagram />);
+    expect(container.textContent).not.toMatch(/\d+%/);
+  });
+});
+
+describe('FrameworkSection (homepage — educational, never scored)', () => {
+  test('renders no diagnostic score percentages anywhere', () => {
+    // Regression: stale localStorage results must not paint scores onto the
+    // homepage framework diagram or its side panel.
+    const { container } = render(<FrameworkSection />);
+    expect(container.textContent).not.toMatch(/\d+%/);
+  });
+
+  test('side panel shows the quadrant title without a score badge', () => {
+    render(<FrameworkSection />);
+    const panel = screen.getByTestId('quadrant-detail-panel');
+    expect(panel.textContent).toContain('Structure & Accountabilities');
+    expect(panel.textContent).not.toMatch(/\d+%/);
+  });
 });
