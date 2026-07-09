@@ -66,7 +66,11 @@ export const STORAGE_KEYS = {
   progress: 'diagnostic_progress',
   results: 'diagnostic_results',
   focusQuadrant: 'playbook_focus_quadrant',
+  cohort: 'cohort_results',
 };
+
+// Maximum respondents in a cohort
+export const MAX_COHORT_SIZE = 20;
 
 // Section IDs for navigation
 export const SECTION_IDS = {

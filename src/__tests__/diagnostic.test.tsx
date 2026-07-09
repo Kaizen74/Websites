@@ -56,6 +56,22 @@ describe('Diagnostic Survey', () => {
     });
   });
 
+  test('Reset survey clears answers and returns to question 1', async () => {
+    render(<DiagnosticSurvey />);
+    // Answer question 1 — the survey auto-advances to question 2
+    fireEvent.click(screen.getByLabelText('Neutral'));
+    await waitFor(() => {
+      expect(screen.getByText(/Question 2 of 18/i)).toBeTruthy();
+    });
+
+    fireEvent.click(screen.getByText(/Reset survey/i));
+
+    expect(screen.getByText(/Question 1 of 18/i)).toBeTruthy();
+    screen.getAllByRole('radio').forEach((radio) => {
+      expect((radio as HTMLInputElement).checked).toBe(false);
+    });
+  });
+
   test('Likert scale has 5 options', () => {
     const question = diagnosticQuestions[0];
     render(

@@ -20,10 +20,24 @@ the opening screen:
    five tabs).
 4. **The diagnostic** — 18 statements you rate from 1 (strongly disagree)
    to 5 (strongly agree). It advances automatically after each answer and
-   saves as you go, so you can close the tab and come back. At the end you
-   get a scored snapshot: overall health, a per-dimension breakdown, where
-   to focus first, and which activators to work on. You can download the
-   results as a file ("Export JSON") or retake the diagnostic.
+   saves as you go, so you can close the tab and come back. "Reset survey"
+   (top right) clears all answers and starts from question 1. At the end
+   you get a scored snapshot: overall health, a per-dimension breakdown,
+   where to focus first, and which activators to work on. You can download
+   the results as a file ("Export JSON"), save them as a PDF, or retake
+   the diagnostic.
+
+## Cohort mode (comparing a team's answers)
+
+Running the diagnostic with a group (up to 20 people)? After each person
+finishes, type their name in the "Cohort mode" box on the results page and
+click **Save to cohort**, then **Start next respondent** to hand over a
+fresh survey. Once at least one response is saved, **View cohort
+dashboard** shows the group side by side: the cohort average, each
+dimension's average and range, a colored comparison table of every
+respondent, where opinions diverge most, and what the group should tackle
+first. You can remove individual responses, clear the whole cohort, export
+everything as a file, or save the dashboard as a PDF.
 
 ## How to run it on your computer
 

@@ -17,7 +17,7 @@ const indexRows: IndexRow[] = [
   {
     number: '02',
     title: 'The five activators',
-    description: 'What turns an org design into performance (Kates-Kesler)',
+    description: 'What turns an org design into performance',
     href: `#${SECTION_IDS.activators}`,
   },
   {
