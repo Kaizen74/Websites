@@ -21,9 +21,12 @@ Testing Library. No charting library (plain-div bars). Deploys as a static
   single red accent (`#C41E3A`). Tokens live in `src/index.css`.
 - **Framework diagram:** four quarter-disc quadrants around a white
   Leadership circle, "Culture values" ink pill, hairline outer ring.
-  Clicking a quadrant swaps the side detail panel (no modal). The homepage
-  framework is a score-free educational view; score badges appear only on
-  the results dashboard's own copy of the diagram.
+  Quadrant labels are centered in the readable band of each pie slice.
+  The homepage panel defaults to an overarching narrative (FrameworkOverview,
+  IOMA integrated-activation model); clicking a quadrant — or a domain row
+  in the overview — swaps in that quadrant's detail with a "← Framework
+  overview" back link. The homepage framework is a score-free educational
+  view; score badges appear only on the results dashboard's own diagram.
 - **Diagnostic:** 18 questions across 5 dimensions (structure 3, people 4,
   process 5, mindset 4, leadership 2), Likert 1–5, auto-advances ~280 ms
   after an answer, persists to localStorage, resumable.
@@ -42,10 +45,11 @@ Testing Library. No charting library (plain-div bars). Deploys as a static
   respondent × dimension heatmap table, a widest-divergence insight,
   cohort-level focus interventions, remove/clear members, JSON export and
   print. Stored in localStorage under `cohort_results`.
-- **Tests:** 76 passing across 10 suites (unit, integration, App smoke),
-  plus a Playwright browser E2E script (26 checks) covering the full
-  two-respondent cohort journey and the score-free homepage framework.
-  **Build:** clean, no warnings.
+- **Tests:** 78 passing across 10 suites (unit, integration, App smoke),
+  plus a Playwright browser E2E script (37 checks) covering the framework
+  overview/quadrant switching, readable labels, the full two-respondent
+  cohort journey, and the score-free homepage framework. **Build:** clean,
+  no warnings.
 
 ## How to resume
 

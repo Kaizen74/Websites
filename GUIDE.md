@@ -9,9 +9,11 @@ the opening screen:
 
 1. **The framework** — a circular diagram of the four organizational
    dimensions (Structure, People, Process, Mindset) around a Leadership
-   core. Click any quadrant and the panel beside it shows that quadrant's
-   components, ready-to-use playbook modules, and the diagnostic questions
-   that measure it.
+   core. The panel beside it opens with the big-picture story of how the
+   framework fits together; click any quadrant (or a row in the overview)
+   to see that dimension's components, ready-to-use playbook modules, and
+   the diagnostic questions that measure it, with a link back to the
+   overview.
 2. **The five activators** — the Kates-Kesler levers that turn an org
    design into performance. Click a row to see key principles, healthy
    signals, and dysfunction signals side by side.
