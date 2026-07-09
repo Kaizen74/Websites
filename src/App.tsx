@@ -202,7 +202,7 @@ function App() {
       <Header />
       <main>
         <Hero />
-        <FrameworkSection scores={results?.dimensionScores} />
+        <FrameworkSection />
         <ActivatorsSection priorityActivators={priorityActivators} />
         <ChangeLevers />
 
