@@ -4,6 +4,7 @@ One line of reasoning per decision, newest first.
 
 | Date | Decision | Why |
 |---|---|---|
+| 2026-07-09 | Added a personal brand signature (EY monogram + "Eric Yim" in Playfair italic) to the footer | User request to sign the site; built as a designed monogram/typographic mark in the editorial system, not a facsimile of a real handwritten signature |
 | 2026-07-09 | Framework panel defaults to an overarching narrative (FrameworkOverview), not a quadrant | A blank-until-you-click panel buried the framework's core idea; the overview teaches the IOMA integrated-activation model (four interdependent domains, leadership core, culture-values ring, activated together) before drill-down |
 | 2026-07-09 | Quadrant labels re-centered in the fat readable band of each pie slice (43/57% × 40/60%) with a subtle text-shadow | Corner-anchored labels drifted into the narrow point near the Leadership circle and clipped; the quarter-disc mass fans out from center, so the outer-middle is the only reliably readable zone |
 | 2026-07-09 | Homepage FrameworkSection no longer accepts/shows diagnostic scores | It is an educational explainer; stale localStorage results were painting score badges onto the quadrants and side-panel title, conflating "explore the model" with "your results." Scores live only on the results dashboard's own diagram |

@@ -43,6 +43,14 @@ describe('App smoke tests', () => {
     expect(screen.queryByText(/Kesler/i)).toBeNull();
   });
 
+  test('footer shows the personal brand signature and attribution', () => {
+    render(<App />);
+    expect(screen.getByTestId('signature')).toBeTruthy();
+    expect(screen.getByText('Eric Yim')).toBeTruthy();
+    expect(screen.getByText(/Designed & built by/i)).toBeTruthy();
+    expect(screen.getByText(/Eric Yim · All rights reserved/i)).toBeTruthy();
+  });
+
   test('homepage framework stays score-free even with saved results', () => {
     // Regression for the reported bug: stale diagnostic results in
     // localStorage were painting score badges onto the homepage framework.

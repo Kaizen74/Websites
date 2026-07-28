@@ -7,6 +7,7 @@ import { ChangeLevers } from './components/ChangeLevers';
 import { DiagnosticSurvey } from './components/DiagnosticSurvey';
 import { ResultsDashboard } from './components/ResultsDashboard';
 import { CohortDashboard } from './components/CohortDashboard';
+import { Signature } from './components/Signature';
 import type { DiagnosticResults, CohortMember } from './types';
 import { STORAGE_KEYS, SECTION_IDS } from './constants';
 import { mapToActivators } from './utils/scoring';
@@ -273,19 +274,32 @@ function App() {
 
         {/* Footer — hairline on paper */}
         <footer
-          className="py-10"
+          className="py-12"
           style={{
             background: 'var(--color-paper)',
             borderTop: '1px solid var(--color-hairline)',
           }}
         >
-          <div className="max-w-[1140px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3">
-            <span className="font-display font-bold text-[var(--color-ink)]">
-              OrgDesign Playbook
-            </span>
-            <span className="text-sm text-[var(--color-faint)]">
-              A framework for organizational design and transformation
-            </span>
+          <div className="max-w-[1140px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
+              <span className="font-display font-bold text-[var(--color-ink)]">
+                OrgDesign Playbook
+              </span>
+              <span className="text-sm text-[var(--color-faint)]">
+                A framework for organizational design and transformation
+              </span>
+            </div>
+
+            {/* Personal brand sign-off */}
+            <div
+              className="mt-8 pt-8 flex flex-col sm:flex-row items-center justify-between gap-6"
+              style={{ borderTop: '1px solid var(--color-hairline)' }}
+            >
+              <Signature />
+              <span className="text-xs text-[var(--color-faint)] text-center sm:text-right">
+                © {new Date().getFullYear()} Eric Yim · All rights reserved
+              </span>
+            </div>
           </div>
         </footer>
       </main>
