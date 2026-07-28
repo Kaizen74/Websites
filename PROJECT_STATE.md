@@ -45,11 +45,14 @@ Testing Library. No charting library (plain-div bars). Deploys as a static
   respondent × dimension heatmap table, a widest-divergence insight,
   cohort-level focus interventions, remove/clear members, JSON export and
   print. Stored in localStorage under `cohort_results`.
-- **Tests:** 78 passing across 10 suites (unit, integration, App smoke),
-  plus a Playwright browser E2E script (37 checks) covering the framework
+- **Footer:** wordmark + tagline row, then a personal brand sign-off — an
+  "EY" monogram seal (Signature.tsx) with "Eric Yim" in Playfair italic, a
+  red underline flourish, and a © attribution line.
+- **Tests:** 79 passing across 10 suites (unit, integration, App smoke),
+  plus a Playwright browser E2E script (41 checks) covering the framework
   overview/quadrant switching, readable labels, the full two-respondent
-  cohort journey, and the score-free homepage framework. **Build:** clean,
-  no warnings.
+  cohort journey, the score-free homepage framework, and the footer
+  signature. **Build:** clean, no warnings.
 
 ## How to resume
 
