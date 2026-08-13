@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# graphify: transient per-query timestamp (rewritten on every query)
+graphify-out/cache/last_query_stamp
