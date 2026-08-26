@@ -11,6 +11,7 @@ const navItems: NavItem[] = [
   { label: 'Framework', href: `#${SECTION_IDS.framework}` },
   { label: 'Activators', href: `#${SECTION_IDS.activators}` },
   { label: 'Change model', href: `#${SECTION_IDS.changeLevers}` },
+  { label: 'AI-native', href: `#${SECTION_IDS.aiNative}` },
 ];
 
 /** 2×2 mini-grid mark using the four quadrant colors */

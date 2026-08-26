@@ -108,6 +108,46 @@ export interface DimensionStats {
   max: number;
 }
 
+// --- AI-native design section (static teaching content) ---
+
+// One rung of the Organisation → Position → Task → Process descent
+export interface DescentStep {
+  label: string;
+  line: string;
+  /** The Task rung is the section's single emphasis */
+  emphasis?: boolean;
+  /** Leading fragment rendered at weight 600 within the line */
+  leadIn?: string;
+}
+
+// One level of the L0–L3 automation ladder
+export interface AiLevel {
+  code: string;
+  name: string;
+  /** Rule width in px; grows with the level */
+  ruleWidth: number;
+  /** Rule colour token */
+  ruleColor: string;
+  task: string;
+  cost: string;
+  /** L3 only — the operating-model row */
+  emphasis?: boolean;
+}
+
+// One cell of the capability-vs-desire matrix
+export interface ScoringZone {
+  label: string;
+  labelColor: string;
+  line: string;
+}
+
+// One tier of the provenance strip
+export interface ProvenanceTier {
+  label: string;
+  labelColor: string;
+  line: string;
+}
+
 // Targeted intervention prescribed for a weak dimension
 export interface DimensionIntervention {
   title: string;

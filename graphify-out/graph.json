@@ -13,6 +13,7 @@
       "_origin": "ast",
       "id": "src_components_frameworkdiagram_quadrantspec",
       "community": 1,
+      "community_name": "FrameworkSection.tsx",
       "norm_label": "quadrantspec"
     },
     {
@@ -25,6 +26,7 @@
       "_origin": "ast",
       "id": "src_components_frameworkoverview_frameworkoverviewprops",
       "community": 1,
+      "community_name": "FrameworkSection.tsx",
       "norm_label": "frameworkoverviewprops"
     },
     {
@@ -37,6 +39,7 @@
       "_origin": "ast",
       "id": "src_components_playbookmodules_playbookmodulesprops",
       "community": 1,
+      "community_name": "FrameworkSection.tsx",
       "norm_label": "playbookmodulesprops"
     },
     {
@@ -49,55 +52,8 @@
       "_origin": "ast",
       "id": "src_components_quadrantdetail_quadrantdetailprops",
       "community": 1,
+      "community_name": "FrameworkSection.tsx",
       "norm_label": "quadrantdetailprops"
-    },
-    {
-      "label": "ChangeLever",
-      "file_type": "code",
-      "source_file": "src/types/index.ts",
-      "source_location": "L54",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "id": "src_types_index_changelever",
-      "community": 1,
-      "norm_label": "changelever"
-    },
-    {
-      "label": "Dimension",
-      "file_type": "code",
-      "source_file": "src/types/index.ts",
-      "source_location": "L2",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "id": "src_types_index_dimension",
-      "community": 1,
-      "norm_label": "dimension"
-    },
-    {
-      "label": "DimensionIntervention",
-      "file_type": "code",
-      "source_file": "src/types/index.ts",
-      "source_location": "L112",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "id": "src_types_index_dimensionintervention",
-      "community": 1,
-      "norm_label": "dimensionintervention"
-    },
-    {
-      "label": "DimensionStats",
-      "file_type": "code",
-      "source_file": "src/types/index.ts",
-      "source_location": "L105",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "id": "src_types_index_dimensionstats",
-      "community": 1,
-      "norm_label": "dimensionstats"
     },
     {
       "label": "FrameworkDiagramProps",
@@ -109,19 +65,8 @@
       "_origin": "ast",
       "id": "src_types_index_frameworkdiagramprops",
       "community": 1,
+      "community_name": "FrameworkSection.tsx",
       "norm_label": "frameworkdiagramprops"
-    },
-    {
-      "label": "PlaybookModule",
-      "file_type": "code",
-      "source_file": "src/types/index.ts",
-      "source_location": "L119",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "id": "src_types_index_playbookmodule",
-      "community": 1,
-      "norm_label": "playbookmodule"
     },
     {
       "label": "Quadrant",
@@ -133,78 +78,20 @@
       "_origin": "ast",
       "id": "src_types_index_quadrant",
       "community": 1,
+      "community_name": "FrameworkSection.tsx",
       "norm_label": "quadrant"
-    },
-    {
-      "label": "QuadrantDetail",
-      "file_type": "code",
-      "source_file": "src/types/index.ts",
-      "source_location": "L64",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "id": "src_types_index_quadrantdetail",
-      "community": 1,
-      "norm_label": "quadrantdetail"
-    },
-    {
-      "label": "SurveyResponse",
-      "file_type": "code",
-      "source_file": "src/types/index.ts",
-      "source_location": "L21",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "id": "src_types_index_surveyresponse",
-      "community": 1,
-      "norm_label": "surveyresponse"
-    },
-    {
-      "label": "SurveyState",
-      "file_type": "code",
-      "source_file": "src/types/index.ts",
-      "source_location": "L80",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "id": "src_types_index_surveystate",
-      "community": 1,
-      "norm_label": "surveystate"
-    },
-    {
-      "label": "TCCARDimension",
-      "file_type": "code",
-      "source_file": "src/types/index.ts",
-      "source_location": "L87",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "id": "src_types_index_tccardimension",
-      "community": 1,
-      "norm_label": "tccardimension"
-    },
-    {
-      "label": "TCCARItem",
-      "file_type": "code",
-      "source_file": "src/types/index.ts",
-      "source_location": "L89",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "id": "src_types_index_tccaritem",
-      "community": 1,
-      "norm_label": "tccaritem"
     },
     {
       "label": "AppView",
       "file_type": "code",
       "source_file": "src/App.tsx",
-      "source_location": "L22",
+      "source_location": "L23",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
       "id": "src_app_appview",
       "community": 2,
+      "community_name": "App.tsx",
       "norm_label": "appview"
     },
     {
@@ -217,7 +104,47 @@
       "_origin": "ast",
       "id": "src_components_cohortdashboard_cohortdashboardprops",
       "community": 2,
+      "community_name": "App.tsx",
       "norm_label": "cohortdashboardprops"
+    },
+    {
+      "label": "DimensionChartProps",
+      "file_type": "code",
+      "source_file": "src/components/DimensionChart.tsx",
+      "source_location": "L5",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "id": "src_components_dimensionchart_dimensionchartprops",
+      "community": 2,
+      "community_name": "App.tsx",
+      "norm_label": "dimensionchartprops"
+    },
+    {
+      "label": "ExportButtonProps",
+      "file_type": "code",
+      "source_file": "src/components/ExportButton.tsx",
+      "source_location": "L3",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "id": "src_components_exportbutton_exportbuttonprops",
+      "community": 2,
+      "community_name": "App.tsx",
+      "norm_label": "exportbuttonprops"
+    },
+    {
+      "label": "ResultsDashboardProps",
+      "file_type": "code",
+      "source_file": "src/components/ResultsDashboard.tsx",
+      "source_location": "L26",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "id": "src_components_resultsdashboard_resultsdashboardprops",
+      "community": 2,
+      "community_name": "App.tsx",
+      "norm_label": "resultsdashboardprops"
     },
     {
       "label": "CohortMember",
@@ -229,7 +156,34 @@
       "_origin": "ast",
       "id": "src_types_index_cohortmember",
       "community": 2,
+      "community_name": "App.tsx",
       "norm_label": "cohortmember"
+    },
+    {
+      "label": "DiagnosticResults",
+      "file_type": "code",
+      "source_file": "src/types/index.ts",
+      "source_location": "L36",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "id": "src_types_index_diagnosticresults",
+      "community": 2,
+      "community_name": "App.tsx",
+      "norm_label": "diagnosticresults"
+    },
+    {
+      "label": "DimensionScores",
+      "file_type": "code",
+      "source_file": "src/types/index.ts",
+      "source_location": "L27",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "id": "src_types_index_dimensionscores",
+      "community": 2,
+      "community_name": "App.tsx",
+      "norm_label": "dimensionscores"
     },
     {
       "label": "AddMemberResult",
@@ -241,7 +195,21 @@
       "_origin": "ast",
       "id": "src_utils_cohort_addmemberresult",
       "community": 2,
+      "community_name": "App.tsx",
       "norm_label": "addmemberresult"
+    },
+    {
+      "label": "StoredMember",
+      "file_type": "code",
+      "source_file": "src/utils/cohort.ts",
+      "source_location": "L25",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "id": "src_utils_cohort_storedmember",
+      "community": 2,
+      "community_name": "App.tsx",
+      "norm_label": "storedmember"
     },
     {
       "label": "DiagnosticSurveyProps",
@@ -253,6 +221,7 @@
       "_origin": "ast",
       "id": "src_components_diagnosticsurvey_diagnosticsurveyprops",
       "community": 3,
+      "community_name": "constants.ts",
       "norm_label": "diagnosticsurveyprops"
     },
     {
@@ -265,6 +234,7 @@
       "_origin": "ast",
       "id": "src_components_questioncard_questioncardprops",
       "community": 3,
+      "community_name": "constants.ts",
       "norm_label": "questioncardprops"
     },
     {
@@ -277,6 +247,7 @@
       "_origin": "ast",
       "id": "src_hooks_usediagnostic_usediagnosticreturn",
       "community": 3,
+      "community_name": "constants.ts",
       "norm_label": "usediagnosticreturn"
     },
     {
@@ -289,6 +260,7 @@
       "_origin": "ast",
       "id": "src_types_index_diagnosticquestion",
       "community": 3,
+      "community_name": "constants.ts",
       "norm_label": "diagnosticquestion"
     },
     {
@@ -301,6 +273,7 @@
       "_origin": "ast",
       "id": "src_types_index_likertvalue",
       "community": 3,
+      "community_name": "constants.ts",
       "norm_label": "likertvalue"
     },
     {
@@ -313,6 +286,7 @@
       "_origin": "ast",
       "id": "src_types_index_scorecolor",
       "community": 3,
+      "community_name": "constants.ts",
       "norm_label": "scorecolor"
     },
     {
@@ -325,6 +299,7 @@
       "_origin": "ast",
       "id": "src_components_activatorcard_activatorcardprops",
       "community": 4,
+      "community_name": "SECTION_IDS",
       "norm_label": "activatorcardprops"
     },
     {
@@ -337,6 +312,7 @@
       "_origin": "ast",
       "id": "src_components_activatorcard_signalcolumnprops",
       "community": 4,
+      "community_name": "SECTION_IDS",
       "norm_label": "signalcolumnprops"
     },
     {
@@ -349,6 +325,7 @@
       "_origin": "ast",
       "id": "src_components_activatorssection_activatorssectionprops",
       "community": 4,
+      "community_name": "SECTION_IDS",
       "norm_label": "activatorssectionprops"
     },
     {
@@ -361,6 +338,7 @@
       "_origin": "ast",
       "id": "src_components_header_navitem",
       "community": 4,
+      "community_name": "SECTION_IDS",
       "norm_label": "navitem"
     },
     {
@@ -373,6 +351,7 @@
       "_origin": "ast",
       "id": "src_components_hero_indexrow",
       "community": 4,
+      "community_name": "SECTION_IDS",
       "norm_label": "indexrow"
     },
     {
@@ -385,79 +364,190 @@
       "_origin": "ast",
       "id": "src_types_index_activator",
       "community": 4,
+      "community_name": "SECTION_IDS",
       "norm_label": "activator"
     },
     {
-      "label": "DimensionChartProps",
-      "file_type": "code",
-      "source_file": "src/components/DimensionChart.tsx",
-      "source_location": "L5",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "id": "src_components_dimensionchart_dimensionchartprops",
-      "community": 8,
-      "norm_label": "dimensionchartprops"
-    },
-    {
-      "label": "ExportButtonProps",
-      "file_type": "code",
-      "source_file": "src/components/ExportButton.tsx",
-      "source_location": "L3",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "id": "src_components_exportbutton_exportbuttonprops",
-      "community": 8,
-      "norm_label": "exportbuttonprops"
-    },
-    {
-      "label": "ResultsDashboardProps",
-      "file_type": "code",
-      "source_file": "src/components/ResultsDashboard.tsx",
-      "source_location": "L26",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "id": "src_components_resultsdashboard_resultsdashboardprops",
-      "community": 8,
-      "norm_label": "resultsdashboardprops"
-    },
-    {
-      "label": "DiagnosticResults",
+      "label": "AiLevel",
       "file_type": "code",
       "source_file": "src/types/index.ts",
-      "source_location": "L36",
+      "source_location": "L124",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "id": "src_types_index_diagnosticresults",
+      "id": "src_types_index_ailevel",
       "community": 8,
-      "norm_label": "diagnosticresults"
+      "community_name": "index.ts",
+      "norm_label": "ailevel"
     },
     {
-      "label": "DimensionScores",
+      "label": "ChangeLever",
       "file_type": "code",
       "source_file": "src/types/index.ts",
-      "source_location": "L27",
+      "source_location": "L54",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "id": "src_types_index_dimensionscores",
+      "id": "src_types_index_changelever",
       "community": 8,
-      "norm_label": "dimensionscores"
+      "community_name": "index.ts",
+      "norm_label": "changelever"
     },
     {
-      "label": "StoredMember",
+      "label": "DescentStep",
       "file_type": "code",
-      "source_file": "src/utils/cohort.ts",
-      "source_location": "L25",
+      "source_file": "src/types/index.ts",
+      "source_location": "L114",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "id": "src_utils_cohort_storedmember",
+      "id": "src_types_index_descentstep",
       "community": 8,
-      "norm_label": "storedmember"
+      "community_name": "index.ts",
+      "norm_label": "descentstep"
+    },
+    {
+      "label": "Dimension",
+      "file_type": "code",
+      "source_file": "src/types/index.ts",
+      "source_location": "L2",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "id": "src_types_index_dimension",
+      "community": 8,
+      "community_name": "index.ts",
+      "norm_label": "dimension"
+    },
+    {
+      "label": "DimensionIntervention",
+      "file_type": "code",
+      "source_file": "src/types/index.ts",
+      "source_location": "L152",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "id": "src_types_index_dimensionintervention",
+      "community": 8,
+      "community_name": "index.ts",
+      "norm_label": "dimensionintervention"
+    },
+    {
+      "label": "DimensionStats",
+      "file_type": "code",
+      "source_file": "src/types/index.ts",
+      "source_location": "L105",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "id": "src_types_index_dimensionstats",
+      "community": 8,
+      "community_name": "index.ts",
+      "norm_label": "dimensionstats"
+    },
+    {
+      "label": "PlaybookModule",
+      "file_type": "code",
+      "source_file": "src/types/index.ts",
+      "source_location": "L159",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "id": "src_types_index_playbookmodule",
+      "community": 8,
+      "community_name": "index.ts",
+      "norm_label": "playbookmodule"
+    },
+    {
+      "label": "ProvenanceTier",
+      "file_type": "code",
+      "source_file": "src/types/index.ts",
+      "source_location": "L145",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "id": "src_types_index_provenancetier",
+      "community": 8,
+      "community_name": "index.ts",
+      "norm_label": "provenancetier"
+    },
+    {
+      "label": "QuadrantDetail",
+      "file_type": "code",
+      "source_file": "src/types/index.ts",
+      "source_location": "L64",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "id": "src_types_index_quadrantdetail",
+      "community": 8,
+      "community_name": "index.ts",
+      "norm_label": "quadrantdetail"
+    },
+    {
+      "label": "ScoringZone",
+      "file_type": "code",
+      "source_file": "src/types/index.ts",
+      "source_location": "L138",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "id": "src_types_index_scoringzone",
+      "community": 8,
+      "community_name": "index.ts",
+      "norm_label": "scoringzone"
+    },
+    {
+      "label": "SurveyResponse",
+      "file_type": "code",
+      "source_file": "src/types/index.ts",
+      "source_location": "L21",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "id": "src_types_index_surveyresponse",
+      "community": 8,
+      "community_name": "index.ts",
+      "norm_label": "surveyresponse"
+    },
+    {
+      "label": "SurveyState",
+      "file_type": "code",
+      "source_file": "src/types/index.ts",
+      "source_location": "L80",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "id": "src_types_index_surveystate",
+      "community": 8,
+      "community_name": "index.ts",
+      "norm_label": "surveystate"
+    },
+    {
+      "label": "TCCARDimension",
+      "file_type": "code",
+      "source_file": "src/types/index.ts",
+      "source_location": "L87",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "id": "src_types_index_tccardimension",
+      "community": 8,
+      "community_name": "index.ts",
+      "norm_label": "tccardimension"
+    },
+    {
+      "label": "TCCARItem",
+      "file_type": "code",
+      "source_file": "src/types/index.ts",
+      "source_location": "L89",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "id": "src_types_index_tccaritem",
+      "community": 8,
+      "community_name": "index.ts",
+      "norm_label": "tccaritem"
     },
     {
       "label": "FrameworkDiagram()",
@@ -468,6 +558,7 @@
       "_origin": "ast",
       "id": "src_components_frameworkdiagram_frameworkdiagram",
       "community": 1,
+      "community_name": "FrameworkSection.tsx",
       "norm_label": "frameworkdiagram()"
     },
     {
@@ -479,6 +570,7 @@
       "_origin": "ast",
       "id": "src_components_frameworkoverview_frameworkoverview",
       "community": 1,
+      "community_name": "FrameworkSection.tsx",
       "norm_label": "frameworkoverview()"
     },
     {
@@ -490,6 +582,7 @@
       "_origin": "ast",
       "id": "src_components_frameworksection_consumefocusquadrant",
       "community": 1,
+      "community_name": "FrameworkSection.tsx",
       "norm_label": "consumefocusquadrant()"
     },
     {
@@ -501,6 +594,7 @@
       "_origin": "ast",
       "id": "src_components_frameworksection_frameworksection",
       "community": 1,
+      "community_name": "FrameworkSection.tsx",
       "norm_label": "frameworksection()"
     },
     {
@@ -512,6 +606,7 @@
       "_origin": "ast",
       "id": "src_components_playbookmodules_playbookmodules",
       "community": 1,
+      "community_name": "FrameworkSection.tsx",
       "norm_label": "playbookmodules()"
     },
     {
@@ -523,6 +618,7 @@
       "_origin": "ast",
       "id": "src_components_quadrantdetail_quadrantdetail",
       "community": 1,
+      "community_name": "FrameworkSection.tsx",
       "norm_label": "quadrantdetail()"
     },
     {
@@ -534,17 +630,19 @@
       "_origin": "ast",
       "id": "src_setuptests_creatememorystorage",
       "community": 12,
+      "community_name": "setupTests.ts",
       "norm_label": "creatememorystorage()"
     },
     {
       "label": "App()",
       "file_type": "code",
       "source_file": "src/App.tsx",
-      "source_location": "L24",
+      "source_location": "L25",
       "_callable": true,
       "_origin": "ast",
       "id": "src_app_app",
       "community": 2,
+      "community_name": "App.tsx",
       "norm_label": "app()"
     },
     {
@@ -556,7 +654,80 @@
       "_origin": "ast",
       "id": "src_components_cohortdashboard_cohortdashboard",
       "community": 2,
+      "community_name": "App.tsx",
       "norm_label": "cohortdashboard()"
+    },
+    {
+      "label": "ScoreCell()",
+      "file_type": "code",
+      "source_file": "src/components/CohortDashboard.tsx",
+      "source_location": "L32",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "src_components_cohortdashboard_scorecell",
+      "community": 2,
+      "community_name": "App.tsx",
+      "norm_label": "scorecell()"
+    },
+    {
+      "label": "DimensionChart()",
+      "file_type": "code",
+      "source_file": "src/components/DimensionChart.tsx",
+      "source_location": "L16",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "src_components_dimensionchart_dimensionchart",
+      "community": 2,
+      "community_name": "App.tsx",
+      "norm_label": "dimensionchart()"
+    },
+    {
+      "label": "ExportButton()",
+      "file_type": "code",
+      "source_file": "src/components/ExportButton.tsx",
+      "source_location": "L7",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "src_components_exportbutton_exportbutton",
+      "community": 2,
+      "community_name": "App.tsx",
+      "norm_label": "exportbutton()"
+    },
+    {
+      "label": "interpretation()",
+      "file_type": "code",
+      "source_file": "src/components/ResultsDashboard.tsx",
+      "source_location": "L46",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "src_components_resultsdashboard_interpretation",
+      "community": 2,
+      "community_name": "App.tsx",
+      "norm_label": "interpretation()"
+    },
+    {
+      "label": "rememberFocusQuadrant()",
+      "file_type": "code",
+      "source_file": "src/components/ResultsDashboard.tsx",
+      "source_location": "L18",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "src_components_resultsdashboard_rememberfocusquadrant",
+      "community": 2,
+      "community_name": "App.tsx",
+      "norm_label": "rememberfocusquadrant()"
+    },
+    {
+      "label": "ResultsDashboard()",
+      "file_type": "code",
+      "source_file": "src/components/ResultsDashboard.tsx",
+      "source_location": "L59",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "src_components_resultsdashboard_resultsdashboard",
+      "community": 2,
+      "community_name": "App.tsx",
+      "norm_label": "resultsdashboard()"
     },
     {
       "label": "MonogramSeal()",
@@ -567,6 +738,7 @@
       "_origin": "ast",
       "id": "src_components_signature_monogramseal",
       "community": 2,
+      "community_name": "App.tsx",
       "norm_label": "monogramseal()"
     },
     {
@@ -578,6 +750,7 @@
       "_origin": "ast",
       "id": "src_components_signature_signature",
       "community": 2,
+      "community_name": "App.tsx",
       "norm_label": "signature()"
     },
     {
@@ -589,6 +762,7 @@
       "_origin": "ast",
       "id": "src_tests_app_smoke_test_makeresults",
       "community": 2,
+      "community_name": "App.tsx",
       "norm_label": "makeresults()"
     },
     {
@@ -600,6 +774,7 @@
       "_origin": "ast",
       "id": "src_tests_cohort_test_makeresults",
       "community": 2,
+      "community_name": "App.tsx",
       "norm_label": "makeresults()"
     },
     {
@@ -611,6 +786,7 @@
       "_origin": "ast",
       "id": "src_tests_cohort_test_renderdashboard",
       "community": 2,
+      "community_name": "App.tsx",
       "norm_label": "renderdashboard()"
     },
     {
@@ -622,6 +798,7 @@
       "_origin": "ast",
       "id": "src_utils_cohort_addcohortmember",
       "community": 2,
+      "community_name": "App.tsx",
       "norm_label": "addcohortmember()"
     },
     {
@@ -633,6 +810,7 @@
       "_origin": "ast",
       "id": "src_utils_cohort_clearcohort",
       "community": 2,
+      "community_name": "App.tsx",
       "norm_label": "clearcohort()"
     },
     {
@@ -644,6 +822,7 @@
       "_origin": "ast",
       "id": "src_utils_cohort_cohortaveragescores",
       "community": 2,
+      "community_name": "App.tsx",
       "norm_label": "cohortaveragescores()"
     },
     {
@@ -655,6 +834,7 @@
       "_origin": "ast",
       "id": "src_utils_cohort_cohortdimensionstats",
       "community": 2,
+      "community_name": "App.tsx",
       "norm_label": "cohortdimensionstats()"
     },
     {
@@ -666,6 +846,7 @@
       "_origin": "ast",
       "id": "src_utils_cohort_cohortoverallaverage",
       "community": 2,
+      "community_name": "App.tsx",
       "norm_label": "cohortoverallaverage()"
     },
     {
@@ -677,6 +858,7 @@
       "_origin": "ast",
       "id": "src_utils_cohort_deserializemember",
       "community": 2,
+      "community_name": "App.tsx",
       "norm_label": "deserializemember()"
     },
     {
@@ -688,6 +870,7 @@
       "_origin": "ast",
       "id": "src_utils_cohort_generateid",
       "community": 2,
+      "community_name": "App.tsx",
       "norm_label": "generateid()"
     },
     {
@@ -699,6 +882,7 @@
       "_origin": "ast",
       "id": "src_utils_cohort_loadcohort",
       "community": 2,
+      "community_name": "App.tsx",
       "norm_label": "loadcohort()"
     },
     {
@@ -710,6 +894,7 @@
       "_origin": "ast",
       "id": "src_utils_cohort_persist",
       "community": 2,
+      "community_name": "App.tsx",
       "norm_label": "persist()"
     },
     {
@@ -721,6 +906,7 @@
       "_origin": "ast",
       "id": "src_utils_cohort_removecohortmember",
       "community": 2,
+      "community_name": "App.tsx",
       "norm_label": "removecohortmember()"
     },
     {
@@ -732,18 +918,32 @@
       "_origin": "ast",
       "id": "src_utils_cohort_serializemember",
       "community": 2,
+      "community_name": "App.tsx",
       "norm_label": "serializemember()"
     },
     {
-      "label": "mapToActivators()",
+      "label": "getScoreColor()",
       "file_type": "code",
       "source_file": "src/utils/scoring.ts",
-      "source_location": "L81",
+      "source_location": "L58",
       "_callable": true,
       "_origin": "ast",
-      "id": "src_utils_scoring_maptoactivators",
+      "id": "src_utils_scoring_getscorecolor",
       "community": 2,
-      "norm_label": "maptoactivators()"
+      "community_name": "App.tsx",
+      "norm_label": "getscorecolor()"
+    },
+    {
+      "label": "getScoreLabel()",
+      "file_type": "code",
+      "source_file": "src/utils/scoring.ts",
+      "source_location": "L69",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "src_utils_scoring_getscorelabel",
+      "community": 2,
+      "community_name": "App.tsx",
+      "norm_label": "getscorelabel()"
     },
     {
       "label": "DiagnosticSurvey()",
@@ -754,6 +954,7 @@
       "_origin": "ast",
       "id": "src_components_diagnosticsurvey_diagnosticsurvey",
       "community": 3,
+      "community_name": "constants.ts",
       "norm_label": "diagnosticsurvey()"
     },
     {
@@ -765,6 +966,7 @@
       "_origin": "ast",
       "id": "src_components_questioncard_questioncard",
       "community": 3,
+      "community_name": "constants.ts",
       "norm_label": "questioncard()"
     },
     {
@@ -776,6 +978,7 @@
       "_origin": "ast",
       "id": "src_hooks_usediagnostic_usediagnostic",
       "community": 3,
+      "community_name": "constants.ts",
       "norm_label": "usediagnostic()"
     },
     {
@@ -787,6 +990,7 @@
       "_origin": "ast",
       "id": "src_utils_scoring_calculateallscores",
       "community": 3,
+      "community_name": "constants.ts",
       "norm_label": "calculateallscores()"
     },
     {
@@ -798,6 +1002,7 @@
       "_origin": "ast",
       "id": "src_utils_scoring_calculateoverallscore",
       "community": 3,
+      "community_name": "constants.ts",
       "norm_label": "calculateoverallscore()"
     },
     {
@@ -809,18 +1014,44 @@
       "_origin": "ast",
       "id": "src_utils_scoring_calculatescore",
       "community": 3,
+      "community_name": "constants.ts",
       "norm_label": "calculatescore()"
     },
     {
-      "label": "getScoreLabel()",
+      "label": "getScoreBgColorClass()",
       "file_type": "code",
       "source_file": "src/utils/scoring.ts",
-      "source_location": "L69",
+      "source_location": "L109",
       "_callable": true,
       "_origin": "ast",
-      "id": "src_utils_scoring_getscorelabel",
+      "id": "src_utils_scoring_getscorebgcolorclass",
       "community": 3,
-      "norm_label": "getscorelabel()"
+      "community_name": "constants.ts",
+      "norm_label": "getscorebgcolorclass()"
+    },
+    {
+      "label": "getScoreColorClass()",
+      "file_type": "code",
+      "source_file": "src/utils/scoring.ts",
+      "source_location": "L99",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "src_utils_scoring_getscorecolorclass",
+      "community": 3,
+      "community_name": "constants.ts",
+      "norm_label": "getscorecolorclass()"
+    },
+    {
+      "label": "mapToActivators()",
+      "file_type": "code",
+      "source_file": "src/utils/scoring.ts",
+      "source_location": "L81",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "src_utils_scoring_maptoactivators",
+      "community": 3,
+      "community_name": "constants.ts",
+      "norm_label": "maptoactivators()"
     },
     {
       "label": "ActivatorCard()",
@@ -831,6 +1062,7 @@
       "_origin": "ast",
       "id": "src_components_activatorcard_activatorcard",
       "community": 4,
+      "community_name": "SECTION_IDS",
       "norm_label": "activatorcard()"
     },
     {
@@ -842,6 +1074,7 @@
       "_origin": "ast",
       "id": "src_components_activatorcard_signalcolumn",
       "community": 4,
+      "community_name": "SECTION_IDS",
       "norm_label": "signalcolumn()"
     },
     {
@@ -853,7 +1086,68 @@
       "_origin": "ast",
       "id": "src_components_activatorssection_activatorssection",
       "community": 4,
+      "community_name": "SECTION_IDS",
       "norm_label": "activatorssection()"
+    },
+    {
+      "label": "Header()",
+      "file_type": "code",
+      "source_file": "src/components/Header.tsx",
+      "source_location": "L33",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "src_components_header_header",
+      "community": 4,
+      "community_name": "SECTION_IDS",
+      "norm_label": "header()"
+    },
+    {
+      "label": "QuadrantMark()",
+      "file_type": "code",
+      "source_file": "src/components/Header.tsx",
+      "source_location": "L18",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "src_components_header_quadrantmark",
+      "community": 4,
+      "community_name": "SECTION_IDS",
+      "norm_label": "quadrantmark()"
+    },
+    {
+      "label": "Hero()",
+      "file_type": "code",
+      "source_file": "src/components/Hero.tsx",
+      "source_location": "L43",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "src_components_hero_hero",
+      "community": 4,
+      "community_name": "SECTION_IDS",
+      "norm_label": "hero()"
+    },
+    {
+      "label": "AiNativeSection()",
+      "file_type": "code",
+      "source_file": "src/components/AiNativeSection.tsx",
+      "source_location": "L41",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "src_components_ainativesection_ainativesection",
+      "community": 8,
+      "community_name": "index.ts",
+      "norm_label": "ainativesection()"
+    },
+    {
+      "label": "MoveHeading()",
+      "file_type": "code",
+      "source_file": "src/components/AiNativeSection.tsx",
+      "source_location": "L25",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "src_components_ainativesection_moveheading",
+      "community": 8,
+      "community_name": "index.ts",
+      "norm_label": "moveheading()"
     },
     {
       "label": "ChangeLevers()",
@@ -863,7 +1157,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "src_components_changelevers_changelevers",
-      "community": 4,
+      "community": 8,
+      "community_name": "index.ts",
       "norm_label": "changelevers()"
     },
     {
@@ -874,41 +1169,9 @@
       "_callable": true,
       "_origin": "ast",
       "id": "src_components_changelevers_displaytitle",
-      "community": 4,
+      "community": 8,
+      "community_name": "index.ts",
       "norm_label": "displaytitle()"
-    },
-    {
-      "label": "Header()",
-      "file_type": "code",
-      "source_file": "src/components/Header.tsx",
-      "source_location": "L32",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "src_components_header_header",
-      "community": 4,
-      "norm_label": "header()"
-    },
-    {
-      "label": "QuadrantMark()",
-      "file_type": "code",
-      "source_file": "src/components/Header.tsx",
-      "source_location": "L17",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "src_components_header_quadrantmark",
-      "community": 4,
-      "norm_label": "quadrantmark()"
-    },
-    {
-      "label": "Hero()",
-      "file_type": "code",
-      "source_file": "src/components/Hero.tsx",
-      "source_location": "L37",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "src_components_hero_hero",
-      "community": 4,
-      "norm_label": "hero()"
     },
     {
       "label": "TCCARAssessment()",
@@ -918,107 +1181,9 @@
       "_callable": true,
       "_origin": "ast",
       "id": "src_components_tccarassessment_tccarassessment",
-      "community": 4,
+      "community": 8,
+      "community_name": "index.ts",
       "norm_label": "tccarassessment()"
-    },
-    {
-      "label": "ScoreCell()",
-      "file_type": "code",
-      "source_file": "src/components/CohortDashboard.tsx",
-      "source_location": "L32",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "src_components_cohortdashboard_scorecell",
-      "community": 8,
-      "norm_label": "scorecell()"
-    },
-    {
-      "label": "DimensionChart()",
-      "file_type": "code",
-      "source_file": "src/components/DimensionChart.tsx",
-      "source_location": "L16",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "src_components_dimensionchart_dimensionchart",
-      "community": 8,
-      "norm_label": "dimensionchart()"
-    },
-    {
-      "label": "ExportButton()",
-      "file_type": "code",
-      "source_file": "src/components/ExportButton.tsx",
-      "source_location": "L7",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "src_components_exportbutton_exportbutton",
-      "community": 8,
-      "norm_label": "exportbutton()"
-    },
-    {
-      "label": "interpretation()",
-      "file_type": "code",
-      "source_file": "src/components/ResultsDashboard.tsx",
-      "source_location": "L46",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "src_components_resultsdashboard_interpretation",
-      "community": 8,
-      "norm_label": "interpretation()"
-    },
-    {
-      "label": "rememberFocusQuadrant()",
-      "file_type": "code",
-      "source_file": "src/components/ResultsDashboard.tsx",
-      "source_location": "L18",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "src_components_resultsdashboard_rememberfocusquadrant",
-      "community": 8,
-      "norm_label": "rememberfocusquadrant()"
-    },
-    {
-      "label": "ResultsDashboard()",
-      "file_type": "code",
-      "source_file": "src/components/ResultsDashboard.tsx",
-      "source_location": "L59",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "src_components_resultsdashboard_resultsdashboard",
-      "community": 8,
-      "norm_label": "resultsdashboard()"
-    },
-    {
-      "label": "getScoreBgColorClass()",
-      "file_type": "code",
-      "source_file": "src/utils/scoring.ts",
-      "source_location": "L109",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "src_utils_scoring_getscorebgcolorclass",
-      "community": 8,
-      "norm_label": "getscorebgcolorclass()"
-    },
-    {
-      "label": "getScoreColor()",
-      "file_type": "code",
-      "source_file": "src/utils/scoring.ts",
-      "source_location": "L58",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "src_utils_scoring_getscorecolor",
-      "community": 8,
-      "norm_label": "getscorecolor()"
-    },
-    {
-      "label": "getScoreColorClass()",
-      "file_type": "code",
-      "source_file": "src/utils/scoring.ts",
-      "source_location": "L99",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "src_utils_scoring_getscorecolorclass",
-      "community": 8,
-      "norm_label": "getscorecolorclass()"
     },
     {
       "label": "getFolderSize()",
@@ -1029,6 +1194,7 @@
       "_origin": "ast",
       "id": "scripts_check_size_getfoldersize",
       "community": 9,
+      "community_name": "check-size.js",
       "norm_label": "getfoldersize()"
     },
     {
@@ -1039,6 +1205,7 @@
       "_origin": "ast",
       "id": "package_devdependencies",
       "community": 0,
+      "community_name": "devDependencies",
       "norm_label": "devdependencies"
     },
     {
@@ -1049,6 +1216,7 @@
       "_origin": "ast",
       "id": "package_devdependencies_autoprefixer",
       "community": 0,
+      "community_name": "devDependencies",
       "norm_label": "autoprefixer"
     },
     {
@@ -1059,6 +1227,7 @@
       "_origin": "ast",
       "id": "package_devdependencies_eslint",
       "community": 0,
+      "community_name": "devDependencies",
       "norm_label": "eslint"
     },
     {
@@ -1069,6 +1238,7 @@
       "_origin": "ast",
       "id": "package_devdependencies_eslint_js",
       "community": 0,
+      "community_name": "devDependencies",
       "norm_label": "@eslint/js"
     },
     {
@@ -1079,6 +1249,7 @@
       "_origin": "ast",
       "id": "package_devdependencies_eslint_plugin_react_hooks",
       "community": 0,
+      "community_name": "devDependencies",
       "norm_label": "eslint-plugin-react-hooks"
     },
     {
@@ -1089,6 +1260,7 @@
       "_origin": "ast",
       "id": "package_devdependencies_eslint_plugin_react_refresh",
       "community": 0,
+      "community_name": "devDependencies",
       "norm_label": "eslint-plugin-react-refresh"
     },
     {
@@ -1099,6 +1271,7 @@
       "_origin": "ast",
       "id": "package_devdependencies_globals",
       "community": 0,
+      "community_name": "devDependencies",
       "norm_label": "globals"
     },
     {
@@ -1109,6 +1282,7 @@
       "_origin": "ast",
       "id": "package_devdependencies_identity_obj_proxy",
       "community": 0,
+      "community_name": "devDependencies",
       "norm_label": "identity-obj-proxy"
     },
     {
@@ -1119,6 +1293,7 @@
       "_origin": "ast",
       "id": "package_devdependencies_jest",
       "community": 0,
+      "community_name": "devDependencies",
       "norm_label": "jest"
     },
     {
@@ -1129,6 +1304,7 @@
       "_origin": "ast",
       "id": "package_devdependencies_jest_environment_jsdom",
       "community": 0,
+      "community_name": "devDependencies",
       "norm_label": "jest-environment-jsdom"
     },
     {
@@ -1139,6 +1315,7 @@
       "_origin": "ast",
       "id": "package_devdependencies_postcss",
       "community": 0,
+      "community_name": "devDependencies",
       "norm_label": "postcss"
     },
     {
@@ -1149,6 +1326,7 @@
       "_origin": "ast",
       "id": "package_devdependencies_tailwindcss",
       "community": 0,
+      "community_name": "devDependencies",
       "norm_label": "tailwindcss"
     },
     {
@@ -1159,6 +1337,7 @@
       "_origin": "ast",
       "id": "package_devdependencies_tailwindcss_postcss",
       "community": 0,
+      "community_name": "devDependencies",
       "norm_label": "@tailwindcss/postcss"
     },
     {
@@ -1169,6 +1348,7 @@
       "_origin": "ast",
       "id": "package_devdependencies_testing_library_jest_dom",
       "community": 0,
+      "community_name": "devDependencies",
       "norm_label": "@testing-library/jest-dom"
     },
     {
@@ -1179,6 +1359,7 @@
       "_origin": "ast",
       "id": "package_devdependencies_testing_library_react",
       "community": 0,
+      "community_name": "devDependencies",
       "norm_label": "@testing-library/react"
     },
     {
@@ -1189,6 +1370,7 @@
       "_origin": "ast",
       "id": "package_devdependencies_testing_library_user_event",
       "community": 0,
+      "community_name": "devDependencies",
       "norm_label": "@testing-library/user-event"
     },
     {
@@ -1199,6 +1381,7 @@
       "_origin": "ast",
       "id": "package_devdependencies_ts_jest",
       "community": 0,
+      "community_name": "devDependencies",
       "norm_label": "ts-jest"
     },
     {
@@ -1209,6 +1392,7 @@
       "_origin": "ast",
       "id": "package_devdependencies_types_jest",
       "community": 0,
+      "community_name": "devDependencies",
       "norm_label": "@types/jest"
     },
     {
@@ -1219,6 +1403,7 @@
       "_origin": "ast",
       "id": "package_devdependencies_types_node",
       "community": 0,
+      "community_name": "devDependencies",
       "norm_label": "@types/node"
     },
     {
@@ -1229,6 +1414,7 @@
       "_origin": "ast",
       "id": "package_devdependencies_types_react",
       "community": 0,
+      "community_name": "devDependencies",
       "norm_label": "@types/react"
     },
     {
@@ -1239,6 +1425,7 @@
       "_origin": "ast",
       "id": "package_devdependencies_types_react_dom",
       "community": 0,
+      "community_name": "devDependencies",
       "norm_label": "@types/react-dom"
     },
     {
@@ -1249,6 +1436,7 @@
       "_origin": "ast",
       "id": "package_devdependencies_typescript",
       "community": 0,
+      "community_name": "devDependencies",
       "norm_label": "typescript"
     },
     {
@@ -1259,6 +1447,7 @@
       "_origin": "ast",
       "id": "package_devdependencies_typescript_eslint",
       "community": 0,
+      "community_name": "devDependencies",
       "norm_label": "typescript-eslint"
     },
     {
@@ -1269,6 +1458,7 @@
       "_origin": "ast",
       "id": "package_devdependencies_vite",
       "community": 0,
+      "community_name": "devDependencies",
       "norm_label": "vite"
     },
     {
@@ -1279,6 +1469,7 @@
       "_origin": "ast",
       "id": "package_devdependencies_vitejs_plugin_react",
       "community": 0,
+      "community_name": "devDependencies",
       "norm_label": "@vitejs/plugin-react"
     },
     {
@@ -1289,6 +1480,7 @@
       "_origin": "ast",
       "id": "autoprefixer",
       "community": 0,
+      "community_name": "devDependencies",
       "norm_label": "autoprefixer"
     },
     {
@@ -1299,6 +1491,7 @@
       "_origin": "ast",
       "id": "eslint",
       "community": 0,
+      "community_name": "devDependencies",
       "norm_label": "eslint"
     },
     {
@@ -1309,6 +1502,7 @@
       "_origin": "ast",
       "id": "eslint_js",
       "community": 0,
+      "community_name": "devDependencies",
       "norm_label": "@eslint/js"
     },
     {
@@ -1319,6 +1513,7 @@
       "_origin": "ast",
       "id": "eslint_plugin_react_hooks",
       "community": 0,
+      "community_name": "devDependencies",
       "norm_label": "eslint-plugin-react-hooks"
     },
     {
@@ -1329,6 +1524,7 @@
       "_origin": "ast",
       "id": "eslint_plugin_react_refresh",
       "community": 0,
+      "community_name": "devDependencies",
       "norm_label": "eslint-plugin-react-refresh"
     },
     {
@@ -1339,6 +1535,7 @@
       "_origin": "ast",
       "id": "globals",
       "community": 0,
+      "community_name": "devDependencies",
       "norm_label": "globals"
     },
     {
@@ -1349,6 +1546,7 @@
       "_origin": "ast",
       "id": "identity_obj_proxy",
       "community": 0,
+      "community_name": "devDependencies",
       "norm_label": "identity-obj-proxy"
     },
     {
@@ -1359,6 +1557,7 @@
       "_origin": "ast",
       "id": "jest",
       "community": 0,
+      "community_name": "devDependencies",
       "norm_label": "jest"
     },
     {
@@ -1369,6 +1568,7 @@
       "_origin": "ast",
       "id": "jest_environment_jsdom",
       "community": 0,
+      "community_name": "devDependencies",
       "norm_label": "jest-environment-jsdom"
     },
     {
@@ -1379,6 +1579,7 @@
       "_origin": "ast",
       "id": "package_json_tailwindcss",
       "community": 0,
+      "community_name": "devDependencies",
       "norm_label": "tailwindcss"
     },
     {
@@ -1389,6 +1590,7 @@
       "_origin": "ast",
       "id": "postcss",
       "community": 0,
+      "community_name": "devDependencies",
       "norm_label": "postcss"
     },
     {
@@ -1399,6 +1601,7 @@
       "_origin": "ast",
       "id": "tailwindcss_postcss",
       "community": 0,
+      "community_name": "devDependencies",
       "norm_label": "@tailwindcss/postcss"
     },
     {
@@ -1409,6 +1612,7 @@
       "_origin": "ast",
       "id": "testing_library_jest_dom",
       "community": 0,
+      "community_name": "devDependencies",
       "norm_label": "@testing-library/jest-dom"
     },
     {
@@ -1419,6 +1623,7 @@
       "_origin": "ast",
       "id": "testing_library_react",
       "community": 0,
+      "community_name": "devDependencies",
       "norm_label": "@testing-library/react"
     },
     {
@@ -1429,6 +1634,7 @@
       "_origin": "ast",
       "id": "testing_library_user_event",
       "community": 0,
+      "community_name": "devDependencies",
       "norm_label": "@testing-library/user-event"
     },
     {
@@ -1439,6 +1645,7 @@
       "_origin": "ast",
       "id": "ts_jest",
       "community": 0,
+      "community_name": "devDependencies",
       "norm_label": "ts-jest"
     },
     {
@@ -1449,6 +1656,7 @@
       "_origin": "ast",
       "id": "types_jest",
       "community": 0,
+      "community_name": "devDependencies",
       "norm_label": "@types/jest"
     },
     {
@@ -1459,6 +1667,7 @@
       "_origin": "ast",
       "id": "types_node",
       "community": 0,
+      "community_name": "devDependencies",
       "norm_label": "@types/node"
     },
     {
@@ -1469,6 +1678,7 @@
       "_origin": "ast",
       "id": "types_react",
       "community": 0,
+      "community_name": "devDependencies",
       "norm_label": "@types/react"
     },
     {
@@ -1479,6 +1689,7 @@
       "_origin": "ast",
       "id": "types_react_dom",
       "community": 0,
+      "community_name": "devDependencies",
       "norm_label": "@types/react-dom"
     },
     {
@@ -1489,6 +1700,7 @@
       "_origin": "ast",
       "id": "typescript",
       "community": 0,
+      "community_name": "devDependencies",
       "norm_label": "typescript"
     },
     {
@@ -1499,6 +1711,7 @@
       "_origin": "ast",
       "id": "typescript_eslint",
       "community": 0,
+      "community_name": "devDependencies",
       "norm_label": "typescript-eslint"
     },
     {
@@ -1509,6 +1722,7 @@
       "_origin": "ast",
       "id": "vite",
       "community": 0,
+      "community_name": "devDependencies",
       "norm_label": "vite"
     },
     {
@@ -1519,6 +1733,7 @@
       "_origin": "ast",
       "id": "vitejs_plugin_react",
       "community": 0,
+      "community_name": "devDependencies",
       "norm_label": "@vitejs/plugin-react"
     },
     {
@@ -1529,6 +1744,7 @@
       "_origin": "ast",
       "id": "src_components_frameworkdiagram",
       "community": 1,
+      "community_name": "FrameworkSection.tsx",
       "norm_label": "frameworkdiagram.tsx"
     },
     {
@@ -1539,6 +1755,7 @@
       "_origin": "ast",
       "id": "src_components_frameworkdiagram_quadrantspecs",
       "community": 1,
+      "community_name": "FrameworkSection.tsx",
       "norm_label": "quadrantspecs"
     },
     {
@@ -1549,6 +1766,7 @@
       "_origin": "ast",
       "id": "src_components_frameworkdiagram_scoretextclass",
       "community": 1,
+      "community_name": "FrameworkSection.tsx",
       "norm_label": "scoretextclass"
     },
     {
@@ -1559,6 +1777,7 @@
       "_origin": "ast",
       "id": "src_components_frameworkoverview",
       "community": 1,
+      "community_name": "FrameworkSection.tsx",
       "norm_label": "frameworkoverview.tsx"
     },
     {
@@ -1569,6 +1788,7 @@
       "_origin": "ast",
       "id": "src_components_frameworkoverview_domains",
       "community": 1,
+      "community_name": "FrameworkSection.tsx",
       "norm_label": "domains"
     },
     {
@@ -1579,6 +1799,7 @@
       "_origin": "ast",
       "id": "src_components_frameworksection",
       "community": 1,
+      "community_name": "FrameworkSection.tsx",
       "norm_label": "frameworksection.tsx"
     },
     {
@@ -1589,6 +1810,7 @@
       "_origin": "ast",
       "id": "src_components_frameworksection_quadrants",
       "community": 1,
+      "community_name": "FrameworkSection.tsx",
       "norm_label": "quadrants"
     },
     {
@@ -1599,6 +1821,7 @@
       "_origin": "ast",
       "id": "src_components_playbookmodules",
       "community": 1,
+      "community_name": "FrameworkSection.tsx",
       "norm_label": "playbookmodules.tsx"
     },
     {
@@ -1609,17 +1832,8 @@
       "_origin": "ast",
       "id": "src_components_quadrantdetail",
       "community": 1,
+      "community_name": "FrameworkSection.tsx",
       "norm_label": "quadrantdetail.tsx"
-    },
-    {
-      "label": "TCCARAssessment.tsx",
-      "file_type": "code",
-      "source_file": "src/components/TCCARAssessment.tsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "src_components_tccarassessment",
-      "community": 1,
-      "norm_label": "tccarassessment.tsx"
     },
     {
       "label": "QUADRANT_LABELS",
@@ -1629,27 +1843,8 @@
       "_origin": "ast",
       "id": "src_constants_quadrant_labels",
       "community": 1,
+      "community_name": "FrameworkSection.tsx",
       "norm_label": "quadrant_labels"
-    },
-    {
-      "label": "interventions.ts",
-      "file_type": "code",
-      "source_file": "src/data/interventions.ts",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "src_data_interventions",
-      "community": 1,
-      "norm_label": "interventions.ts"
-    },
-    {
-      "label": "dimensionInterventions",
-      "file_type": "code",
-      "source_file": "src/data/interventions.ts",
-      "source_location": "L275",
-      "_origin": "ast",
-      "id": "src_data_interventions_dimensioninterventions",
-      "community": 1,
-      "norm_label": "dimensioninterventions"
     },
     {
       "label": "playbookModules",
@@ -1659,6 +1854,7 @@
       "_origin": "ast",
       "id": "src_data_interventions_playbookmodules",
       "community": 1,
+      "community_name": "FrameworkSection.tsx",
       "norm_label": "playbookmodules"
     },
     {
@@ -1669,27 +1865,8 @@
       "_origin": "ast",
       "id": "src_data_interventions_quadrantdetails",
       "community": 1,
+      "community_name": "FrameworkSection.tsx",
       "norm_label": "quadrantdetails"
-    },
-    {
-      "label": "tccarItems",
-      "file_type": "code",
-      "source_file": "src/data/interventions.ts",
-      "source_location": "L40",
-      "_origin": "ast",
-      "id": "src_data_interventions_tccaritems",
-      "community": 1,
-      "norm_label": "tccaritems"
-    },
-    {
-      "label": "interventions-alignment.test.ts",
-      "file_type": "code",
-      "source_file": "src/__tests__/alignment/interventions-alignment.test.ts",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "src_tests_alignment_interventions_alignment_test",
-      "community": 1,
-      "norm_label": "interventions-alignment.test.ts"
     },
     {
       "label": "framework.test.tsx",
@@ -1699,17 +1876,8 @@
       "_origin": "ast",
       "id": "src_tests_framework_test",
       "community": 1,
+      "community_name": "FrameworkSection.tsx",
       "norm_label": "framework.test.tsx"
-    },
-    {
-      "label": "index.ts",
-      "file_type": "code",
-      "source_file": "src/types/index.ts",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "src_types_index",
-      "community": 1,
-      "norm_label": "index.ts"
     },
     {
       "label": "tsconfig.json",
@@ -1719,6 +1887,7 @@
       "_origin": "ast",
       "id": "tsconfig",
       "community": 10,
+      "community_name": "tsconfig.json",
       "norm_label": "tsconfig.json"
     },
     {
@@ -1729,6 +1898,7 @@
       "_origin": "ast",
       "id": "tsconfig_files",
       "community": 10,
+      "community_name": "tsconfig.json",
       "norm_label": "files"
     },
     {
@@ -1739,6 +1909,7 @@
       "_origin": "ast",
       "id": "tsconfig_references",
       "community": 10,
+      "community_name": "tsconfig.json",
       "norm_label": "references"
     },
     {
@@ -1753,6 +1924,7 @@
       "_origin": "ast",
       "id": "run_checks",
       "community": 11,
+      "community_name": "run_checks.sh",
       "norm_label": "run_checks.sh"
     },
     {
@@ -1767,6 +1939,7 @@
       "_origin": "ast",
       "id": "run_checks_sh__entry",
       "community": 11,
+      "community_name": "run_checks.sh",
       "norm_label": "run_checks.sh script"
     },
     {
@@ -1777,6 +1950,7 @@
       "_origin": "ast",
       "id": "src_setuptests",
       "community": 12,
+      "community_name": "setupTests.ts",
       "norm_label": "setuptests.ts"
     },
     {
@@ -1787,6 +1961,7 @@
       "_origin": "ast",
       "id": "eslint_config",
       "community": 13,
+      "community_name": "eslint.config.js",
       "norm_label": "eslint.config.js"
     },
     {
@@ -1797,6 +1972,7 @@
       "_origin": "ast",
       "id": "jest_config",
       "community": 14,
+      "community_name": "jest.config.js",
       "norm_label": "jest.config.js"
     },
     {
@@ -1807,6 +1983,7 @@
       "_origin": "ast",
       "id": "postcss_config",
       "community": 15,
+      "community_name": "postcss.config.js",
       "norm_label": "postcss.config.js"
     },
     {
@@ -1817,6 +1994,7 @@
       "_origin": "ast",
       "id": "tailwind_config",
       "community": 16,
+      "community_name": "tailwind.config.js",
       "norm_label": "tailwind.config.js"
     },
     {
@@ -1827,6 +2005,7 @@
       "_origin": "ast",
       "id": "tailwindcss_tailwindcss",
       "community": 17,
+      "community_name": "tailwindcss",
       "norm_label": "tailwindcss"
     },
     {
@@ -1837,7 +2016,283 @@
       "_origin": "ast",
       "id": "vite_config",
       "community": 18,
+      "community_name": "vite.config.ts",
       "norm_label": "vite.config.ts"
+    },
+    {
+      "label": "SKILL.md",
+      "file_type": "document",
+      "source_file": ".claude/skills/graphify/SKILL.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "claude_skills_graphify_skill",
+      "community": 19,
+      "community_name": "What You Must Do When Invoked",
+      "norm_label": "skill.md"
+    },
+    {
+      "label": "For /graphify add and --watch",
+      "file_type": "document",
+      "source_file": ".claude/skills/graphify/SKILL.md",
+      "source_location": "L695",
+      "_origin": "ast",
+      "id": "claude_skills_graphify_skill_for_graphify_add_and_watch",
+      "community": 19,
+      "community_name": "What You Must Do When Invoked",
+      "norm_label": "for /graphify add and --watch"
+    },
+    {
+      "label": "For /graphify query",
+      "file_type": "document",
+      "source_file": ".claude/skills/graphify/SKILL.md",
+      "source_location": "L683",
+      "_origin": "ast",
+      "id": "claude_skills_graphify_skill_for_graphify_query",
+      "community": 19,
+      "community_name": "What You Must Do When Invoked",
+      "norm_label": "for /graphify query"
+    },
+    {
+      "label": "For the commit hook and native CLAUDE.md integration",
+      "file_type": "document",
+      "source_file": ".claude/skills/graphify/SKILL.md",
+      "source_location": "L701",
+      "_origin": "ast",
+      "id": "claude_skills_graphify_skill_for_the_commit_hook_and_native_claude_md_integration",
+      "community": 19,
+      "community_name": "What You Must Do When Invoked",
+      "norm_label": "for the commit hook and native claude.md integration"
+    },
+    {
+      "label": "For --update and --cluster-only",
+      "file_type": "document",
+      "source_file": ".claude/skills/graphify/SKILL.md",
+      "source_location": "L677",
+      "_origin": "ast",
+      "id": "claude_skills_graphify_skill_for_update_and_cluster_only",
+      "community": 19,
+      "community_name": "What You Must Do When Invoked",
+      "norm_label": "for --update and --cluster-only"
+    },
+    {
+      "label": "/graphify",
+      "file_type": "document",
+      "source_file": ".claude/skills/graphify/SKILL.md",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "claude_skills_graphify_skill_graphify",
+      "community": 19,
+      "community_name": "What You Must Do When Invoked",
+      "norm_label": "/graphify"
+    },
+    {
+      "label": "Honesty Rules",
+      "file_type": "document",
+      "source_file": ".claude/skills/graphify/SKILL.md",
+      "source_location": "L707",
+      "_origin": "ast",
+      "id": "claude_skills_graphify_skill_honesty_rules",
+      "community": 19,
+      "community_name": "What You Must Do When Invoked",
+      "norm_label": "honesty rules"
+    },
+    {
+      "label": "Interpreter guard for subcommands",
+      "file_type": "document",
+      "source_file": ".claude/skills/graphify/SKILL.md",
+      "source_location": "L659",
+      "_origin": "ast",
+      "id": "claude_skills_graphify_skill_interpreter_guard_for_subcommands",
+      "community": 19,
+      "community_name": "What You Must Do When Invoked",
+      "norm_label": "interpreter guard for subcommands"
+    },
+    {
+      "label": "Part A - Structural extraction for code files",
+      "file_type": "document",
+      "source_file": ".claude/skills/graphify/SKILL.md",
+      "source_location": "L170",
+      "_origin": "ast",
+      "id": "claude_skills_graphify_skill_part_a_structural_extraction_for_code_files",
+      "community": 19,
+      "community_name": "What You Must Do When Invoked",
+      "norm_label": "part a - structural extraction for code files"
+    },
+    {
+      "label": "Part B - Semantic extraction (parallel subagents)",
+      "file_type": "document",
+      "source_file": ".claude/skills/graphify/SKILL.md",
+      "source_location": "L196",
+      "_origin": "ast",
+      "id": "claude_skills_graphify_skill_part_b_semantic_extraction_parallel_subagents",
+      "community": 19,
+      "community_name": "What You Must Do When Invoked",
+      "norm_label": "part b - semantic extraction (parallel subagents)"
+    },
+    {
+      "label": "Part C - Merge AST + semantic into final extraction",
+      "file_type": "document",
+      "source_file": ".claude/skills/graphify/SKILL.md",
+      "source_location": "L359",
+      "_origin": "ast",
+      "id": "claude_skills_graphify_skill_part_c_merge_ast_semantic_into_final_extraction",
+      "community": 19,
+      "community_name": "What You Must Do When Invoked",
+      "norm_label": "part c - merge ast + semantic into final extraction"
+    },
+    {
+      "label": "Step 0 - GitHub repos and multi-path merge (only if a URL or several paths)",
+      "file_type": "document",
+      "source_file": ".claude/skills/graphify/SKILL.md",
+      "source_location": "L61",
+      "_origin": "ast",
+      "id": "claude_skills_graphify_skill_step_0_github_repos_and_multi_path_merge_only_if_a_url_or_several_paths",
+      "community": 19,
+      "community_name": "What You Must Do When Invoked",
+      "norm_label": "step 0 - github repos and multi-path merge (only if a url or several paths)"
+    },
+    {
+      "label": "Step 1 - Ensure graphify is installed",
+      "file_type": "document",
+      "source_file": ".claude/skills/graphify/SKILL.md",
+      "source_location": "L65",
+      "_origin": "ast",
+      "id": "claude_skills_graphify_skill_step_1_ensure_graphify_is_installed",
+      "community": 19,
+      "community_name": "What You Must Do When Invoked",
+      "norm_label": "step 1 - ensure graphify is installed"
+    },
+    {
+      "label": "Step 2.5 - Video and audio (only if video files detected)",
+      "file_type": "document",
+      "source_file": ".claude/skills/graphify/SKILL.md",
+      "source_location": "L147",
+      "_origin": "ast",
+      "id": "claude_skills_graphify_skill_step_2_5_video_and_audio_only_if_video_files_detected",
+      "community": 19,
+      "community_name": "What You Must Do When Invoked",
+      "norm_label": "step 2.5 - video and audio (only if video files detected)"
+    },
+    {
+      "label": "Step 2 - Detect files",
+      "file_type": "document",
+      "source_file": ".claude/skills/graphify/SKILL.md",
+      "source_location": "L107",
+      "_origin": "ast",
+      "id": "claude_skills_graphify_skill_step_2_detect_files",
+      "community": 19,
+      "community_name": "What You Must Do When Invoked",
+      "norm_label": "step 2 - detect files"
+    },
+    {
+      "label": "Step 3 - Extract entities and relationships",
+      "file_type": "document",
+      "source_file": ".claude/skills/graphify/SKILL.md",
+      "source_location": "L151",
+      "_origin": "ast",
+      "id": "claude_skills_graphify_skill_step_3_extract_entities_and_relationships",
+      "community": 19,
+      "community_name": "What You Must Do When Invoked",
+      "norm_label": "step 3 - extract entities and relationships"
+    },
+    {
+      "label": "Step 4.5 - Graph health check (read-only integrity gate)",
+      "file_type": "document",
+      "source_file": ".claude/skills/graphify/SKILL.md",
+      "source_location": "L456",
+      "_origin": "ast",
+      "id": "claude_skills_graphify_skill_step_4_5_graph_health_check_read_only_integrity_gate",
+      "community": 19,
+      "community_name": "What You Must Do When Invoked",
+      "norm_label": "step 4.5 - graph health check (read-only integrity gate)"
+    },
+    {
+      "label": "Step 4 - Build graph, cluster, analyze, generate outputs",
+      "file_type": "document",
+      "source_file": ".claude/skills/graphify/SKILL.md",
+      "source_location": "L393",
+      "_origin": "ast",
+      "id": "claude_skills_graphify_skill_step_4_build_graph_cluster_analyze_generate_outputs",
+      "community": 19,
+      "community_name": "What You Must Do When Invoked",
+      "norm_label": "step 4 - build graph, cluster, analyze, generate outputs"
+    },
+    {
+      "label": "Step 5 - Label communities",
+      "file_type": "document",
+      "source_file": ".claude/skills/graphify/SKILL.md",
+      "source_location": "L482",
+      "_origin": "ast",
+      "id": "claude_skills_graphify_skill_step_5_label_communities",
+      "community": 19,
+      "community_name": "What You Must Do When Invoked",
+      "norm_label": "step 5 - label communities"
+    },
+    {
+      "label": "Step 6 - Generate Obsidian vault (opt-in) + HTML",
+      "file_type": "document",
+      "source_file": ".claude/skills/graphify/SKILL.md",
+      "source_location": "L531",
+      "_origin": "ast",
+      "id": "claude_skills_graphify_skill_step_6_generate_obsidian_vault_opt_in_html",
+      "community": 19,
+      "community_name": "What You Must Do When Invoked",
+      "norm_label": "step 6 - generate obsidian vault (opt-in) + html"
+    },
+    {
+      "label": "Step 9 - Save manifest, update cost tracker, clean up, and report",
+      "file_type": "document",
+      "source_file": ".claude/skills/graphify/SKILL.md",
+      "source_location": "L557",
+      "_origin": "ast",
+      "id": "claude_skills_graphify_skill_step_9_save_manifest_update_cost_tracker_clean_up_and_report",
+      "community": 19,
+      "community_name": "What You Must Do When Invoked",
+      "norm_label": "step 9 - save manifest, update cost tracker, clean up, and report"
+    },
+    {
+      "label": "Steps 6b-8 - Wiki, Neo4j, FalkorDB, SVG, GraphML, MCP, benchmark (only on their flags)",
+      "file_type": "document",
+      "source_file": ".claude/skills/graphify/SKILL.md",
+      "source_location": "L551",
+      "_origin": "ast",
+      "id": "claude_skills_graphify_skill_steps_6b_8_wiki_neo4j_falkordb_svg_graphml_mcp_benchmark_only_on_their_flags",
+      "community": 19,
+      "community_name": "What You Must Do When Invoked",
+      "norm_label": "steps 6b-8 - wiki, neo4j, falkordb, svg, graphml, mcp, benchmark (only on their flags)"
+    },
+    {
+      "label": "Usage",
+      "file_type": "document",
+      "source_file": ".claude/skills/graphify/SKILL.md",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "claude_skills_graphify_skill_usage",
+      "community": 19,
+      "community_name": "What You Must Do When Invoked",
+      "norm_label": "usage"
+    },
+    {
+      "label": "What graphify is for",
+      "file_type": "document",
+      "source_file": ".claude/skills/graphify/SKILL.md",
+      "source_location": "L45",
+      "_origin": "ast",
+      "id": "claude_skills_graphify_skill_what_graphify_is_for",
+      "community": 19,
+      "community_name": "What You Must Do When Invoked",
+      "norm_label": "what graphify is for"
+    },
+    {
+      "label": "What You Must Do When Invoked",
+      "file_type": "document",
+      "source_file": ".claude/skills/graphify/SKILL.md",
+      "source_location": "L49",
+      "_origin": "ast",
+      "id": "claude_skills_graphify_skill_what_you_must_do_when_invoked",
+      "community": 19,
+      "community_name": "What You Must Do When Invoked",
+      "norm_label": "what you must do when invoked"
     },
     {
       "label": "App.tsx",
@@ -1847,6 +2302,7 @@
       "_origin": "ast",
       "id": "src_app",
       "community": 2,
+      "community_name": "App.tsx",
       "norm_label": "app.tsx"
     },
     {
@@ -1857,6 +2313,7 @@
       "_origin": "ast",
       "id": "src_components_cohortdashboard",
       "community": 2,
+      "community_name": "App.tsx",
       "norm_label": "cohortdashboard.tsx"
     },
     {
@@ -1867,6 +2324,7 @@
       "_origin": "ast",
       "id": "src_components_cohortdashboard_dimensions",
       "community": 2,
+      "community_name": "App.tsx",
       "norm_label": "dimensions"
     },
     {
@@ -1877,6 +2335,7 @@
       "_origin": "ast",
       "id": "src_components_cohortdashboard_statuscolor",
       "community": 2,
+      "community_name": "App.tsx",
       "norm_label": "statuscolor"
     },
     {
@@ -1887,7 +2346,74 @@
       "_origin": "ast",
       "id": "src_components_cohortdashboard_statustint",
       "community": 2,
+      "community_name": "App.tsx",
       "norm_label": "statustint"
+    },
+    {
+      "label": "DimensionChart.tsx",
+      "file_type": "code",
+      "source_file": "src/components/DimensionChart.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_components_dimensionchart",
+      "community": 2,
+      "community_name": "App.tsx",
+      "norm_label": "dimensionchart.tsx"
+    },
+    {
+      "label": "fillColor",
+      "file_type": "code",
+      "source_file": "src/components/DimensionChart.tsx",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "src_components_dimensionchart_fillcolor",
+      "community": 2,
+      "community_name": "App.tsx",
+      "norm_label": "fillcolor"
+    },
+    {
+      "label": "ExportButton.tsx",
+      "file_type": "code",
+      "source_file": "src/components/ExportButton.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_components_exportbutton",
+      "community": 2,
+      "community_name": "App.tsx",
+      "norm_label": "exportbutton.tsx"
+    },
+    {
+      "label": "ResultsDashboard.tsx",
+      "file_type": "code",
+      "source_file": "src/components/ResultsDashboard.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_components_resultsdashboard",
+      "community": 2,
+      "community_name": "App.tsx",
+      "norm_label": "resultsdashboard.tsx"
+    },
+    {
+      "label": "QUADRANT_DIMENSIONS",
+      "file_type": "code",
+      "source_file": "src/components/ResultsDashboard.tsx",
+      "source_location": "L16",
+      "_origin": "ast",
+      "id": "src_components_resultsdashboard_quadrant_dimensions",
+      "community": 2,
+      "community_name": "App.tsx",
+      "norm_label": "quadrant_dimensions"
+    },
+    {
+      "label": "statusColor",
+      "file_type": "code",
+      "source_file": "src/components/ResultsDashboard.tsx",
+      "source_location": "L36",
+      "_origin": "ast",
+      "id": "src_components_resultsdashboard_statuscolor",
+      "community": 2,
+      "community_name": "App.tsx",
+      "norm_label": "statuscolor"
     },
     {
       "label": "Signature.tsx",
@@ -1897,6 +2423,7 @@
       "_origin": "ast",
       "id": "src_components_signature",
       "community": 2,
+      "community_name": "App.tsx",
       "norm_label": "signature.tsx"
     },
     {
@@ -1907,6 +2434,7 @@
       "_origin": "ast",
       "id": "src_constants_max_cohort_size",
       "community": 2,
+      "community_name": "App.tsx",
       "norm_label": "max_cohort_size"
     },
     {
@@ -1917,6 +2445,7 @@
       "_origin": "ast",
       "id": "src_constants_storage_keys",
       "community": 2,
+      "community_name": "App.tsx",
       "norm_label": "storage_keys"
     },
     {
@@ -1927,6 +2456,7 @@
       "_origin": "ast",
       "id": "src_main",
       "community": 2,
+      "community_name": "App.tsx",
       "norm_label": "main.tsx"
     },
     {
@@ -1937,6 +2467,7 @@
       "_origin": "ast",
       "id": "src_tests_app_smoke_test",
       "community": 2,
+      "community_name": "App.tsx",
       "norm_label": "app-smoke.test.tsx"
     },
     {
@@ -1947,6 +2478,7 @@
       "_origin": "ast",
       "id": "src_tests_app_smoke_test_scores",
       "community": 2,
+      "community_name": "App.tsx",
       "norm_label": "scores"
     },
     {
@@ -1957,6 +2489,7 @@
       "_origin": "ast",
       "id": "src_tests_cohort_test",
       "community": 2,
+      "community_name": "App.tsx",
       "norm_label": "cohort.test.tsx"
     },
     {
@@ -1967,6 +2500,7 @@
       "_origin": "ast",
       "id": "src_tests_cohort_test_scoresa",
       "community": 2,
+      "community_name": "App.tsx",
       "norm_label": "scoresa"
     },
     {
@@ -1977,7 +2511,19 @@
       "_origin": "ast",
       "id": "src_tests_cohort_test_scoresb",
       "community": 2,
+      "community_name": "App.tsx",
       "norm_label": "scoresb"
+    },
+    {
+      "label": "results.test.tsx",
+      "file_type": "code",
+      "source_file": "src/__tests__/results.test.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_tests_results_test",
+      "community": 2,
+      "community_name": "App.tsx",
+      "norm_label": "results.test.tsx"
     },
     {
       "label": "cohort.ts",
@@ -1987,6 +2533,7 @@
       "_origin": "ast",
       "id": "src_utils_cohort",
       "community": 2,
+      "community_name": "App.tsx",
       "norm_label": "cohort.ts"
     },
     {
@@ -1997,7 +2544,580 @@
       "_origin": "ast",
       "id": "src_utils_cohort_dimensions",
       "community": 2,
+      "community_name": "App.tsx",
       "norm_label": "dimensions"
+    },
+    {
+      "label": "exports.md",
+      "file_type": "document",
+      "source_file": ".claude/skills/graphify/references/exports.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "claude_skills_graphify_references_exports",
+      "community": 20,
+      "community_name": "graphify reference: extra exports and benchmark",
+      "norm_label": "exports.md"
+    },
+    {
+      "label": "graphify reference: extra exports and benchmark",
+      "file_type": "document",
+      "source_file": ".claude/skills/graphify/references/exports.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "claude_skills_graphify_references_exports_graphify_reference_extra_exports_and_benchmark",
+      "community": 20,
+      "community_name": "graphify reference: extra exports and benchmark",
+      "norm_label": "graphify reference: extra exports and benchmark"
+    },
+    {
+      "label": "Step 6b - Wiki (only if --wiki flag)",
+      "file_type": "document",
+      "source_file": ".claude/skills/graphify/references/exports.md",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "claude_skills_graphify_references_exports_step_6b_wiki_only_if_wiki_flag",
+      "community": 20,
+      "community_name": "graphify reference: extra exports and benchmark",
+      "norm_label": "step 6b - wiki (only if --wiki flag)"
+    },
+    {
+      "label": "Step 7 - Neo4j export (only if --neo4j or --neo4j-push flag)",
+      "file_type": "document",
+      "source_file": ".claude/skills/graphify/references/exports.md",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "claude_skills_graphify_references_exports_step_7_neo4j_export_only_if_neo4j_or_neo4j_push_flag",
+      "community": 20,
+      "community_name": "graphify reference: extra exports and benchmark",
+      "norm_label": "step 7 - neo4j export (only if --neo4j or --neo4j-push flag)"
+    },
+    {
+      "label": "Step 7a - FalkorDB export (only if --falkordb or --falkordb-push flag)",
+      "file_type": "document",
+      "source_file": ".claude/skills/graphify/references/exports.md",
+      "source_location": "L31",
+      "_origin": "ast",
+      "id": "claude_skills_graphify_references_exports_step_7a_falkordb_export_only_if_falkordb_or_falkordb_push_flag",
+      "community": 20,
+      "community_name": "graphify reference: extra exports and benchmark",
+      "norm_label": "step 7a - falkordb export (only if --falkordb or --falkordb-push flag)"
+    },
+    {
+      "label": "Step 7b - SVG export (only if --svg flag)",
+      "file_type": "document",
+      "source_file": ".claude/skills/graphify/references/exports.md",
+      "source_location": "L47",
+      "_origin": "ast",
+      "id": "claude_skills_graphify_references_exports_step_7b_svg_export_only_if_svg_flag",
+      "community": 20,
+      "community_name": "graphify reference: extra exports and benchmark",
+      "norm_label": "step 7b - svg export (only if --svg flag)"
+    },
+    {
+      "label": "Step 7c - GraphML export (only if --graphml flag)",
+      "file_type": "document",
+      "source_file": ".claude/skills/graphify/references/exports.md",
+      "source_location": "L53",
+      "_origin": "ast",
+      "id": "claude_skills_graphify_references_exports_step_7c_graphml_export_only_if_graphml_flag",
+      "community": 20,
+      "community_name": "graphify reference: extra exports and benchmark",
+      "norm_label": "step 7c - graphml export (only if --graphml flag)"
+    },
+    {
+      "label": "Step 7d - MCP server (only if --mcp flag)",
+      "file_type": "document",
+      "source_file": ".claude/skills/graphify/references/exports.md",
+      "source_location": "L59",
+      "_origin": "ast",
+      "id": "claude_skills_graphify_references_exports_step_7d_mcp_server_only_if_mcp_flag",
+      "community": 20,
+      "community_name": "graphify reference: extra exports and benchmark",
+      "norm_label": "step 7d - mcp server (only if --mcp flag)"
+    },
+    {
+      "label": "Step 8 - Token reduction benchmark (only if total_words > 5000)",
+      "file_type": "document",
+      "source_file": ".claude/skills/graphify/references/exports.md",
+      "source_location": "L79",
+      "_origin": "ast",
+      "id": "claude_skills_graphify_references_exports_step_8_token_reduction_benchmark_only_if_total_words_5000",
+      "community": 20,
+      "community_name": "graphify reference: extra exports and benchmark",
+      "norm_label": "step 8 - token reduction benchmark (only if total_words > 5000)"
+    },
+    {
+      "label": "GUIDE.md",
+      "file_type": "document",
+      "source_file": "GUIDE.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "guide",
+      "community": 21,
+      "community_name": "GUIDE.md \u2014 What the OrgDesign Playbook does and how to run it",
+      "norm_label": "guide.md"
+    },
+    {
+      "label": "Cohort mode (comparing a team's answers)",
+      "file_type": "document",
+      "source_file": "GUIDE.md",
+      "source_location": "L37",
+      "_origin": "ast",
+      "id": "guide_cohort_mode_comparing_a_team_s_answers",
+      "community": 21,
+      "community_name": "GUIDE.md \u2014 What the OrgDesign Playbook does and how to run it",
+      "norm_label": "cohort mode (comparing a team's answers)"
+    },
+    {
+      "label": "Earlier changes (2026-07-08)",
+      "file_type": "document",
+      "source_file": "GUIDE.md",
+      "source_location": "L74",
+      "_origin": "ast",
+      "id": "guide_earlier_changes_2026_07_08",
+      "community": 21,
+      "community_name": "GUIDE.md \u2014 What the OrgDesign Playbook does and how to run it",
+      "norm_label": "earlier changes (2026-07-08)"
+    },
+    {
+      "label": "GUIDE.md \u2014 What the OrgDesign Playbook does and how to run it",
+      "file_type": "document",
+      "source_file": "GUIDE.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "guide_guide_md_what_the_orgdesign_playbook_does_and_how_to_run_it",
+      "community": 21,
+      "community_name": "GUIDE.md \u2014 What the OrgDesign Playbook does and how to run it",
+      "norm_label": "guide.md \u2014 what the orgdesign playbook does and how to run it"
+    },
+    {
+      "label": "How to check nothing is broken",
+      "file_type": "document",
+      "source_file": "GUIDE.md",
+      "source_location": "L56",
+      "_origin": "ast",
+      "id": "guide_how_to_check_nothing_is_broken",
+      "community": 21,
+      "community_name": "GUIDE.md \u2014 What the OrgDesign Playbook does and how to run it",
+      "norm_label": "how to check nothing is broken"
+    },
+    {
+      "label": "How to run it on your computer",
+      "file_type": "document",
+      "source_file": "GUIDE.md",
+      "source_location": "L49",
+      "_origin": "ast",
+      "id": "guide_how_to_run_it_on_your_computer",
+      "community": 21,
+      "community_name": "GUIDE.md \u2014 What the OrgDesign Playbook does and how to run it",
+      "norm_label": "how to run it on your computer"
+    },
+    {
+      "label": "What changed most recently (2026-08-13)",
+      "file_type": "document",
+      "source_file": "GUIDE.md",
+      "source_location": "L62",
+      "_origin": "ast",
+      "id": "guide_what_changed_most_recently_2026_08_13",
+      "community": 21,
+      "community_name": "GUIDE.md \u2014 What the OrgDesign Playbook does and how to run it",
+      "norm_label": "what changed most recently (2026-08-13)"
+    },
+    {
+      "label": "What the app does",
+      "file_type": "document",
+      "source_file": "GUIDE.md",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "guide_what_the_app_does",
+      "community": 21,
+      "community_name": "GUIDE.md \u2014 What the OrgDesign Playbook does and how to run it",
+      "norm_label": "what the app does"
+    },
+    {
+      "label": "PROJECT_STATE.md",
+      "file_type": "document",
+      "source_file": "PROJECT_STATE.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "project_state",
+      "community": 22,
+      "community_name": "PROJECT_STATE.md \u2014 OrgDesign Playbook",
+      "norm_label": "project_state.md"
+    },
+    {
+      "label": "Current state (2026-07-08)",
+      "file_type": "document",
+      "source_file": "PROJECT_STATE.md",
+      "source_location": "L17",
+      "_origin": "ast",
+      "id": "project_state_current_state_2026_07_08",
+      "community": 22,
+      "community_name": "PROJECT_STATE.md \u2014 OrgDesign Playbook",
+      "norm_label": "current state (2026-07-08)"
+    },
+    {
+      "label": "Done (chronology)",
+      "file_type": "document",
+      "source_file": "PROJECT_STATE.md",
+      "source_location": "L79",
+      "_origin": "ast",
+      "id": "project_state_done_chronology",
+      "community": 22,
+      "community_name": "PROJECT_STATE.md \u2014 OrgDesign Playbook",
+      "norm_label": "done (chronology)"
+    },
+    {
+      "label": "How to resume",
+      "file_type": "document",
+      "source_file": "PROJECT_STATE.md",
+      "source_location": "L68",
+      "_origin": "ast",
+      "id": "project_state_how_to_resume",
+      "community": 22,
+      "community_name": "PROJECT_STATE.md \u2014 OrgDesign Playbook",
+      "norm_label": "how to resume"
+    },
+    {
+      "label": "Next (open)",
+      "file_type": "document",
+      "source_file": "PROJECT_STATE.md",
+      "source_location": "L95",
+      "_origin": "ast",
+      "id": "project_state_next_open",
+      "community": 22,
+      "community_name": "PROJECT_STATE.md \u2014 OrgDesign Playbook",
+      "norm_label": "next (open)"
+    },
+    {
+      "label": "PROJECT_STATE.md \u2014 OrgDesign Playbook",
+      "file_type": "document",
+      "source_file": "PROJECT_STATE.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "project_state_project_state_md_orgdesign_playbook",
+      "community": 22,
+      "community_name": "PROJECT_STATE.md \u2014 OrgDesign Playbook",
+      "norm_label": "project_state.md \u2014 orgdesign playbook"
+    },
+    {
+      "label": "What this project is",
+      "file_type": "document",
+      "source_file": "PROJECT_STATE.md",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "project_state_what_this_project_is",
+      "community": 22,
+      "community_name": "PROJECT_STATE.md \u2014 OrgDesign Playbook",
+      "norm_label": "what this project is"
+    },
+    {
+      "label": "query.md",
+      "file_type": "document",
+      "source_file": ".claude/skills/graphify/references/query.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "claude_skills_graphify_references_query",
+      "community": 23,
+      "community_name": "graphify reference: query, path, explain",
+      "norm_label": "query.md"
+    },
+    {
+      "label": "For /graphify explain",
+      "file_type": "document",
+      "source_file": ".claude/skills/graphify/references/query.md",
+      "source_location": "L254",
+      "_origin": "ast",
+      "id": "claude_skills_graphify_references_query_for_graphify_explain",
+      "community": 23,
+      "community_name": "graphify reference: query, path, explain",
+      "norm_label": "for /graphify explain"
+    },
+    {
+      "label": "For /graphify path",
+      "file_type": "document",
+      "source_file": ".claude/skills/graphify/references/query.md",
+      "source_location": "L186",
+      "_origin": "ast",
+      "id": "claude_skills_graphify_references_query_for_graphify_path",
+      "community": 23,
+      "community_name": "graphify reference: query, path, explain",
+      "norm_label": "for /graphify path"
+    },
+    {
+      "label": "graphify reference: query, path, explain",
+      "file_type": "document",
+      "source_file": ".claude/skills/graphify/references/query.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "claude_skills_graphify_references_query_graphify_reference_query_path_explain",
+      "community": 23,
+      "community_name": "graphify reference: query, path, explain",
+      "norm_label": "graphify reference: query, path, explain"
+    },
+    {
+      "label": "Step 0 \u2014 Constrained query expansion (REQUIRED before traversal)",
+      "file_type": "document",
+      "source_file": ".claude/skills/graphify/references/query.md",
+      "source_location": "L23",
+      "_origin": "ast",
+      "id": "claude_skills_graphify_references_query_step_0_constrained_query_expansion_required_before_traversal",
+      "community": 23,
+      "community_name": "graphify reference: query, path, explain",
+      "norm_label": "step 0 \u2014 constrained query expansion (required before traversal)"
+    },
+    {
+      "label": "Step 1 \u2014 Traversal",
+      "file_type": "document",
+      "source_file": ".claude/skills/graphify/references/query.md",
+      "source_location": "L61",
+      "_origin": "ast",
+      "id": "claude_skills_graphify_references_query_step_1_traversal",
+      "community": 23,
+      "community_name": "graphify reference: query, path, explain",
+      "norm_label": "step 1 \u2014 traversal"
+    },
+    {
+      "label": "add-watch.md",
+      "file_type": "document",
+      "source_file": ".claude/skills/graphify/references/add-watch.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "claude_skills_graphify_references_add_watch",
+      "community": 24,
+      "community_name": "graphify reference: add a URL and watch a folder",
+      "norm_label": "add-watch.md"
+    },
+    {
+      "label": "For /graphify add",
+      "file_type": "document",
+      "source_file": ".claude/skills/graphify/references/add-watch.md",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "claude_skills_graphify_references_add_watch_for_graphify_add",
+      "community": 24,
+      "community_name": "graphify reference: add a URL and watch a folder",
+      "norm_label": "for /graphify add"
+    },
+    {
+      "label": "For --watch",
+      "file_type": "document",
+      "source_file": ".claude/skills/graphify/references/add-watch.md",
+      "source_location": "L39",
+      "_origin": "ast",
+      "id": "claude_skills_graphify_references_add_watch_for_watch",
+      "community": 24,
+      "community_name": "graphify reference: add a URL and watch a folder",
+      "norm_label": "for --watch"
+    },
+    {
+      "label": "graphify reference: add a URL and watch a folder",
+      "file_type": "document",
+      "source_file": ".claude/skills/graphify/references/add-watch.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "claude_skills_graphify_references_add_watch_graphify_reference_add_a_url_and_watch_a_folder",
+      "community": 24,
+      "community_name": "graphify reference: add a URL and watch a folder",
+      "norm_label": "graphify reference: add a url and watch a folder"
+    },
+    {
+      "label": "hooks.md",
+      "file_type": "document",
+      "source_file": ".claude/skills/graphify/references/hooks.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "claude_skills_graphify_references_hooks",
+      "community": 25,
+      "community_name": "graphify reference: commit hook and native CLAUDE.md integration",
+      "norm_label": "hooks.md"
+    },
+    {
+      "label": "For git commit hook",
+      "file_type": "document",
+      "source_file": ".claude/skills/graphify/references/hooks.md",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "claude_skills_graphify_references_hooks_for_git_commit_hook",
+      "community": 25,
+      "community_name": "graphify reference: commit hook and native CLAUDE.md integration",
+      "norm_label": "for git commit hook"
+    },
+    {
+      "label": "For native CLAUDE.md integration",
+      "file_type": "document",
+      "source_file": ".claude/skills/graphify/references/hooks.md",
+      "source_location": "L21",
+      "_origin": "ast",
+      "id": "claude_skills_graphify_references_hooks_for_native_claude_md_integration",
+      "community": 25,
+      "community_name": "graphify reference: commit hook and native CLAUDE.md integration",
+      "norm_label": "for native claude.md integration"
+    },
+    {
+      "label": "graphify reference: commit hook and native CLAUDE.md integration",
+      "file_type": "document",
+      "source_file": ".claude/skills/graphify/references/hooks.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "claude_skills_graphify_references_hooks_graphify_reference_commit_hook_and_native_claude_md_integration",
+      "community": 25,
+      "community_name": "graphify reference: commit hook and native CLAUDE.md integration",
+      "norm_label": "graphify reference: commit hook and native claude.md integration"
+    },
+    {
+      "label": "update.md",
+      "file_type": "document",
+      "source_file": ".claude/skills/graphify/references/update.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "claude_skills_graphify_references_update",
+      "community": 26,
+      "community_name": "graphify reference: incremental update and cluster-only",
+      "norm_label": "update.md"
+    },
+    {
+      "label": "For --cluster-only",
+      "file_type": "document",
+      "source_file": ".claude/skills/graphify/references/update.md",
+      "source_location": "L202",
+      "_origin": "ast",
+      "id": "claude_skills_graphify_references_update_for_cluster_only",
+      "community": 26,
+      "community_name": "graphify reference: incremental update and cluster-only",
+      "norm_label": "for --cluster-only"
+    },
+    {
+      "label": "For --update (incremental re-extraction)",
+      "file_type": "document",
+      "source_file": ".claude/skills/graphify/references/update.md",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "claude_skills_graphify_references_update_for_update_incremental_re_extraction",
+      "community": 26,
+      "community_name": "graphify reference: incremental update and cluster-only",
+      "norm_label": "for --update (incremental re-extraction)"
+    },
+    {
+      "label": "graphify reference: incremental update and cluster-only",
+      "file_type": "document",
+      "source_file": ".claude/skills/graphify/references/update.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "claude_skills_graphify_references_update_graphify_reference_incremental_update_and_cluster_only",
+      "community": 26,
+      "community_name": "graphify reference: incremental update and cluster-only",
+      "norm_label": "graphify reference: incremental update and cluster-only"
+    },
+    {
+      "label": "README.md",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "readme",
+      "community": 27,
+      "community_name": "React + TypeScript + Vite",
+      "norm_label": "readme.md"
+    },
+    {
+      "label": "Expanding the ESLint configuration",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L14",
+      "_origin": "ast",
+      "id": "readme_expanding_the_eslint_configuration",
+      "community": 27,
+      "community_name": "React + TypeScript + Vite",
+      "norm_label": "expanding the eslint configuration"
+    },
+    {
+      "label": "React Compiler",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "readme_react_compiler",
+      "community": 27,
+      "community_name": "React + TypeScript + Vite",
+      "norm_label": "react compiler"
+    },
+    {
+      "label": "React + TypeScript + Vite",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "readme_react_typescript_vite",
+      "community": 27,
+      "community_name": "React + TypeScript + Vite",
+      "norm_label": "react + typescript + vite"
+    },
+    {
+      "label": "github-and-merge.md",
+      "file_type": "document",
+      "source_file": ".claude/skills/graphify/references/github-and-merge.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "claude_skills_graphify_references_github_and_merge",
+      "community": 28,
+      "community_name": "graphify reference: GitHub clone and cross-repo merge",
+      "norm_label": "github-and-merge.md"
+    },
+    {
+      "label": "graphify reference: GitHub clone and cross-repo merge",
+      "file_type": "document",
+      "source_file": ".claude/skills/graphify/references/github-and-merge.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "claude_skills_graphify_references_github_and_merge_graphify_reference_github_clone_and_cross_repo_merge",
+      "community": 28,
+      "community_name": "graphify reference: GitHub clone and cross-repo merge",
+      "norm_label": "graphify reference: github clone and cross-repo merge"
+    },
+    {
+      "label": "Step 0 - Clone GitHub repo(s) (only if a GitHub URL was given)",
+      "file_type": "document",
+      "source_file": ".claude/skills/graphify/references/github-and-merge.md",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "claude_skills_graphify_references_github_and_merge_step_0_clone_github_repo_s_only_if_a_github_url_was_given",
+      "community": 28,
+      "community_name": "graphify reference: GitHub clone and cross-repo merge",
+      "norm_label": "step 0 - clone github repo(s) (only if a github url was given)"
+    },
+    {
+      "label": "transcribe.md",
+      "file_type": "document",
+      "source_file": ".claude/skills/graphify/references/transcribe.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "claude_skills_graphify_references_transcribe",
+      "community": 29,
+      "community_name": "graphify reference: transcribe video and audio",
+      "norm_label": "transcribe.md"
+    },
+    {
+      "label": "graphify reference: transcribe video and audio",
+      "file_type": "document",
+      "source_file": ".claude/skills/graphify/references/transcribe.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "claude_skills_graphify_references_transcribe_graphify_reference_transcribe_video_and_audio",
+      "community": 29,
+      "community_name": "graphify reference: transcribe video and audio",
+      "norm_label": "graphify reference: transcribe video and audio"
+    },
+    {
+      "label": "Step 2.5 - Transcribe video / audio files (only if video files detected)",
+      "file_type": "document",
+      "source_file": ".claude/skills/graphify/references/transcribe.md",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "claude_skills_graphify_references_transcribe_step_2_5_transcribe_video_audio_files_only_if_video_files_detected",
+      "community": 29,
+      "community_name": "graphify reference: transcribe video and audio",
+      "norm_label": "step 2.5 - transcribe video / audio files (only if video files detected)"
     },
     {
       "label": "DiagnosticSurvey.tsx",
@@ -2007,6 +3127,7 @@
       "_origin": "ast",
       "id": "src_components_diagnosticsurvey",
       "community": 3,
+      "community_name": "constants.ts",
       "norm_label": "diagnosticsurvey.tsx"
     },
     {
@@ -2017,6 +3138,7 @@
       "_origin": "ast",
       "id": "src_components_diagnosticsurvey_dimensioncolor",
       "community": 3,
+      "community_name": "constants.ts",
       "norm_label": "dimensioncolor"
     },
     {
@@ -2027,6 +3149,7 @@
       "_origin": "ast",
       "id": "src_components_questioncard",
       "community": 3,
+      "community_name": "constants.ts",
       "norm_label": "questioncard.tsx"
     },
     {
@@ -2037,6 +3160,7 @@
       "_origin": "ast",
       "id": "src_constants",
       "community": 3,
+      "community_name": "constants.ts",
       "norm_label": "constants.ts"
     },
     {
@@ -2047,6 +3171,7 @@
       "_origin": "ast",
       "id": "src_constants_dimension_labels",
       "community": 3,
+      "community_name": "constants.ts",
       "norm_label": "dimension_labels"
     },
     {
@@ -2057,6 +3182,7 @@
       "_origin": "ast",
       "id": "src_constants_likert_options",
       "community": 3,
+      "community_name": "constants.ts",
       "norm_label": "likert_options"
     },
     {
@@ -2067,6 +3193,7 @@
       "_origin": "ast",
       "id": "src_constants_quadrant_colors",
       "community": 3,
+      "community_name": "constants.ts",
       "norm_label": "quadrant_colors"
     },
     {
@@ -2077,6 +3204,7 @@
       "_origin": "ast",
       "id": "src_constants_question_count",
       "community": 3,
+      "community_name": "constants.ts",
       "norm_label": "question_count"
     },
     {
@@ -2087,6 +3215,7 @@
       "_origin": "ast",
       "id": "src_constants_questions_per_dimension",
       "community": 3,
+      "community_name": "constants.ts",
       "norm_label": "questions_per_dimension"
     },
     {
@@ -2097,6 +3226,7 @@
       "_origin": "ast",
       "id": "src_constants_score_labels",
       "community": 3,
+      "community_name": "constants.ts",
       "norm_label": "score_labels"
     },
     {
@@ -2107,6 +3237,7 @@
       "_origin": "ast",
       "id": "src_constants_score_thresholds",
       "community": 3,
+      "community_name": "constants.ts",
       "norm_label": "score_thresholds"
     },
     {
@@ -2117,6 +3248,7 @@
       "_origin": "ast",
       "id": "src_data_interventions_dimensiontoactivators",
       "community": 3,
+      "community_name": "constants.ts",
       "norm_label": "dimensiontoactivators"
     },
     {
@@ -2127,6 +3259,7 @@
       "_origin": "ast",
       "id": "src_data_questions",
       "community": 3,
+      "community_name": "constants.ts",
       "norm_label": "questions.ts"
     },
     {
@@ -2137,6 +3270,7 @@
       "_origin": "ast",
       "id": "src_data_questions_diagnosticquestions",
       "community": 3,
+      "community_name": "constants.ts",
       "norm_label": "diagnosticquestions"
     },
     {
@@ -2147,6 +3281,7 @@
       "_origin": "ast",
       "id": "src_hooks_usediagnostic",
       "community": 3,
+      "community_name": "constants.ts",
       "norm_label": "usediagnostic.ts"
     },
     {
@@ -2157,6 +3292,7 @@
       "_origin": "ast",
       "id": "src_tests_alignment_questions_alignment_test",
       "community": 3,
+      "community_name": "constants.ts",
       "norm_label": "questions-alignment.test.ts"
     },
     {
@@ -2167,6 +3303,7 @@
       "_origin": "ast",
       "id": "src_tests_alignment_scoring_alignment_test",
       "community": 3,
+      "community_name": "constants.ts",
       "norm_label": "scoring-alignment.test.ts"
     },
     {
@@ -2177,6 +3314,7 @@
       "_origin": "ast",
       "id": "src_tests_diagnostic_test",
       "community": 3,
+      "community_name": "constants.ts",
       "norm_label": "diagnostic.test.tsx"
     },
     {
@@ -2187,7 +3325,96 @@
       "_origin": "ast",
       "id": "src_utils_scoring",
       "community": 3,
+      "community_name": "constants.ts",
       "norm_label": "scoring.ts"
+    },
+    {
+      "label": "CLAUDE.md",
+      "file_type": "document",
+      "source_file": "CLAUDE.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "claude",
+      "community": 30,
+      "community_name": "CLAUDE.md",
+      "norm_label": "claude.md"
+    },
+    {
+      "label": "graphify",
+      "file_type": "document",
+      "source_file": "CLAUDE.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "claude_graphify",
+      "community": 30,
+      "community_name": "CLAUDE.md",
+      "norm_label": "graphify"
+    },
+    {
+      "label": ".claude/CLAUDE.md",
+      "file_type": "document",
+      "source_file": ".claude/CLAUDE.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "claude_claude",
+      "community": 31,
+      "community_name": ".claude/CLAUDE.md",
+      "norm_label": ".claude/claude.md"
+    },
+    {
+      "label": "graphify",
+      "file_type": "document",
+      "source_file": ".claude/CLAUDE.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "claude_claude_graphify",
+      "community": 31,
+      "community_name": ".claude/CLAUDE.md",
+      "norm_label": "graphify"
+    },
+    {
+      "label": "extraction-spec.md",
+      "file_type": "document",
+      "source_file": ".claude/skills/graphify/references/extraction-spec.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "claude_skills_graphify_references_extraction_spec",
+      "community": 32,
+      "community_name": "extraction-spec.md",
+      "norm_label": "extraction-spec.md"
+    },
+    {
+      "label": "graphify reference: extraction subagent prompt",
+      "file_type": "document",
+      "source_file": ".claude/skills/graphify/references/extraction-spec.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "claude_skills_graphify_references_extraction_spec_graphify_reference_extraction_subagent_prompt",
+      "community": 32,
+      "community_name": "extraction-spec.md",
+      "norm_label": "graphify reference: extraction subagent prompt"
+    },
+    {
+      "label": "DECISIONS.md",
+      "file_type": "document",
+      "source_file": "DECISIONS.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "decisions",
+      "community": 33,
+      "community_name": "DECISIONS.md",
+      "norm_label": "decisions.md"
+    },
+    {
+      "label": "DECISIONS.md \u2014 OrgDesign Playbook",
+      "file_type": "document",
+      "source_file": "DECISIONS.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "decisions_decisions_md_orgdesign_playbook",
+      "community": 33,
+      "community_name": "DECISIONS.md",
+      "norm_label": "decisions.md \u2014 orgdesign playbook"
     },
     {
       "label": "ActivatorCard.tsx",
@@ -2197,6 +3424,7 @@
       "_origin": "ast",
       "id": "src_components_activatorcard",
       "community": 4,
+      "community_name": "SECTION_IDS",
       "norm_label": "activatorcard.tsx"
     },
     {
@@ -2207,27 +3435,8 @@
       "_origin": "ast",
       "id": "src_components_activatorssection",
       "community": 4,
+      "community_name": "SECTION_IDS",
       "norm_label": "activatorssection.tsx"
-    },
-    {
-      "label": "ChangeLevers.tsx",
-      "file_type": "code",
-      "source_file": "src/components/ChangeLevers.tsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "src_components_changelevers",
-      "community": 4,
-      "norm_label": "changelevers.tsx"
-    },
-    {
-      "label": "phaseLabels",
-      "file_type": "code",
-      "source_file": "src/components/ChangeLevers.tsx",
-      "source_location": "L5",
-      "_origin": "ast",
-      "id": "src_components_changelevers_phaselabels",
-      "community": 4,
-      "norm_label": "phaselabels"
     },
     {
       "label": "Header.tsx",
@@ -2237,6 +3446,7 @@
       "_origin": "ast",
       "id": "src_components_header",
       "community": 4,
+      "community_name": "SECTION_IDS",
       "norm_label": "header.tsx"
     },
     {
@@ -2247,6 +3457,7 @@
       "_origin": "ast",
       "id": "src_components_header_navitems",
       "community": 4,
+      "community_name": "SECTION_IDS",
       "norm_label": "navitems"
     },
     {
@@ -2257,6 +3468,7 @@
       "_origin": "ast",
       "id": "src_components_hero",
       "community": 4,
+      "community_name": "SECTION_IDS",
       "norm_label": "hero.tsx"
     },
     {
@@ -2267,6 +3479,7 @@
       "_origin": "ast",
       "id": "src_components_hero_indexrows",
       "community": 4,
+      "community_name": "SECTION_IDS",
       "norm_label": "indexrows"
     },
     {
@@ -2277,6 +3490,7 @@
       "_origin": "ast",
       "id": "src_constants_section_ids",
       "community": 4,
+      "community_name": "SECTION_IDS",
       "norm_label": "section_ids"
     },
     {
@@ -2287,6 +3501,7 @@
       "_origin": "ast",
       "id": "src_data_activators",
       "community": 4,
+      "community_name": "SECTION_IDS",
       "norm_label": "activators.ts"
     },
     {
@@ -2297,17 +3512,8 @@
       "_origin": "ast",
       "id": "src_data_activators_activators",
       "community": 4,
+      "community_name": "SECTION_IDS",
       "norm_label": "activators"
-    },
-    {
-      "label": "changeLevers",
-      "file_type": "code",
-      "source_file": "src/data/interventions.ts",
-      "source_location": "L10",
-      "_origin": "ast",
-      "id": "src_data_interventions_changelevers",
-      "community": 4,
-      "norm_label": "changelevers"
     },
     {
       "label": "activators-alignment.test.ts",
@@ -2317,6 +3523,7 @@
       "_origin": "ast",
       "id": "src_tests_alignment_activators_alignment_test",
       "community": 4,
+      "community_name": "SECTION_IDS",
       "norm_label": "activators-alignment.test.ts"
     },
     {
@@ -2327,6 +3534,7 @@
       "_origin": "ast",
       "id": "src_tests_content_test",
       "community": 4,
+      "community_name": "SECTION_IDS",
       "norm_label": "content.test.tsx"
     },
     {
@@ -2337,6 +3545,7 @@
       "_origin": "ast",
       "id": "tsconfig_app",
       "community": 5,
+      "community_name": "compilerOptions",
       "norm_label": "tsconfig.app.json"
     },
     {
@@ -2347,6 +3556,7 @@
       "_origin": "ast",
       "id": "tsconfig_app_compileroptions",
       "community": 5,
+      "community_name": "compilerOptions",
       "norm_label": "compileroptions"
     },
     {
@@ -2357,6 +3567,7 @@
       "_origin": "ast",
       "id": "tsconfig_app_compileroptions_allowimportingtsextensions",
       "community": 5,
+      "community_name": "compilerOptions",
       "norm_label": "allowimportingtsextensions"
     },
     {
@@ -2367,6 +3578,7 @@
       "_origin": "ast",
       "id": "tsconfig_app_compileroptions_erasablesyntaxonly",
       "community": 5,
+      "community_name": "compilerOptions",
       "norm_label": "erasablesyntaxonly"
     },
     {
@@ -2377,6 +3589,7 @@
       "_origin": "ast",
       "id": "tsconfig_app_compileroptions_jsx",
       "community": 5,
+      "community_name": "compilerOptions",
       "norm_label": "jsx"
     },
     {
@@ -2387,6 +3600,7 @@
       "_origin": "ast",
       "id": "tsconfig_app_compileroptions_lib",
       "community": 5,
+      "community_name": "compilerOptions",
       "norm_label": "lib"
     },
     {
@@ -2397,6 +3611,7 @@
       "_origin": "ast",
       "id": "tsconfig_app_compileroptions_module",
       "community": 5,
+      "community_name": "compilerOptions",
       "norm_label": "module"
     },
     {
@@ -2407,6 +3622,7 @@
       "_origin": "ast",
       "id": "tsconfig_app_compileroptions_moduledetection",
       "community": 5,
+      "community_name": "compilerOptions",
       "norm_label": "moduledetection"
     },
     {
@@ -2417,6 +3633,7 @@
       "_origin": "ast",
       "id": "tsconfig_app_compileroptions_moduleresolution",
       "community": 5,
+      "community_name": "compilerOptions",
       "norm_label": "moduleresolution"
     },
     {
@@ -2427,6 +3644,7 @@
       "_origin": "ast",
       "id": "tsconfig_app_compileroptions_noemit",
       "community": 5,
+      "community_name": "compilerOptions",
       "norm_label": "noemit"
     },
     {
@@ -2437,6 +3655,7 @@
       "_origin": "ast",
       "id": "tsconfig_app_compileroptions_nofallthroughcasesinswitch",
       "community": 5,
+      "community_name": "compilerOptions",
       "norm_label": "nofallthroughcasesinswitch"
     },
     {
@@ -2447,6 +3666,7 @@
       "_origin": "ast",
       "id": "tsconfig_app_compileroptions_nouncheckedsideeffectimports",
       "community": 5,
+      "community_name": "compilerOptions",
       "norm_label": "nouncheckedsideeffectimports"
     },
     {
@@ -2457,6 +3677,7 @@
       "_origin": "ast",
       "id": "tsconfig_app_compileroptions_nounusedlocals",
       "community": 5,
+      "community_name": "compilerOptions",
       "norm_label": "nounusedlocals"
     },
     {
@@ -2467,6 +3688,7 @@
       "_origin": "ast",
       "id": "tsconfig_app_compileroptions_nounusedparameters",
       "community": 5,
+      "community_name": "compilerOptions",
       "norm_label": "nounusedparameters"
     },
     {
@@ -2477,6 +3699,7 @@
       "_origin": "ast",
       "id": "tsconfig_app_compileroptions_skiplibcheck",
       "community": 5,
+      "community_name": "compilerOptions",
       "norm_label": "skiplibcheck"
     },
     {
@@ -2487,6 +3710,7 @@
       "_origin": "ast",
       "id": "tsconfig_app_compileroptions_strict",
       "community": 5,
+      "community_name": "compilerOptions",
       "norm_label": "strict"
     },
     {
@@ -2497,6 +3721,7 @@
       "_origin": "ast",
       "id": "tsconfig_app_compileroptions_target",
       "community": 5,
+      "community_name": "compilerOptions",
       "norm_label": "target"
     },
     {
@@ -2507,6 +3732,7 @@
       "_origin": "ast",
       "id": "tsconfig_app_compileroptions_tsbuildinfofile",
       "community": 5,
+      "community_name": "compilerOptions",
       "norm_label": "tsbuildinfofile"
     },
     {
@@ -2517,6 +3743,7 @@
       "_origin": "ast",
       "id": "tsconfig_app_compileroptions_types",
       "community": 5,
+      "community_name": "compilerOptions",
       "norm_label": "types"
     },
     {
@@ -2527,6 +3754,7 @@
       "_origin": "ast",
       "id": "tsconfig_app_compileroptions_usedefineforclassfields",
       "community": 5,
+      "community_name": "compilerOptions",
       "norm_label": "usedefineforclassfields"
     },
     {
@@ -2537,6 +3765,7 @@
       "_origin": "ast",
       "id": "tsconfig_app_compileroptions_verbatimmodulesyntax",
       "community": 5,
+      "community_name": "compilerOptions",
       "norm_label": "verbatimmodulesyntax"
     },
     {
@@ -2547,6 +3776,7 @@
       "_origin": "ast",
       "id": "tsconfig_app_include",
       "community": 5,
+      "community_name": "compilerOptions",
       "norm_label": "include"
     },
     {
@@ -2557,6 +3787,7 @@
       "_origin": "ast",
       "id": "ref_dom",
       "community": 5,
+      "community_name": "compilerOptions",
       "norm_label": "dom"
     },
     {
@@ -2567,6 +3798,7 @@
       "_origin": "ast",
       "id": "ref_dom_iterable",
       "community": 5,
+      "community_name": "compilerOptions",
       "norm_label": "dom.iterable"
     },
     {
@@ -2577,6 +3809,7 @@
       "_origin": "ast",
       "id": "ref_es2022",
       "community": 5,
+      "community_name": "compilerOptions",
       "norm_label": "es2022"
     },
     {
@@ -2587,6 +3820,7 @@
       "_origin": "ast",
       "id": "ref_src",
       "community": 5,
+      "community_name": "compilerOptions",
       "norm_label": "src"
     },
     {
@@ -2597,6 +3831,7 @@
       "_origin": "ast",
       "id": "ref_vite_client",
       "community": 5,
+      "community_name": "compilerOptions",
       "norm_label": "vite/client"
     },
     {
@@ -2607,6 +3842,7 @@
       "_origin": "ast",
       "id": "package",
       "community": 6,
+      "community_name": "scripts",
       "norm_label": "package.json"
     },
     {
@@ -2617,6 +3853,7 @@
       "_origin": "ast",
       "id": "package_dependencies",
       "community": 6,
+      "community_name": "scripts",
       "norm_label": "dependencies"
     },
     {
@@ -2627,6 +3864,7 @@
       "_origin": "ast",
       "id": "package_dependencies_lucide_react",
       "community": 6,
+      "community_name": "scripts",
       "norm_label": "lucide-react"
     },
     {
@@ -2637,6 +3875,7 @@
       "_origin": "ast",
       "id": "package_dependencies_react",
       "community": 6,
+      "community_name": "scripts",
       "norm_label": "react"
     },
     {
@@ -2647,6 +3886,7 @@
       "_origin": "ast",
       "id": "package_dependencies_react_dom",
       "community": 6,
+      "community_name": "scripts",
       "norm_label": "react-dom"
     },
     {
@@ -2657,6 +3897,7 @@
       "_origin": "ast",
       "id": "package_name",
       "community": 6,
+      "community_name": "scripts",
       "norm_label": "name"
     },
     {
@@ -2667,6 +3908,7 @@
       "_origin": "ast",
       "id": "package_private",
       "community": 6,
+      "community_name": "scripts",
       "norm_label": "private"
     },
     {
@@ -2677,6 +3919,7 @@
       "_origin": "ast",
       "id": "package_scripts",
       "community": 6,
+      "community_name": "scripts",
       "norm_label": "scripts"
     },
     {
@@ -2687,6 +3930,7 @@
       "_origin": "ast",
       "id": "package_scripts_build",
       "community": 6,
+      "community_name": "scripts",
       "norm_label": "build"
     },
     {
@@ -2697,6 +3941,7 @@
       "_origin": "ast",
       "id": "package_scripts_dev",
       "community": 6,
+      "community_name": "scripts",
       "norm_label": "dev"
     },
     {
@@ -2707,6 +3952,7 @@
       "_origin": "ast",
       "id": "package_scripts_lint",
       "community": 6,
+      "community_name": "scripts",
       "norm_label": "lint"
     },
     {
@@ -2717,6 +3963,7 @@
       "_origin": "ast",
       "id": "package_scripts_preview",
       "community": 6,
+      "community_name": "scripts",
       "norm_label": "preview"
     },
     {
@@ -2727,6 +3974,7 @@
       "_origin": "ast",
       "id": "package_scripts_size",
       "community": 6,
+      "community_name": "scripts",
       "norm_label": "size"
     },
     {
@@ -2737,6 +3985,7 @@
       "_origin": "ast",
       "id": "package_scripts_size_check",
       "community": 6,
+      "community_name": "scripts",
       "norm_label": "size:check"
     },
     {
@@ -2747,6 +3996,7 @@
       "_origin": "ast",
       "id": "package_scripts_test",
       "community": 6,
+      "community_name": "scripts",
       "norm_label": "test"
     },
     {
@@ -2757,6 +4007,7 @@
       "_origin": "ast",
       "id": "package_scripts_test_alignment",
       "community": 6,
+      "community_name": "scripts",
       "norm_label": "test:alignment"
     },
     {
@@ -2767,6 +4018,7 @@
       "_origin": "ast",
       "id": "package_scripts_test_watch",
       "community": 6,
+      "community_name": "scripts",
       "norm_label": "test:watch"
     },
     {
@@ -2777,6 +4029,7 @@
       "_origin": "ast",
       "id": "package_scripts_verify",
       "community": 6,
+      "community_name": "scripts",
       "norm_label": "verify"
     },
     {
@@ -2787,6 +4040,7 @@
       "_origin": "ast",
       "id": "package_type",
       "community": 6,
+      "community_name": "scripts",
       "norm_label": "type"
     },
     {
@@ -2797,6 +4051,7 @@
       "_origin": "ast",
       "id": "package_version",
       "community": 6,
+      "community_name": "scripts",
       "norm_label": "version"
     },
     {
@@ -2807,6 +4062,7 @@
       "_origin": "ast",
       "id": "lucide_react",
       "community": 6,
+      "community_name": "scripts",
       "norm_label": "lucide-react"
     },
     {
@@ -2817,6 +4073,7 @@
       "_origin": "ast",
       "id": "react",
       "community": 6,
+      "community_name": "scripts",
       "norm_label": "react"
     },
     {
@@ -2827,6 +4084,7 @@
       "_origin": "ast",
       "id": "react_dom",
       "community": 6,
+      "community_name": "scripts",
       "norm_label": "react-dom"
     },
     {
@@ -2837,6 +4095,7 @@
       "_origin": "ast",
       "id": "tsconfig_node",
       "community": 7,
+      "community_name": "compilerOptions",
       "norm_label": "tsconfig.node.json"
     },
     {
@@ -2847,6 +4106,7 @@
       "_origin": "ast",
       "id": "tsconfig_node_compileroptions",
       "community": 7,
+      "community_name": "compilerOptions",
       "norm_label": "compileroptions"
     },
     {
@@ -2857,6 +4117,7 @@
       "_origin": "ast",
       "id": "tsconfig_node_compileroptions_allowimportingtsextensions",
       "community": 7,
+      "community_name": "compilerOptions",
       "norm_label": "allowimportingtsextensions"
     },
     {
@@ -2867,6 +4128,7 @@
       "_origin": "ast",
       "id": "tsconfig_node_compileroptions_erasablesyntaxonly",
       "community": 7,
+      "community_name": "compilerOptions",
       "norm_label": "erasablesyntaxonly"
     },
     {
@@ -2877,6 +4139,7 @@
       "_origin": "ast",
       "id": "tsconfig_node_compileroptions_lib",
       "community": 7,
+      "community_name": "compilerOptions",
       "norm_label": "lib"
     },
     {
@@ -2887,6 +4150,7 @@
       "_origin": "ast",
       "id": "tsconfig_node_compileroptions_module",
       "community": 7,
+      "community_name": "compilerOptions",
       "norm_label": "module"
     },
     {
@@ -2897,6 +4161,7 @@
       "_origin": "ast",
       "id": "tsconfig_node_compileroptions_moduledetection",
       "community": 7,
+      "community_name": "compilerOptions",
       "norm_label": "moduledetection"
     },
     {
@@ -2907,6 +4172,7 @@
       "_origin": "ast",
       "id": "tsconfig_node_compileroptions_moduleresolution",
       "community": 7,
+      "community_name": "compilerOptions",
       "norm_label": "moduleresolution"
     },
     {
@@ -2917,6 +4183,7 @@
       "_origin": "ast",
       "id": "tsconfig_node_compileroptions_noemit",
       "community": 7,
+      "community_name": "compilerOptions",
       "norm_label": "noemit"
     },
     {
@@ -2927,6 +4194,7 @@
       "_origin": "ast",
       "id": "tsconfig_node_compileroptions_nofallthroughcasesinswitch",
       "community": 7,
+      "community_name": "compilerOptions",
       "norm_label": "nofallthroughcasesinswitch"
     },
     {
@@ -2937,6 +4205,7 @@
       "_origin": "ast",
       "id": "tsconfig_node_compileroptions_nouncheckedsideeffectimports",
       "community": 7,
+      "community_name": "compilerOptions",
       "norm_label": "nouncheckedsideeffectimports"
     },
     {
@@ -2947,6 +4216,7 @@
       "_origin": "ast",
       "id": "tsconfig_node_compileroptions_nounusedlocals",
       "community": 7,
+      "community_name": "compilerOptions",
       "norm_label": "nounusedlocals"
     },
     {
@@ -2957,6 +4227,7 @@
       "_origin": "ast",
       "id": "tsconfig_node_compileroptions_nounusedparameters",
       "community": 7,
+      "community_name": "compilerOptions",
       "norm_label": "nounusedparameters"
     },
     {
@@ -2967,6 +4238,7 @@
       "_origin": "ast",
       "id": "tsconfig_node_compileroptions_skiplibcheck",
       "community": 7,
+      "community_name": "compilerOptions",
       "norm_label": "skiplibcheck"
     },
     {
@@ -2977,6 +4249,7 @@
       "_origin": "ast",
       "id": "tsconfig_node_compileroptions_strict",
       "community": 7,
+      "community_name": "compilerOptions",
       "norm_label": "strict"
     },
     {
@@ -2987,6 +4260,7 @@
       "_origin": "ast",
       "id": "tsconfig_node_compileroptions_target",
       "community": 7,
+      "community_name": "compilerOptions",
       "norm_label": "target"
     },
     {
@@ -2997,6 +4271,7 @@
       "_origin": "ast",
       "id": "tsconfig_node_compileroptions_tsbuildinfofile",
       "community": 7,
+      "community_name": "compilerOptions",
       "norm_label": "tsbuildinfofile"
     },
     {
@@ -3007,6 +4282,7 @@
       "_origin": "ast",
       "id": "tsconfig_node_compileroptions_types",
       "community": 7,
+      "community_name": "compilerOptions",
       "norm_label": "types"
     },
     {
@@ -3017,6 +4293,7 @@
       "_origin": "ast",
       "id": "tsconfig_node_compileroptions_verbatimmodulesyntax",
       "community": 7,
+      "community_name": "compilerOptions",
       "norm_label": "verbatimmodulesyntax"
     },
     {
@@ -3027,6 +4304,7 @@
       "_origin": "ast",
       "id": "tsconfig_node_include",
       "community": 7,
+      "community_name": "compilerOptions",
       "norm_label": "include"
     },
     {
@@ -3037,6 +4315,7 @@
       "_origin": "ast",
       "id": "ref_es2023",
       "community": 7,
+      "community_name": "compilerOptions",
       "norm_label": "es2023"
     },
     {
@@ -3047,6 +4326,7 @@
       "_origin": "ast",
       "id": "ref_node",
       "community": 7,
+      "community_name": "compilerOptions",
       "norm_label": "node"
     },
     {
@@ -3057,77 +4337,228 @@
       "_origin": "ast",
       "id": "ref_vite_config_ts",
       "community": 7,
+      "community_name": "compilerOptions",
       "norm_label": "vite.config.ts"
     },
     {
-      "label": "DimensionChart.tsx",
+      "label": "AiNativeSection.tsx",
       "file_type": "code",
-      "source_file": "src/components/DimensionChart.tsx",
+      "source_file": "src/components/AiNativeSection.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_components_dimensionchart",
+      "id": "src_components_ainativesection",
       "community": 8,
-      "norm_label": "dimensionchart.tsx"
+      "community_name": "index.ts",
+      "norm_label": "ainativesection.tsx"
     },
     {
-      "label": "fillColor",
+      "label": "indentClasses",
       "file_type": "code",
-      "source_file": "src/components/DimensionChart.tsx",
-      "source_location": "L9",
+      "source_file": "src/components/AiNativeSection.tsx",
+      "source_location": "L12",
       "_origin": "ast",
-      "id": "src_components_dimensionchart_fillcolor",
+      "id": "src_components_ainativesection_indentclasses",
       "community": 8,
-      "norm_label": "fillcolor"
+      "community_name": "index.ts",
+      "norm_label": "indentclasses"
     },
     {
-      "label": "ExportButton.tsx",
+      "label": "MICRO_LABEL_STYLE",
       "file_type": "code",
-      "source_file": "src/components/ExportButton.tsx",
+      "source_file": "src/components/AiNativeSection.tsx",
+      "source_location": "L20",
+      "_origin": "ast",
+      "id": "src_components_ainativesection_micro_label_style",
+      "community": 8,
+      "community_name": "index.ts",
+      "norm_label": "micro_label_style"
+    },
+    {
+      "label": "OVERLINE_STYLE",
+      "file_type": "code",
+      "source_file": "src/components/AiNativeSection.tsx",
+      "source_location": "L14",
+      "_origin": "ast",
+      "id": "src_components_ainativesection_overline_style",
+      "community": 8,
+      "community_name": "index.ts",
+      "norm_label": "overline_style"
+    },
+    {
+      "label": "ChangeLevers.tsx",
+      "file_type": "code",
+      "source_file": "src/components/ChangeLevers.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_components_exportbutton",
+      "id": "src_components_changelevers",
       "community": 8,
-      "norm_label": "exportbutton.tsx"
+      "community_name": "index.ts",
+      "norm_label": "changelevers.tsx"
     },
     {
-      "label": "ResultsDashboard.tsx",
+      "label": "phaseLabels",
       "file_type": "code",
-      "source_file": "src/components/ResultsDashboard.tsx",
+      "source_file": "src/components/ChangeLevers.tsx",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "src_components_changelevers_phaselabels",
+      "community": 8,
+      "community_name": "index.ts",
+      "norm_label": "phaselabels"
+    },
+    {
+      "label": "TCCARAssessment.tsx",
+      "file_type": "code",
+      "source_file": "src/components/TCCARAssessment.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_components_resultsdashboard",
+      "id": "src_components_tccarassessment",
       "community": 8,
-      "norm_label": "resultsdashboard.tsx"
+      "community_name": "index.ts",
+      "norm_label": "tccarassessment.tsx"
     },
     {
-      "label": "QUADRANT_DIMENSIONS",
+      "label": "aiNative.ts",
       "file_type": "code",
-      "source_file": "src/components/ResultsDashboard.tsx",
-      "source_location": "L16",
-      "_origin": "ast",
-      "id": "src_components_resultsdashboard_quadrant_dimensions",
-      "community": 8,
-      "norm_label": "quadrant_dimensions"
-    },
-    {
-      "label": "statusColor",
-      "file_type": "code",
-      "source_file": "src/components/ResultsDashboard.tsx",
-      "source_location": "L36",
-      "_origin": "ast",
-      "id": "src_components_resultsdashboard_statuscolor",
-      "community": 8,
-      "norm_label": "statuscolor"
-    },
-    {
-      "label": "results.test.tsx",
-      "file_type": "code",
-      "source_file": "src/__tests__/results.test.tsx",
+      "source_file": "src/data/aiNative.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_tests_results_test",
+      "id": "src_data_ainative",
       "community": 8,
-      "norm_label": "results.test.tsx"
+      "community_name": "index.ts",
+      "norm_label": "ainative.ts"
+    },
+    {
+      "label": "aiLevels",
+      "file_type": "code",
+      "source_file": "src/data/aiNative.ts",
+      "source_location": "L61",
+      "_origin": "ast",
+      "id": "src_data_ainative_ailevels",
+      "community": 8,
+      "community_name": "index.ts",
+      "norm_label": "ailevels"
+    },
+    {
+      "label": "descentSteps",
+      "file_type": "code",
+      "source_file": "src/data/aiNative.ts",
+      "source_location": "L40",
+      "_origin": "ast",
+      "id": "src_data_ainative_descentsteps",
+      "community": 8,
+      "community_name": "index.ts",
+      "norm_label": "descentsteps"
+    },
+    {
+      "label": "provenanceTiers",
+      "file_type": "code",
+      "source_file": "src/data/aiNative.ts",
+      "source_location": "L120",
+      "_origin": "ast",
+      "id": "src_data_ainative_provenancetiers",
+      "community": 8,
+      "community_name": "index.ts",
+      "norm_label": "provenancetiers"
+    },
+    {
+      "label": "scoringZones",
+      "file_type": "code",
+      "source_file": "src/data/aiNative.ts",
+      "source_location": "L97",
+      "_origin": "ast",
+      "id": "src_data_ainative_scoringzones",
+      "community": 8,
+      "community_name": "index.ts",
+      "norm_label": "scoringzones"
+    },
+    {
+      "label": "sectionCopy",
+      "file_type": "code",
+      "source_file": "src/data/aiNative.ts",
+      "source_location": "L11",
+      "_origin": "ast",
+      "id": "src_data_ainative_sectioncopy",
+      "community": 8,
+      "community_name": "index.ts",
+      "norm_label": "sectioncopy"
+    },
+    {
+      "label": "interventions.ts",
+      "file_type": "code",
+      "source_file": "src/data/interventions.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_data_interventions",
+      "community": 8,
+      "community_name": "index.ts",
+      "norm_label": "interventions.ts"
+    },
+    {
+      "label": "changeLevers",
+      "file_type": "code",
+      "source_file": "src/data/interventions.ts",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "src_data_interventions_changelevers",
+      "community": 8,
+      "community_name": "index.ts",
+      "norm_label": "changelevers"
+    },
+    {
+      "label": "dimensionInterventions",
+      "file_type": "code",
+      "source_file": "src/data/interventions.ts",
+      "source_location": "L275",
+      "_origin": "ast",
+      "id": "src_data_interventions_dimensioninterventions",
+      "community": 8,
+      "community_name": "index.ts",
+      "norm_label": "dimensioninterventions"
+    },
+    {
+      "label": "tccarItems",
+      "file_type": "code",
+      "source_file": "src/data/interventions.ts",
+      "source_location": "L40",
+      "_origin": "ast",
+      "id": "src_data_interventions_tccaritems",
+      "community": 8,
+      "community_name": "index.ts",
+      "norm_label": "tccaritems"
+    },
+    {
+      "label": "ai-native.test.tsx",
+      "file_type": "code",
+      "source_file": "src/__tests__/ai-native.test.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_tests_ai_native_test",
+      "community": 8,
+      "community_name": "index.ts",
+      "norm_label": "ai-native.test.tsx"
+    },
+    {
+      "label": "interventions-alignment.test.ts",
+      "file_type": "code",
+      "source_file": "src/__tests__/alignment/interventions-alignment.test.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_tests_alignment_interventions_alignment_test",
+      "community": 8,
+      "community_name": "index.ts",
+      "norm_label": "interventions-alignment.test.ts"
+    },
+    {
+      "label": "index.ts",
+      "file_type": "code",
+      "source_file": "src/types/index.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_types_index",
+      "community": 8,
+      "community_name": "index.ts",
+      "norm_label": "index.ts"
     },
     {
       "label": "check-size.js",
@@ -3137,6 +4568,7 @@
       "_origin": "ast",
       "id": "scripts_check_size",
       "community": 9,
+      "community_name": "check-size.js",
       "norm_label": "check-size.js"
     },
     {
@@ -3147,6 +4579,7 @@
       "_origin": "ast",
       "id": "scripts_check_size_nodemodulessize",
       "community": 9,
+      "community_name": "check-size.js",
       "norm_label": "nodemodulessize"
     }
   ],
@@ -3156,7 +4589,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/App.tsx",
-      "source_location": "L111",
+      "source_location": "L112",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_app_app",
@@ -3168,7 +4601,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/App.tsx",
-      "source_location": "L139",
+      "source_location": "L140",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_app_app",
@@ -3180,7 +4613,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/App.tsx",
-      "source_location": "L148",
+      "source_location": "L149",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_app_app",
@@ -3192,7 +4625,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/App.tsx",
-      "source_location": "L28",
+      "source_location": "L29",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_app_app",
@@ -3204,7 +4637,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/App.tsx",
-      "source_location": "L41",
+      "source_location": "L42",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_app_app",
@@ -4180,7 +5613,7 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_app",
-      "target": "src_components_signature_signature",
+      "target": "src_components_ainativesection_ainativesection",
       "confidence_score": 1.0
     },
     {
@@ -4189,6 +5622,18 @@
       "confidence": "EXTRACTED",
       "source_file": "src/App.tsx",
       "source_location": "L11",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_app",
+      "target": "src_components_signature_signature",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.tsx",
+      "source_location": "L12",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_app",
@@ -4200,7 +5645,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/App.tsx",
-      "source_location": "L11",
+      "source_location": "L12",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_app",
@@ -4212,7 +5657,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/App.tsx",
-      "source_location": "L12",
+      "source_location": "L13",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_app",
@@ -4224,7 +5669,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/App.tsx",
-      "source_location": "L12",
+      "source_location": "L13",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_app",
@@ -4236,7 +5681,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/App.tsx",
-      "source_location": "L13",
+      "source_location": "L14",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_app",
@@ -4248,7 +5693,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/App.tsx",
-      "source_location": "L14",
+      "source_location": "L15",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_app",
@@ -4260,7 +5705,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/App.tsx",
-      "source_location": "L14",
+      "source_location": "L15",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_app",
@@ -4272,7 +5717,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/App.tsx",
-      "source_location": "L14",
+      "source_location": "L15",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_app",
@@ -4284,7 +5729,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/App.tsx",
-      "source_location": "L14",
+      "source_location": "L15",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_app",
@@ -4433,6 +5878,78 @@
       "_origin": "ast",
       "source": "src_components_activatorssection",
       "target": "src_constants_section_ids",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/AiNativeSection.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_components_ainativesection",
+      "target": "src_constants_section_ids",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/AiNativeSection.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_components_ainativesection",
+      "target": "src_data_ainative_ailevels",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/AiNativeSection.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_components_ainativesection",
+      "target": "src_data_ainative_descentsteps",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/AiNativeSection.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_components_ainativesection",
+      "target": "src_data_ainative_provenancetiers",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/AiNativeSection.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_components_ainativesection",
+      "target": "src_data_ainative_scoringzones",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/AiNativeSection.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_components_ainativesection",
+      "target": "src_data_ainative_sectioncopy",
       "confidence_score": 1.0
     },
     {
@@ -5231,6 +6748,54 @@
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "src/data/aiNative.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_data_ainative",
+      "target": "src_types_index_ailevel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/aiNative.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_data_ainative",
+      "target": "src_types_index_descentstep",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/aiNative.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_data_ainative",
+      "target": "src_types_index_provenancetier",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/aiNative.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_data_ainative",
+      "target": "src_types_index_scoringzone",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "src/data/interventions.ts",
       "source_location": "L1",
       "weight": 1.0,
@@ -5393,6 +6958,66 @@
       "_origin": "ast",
       "source": "src_main",
       "target": "src_app_app",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/__tests__/ai-native.test.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_tests_ai_native_test",
+      "target": "src_components_ainativesection_ainativesection",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/__tests__/ai-native.test.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_tests_ai_native_test",
+      "target": "src_data_ainative_ailevels",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/__tests__/ai-native.test.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_tests_ai_native_test",
+      "target": "src_data_ainative_descentsteps",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/__tests__/ai-native.test.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_tests_ai_native_test",
+      "target": "src_data_ainative_provenancetiers",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/__tests__/ai-native.test.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_tests_ai_native_test",
+      "target": "src_data_ainative_scoringzones",
       "confidence_score": 1.0
     },
     {
@@ -6196,7 +7821,7 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_app",
-      "target": "src_components_signature",
+      "target": "src_components_ainativesection",
       "confidence_score": 1.0
     },
     {
@@ -6208,7 +7833,7 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_app",
-      "target": "src_types_index",
+      "target": "src_components_signature",
       "confidence_score": 1.0
     },
     {
@@ -6220,7 +7845,7 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_app",
-      "target": "src_constants",
+      "target": "src_types_index",
       "confidence_score": 1.0
     },
     {
@@ -6232,7 +7857,7 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_app",
-      "target": "src_utils_scoring",
+      "target": "src_constants",
       "confidence_score": 1.0
     },
     {
@@ -6241,6 +7866,18 @@
       "confidence": "EXTRACTED",
       "source_file": "src/App.tsx",
       "source_location": "L14",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_app",
+      "target": "src_utils_scoring",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.tsx",
+      "source_location": "L15",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_app",
@@ -6389,6 +8026,30 @@
       "_origin": "ast",
       "source": "src_components_activatorssection",
       "target": "src_constants",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/AiNativeSection.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_components_ainativesection",
+      "target": "src_constants",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/AiNativeSection.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_components_ainativesection",
+      "target": "src_data_ainative",
       "confidence_score": 1.0
     },
     {
@@ -6971,6 +8632,18 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "src/data/aiNative.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_data_ainative",
+      "target": "src_types_index",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "src/data/interventions.ts",
       "source_location": "L1",
       "weight": 1.0,
@@ -7049,6 +8722,30 @@
       "_origin": "ast",
       "source": "src_main",
       "target": "src_app",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/__tests__/ai-native.test.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_tests_ai_native_test",
+      "target": "src_components_ainativesection",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/__tests__/ai-native.test.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_tests_ai_native_test",
+      "target": "src_data_ainative",
       "confidence_score": 1.0
     },
     {
@@ -7493,6 +9190,677 @@
       "_origin": "ast",
       "source": "src_utils_scoring",
       "target": "src_constants",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "CLAUDE.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "claude",
+      "target": "claude_graphify",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".claude/CLAUDE.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "claude_claude",
+      "target": "claude_claude_graphify",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".claude/skills/graphify/references/add-watch.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "claude_skills_graphify_references_add_watch",
+      "target": "claude_skills_graphify_references_add_watch_graphify_reference_add_a_url_and_watch_a_folder",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".claude/skills/graphify/references/add-watch.md",
+      "source_location": "L39",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "claude_skills_graphify_references_add_watch_graphify_reference_add_a_url_and_watch_a_folder",
+      "target": "claude_skills_graphify_references_add_watch_for_watch",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".claude/skills/graphify/references/add-watch.md",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "claude_skills_graphify_references_add_watch_graphify_reference_add_a_url_and_watch_a_folder",
+      "target": "claude_skills_graphify_references_add_watch_for_graphify_add",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".claude/skills/graphify/references/exports.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "claude_skills_graphify_references_exports",
+      "target": "claude_skills_graphify_references_exports_graphify_reference_extra_exports_and_benchmark",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".claude/skills/graphify/references/exports.md",
+      "source_location": "L15",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "claude_skills_graphify_references_exports_graphify_reference_extra_exports_and_benchmark",
+      "target": "claude_skills_graphify_references_exports_step_7_neo4j_export_only_if_neo4j_or_neo4j_push_flag",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".claude/skills/graphify/references/exports.md",
+      "source_location": "L31",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "claude_skills_graphify_references_exports_graphify_reference_extra_exports_and_benchmark",
+      "target": "claude_skills_graphify_references_exports_step_7a_falkordb_export_only_if_falkordb_or_falkordb_push_flag",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".claude/skills/graphify/references/exports.md",
+      "source_location": "L47",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "claude_skills_graphify_references_exports_graphify_reference_extra_exports_and_benchmark",
+      "target": "claude_skills_graphify_references_exports_step_7b_svg_export_only_if_svg_flag",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".claude/skills/graphify/references/exports.md",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "claude_skills_graphify_references_exports_graphify_reference_extra_exports_and_benchmark",
+      "target": "claude_skills_graphify_references_exports_step_6b_wiki_only_if_wiki_flag",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".claude/skills/graphify/references/exports.md",
+      "source_location": "L53",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "claude_skills_graphify_references_exports_graphify_reference_extra_exports_and_benchmark",
+      "target": "claude_skills_graphify_references_exports_step_7c_graphml_export_only_if_graphml_flag",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".claude/skills/graphify/references/exports.md",
+      "source_location": "L59",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "claude_skills_graphify_references_exports_graphify_reference_extra_exports_and_benchmark",
+      "target": "claude_skills_graphify_references_exports_step_7d_mcp_server_only_if_mcp_flag",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".claude/skills/graphify/references/exports.md",
+      "source_location": "L79",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "claude_skills_graphify_references_exports_graphify_reference_extra_exports_and_benchmark",
+      "target": "claude_skills_graphify_references_exports_step_8_token_reduction_benchmark_only_if_total_words_5000",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".claude/skills/graphify/references/extraction-spec.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "claude_skills_graphify_references_extraction_spec",
+      "target": "claude_skills_graphify_references_extraction_spec_graphify_reference_extraction_subagent_prompt",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".claude/skills/graphify/references/github-and-merge.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "claude_skills_graphify_references_github_and_merge",
+      "target": "claude_skills_graphify_references_github_and_merge_graphify_reference_github_clone_and_cross_repo_merge",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".claude/skills/graphify/references/github-and-merge.md",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "claude_skills_graphify_references_github_and_merge_graphify_reference_github_clone_and_cross_repo_merge",
+      "target": "claude_skills_graphify_references_github_and_merge_step_0_clone_github_repo_s_only_if_a_github_url_was_given",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".claude/skills/graphify/references/hooks.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "claude_skills_graphify_references_hooks",
+      "target": "claude_skills_graphify_references_hooks_graphify_reference_commit_hook_and_native_claude_md_integration",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".claude/skills/graphify/references/hooks.md",
+      "source_location": "L21",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "claude_skills_graphify_references_hooks_graphify_reference_commit_hook_and_native_claude_md_integration",
+      "target": "claude_skills_graphify_references_hooks_for_native_claude_md_integration",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".claude/skills/graphify/references/hooks.md",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "claude_skills_graphify_references_hooks_graphify_reference_commit_hook_and_native_claude_md_integration",
+      "target": "claude_skills_graphify_references_hooks_for_git_commit_hook",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".claude/skills/graphify/references/query.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "claude_skills_graphify_references_query",
+      "target": "claude_skills_graphify_references_query_graphify_reference_query_path_explain",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".claude/skills/graphify/references/query.md",
+      "source_location": "L186",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "claude_skills_graphify_references_query_graphify_reference_query_path_explain",
+      "target": "claude_skills_graphify_references_query_for_graphify_path",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".claude/skills/graphify/references/query.md",
+      "source_location": "L23",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "claude_skills_graphify_references_query_graphify_reference_query_path_explain",
+      "target": "claude_skills_graphify_references_query_step_0_constrained_query_expansion_required_before_traversal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".claude/skills/graphify/references/query.md",
+      "source_location": "L254",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "claude_skills_graphify_references_query_graphify_reference_query_path_explain",
+      "target": "claude_skills_graphify_references_query_for_graphify_explain",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".claude/skills/graphify/references/query.md",
+      "source_location": "L61",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "claude_skills_graphify_references_query_graphify_reference_query_path_explain",
+      "target": "claude_skills_graphify_references_query_step_1_traversal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".claude/skills/graphify/references/transcribe.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "claude_skills_graphify_references_transcribe",
+      "target": "claude_skills_graphify_references_transcribe_graphify_reference_transcribe_video_and_audio",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".claude/skills/graphify/references/transcribe.md",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "claude_skills_graphify_references_transcribe_graphify_reference_transcribe_video_and_audio",
+      "target": "claude_skills_graphify_references_transcribe_step_2_5_transcribe_video_audio_files_only_if_video_files_detected",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".claude/skills/graphify/references/update.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "claude_skills_graphify_references_update",
+      "target": "claude_skills_graphify_references_update_graphify_reference_incremental_update_and_cluster_only",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".claude/skills/graphify/references/update.md",
+      "source_location": "L202",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "claude_skills_graphify_references_update_graphify_reference_incremental_update_and_cluster_only",
+      "target": "claude_skills_graphify_references_update_for_cluster_only",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".claude/skills/graphify/references/update.md",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "claude_skills_graphify_references_update_graphify_reference_incremental_update_and_cluster_only",
+      "target": "claude_skills_graphify_references_update_for_update_incremental_re_extraction",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".claude/skills/graphify/SKILL.md",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "claude_skills_graphify_skill",
+      "target": "claude_skills_graphify_skill_graphify",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".claude/skills/graphify/SKILL.md",
+      "source_location": "L10",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "claude_skills_graphify_skill_graphify",
+      "target": "claude_skills_graphify_skill_usage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".claude/skills/graphify/SKILL.md",
+      "source_location": "L45",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "claude_skills_graphify_skill_graphify",
+      "target": "claude_skills_graphify_skill_what_graphify_is_for",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".claude/skills/graphify/SKILL.md",
+      "source_location": "L49",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "claude_skills_graphify_skill_graphify",
+      "target": "claude_skills_graphify_skill_what_you_must_do_when_invoked",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".claude/skills/graphify/SKILL.md",
+      "source_location": "L659",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "claude_skills_graphify_skill_graphify",
+      "target": "claude_skills_graphify_skill_interpreter_guard_for_subcommands",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".claude/skills/graphify/SKILL.md",
+      "source_location": "L677",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "claude_skills_graphify_skill_graphify",
+      "target": "claude_skills_graphify_skill_for_update_and_cluster_only",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".claude/skills/graphify/SKILL.md",
+      "source_location": "L683",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "claude_skills_graphify_skill_graphify",
+      "target": "claude_skills_graphify_skill_for_graphify_query",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".claude/skills/graphify/SKILL.md",
+      "source_location": "L695",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "claude_skills_graphify_skill_graphify",
+      "target": "claude_skills_graphify_skill_for_graphify_add_and_watch",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".claude/skills/graphify/SKILL.md",
+      "source_location": "L701",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "claude_skills_graphify_skill_graphify",
+      "target": "claude_skills_graphify_skill_for_the_commit_hook_and_native_claude_md_integration",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".claude/skills/graphify/SKILL.md",
+      "source_location": "L707",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "claude_skills_graphify_skill_graphify",
+      "target": "claude_skills_graphify_skill_honesty_rules",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".claude/skills/graphify/SKILL.md",
+      "source_location": "L170",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "claude_skills_graphify_skill_step_3_extract_entities_and_relationships",
+      "target": "claude_skills_graphify_skill_part_a_structural_extraction_for_code_files",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".claude/skills/graphify/SKILL.md",
+      "source_location": "L196",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "claude_skills_graphify_skill_step_3_extract_entities_and_relationships",
+      "target": "claude_skills_graphify_skill_part_b_semantic_extraction_parallel_subagents",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".claude/skills/graphify/SKILL.md",
+      "source_location": "L359",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "claude_skills_graphify_skill_step_3_extract_entities_and_relationships",
+      "target": "claude_skills_graphify_skill_part_c_merge_ast_semantic_into_final_extraction",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".claude/skills/graphify/SKILL.md",
+      "source_location": "L107",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "claude_skills_graphify_skill_what_you_must_do_when_invoked",
+      "target": "claude_skills_graphify_skill_step_2_detect_files",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".claude/skills/graphify/SKILL.md",
+      "source_location": "L147",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "claude_skills_graphify_skill_what_you_must_do_when_invoked",
+      "target": "claude_skills_graphify_skill_step_2_5_video_and_audio_only_if_video_files_detected",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".claude/skills/graphify/SKILL.md",
+      "source_location": "L151",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "claude_skills_graphify_skill_what_you_must_do_when_invoked",
+      "target": "claude_skills_graphify_skill_step_3_extract_entities_and_relationships",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".claude/skills/graphify/SKILL.md",
+      "source_location": "L393",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "claude_skills_graphify_skill_what_you_must_do_when_invoked",
+      "target": "claude_skills_graphify_skill_step_4_build_graph_cluster_analyze_generate_outputs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".claude/skills/graphify/SKILL.md",
+      "source_location": "L456",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "claude_skills_graphify_skill_what_you_must_do_when_invoked",
+      "target": "claude_skills_graphify_skill_step_4_5_graph_health_check_read_only_integrity_gate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".claude/skills/graphify/SKILL.md",
+      "source_location": "L482",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "claude_skills_graphify_skill_what_you_must_do_when_invoked",
+      "target": "claude_skills_graphify_skill_step_5_label_communities",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".claude/skills/graphify/SKILL.md",
+      "source_location": "L531",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "claude_skills_graphify_skill_what_you_must_do_when_invoked",
+      "target": "claude_skills_graphify_skill_step_6_generate_obsidian_vault_opt_in_html",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".claude/skills/graphify/SKILL.md",
+      "source_location": "L551",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "claude_skills_graphify_skill_what_you_must_do_when_invoked",
+      "target": "claude_skills_graphify_skill_steps_6b_8_wiki_neo4j_falkordb_svg_graphml_mcp_benchmark_only_on_their_flags",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".claude/skills/graphify/SKILL.md",
+      "source_location": "L557",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "claude_skills_graphify_skill_what_you_must_do_when_invoked",
+      "target": "claude_skills_graphify_skill_step_9_save_manifest_update_cost_tracker_clean_up_and_report",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".claude/skills/graphify/SKILL.md",
+      "source_location": "L61",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "claude_skills_graphify_skill_what_you_must_do_when_invoked",
+      "target": "claude_skills_graphify_skill_step_0_github_repos_and_multi_path_merge_only_if_a_url_or_several_paths",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".claude/skills/graphify/SKILL.md",
+      "source_location": "L65",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "claude_skills_graphify_skill_what_you_must_do_when_invoked",
+      "target": "claude_skills_graphify_skill_step_1_ensure_graphify_is_installed",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "DECISIONS.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "decisions",
+      "target": "decisions_decisions_md_orgdesign_playbook",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "GUIDE.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "guide",
+      "target": "guide_guide_md_what_the_orgdesign_playbook_does_and_how_to_run_it",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "GUIDE.md",
+      "source_location": "L37",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "guide_guide_md_what_the_orgdesign_playbook_does_and_how_to_run_it",
+      "target": "guide_cohort_mode_comparing_a_team_s_answers",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "GUIDE.md",
+      "source_location": "L49",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "guide_guide_md_what_the_orgdesign_playbook_does_and_how_to_run_it",
+      "target": "guide_how_to_run_it_on_your_computer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "GUIDE.md",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "guide_guide_md_what_the_orgdesign_playbook_does_and_how_to_run_it",
+      "target": "guide_what_the_app_does",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "GUIDE.md",
+      "source_location": "L56",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "guide_guide_md_what_the_orgdesign_playbook_does_and_how_to_run_it",
+      "target": "guide_how_to_check_nothing_is_broken",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "GUIDE.md",
+      "source_location": "L62",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "guide_guide_md_what_the_orgdesign_playbook_does_and_how_to_run_it",
+      "target": "guide_what_changed_most_recently_2026_08_13",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "GUIDE.md",
+      "source_location": "L74",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "guide_guide_md_what_the_orgdesign_playbook_does_and_how_to_run_it",
+      "target": "guide_earlier_changes_2026_07_08",
       "confidence_score": 1.0
     },
     {
@@ -7982,6 +10350,105 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "PROJECT_STATE.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "project_state",
+      "target": "project_state_project_state_md_orgdesign_playbook",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PROJECT_STATE.md",
+      "source_location": "L17",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "project_state_project_state_md_orgdesign_playbook",
+      "target": "project_state_current_state_2026_07_08",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PROJECT_STATE.md",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "project_state_project_state_md_orgdesign_playbook",
+      "target": "project_state_what_this_project_is",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PROJECT_STATE.md",
+      "source_location": "L68",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "project_state_project_state_md_orgdesign_playbook",
+      "target": "project_state_how_to_resume",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PROJECT_STATE.md",
+      "source_location": "L79",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "project_state_project_state_md_orgdesign_playbook",
+      "target": "project_state_done_chronology",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PROJECT_STATE.md",
+      "source_location": "L95",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "project_state_project_state_md_orgdesign_playbook",
+      "target": "project_state_next_open",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "readme",
+      "target": "readme_react_typescript_vite",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L10",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "readme_react_typescript_vite",
+      "target": "readme_react_compiler",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L14",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "readme_react_typescript_vite",
+      "target": "readme_expanding_the_eslint_configuration",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "run_checks.sh",
       "source_location": "L1",
       "weight": 1.0,
@@ -8016,7 +10483,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/App.tsx",
-      "source_location": "L22",
+      "source_location": "L23",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_app",
@@ -8027,7 +10494,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/App.tsx",
-      "source_location": "L24",
+      "source_location": "L25",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_app",
@@ -8098,6 +10565,61 @@
       "_origin": "ast",
       "source": "src_components_activatorssection",
       "target": "src_components_activatorssection_activatorssectionprops",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/AiNativeSection.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_components_ainativesection",
+      "target": "src_components_ainativesection_indentclasses",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/AiNativeSection.tsx",
+      "source_location": "L14",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_components_ainativesection",
+      "target": "src_components_ainativesection_overline_style",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/AiNativeSection.tsx",
+      "source_location": "L20",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_components_ainativesection",
+      "target": "src_components_ainativesection_micro_label_style",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/AiNativeSection.tsx",
+      "source_location": "L25",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_components_ainativesection",
+      "target": "src_components_ainativesection_moveheading",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/AiNativeSection.tsx",
+      "source_location": "L41",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_components_ainativesection",
+      "target": "src_components_ainativesection_ainativesection",
       "confidence_score": 1.0
     },
     {
@@ -8412,7 +10934,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/components/Header.tsx",
-      "source_location": "L17",
+      "source_location": "L18",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_components_header",
@@ -8423,7 +10945,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/components/Header.tsx",
-      "source_location": "L32",
+      "source_location": "L33",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_components_header",
@@ -8467,7 +10989,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/components/Hero.tsx",
-      "source_location": "L37",
+      "source_location": "L43",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_components_hero",
@@ -8774,6 +11296,61 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "src/data/aiNative.ts",
+      "source_location": "L11",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_data_ainative",
+      "target": "src_data_ainative_sectioncopy",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/aiNative.ts",
+      "source_location": "L120",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_data_ainative",
+      "target": "src_data_ainative_provenancetiers",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/aiNative.ts",
+      "source_location": "L40",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_data_ainative",
+      "target": "src_data_ainative_descentsteps",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/aiNative.ts",
+      "source_location": "L61",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_data_ainative",
+      "target": "src_data_ainative_ailevels",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/aiNative.ts",
+      "source_location": "L97",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_data_ainative",
+      "target": "src_data_ainative_scoringzones",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "src/data/interventions.ts",
       "source_location": "L10",
       "weight": 1.0,
@@ -8973,7 +11550,51 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/types/index.ts",
-      "source_location": "L112",
+      "source_location": "L114",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_types_index",
+      "target": "src_types_index_descentstep",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/types/index.ts",
+      "source_location": "L124",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_types_index",
+      "target": "src_types_index_ailevel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/types/index.ts",
+      "source_location": "L138",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_types_index",
+      "target": "src_types_index_scoringzone",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/types/index.ts",
+      "source_location": "L145",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_types_index",
+      "target": "src_types_index_provenancetier",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/types/index.ts",
+      "source_location": "L152",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_types_index",
@@ -8984,7 +11605,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/types/index.ts",
-      "source_location": "L119",
+      "source_location": "L159",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_types_index",
@@ -9898,5 +12519,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "abc2f31deebf721bfe6599e5fb583af416262415"
+  "built_at_commit": "0b1500c7134464620a47b6d85e2c75d6ed4f4ce4"
 }

@@ -20,7 +20,12 @@ the opening screen:
 3. **The change model** — Communicate / Co-create / Cadence, each with its
    goal, method, and tool, plus the T.C.C.A.R. team-health lens (click the
    five tabs).
-4. **The diagnostic** — 18 statements you rate from 1 (strongly disagree)
+4. **AI-native design** — a read-only explainer on what AI changes about
+   org design: descend from the org chart to the *task* (where AI actually
+   attaches), place every task on a four-level ladder from Manual to
+   Reinvention, and gate every machine judgement before it reaches a
+   decision-maker. Nothing to click — it is reference material.
+5. **The diagnostic** — 18 statements you rate from 1 (strongly disagree)
    to 5 (strongly agree). It advances automatically after each answer and
    saves as you go, so you can close the tab and come back. "Reset survey"
    (top right) clears all answers and starts from question 1. At the end
@@ -54,7 +59,19 @@ Run `./run_checks.sh`. Success looks like: "ALL CHECKS PASSED".
 It runs the 47 automated tests, checks the code compiles, and builds the
 deployable version.
 
-## What changed most recently (2026-07-08)
+## What changed most recently (2026-08-13)
+
+Added a new reference section, **AI-native design**, between the change
+model and the diagnostic. It answers the question executives ask first —
+what does AI actually change about org design — in three moves: descend to
+the task, place every task on a Manual→Assisted→Enabled→Reinvention ladder,
+and gate the machine's judgement before it reaches a decision-maker. It also
+separates what AI *can* do from what people *want* automated, and labels
+every claim by how trustworthy its source is. It is pure reading material:
+nothing to click, and it does not change your diagnostic or scores. The
+sections are now numbered 01–05, with the diagnostic last.
+
+## Earlier changes (2026-07-08)
 
 The whole site moved to a calmer, print-like look: warm paper background,
 thin borders instead of shadows, serif headlines, one red accent. The

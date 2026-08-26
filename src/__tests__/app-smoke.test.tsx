@@ -43,6 +43,24 @@ describe('App smoke tests', () => {
     expect(screen.queryByText(/Kesler/i)).toBeNull();
   });
 
+  test('AI-native section renders on the home view between change model and CTA', () => {
+    render(<App />);
+    expect(document.getElementById('ai-native')).not.toBeNull();
+    expect(screen.getByText('AI redesigns the work, not the chart')).toBeTruthy();
+    expect(screen.getByText('04 · AI-native design')).toBeTruthy();
+  });
+
+  test('section numbering runs 01-05 with the diagnostic last', () => {
+    render(<App />);
+    expect(screen.getByText('01 · The framework')).toBeTruthy();
+    expect(screen.getByText('02 · The five activators')).toBeTruthy();
+    expect(screen.getByText('03 · The change model')).toBeTruthy();
+    expect(screen.getByText('04 · AI-native design')).toBeTruthy();
+    expect(screen.getByText('05 · The diagnostic')).toBeTruthy();
+    // The old numbering must be fully retired
+    expect(screen.queryByText('04 · The diagnostic')).toBeNull();
+  });
+
   test('footer shows the personal brand signature and attribution', () => {
     render(<App />);
     expect(screen.getByTestId('signature')).toBeTruthy();

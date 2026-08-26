@@ -30,9 +30,9 @@
     "semantic_hash": "9723d0b0dc0c9f9856dffe76db669e87"
   },
   "src/App.tsx": {
-    "mtime": 1786517180.9926052,
-    "ast_hash": "78e020e589884c043ae6af8bd1968c93",
-    "semantic_hash": "78e020e589884c043ae6af8bd1968c93"
+    "mtime": 1787742459.490548,
+    "ast_hash": "41b1e7f88f57b5899fc3db55f536617e",
+    "semantic_hash": ""
   },
   "src/__tests__/alignment/activators-alignment.test.ts": {
     "mtime": 1786517180.9955015,
@@ -55,9 +55,9 @@
     "semantic_hash": "be788b3388064bae31b2245d63b35a3d"
   },
   "src/__tests__/app-smoke.test.tsx": {
-    "mtime": 1786517180.9963272,
-    "ast_hash": "bd122e54d0c056cc7f8c146f59f31790",
-    "semantic_hash": "bd122e54d0c056cc7f8c146f59f31790"
+    "mtime": 1787742459.490548,
+    "ast_hash": "4bfc7bf044269f7a54b2ea9bc83c35ac",
+    "semantic_hash": ""
   },
   "src/__tests__/cohort.test.tsx": {
     "mtime": 1786517180.9963272,
@@ -105,9 +105,9 @@
     "semantic_hash": "7e41ed9e27f38d08b6d6f7618c48bb1a"
   },
   "src/components/DiagnosticSurvey.tsx": {
-    "mtime": 1786517180.998573,
-    "ast_hash": "dfaf925ca2077c64bb60c3ec8a09f026",
-    "semantic_hash": "dfaf925ca2077c64bb60c3ec8a09f026"
+    "mtime": 1787742459.490548,
+    "ast_hash": "45340e3bbce7f6438681898185cfd9b2",
+    "semantic_hash": ""
   },
   "src/components/DimensionChart.tsx": {
     "mtime": 1786517180.998573,
@@ -135,14 +135,14 @@
     "semantic_hash": "cd223ab8c2beaa797a3140650a5daec5"
   },
   "src/components/Header.tsx": {
-    "mtime": 1786517180.998573,
-    "ast_hash": "de335fc339bebb92bebe9f86ec26eaad",
-    "semantic_hash": "de335fc339bebb92bebe9f86ec26eaad"
+    "mtime": 1787742459.490548,
+    "ast_hash": "352315acef1ca053991b422770eeb207",
+    "semantic_hash": ""
   },
   "src/components/Hero.tsx": {
-    "mtime": 1786517180.998573,
-    "ast_hash": "22ec88e954279362c8eb194fcc498f82",
-    "semantic_hash": "22ec88e954279362c8eb194fcc498f82"
+    "mtime": 1787742459.490548,
+    "ast_hash": "f6753d726065206f43e3c37f76a406d3",
+    "semantic_hash": ""
   },
   "src/components/PlaybookModules.tsx": {
     "mtime": 1786517180.998573,
@@ -175,9 +175,9 @@
     "semantic_hash": "9eb158ccc42ce548e323132173d77860"
   },
   "src/constants.ts": {
-    "mtime": 1786517180.998573,
-    "ast_hash": "67c87c3a68304de8f7d465f06e79241d",
-    "semantic_hash": "67c87c3a68304de8f7d465f06e79241d"
+    "mtime": 1787742459.490548,
+    "ast_hash": "45e9c6bab8b9e22d6b12d8b2d9409889",
+    "semantic_hash": ""
   },
   "src/data/activators.ts": {
     "mtime": 1786517181.000605,
@@ -210,9 +210,9 @@
     "semantic_hash": "42dfd6bb6b4ab4b1ffc36304f1028486"
   },
   "src/types/index.ts": {
-    "mtime": 1786517181.0025394,
-    "ast_hash": "0f097d4bc584e0419b18835c432f60b5",
-    "semantic_hash": "0f097d4bc584e0419b18835c432f60b5"
+    "mtime": 1787742459.490548,
+    "ast_hash": "eb6a7ca82d2797da1003e6a29924bb85",
+    "semantic_hash": ""
   },
   "src/utils/cohort.ts": {
     "mtime": 1786517181.0025394,
@@ -248,5 +248,110 @@
     "mtime": 1786517181.0052028,
     "ast_hash": "88439104b3c207f17d33ef3160e3b080",
     "semantic_hash": "88439104b3c207f17d33ef3160e3b080"
+  },
+  "src/__tests__/ai-native.test.tsx": {
+    "mtime": 1787742459.497106,
+    "ast_hash": "a7f22694ade60ed1891ed1c5714e96ef",
+    "semantic_hash": ""
+  },
+  "src/components/AiNativeSection.tsx": {
+    "mtime": 1787742459.497106,
+    "ast_hash": "83fd1f04394fc4e1489cc66bd87b16dd",
+    "semantic_hash": ""
+  },
+  "src/data/aiNative.ts": {
+    "mtime": 1787742459.497106,
+    "ast_hash": "ad5de5dfdd950a81f79beaf51bb83037",
+    "semantic_hash": ""
+  },
+  ".claude/CLAUDE.md": {
+    "mtime": 1786599661.7256668,
+    "ast_hash": "9b31786b637be3c13978bec4c2330752",
+    "semantic_hash": ""
+  },
+  ".claude/skills/graphify/SKILL.md": {
+    "mtime": 1786599684.408901,
+    "ast_hash": "1656a8a8e4a05bbe69f32cd15de81e87",
+    "semantic_hash": ""
+  },
+  ".claude/skills/graphify/references/add-watch.md": {
+    "mtime": 1786599651.140834,
+    "ast_hash": "d59d027fe449f06aa03905a01184e779",
+    "semantic_hash": ""
+  },
+  ".claude/skills/graphify/references/exports.md": {
+    "mtime": 1786599651.140834,
+    "ast_hash": "9da2a2152e60a22f07f05fed5158f287",
+    "semantic_hash": ""
+  },
+  ".claude/skills/graphify/references/extraction-spec.md": {
+    "mtime": 1786599651.140834,
+    "ast_hash": "42fef56a01698118f7fd722acdadea34",
+    "semantic_hash": ""
+  },
+  ".claude/skills/graphify/references/github-and-merge.md": {
+    "mtime": 1786599651.140834,
+    "ast_hash": "cde13df085e4c492aeb7ba298a996d0d",
+    "semantic_hash": ""
+  },
+  ".claude/skills/graphify/references/hooks.md": {
+    "mtime": 1786599651.140834,
+    "ast_hash": "3f545db6ce646650bb9de588f5512a27",
+    "semantic_hash": ""
+  },
+  ".claude/skills/graphify/references/query.md": {
+    "mtime": 1786599651.140834,
+    "ast_hash": "3c46f8ad006874260614ed8657d02307",
+    "semantic_hash": ""
+  },
+  ".claude/skills/graphify/references/transcribe.md": {
+    "mtime": 1786599651.1448343,
+    "ast_hash": "67b6a5fa6c0974e18f60db9f8932fbd8",
+    "semantic_hash": ""
+  },
+  ".claude/skills/graphify/references/update.md": {
+    "mtime": 1786599651.1448343,
+    "ast_hash": "9378bd03d56baaf78bd738ab3848f142",
+    "semantic_hash": ""
+  },
+  "CLAUDE.md": {
+    "mtime": 1786599661.7259004,
+    "ast_hash": "82efb97a359f5c7290bf2513d14686be",
+    "semantic_hash": ""
+  },
+  "DECISIONS.md": {
+    "mtime": 1787742670.4071338,
+    "ast_hash": "979e7aeb7d759f6c7a0b60f99a162130",
+    "semantic_hash": ""
+  },
+  "GUIDE.md": {
+    "mtime": 1787742659.9191341,
+    "ast_hash": "b55457f4213f5576eb310b36aa985981",
+    "semantic_hash": ""
+  },
+  "PROJECT_STATE.md": {
+    "mtime": 1787742684.7231338,
+    "ast_hash": "39ab9f13055916c61df408ba697269c7",
+    "semantic_hash": ""
+  },
+  "README.md": {
+    "mtime": 1786517180.984605,
+    "ast_hash": "cac141da861c855e069a9c32557458ac",
+    "semantic_hash": ""
+  },
+  "index.html": {
+    "mtime": 1786517180.984605,
+    "ast_hash": "ef451ccd6ce621f4f4252ca098c34489",
+    "semantic_hash": ""
+  },
+  "public/vite.svg": {
+    "mtime": 1786517180.9926052,
+    "ast_hash": "8e3a10e157f75ada21ab742c022d5430",
+    "semantic_hash": ""
+  },
+  "src/assets/react.svg": {
+    "mtime": 1786517180.9963272,
+    "ast_hash": "f0402b67b6ce880f65666bb49e841696",
+    "semantic_hash": ""
   }
 }

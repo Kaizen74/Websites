@@ -45,14 +45,25 @@ Testing Library. No charting library (plain-div bars). Deploys as a static
   respondent × dimension heatmap table, a widest-divergence insight,
   cohort-level focus interventions, remove/clear members, JSON export and
   print. Stored in localStorage under `cohort_results`.
+- **AI-native design (`#ai-native`, section 04):** static teaching content
+  between the change model and the diagnostic CTA. Left column: the
+  Organisation → Position → **Task** → Process descent (indented cards, Task
+  emphasised) plus "gate the machine's judgement". Right column: the L0–L3
+  ladder (hairline grid, L3 row tinted), the capability-vs-desire zone card,
+  and the three-tier provenance strip. No state, no interactivity, no new
+  tokens; all copy in `src/data/aiNative.ts`.
 - **Footer:** wordmark + tagline row, then a personal brand sign-off — an
   "EY" monogram seal (Signature.tsx) with "Eric Yim" in Playfair italic, a
   red underline flourish, and a © attribution line.
-- **Tests:** 79 passing across 10 suites (unit, integration, App smoke),
-  plus a Playwright browser E2E script (41 checks) covering the framework
-  overview/quadrant switching, readable labels, the full two-respondent
-  cohort journey, the score-free homepage framework, and the footer
-  signature. **Build:** clean, no warnings.
+- **Tests:** 89 passing across 11 suites (unit, integration, App smoke),
+  plus two Playwright scripts: a 53-check E2E covering the AI-native
+  section, framework overview/quadrant switching, the full two-respondent
+  cohort journey, the score-free homepage framework and the footer
+  signature; and a 20-check responsive/a11y pass at 375/768/1440.
+  **Build:** clean, no warnings.
+- **Known issue (pre-existing):** `scripts/check-size.js` fails on
+  `node_modules` (254MB vs 200MB limit). Not deployment-affecting — Vercel
+  ships only `dist` (~320KB). See DECISIONS.md.
 
 ## How to resume
 
