@@ -8,6 +8,7 @@ import { DiagnosticSurvey } from './components/DiagnosticSurvey';
 import { ResultsDashboard } from './components/ResultsDashboard';
 import { CohortDashboard } from './components/CohortDashboard';
 import { AiNativeSection } from './components/AiNativeSection';
+import { AboutAuthor } from './components/AboutAuthor';
 import { Signature } from './components/Signature';
 import type { DiagnosticResults, CohortMember } from './types';
 import { STORAGE_KEYS, SECTION_IDS } from './constants';
@@ -273,6 +274,8 @@ function App() {
             )}
           </div>
         </section>
+
+        <AboutAuthor />
 
         {/* Footer — hairline on paper */}
         <footer

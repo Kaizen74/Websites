@@ -5,7 +5,10 @@
     "useDefineForClassFields": true,
     "lib": ["ES2022", "DOM", "DOM.Iterable"],
     "module": "ESNext",
-    "types": ["vite/client"],
+    /* "node" is required by src/__tests__/seo-alignment.test.ts, which reads
+       index.html and public/* from disk to verify structured-data alignment.
+       @types/node is already a devDependency — nothing new is installed. */
+    "types": ["vite/client", "node"],
     "skipLibCheck": true,
 
     /* Bundler mode */

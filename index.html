@@ -2,9 +2,146 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>temp-project</title>
+
+    <title>Eric Yim — Organization Design Strategist | Human-AI Work Partnership</title>
+    <meta
+      name="description"
+      content="Eric Yim is an organization design strategist specializing in human-AI work partnership — designing how organizations divide work between people and machines, and the structures, capabilities and behaviors that make that partnership work."
+    />
+    <meta name="author" content="Eric Yim" />
+    <link rel="canonical" href="https://www.ericyim.example/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="profile" />
+    <meta property="og:site_name" content="OrgDesign Playbook" />
+    <meta property="og:title" content="Eric Yim — Organization Design Strategist | Human-AI Work Partnership" />
+    <meta
+      property="og:description"
+      content="Eric Yim is an organization design strategist specializing in human-AI work partnership — designing how organizations divide work between people and machines, and the structures, capabilities and behaviors that make that partnership work."
+    />
+    <meta property="og:url" content="https://www.ericyim.example/" />
+    <meta property="profile:first_name" content="Eric" />
+    <meta property="profile:last_name" content="Yim" />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Eric Yim — Organization Design Strategist | Human-AI Work Partnership" />
+    <meta
+      name="twitter:description"
+      content="Eric Yim is an organization design strategist specializing in human-AI work partnership."
+    />
+
+    <!--
+      Structured data for search and answer engines (GEO/AEO).
+      Kept static in index.html so crawlers that do not execute JavaScript
+      still receive the full entity graph. Mirrors src/data/profile.ts —
+      src/__tests__/seo-alignment.test.ts fails if the two drift apart.
+    -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Person",
+            "@id": "https://www.ericyim.example/#person",
+            "name": "Eric Yim",
+            "givenName": "Eric",
+            "familyName": "Yim",
+            "jobTitle": "Organization Design Strategist",
+            "description": "Eric Yim is an organization design strategist specializing in human-AI work partnership — designing how organizations divide work between people and machines, and the structures, capabilities and behaviors that make that partnership work.",
+            "url": "https://www.ericyim.example/",
+            "mainEntityOfPage": { "@id": "https://www.ericyim.example/#profilepage" },
+            "knowsAbout": [
+              "Organization Design",
+              "Human-AI Work Partnership",
+              "Operating Model Design",
+              "Organizational Capability",
+              "Change Management",
+              "Workforce Transformation",
+              "Job Redesign",
+              "AI Adoption in the Workplace"
+            ],
+            "sameAs": [
+              "https://www.ntu.edu.sg/alumni/alumni-stories-news/detail/eric-yim-ntu-ai-workplace-advice",
+              "https://www.atalent.com/news/trailblazer_EricYim"
+            ],
+            "subjectOf": [
+              {
+                "@type": "Article",
+                "name": "Alumni feature: Eric Yim on AI and the workplace",
+                "url": "https://www.ntu.edu.sg/alumni/alumni-stories-news/detail/eric-yim-ntu-ai-workplace-advice",
+                "publisher": { "@type": "Organization", "name": "NTU Singapore" }
+              },
+              {
+                "@type": "Article",
+                "name": "Trailblazer feature: Eric Yim",
+                "url": "https://www.atalent.com/news/trailblazer_EricYim",
+                "publisher": { "@type": "Organization", "name": "aTalent" }
+              }
+            ]
+          },
+          {
+            "@type": "ProfilePage",
+            "@id": "https://www.ericyim.example/#profilepage",
+            "url": "https://www.ericyim.example/",
+            "name": "Eric Yim — Organization Design Strategist",
+            "mainEntity": { "@id": "https://www.ericyim.example/#person" },
+            "isPartOf": { "@id": "https://www.ericyim.example/#website" }
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://www.ericyim.example/#website",
+            "url": "https://www.ericyim.example/",
+            "name": "OrgDesign Playbook",
+            "description": "An integrated organizational capability and change framework, with an 18-question organizational health diagnostic.",
+            "inLanguage": "en",
+            "author": { "@id": "https://www.ericyim.example/#person" },
+            "publisher": { "@id": "https://www.ericyim.example/#person" }
+          },
+          {
+            "@type": "FAQPage",
+            "@id": "https://www.ericyim.example/#faq",
+            "isPartOf": { "@id": "https://www.ericyim.example/#profilepage" },
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Who is Eric Yim?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Eric Yim is an organization design strategist specializing in human-AI work partnership. He works on how organizations structure accountability, capability, process and behavior — and on how work is divided between people and machines as AI takes on more of it."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What is human-AI work partnership?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Human-AI work partnership is the deliberate design of how people and machines share work at the task level. Rather than asking which jobs AI replaces, it asks which tasks move to the machine, which stay human, and what that reassignment does to roles, spans, decision rights and the operating model."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What does an organization design strategist do?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "An organization design strategist aligns an organization’s structure and accountabilities, people and skills, process and systems, and mindset and behaviors so it can execute its strategy. The work spans diagnosis, operating model design, and the change activation needed to make a new design real."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How does AI change organization design?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "AI redesigns the work, not the chart. The unit of analysis descends from the org chart to the task, each task is placed on a ladder from manual to reinvention, and any machine judgement is gated by a human before it reaches a decision-maker. Structure follows work — and the work is now shared with machines."
+                }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>

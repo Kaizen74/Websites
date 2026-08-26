@@ -4,6 +4,12 @@ One line of reasoning per decision, newest first.
 
 | Date | Decision | Why |
 |---|---|---|
+| 2026-08-26 | GEO/AEO entity layer: static JSON-LD (Person/ProfilePage/WebSite/FAQPage) in index.html, not React-injected | Many AI answer-engine crawlers do not execute JavaScript; keeping the entity graph in static HTML means it is readable without rendering the SPA |
+| 2026-08-26 | `src/data/profile.ts` is the single source of truth, mirrored into index.html, with `seo-alignment.test.ts` asserting parity | Structured data and visible content must match (Google requirement) and would otherwise drift silently — the test fails the build if they diverge |
+| 2026-08-26 | Reference articles cited by publisher + neutral title only; no summaries or quotes | Both domains (ntu.edu.sg, atalent.com) are blocked by the environment's egress proxy, so their contents could not be verified. `sameAs`/citation needs only the URLs; paraphrasing unread sources would be fabrication |
+| 2026-08-26 | `alumniOf` deliberately omitted from the Person schema | The NTU URL sits under /alumni/ and implies it, but it was not verifiable — under-claiming beats asserting an unverified credential |
+| 2026-08-26 | `SITE_URL` placeholder `https://www.ericyim.example` | No deployment domain exists anywhere in the repo. Kept in one constant, mirrored in index.html/robots/sitemap and covered by the alignment test, so one edit updates everything |
+| 2026-08-26 | Added `"node"` to `tsconfig.app.json` types | The alignment test reads index.html from disk. `@types/node` was already a devDependency — no new package installed |
 | 2026-08-13 | Added `AiNativeSection` as static teaching content, not a second diagnostic | Per PRD: the playbook answers "how do I design an org" but not "what does AI change"; deliberately no scores/state so it cannot be confused with the 18-question diagnostic |
 | 2026-08-13 | Diagnostic renumbered 04 → 05 across CTA band, hero index and survey view | AI-native takes slot 04; PRD §4 listed only the CTA band, but leaving `DiagnosticSurvey.tsx` at "04 · The diagnostic" would put two sections at 04 and break acceptance criterion #3 (consistent numbering). One-string change, no signature/behaviour change — logged per PRD §6 |
 | 2026-08-13 | Micro-labels set at 11px, not the 10.5px in PRD §2 | PRD §2 (10.5px) contradicts PRD §3's binding "nothing below 11.5px". 11px matches every existing uppercase overline in the codebase and avoids introducing a new smaller size; verified no text in the section computes below 11px |

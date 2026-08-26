@@ -59,6 +59,22 @@ Run `./run_checks.sh`. Success looks like: "ALL CHECKS PASSED".
 It runs the 47 automated tests, checks the code compiles, and builds the
 deployable version.
 
+## Being found by Google and AI assistants
+
+The site now tells search engines and AI assistants (ChatGPT, Claude,
+Perplexity, Google AI) who you are: **Eric Yim, organization design
+strategist specializing in human-AI work partnership**. That identity, your
+areas of expertise, and the NTU and aTalent articles about you are written
+into the page in a machine-readable form, and repeated in an **About the
+author** section near the bottom that human visitors can read too. There is
+also a plain-text summary at `/llms.txt` written specifically for AI
+assistants, and a `/robots.txt` that explicitly welcomes their crawlers.
+
+**One thing to do when you go live:** the site does not yet know its own web
+address. Open `src/data/profile.ts`, change `SITE_URL` to your real domain,
+then make the same change in `index.html`, `public/robots.txt` and
+`public/sitemap.xml`. If you miss one, `./run_checks.sh` will tell you.
+
 ## What changed most recently (2026-08-13)
 
 Added a new reference section, **AI-native design**, between the change

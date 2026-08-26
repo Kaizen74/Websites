@@ -79,6 +79,7 @@ export const SECTION_IDS = {
   activators: 'activators',
   changeLevers: 'change-levers',
   aiNative: 'ai-native',
+  about: 'about',
   diagnostic: 'diagnostic',
   results: 'results',
 };
