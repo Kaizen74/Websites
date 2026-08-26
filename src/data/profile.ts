@@ -31,6 +31,12 @@ export interface CredentialEntry {
   detail: string;
 }
 
+export interface CareerEntry {
+  organization: string;
+  role: string;
+  period: string;
+}
+
 /**
  * PLACEHOLDER — replace with the live domain once deployed, then update the
  * same value in index.html (canonical, og:url, JSON-LD) and public/sitemap.xml.
@@ -45,21 +51,56 @@ export const profile = {
   name: 'Eric Yim',
   /** Primary entity claim — how search and answer engines should classify him */
   jobTitle: 'Organization Design Strategist',
+  /**
+   * Every title this person is described by across sources. Emitted as a
+   * schema.org jobTitle array so entity-resolution engines see the site,
+   * LinkedIn and the press features as ONE consistent entity rather than a
+   * conflict. Order matters: the positioning claim leads.
+   */
+  jobTitles: [
+    'Organization Design Strategist',
+    'Global Head of OD and Talent',
+    'Global OD, OE and Talent Leader',
+  ],
   specialism: 'human-AI work partnership',
-  /** Verified: aTalent states "Global Head of OD and Talent" */
+  /** Verified: LinkedIn + aTalent */
   featuredRole: 'Global Head of OD and Talent',
+  /** Verified: LinkedIn — current employer since December 2024 */
+  worksFor: 'SATS Ltd.',
+  /** Verified: LinkedIn */
+  location: 'Singapore',
+  /** Verified: LinkedIn summary, in his own words */
+  linkedInSummary:
+    'Global OD and Talent leader experienced in building effective organisations and leading people with AI transformation.',
   /** One-sentence definition used verbatim in meta description and JSON-LD */
   description:
     'Eric Yim is an organization design strategist specializing in human-AI work partnership — designing how organizations divide work between people and machines, and the structures, capabilities and behaviors that make that partnership work.',
   /** Longer bio. Every clause is sourced from the two features below. */
   bio:
-    'Eric Yim has spent 25 years in the gap between diagnosing an organization and redesigning it. He graduated from Nanyang Business School in 1998 specializing in financial analysis, began in corporate banking, and moved into organizational development through knowledge management in the public sector — an unusual route that gave him a systems view of organizations. Today he works at the intersection of organizational development and AI adoption in the workplace, focusing on end-to-end organization design across structure, process, capability and culture.',
+    'Eric Yim has spent 25 years in the gap between diagnosing an organization and redesigning it. He graduated from Nanyang Technological University in 1998 specializing in financial analysis, began in corporate banking, and moved into organizational development through the public sector — an unusual route that gave him a systems view of organizations. He has since led organization development and effectiveness work at L’Oréal, Shell and Cargill across Asia-Pacific, EMEA and the Middle East, and is now Global Head of OD and Talent at SATS Ltd. in Singapore, working at the intersection of organizational development and AI adoption in the workplace.',
   alumniOf: {
-    name: 'Nanyang Business School, Nanyang Technological University',
+    name: 'Nanyang Technological University Singapore',
     shortName: 'Nanyang Technological University',
     url: 'https://www.ntu.edu.sg/',
     year: '1998',
   },
+  /** All institutions, verified from LinkedIn education */
+  education: [
+    {
+      institution: 'Nanyang Technological University Singapore',
+      url: 'https://www.ntu.edu.sg/',
+      qualification: 'Bachelor of Business — Financial Analysis',
+      period: '1995–1998',
+    },
+    {
+      institution: 'University of North Texas',
+      url: 'https://www.unt.edu/',
+      qualification: 'Business and Organisation Anthropology',
+      period: '2020–2022',
+    },
+  ],
+  /** Verified: LinkedIn (Shell Business Operations, 2018) */
+  award: 'Global Brandon Hall Silver Excellence for Blended Learning (2018)',
   /** Topical entity associations for knowledge-graph disambiguation */
   knowsAbout: [
     'Organization Design',
@@ -72,17 +113,79 @@ export const profile = {
     'Job Redesign',
     'AI Adoption in the Workplace',
     'Strategy Execution',
+    'Leadership Development',
+    'Diversity and Inclusion',
   ],
 } as const;
+
+/**
+ * Career track, verified from LinkedIn. Establishes the depth behind the
+ * entity claim and corroborates the press features (corporate banking start;
+ * public-sector route into OD).
+ */
+export const career: CareerEntry[] = [
+  {
+    organization: 'SATS Ltd.',
+    role: 'Global Head of OD and Talent',
+    period: 'Dec 2024 – present',
+  },
+  {
+    organization: 'Shell',
+    role: 'Global Head of OD and Learning, Shell Lubricants',
+    period: '2021 – 2024',
+  },
+  {
+    organization: 'Shell',
+    role: 'Head of OD and Learning, Qatar Shell',
+    period: '2019 – 2021',
+  },
+  {
+    organization: 'Shell',
+    role: 'Global Head of OD & Learning, Shell Business Operations',
+    period: '2015 – 2019',
+  },
+  {
+    organization: 'Cargill',
+    role: 'Senior Consultant, Organization Effectiveness APAC & EMEA',
+    period: '2011 – 2015',
+  },
+  {
+    organization: 'Civil Service College',
+    role: 'Consulting Manager',
+    period: '2000 – 2006',
+  },
+  {
+    organization: 'Mizuho',
+    role: 'Relationship Manager, Corporate Banking',
+    period: '1997 – 2000',
+  },
+];
+
+/**
+ * Owned profiles elsewhere on the web. These are `sameAs` identity signals:
+ * they tell entity-resolution engines that the site, LinkedIn and the press
+ * coverage all describe one person.
+ */
+export const ownedProfiles: ReferenceArticle[] = [
+  {
+    publisher: 'LinkedIn',
+    title: 'Eric Yim — Global OD, OE and Talent Leader',
+    url: 'https://www.linkedin.com/in/eric-yim-743910',
+  },
+];
 
 /** Verified credentials — sourced, not inferred. */
 export const credentials: CredentialEntry[] = [
   {
-    label: 'Nanyang Business School, NTU · 1998',
-    detail: 'Graduated with a specialization in financial analysis.',
+    label: 'Nanyang Technological University · 1998',
+    detail: 'Bachelor of Business, specializing in financial analysis.',
   },
   {
-    label: 'Certificate in Prompt Engineering',
+    label: 'University of North Texas · 2022',
+    detail: 'Business and Organisation Anthropology.',
+  },
+  {
+    label: 'Certified Prompt Engineer™',
     detail: 'Applied to organizational development practice.',
   },
   {
@@ -158,7 +261,12 @@ export const faqEntries: FaqEntry[] = [
   {
     question: 'What is Eric Yim’s background?',
     answer:
-      'Eric Yim graduated from Nanyang Business School in 1998 with a specialization in financial analysis and began his career in corporate banking. He moved into organizational development through knowledge management in the public sector, which gave him a systems view of organizations as living systems rather than org charts.',
+      'Eric Yim graduated from Nanyang Technological University in 1998 with a Bachelor of Business specializing in financial analysis, and began his career in corporate banking at Mizuho. He moved into organizational development through the Civil Service College, then held organization development and effectiveness roles at L’Oréal, Shell and Cargill before becoming Global Head of OD and Talent at SATS Ltd.',
+  },
+  {
+    question: 'Where does Eric Yim work?',
+    answer:
+      'Eric Yim is Global Head of OD and Talent at SATS Ltd. in Singapore, which he joined in December 2024. He previously spent over nine years at Shell in global and regional organizational development leadership roles, and four years at Cargill in organization effectiveness consulting.',
   },
   {
     question: 'Why does Eric Yim say AI is a multiplier and not a shortcut?',
@@ -169,7 +277,9 @@ export const faqEntries: FaqEntry[] = [
 
 export default {
   profile,
+  career,
   credentials,
+  ownedProfiles,
   referenceArticles,
   quotes,
   faqEntries,

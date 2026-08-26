@@ -320,18 +320,18 @@
     "semantic_hash": ""
   },
   "DECISIONS.md": {
-    "mtime": 1787756065.3287508,
-    "ast_hash": "fb09eff9d0e6fe3a4f15547c8e5fdba2",
+    "mtime": 1787756843.304733,
+    "ast_hash": "a47caf7b7cde80d18075764db1c5f3b7",
     "semantic_hash": ""
   },
   "GUIDE.md": {
-    "mtime": 1787756093.98875,
-    "ast_hash": "19606fe42fa4cbfc1fc4696debb94d6d",
+    "mtime": 1787756862.4607325,
+    "ast_hash": "08bb850d44f419e775029755c1d93c8c",
     "semantic_hash": ""
   },
   "PROJECT_STATE.md": {
-    "mtime": 1787756080.8007505,
-    "ast_hash": "efa5c23d1f61d6489650483ef8446cad",
+    "mtime": 1787756851.9327328,
+    "ast_hash": "72b84d341a889899d3b0a2ed89b6a051",
     "semantic_hash": ""
   },
   "README.md": {
@@ -340,8 +340,8 @@
     "semantic_hash": ""
   },
   "index.html": {
-    "mtime": 1787755682.0167594,
-    "ast_hash": "80790493804fb1026a13a3cd1e0a1848",
+    "mtime": 1787756485.904741,
+    "ast_hash": "692f9b3f9329a3043cd81414674c911c",
     "semantic_hash": ""
   },
   "public/vite.svg": {
@@ -355,28 +355,28 @@
     "semantic_hash": ""
   },
   "src/__tests__/about-author.test.tsx": {
-    "mtime": 1787755895.6127546,
-    "ast_hash": "6c715e5ddb6a0f841ab93f068c76cb51",
+    "mtime": 1787756636.8847377,
+    "ast_hash": "871f78330a479e54ba5a55c5d751c564",
     "semantic_hash": ""
   },
   "src/__tests__/seo-alignment.test.ts": {
-    "mtime": 1787755924.0007539,
-    "ast_hash": "9488bba6d52f5db4156319b23ca62d09",
+    "mtime": 1787756686.6647365,
+    "ast_hash": "24dfa581f590d1bdadf718dc2d7631c1",
     "semantic_hash": ""
   },
   "src/components/AboutAuthor.tsx": {
-    "mtime": 1787755766.9767575,
-    "ast_hash": "a7ec4765e06925a6e3895f10dc771223",
+    "mtime": 1787756519.6727405,
+    "ast_hash": "780c9de67d31988c586221b3290bbab0",
     "semantic_hash": ""
   },
   "src/data/profile.ts": {
-    "mtime": 1787755635.6607606,
-    "ast_hash": "097e080dc49bfca41388a0eb457987a1",
+    "mtime": 1787756441.7247422,
+    "ast_hash": "787270e84da38e0d67665cdad20a5c77",
     "semantic_hash": ""
   },
   "public/llms.txt": {
-    "mtime": 1787755861.7280283,
-    "ast_hash": "45eb112455f0eb9ccc7d01a08277c3d8",
+    "mtime": 1787756669.6496983,
+    "ast_hash": "810c3593be4219aed63c66b2d38b612b",
     "semantic_hash": ""
   },
   "public/robots.txt": {
@@ -402,6 +402,11 @@
   "public/og-image.png": {
     "mtime": 1787755736.7327583,
     "ast_hash": "a8a99a2197a3d7ee1a19388ae4c91d25",
+    "semantic_hash": ""
+  },
+  "src/__tests__/linkedin-consistency.test.ts": {
+    "mtime": 1787756571.9207392,
+    "ast_hash": "bacb23c7daabc6be10d69770f5cc6503",
     "semantic_hash": ""
   }
 }

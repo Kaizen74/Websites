@@ -1,7 +1,9 @@
 import { SECTION_IDS } from '../constants';
 import {
   profile,
+  career,
   credentials,
+  ownedProfiles,
   referenceArticles,
   quotes,
   faqEntries,
@@ -42,10 +44,16 @@ export function AboutAuthor() {
               {profile.name}
             </h2>
             <p
-              className="text-[var(--color-primary)] font-semibold mb-4"
+              className="text-[var(--color-primary)] font-semibold"
               style={{ fontSize: 15 }}
             >
               {profile.jobTitle}
+            </p>
+            <p
+              className="text-[var(--color-secondary)] mb-4"
+              style={{ fontSize: 14 }}
+            >
+              {profile.featuredRole}, {profile.worksFor} · {profile.location}
             </p>
             <p
               className="text-[var(--color-secondary)]"
@@ -112,24 +120,57 @@ export function AboutAuthor() {
               ))}
             </ul>
 
-            {/* Third-party coverage — credibility signals */}
+            {/* Career track — corroborates the entity claim */}
             <p
               className="uppercase font-semibold text-[var(--color-faint)] mt-8 mb-3"
-              style={{ fontSize: 11, letterSpacing: '.16em' }}
+              style={MICRO_LABEL}
             >
-              Featured in
+              Career
             </p>
-            <ul className="list-none p-0 m-0">
-              {referenceArticles.map((article, i) => (
+            <ul className="list-none p-0 m-0" style={{ borderTop: '1px solid var(--color-hairline)' }}>
+              {career.map((entry) => (
+                <li
+                  key={`${entry.organization}-${entry.period}`}
+                  className="py-2.5 flex flex-wrap items-baseline gap-x-3"
+                  style={{ borderBottom: '1px solid var(--color-hairline)' }}
+                >
+                  <span
+                    className="text-[var(--color-ink)] font-semibold"
+                    style={{ fontSize: 13.5 }}
+                  >
+                    {entry.organization}
+                  </span>
+                  <span
+                    className="text-[var(--color-secondary)] flex-1"
+                    style={{ fontSize: 13, lineHeight: 1.45, minWidth: 180 }}
+                  >
+                    {entry.role}
+                  </span>
+                  <span className="text-[var(--color-faint)]" style={{ fontSize: 12 }}>
+                    {entry.period}
+                  </span>
+                </li>
+              ))}
+            </ul>
+            <p
+              className="text-[var(--color-faint)] mt-3"
+              style={{ fontSize: 12.5, lineHeight: 1.5 }}
+            >
+              {profile.award}
+            </p>
+
+            {/* Profiles and third-party coverage — credibility signals */}
+            <p
+              className="uppercase font-semibold text-[var(--color-faint)] mt-8 mb-3"
+              style={MICRO_LABEL}
+            >
+              Profiles &amp; coverage
+            </p>
+            <ul className="list-none p-0 m-0" style={{ borderTop: '1px solid var(--color-hairline)' }}>
+              {[...ownedProfiles, ...referenceArticles].map((article) => (
                 <li
                   key={article.url}
-                  style={{
-                    borderTop: '1px solid var(--color-hairline)',
-                    borderBottom:
-                      i === referenceArticles.length - 1
-                        ? '1px solid var(--color-hairline)'
-                        : undefined,
-                  }}
+                  style={{ borderBottom: '1px solid var(--color-hairline)' }}
                 >
                   <a
                     href={article.url}

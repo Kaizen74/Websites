@@ -1,16 +1,16 @@
 # Graph Report - Websites  (2026-08-26)
 
 ## Corpus Check
-- 73 files · ~39,065 words
+- 74 files · ~41,142 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 429 nodes · 735 edges · 36 communities (27 shown, 9 thin omitted)
+- 438 nodes · 751 edges · 35 communities (26 shown, 9 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 3 edges (avg confidence: 0.5)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `99cc6be6`
+- Built from commit: `296d567c`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -19,7 +19,7 @@
 - index.ts
 - App.tsx
 - constants.ts
-- SECTION_IDS
+- ChangeLevers.tsx
 - compilerOptions
 - scripts
 - compilerOptions
@@ -42,8 +42,7 @@
 - .claude/CLAUDE.md
 - extraction-spec.md
 - DECISIONS.md
-- ResultsDashboard.tsx
-- seo-alignment.test.ts
+- profile.ts
 
 ## God Nodes (most connected - your core abstractions)
 1. `compilerOptions` - 20 edges
@@ -58,6 +57,8 @@
 10. `Dimension` - 10 edges
 
 ## Surprising Connections (you probably didn't know these)
+- `App()` --calls--> `mapToActivators()`  [EXTRACTED]
+  src/App.tsx → src/utils/scoring.ts
 - `CohortDashboardProps` --references--> `CohortMember`  [EXTRACTED]
   src/components/CohortDashboard.tsx → src/types/index.ts
 - `ScoreCell()` --calls--> `getScoreColor()`  [EXTRACTED]
@@ -66,33 +67,31 @@
   src/components/CohortDashboard.tsx → src/utils/scoring.ts
 - `CohortDashboard()` --calls--> `getScoreLabel()`  [EXTRACTED]
   src/components/CohortDashboard.tsx → src/utils/scoring.ts
-- `DiagnosticSurveyProps` --references--> `useDiagnostic()`  [EXTRACTED]
-  src/components/DiagnosticSurvey.tsx → src/hooks/useDiagnostic.ts
 
 ## Import Cycles
 - None detected.
 
-## Communities (36 total, 9 thin omitted)
+## Communities (35 total, 9 thin omitted)
 
 ### Community 0 - "devDependencies"
 Cohesion: 0.04
 Nodes (49): autoprefixer, eslint, @eslint/js, eslint-plugin-react-hooks, eslint-plugin-react-refresh, globals, identity-obj-proxy, jest (+41 more)
 
 ### Community 1 - "index.ts"
-Cohesion: 0.08
-Nodes (36): CohortDashboardProps, DIMENSIONS, statusColor, statusTint, FrameworkDiagram(), QuadrantSpec, quadrantSpecs, scoreTextClass (+28 more)
+Cohesion: 0.10
+Nodes (27): QuadrantSpec, quadrantSpecs, scoreTextClass, domains, FrameworkOverview(), FrameworkOverviewProps, PlaybookModules(), PlaybookModulesProps (+19 more)
 
 ### Community 2 - "App.tsx"
-Cohesion: 0.13
-Nodes (26): App(), AppView, CohortDashboard(), Signature(), MAX_COHORT_SIZE, STORAGE_KEYS, scores, makeResults() (+18 more)
+Cohesion: 0.08
+Nodes (38): App(), AppView, CohortDashboard(), CohortDashboardProps, DIMENSIONS, statusColor, statusTint, FrameworkDiagram() (+30 more)
 
 ### Community 3 - "constants.ts"
-Cohesion: 0.16
-Nodes (23): DiagnosticSurvey(), DiagnosticSurveyProps, dimensionColor, QuestionCard(), QuestionCardProps, DIMENSION_LABELS, LIKERT_OPTIONS, QUADRANT_COLORS (+15 more)
+Cohesion: 0.09
+Nodes (42): ScoreCell(), DiagnosticSurvey(), DiagnosticSurveyProps, dimensionColor, DimensionChart(), DimensionChartProps, fillColor, ExportButton() (+34 more)
 
-### Community 4 - "SECTION_IDS"
-Cohesion: 0.10
-Nodes (18): ActivatorCard(), ActivatorCardProps, SignalColumnProps, ActivatorsSection(), ActivatorsSectionProps, ChangeLevers(), displayTitle(), phaseLabels (+10 more)
+### Community 4 - "ChangeLevers.tsx"
+Cohesion: 0.13
+Nodes (14): ActivatorCard(), ActivatorCardProps, SignalColumnProps, ActivatorsSection(), ActivatorsSectionProps, ChangeLevers(), displayTitle(), phaseLabels (+6 more)
 
 ### Community 5 - "compilerOptions"
 Cohesion: 0.07
@@ -146,16 +145,12 @@ Nodes (3): For --cluster-only, For --update (incremental re-extraction), graphif
 Cohesion: 0.50
 Nodes (3): Expanding the ESLint configuration, React Compiler, React + TypeScript + Vite
 
-### Community 34 - "ResultsDashboard.tsx"
-Cohesion: 0.16
-Nodes (18): ScoreCell(), DimensionChart(), DimensionChartProps, fillColor, ExportButton(), ExportButtonProps, interpretation(), QUADRANT_DIMENSIONS (+10 more)
-
-### Community 35 - "seo-alignment.test.ts"
-Cohesion: 0.16
-Nodes (20): AboutAuthor(), MICRO_LABEL, CONTENT_LAST_MODIFIED, CredentialEntry, credentials, faqEntries, FaqEntry, profile (+12 more)
+### Community 35 - "profile.ts"
+Cohesion: 0.11
+Nodes (27): AboutAuthor(), MICRO_LABEL, career, CareerEntry, CONTENT_LAST_MODIFIED, CredentialEntry, credentials, faqEntries (+19 more)
 
 ## Knowledge Gaps
-- **184 isolated node(s):** `name`, `private`, `version`, `type`, `dev` (+179 more)
+- **189 isolated node(s):** `name`, `private`, `version`, `type`, `dev` (+184 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **9 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -163,16 +158,16 @@ Nodes (20): AboutAuthor(), MICRO_LABEL, CONTENT_LAST_MODIFIED, CredentialEntry, 
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `devDependencies` connect `devDependencies` to `scripts`?**
-  _High betweenness centrality (0.024) - this node is a cross-community bridge._
-- **Why does `SECTION_IDS` connect `SECTION_IDS` to `index.ts`, `App.tsx`, `seo-alignment.test.ts`, `constants.ts`, `ResultsDashboard.tsx`, `AiNativeSection.tsx`?**
-  _High betweenness centrality (0.010) - this node is a cross-community bridge._
+  _High betweenness centrality (0.023) - this node is a cross-community bridge._
+- **Why does `SECTION_IDS` connect `App.tsx` to `AiNativeSection.tsx`, `constants.ts`, `profile.ts`, `ChangeLevers.tsx`?**
+  _High betweenness centrality (0.011) - this node is a cross-community bridge._
 - **What connects `name`, `private`, `version` to the rest of the system?**
-  _184 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _189 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `devDependencies` be split into smaller, more focused modules?**
   _Cohesion score 0.04081632653061224 - nodes in this community are weakly interconnected._
 - **Should `index.ts` be split into smaller, more focused modules?**
-  _Cohesion score 0.08325624421831637 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.10420168067226891 - nodes in this community are weakly interconnected._
 - **Should `App.tsx` be split into smaller, more focused modules?**
-  _Cohesion score 0.1265597147950089 - nodes in this community are weakly interconnected._
-- **Should `SECTION_IDS` be split into smaller, more focused modules?**
-  _Cohesion score 0.10052910052910052 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.08313725490196078 - nodes in this community are weakly interconnected._
+- **Should `constants.ts` be split into smaller, more focused modules?**
+  _Cohesion score 0.09090909090909091 - nodes in this community are weakly interconnected._

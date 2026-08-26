@@ -78,8 +78,14 @@ Testing Library. No charting library (plain-div bars). Deploys as a static
 - **Footer:** wordmark + tagline row, then a personal brand sign-off — an
   "EY" monogram seal (Signature.tsx) with "Eric Yim" in Playfair italic, a
   red underline flourish, and a © attribution line.
-- **Tests:** 126 passing across 13 suites (unit, integration, App smoke,
-  SEO/structured-data alignment),
+- **Entity consistency:** `src/__tests__/linkedin-consistency.test.ts` pins the
+  LinkedIn profile as ground truth — name, headline, current role/employer
+  (Global Head of OD and Talent, SATS Ltd.), location, both degrees, the
+  Certified Prompt Engineer™ credential and the Brandon Hall award. It also
+  forbids superseded strings and any published email address. Update it and
+  `profile.ts` together whenever LinkedIn changes.
+- **Tests:** 138 passing across 14 suites (unit, integration, App smoke,
+  SEO/structured-data alignment, LinkedIn consistency),
   plus two Playwright scripts: a 53-check E2E covering the AI-native
   section, framework overview/quadrant switching, the full two-respondent
   cohort journey, the score-free homepage framework and the footer

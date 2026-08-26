@@ -3,6 +3,7 @@ import { join } from 'path';
 import {
   profile,
   credentials,
+  ownedProfiles,
   referenceArticles,
   quotes,
   faqEntries,
@@ -72,7 +73,9 @@ describe('Backend JSON-LD is aligned with frontend profile data', () => {
   test('Person matches profile.ts identity', () => {
     const person = nodeOfType('Person');
     expect(person.name).toBe(profile.name);
-    expect(person.jobTitle).toBe(profile.jobTitle);
+    // jobTitle is an array so the site, LinkedIn and press titles corroborate
+    expect(person.jobTitle).toEqual([...profile.jobTitles]);
+    expect(person.jobTitle[0]).toBe(profile.jobTitle);
     expect(person.description).toBe(profile.description);
   });
 
@@ -80,10 +83,12 @@ describe('Backend JSON-LD is aligned with frontend profile data', () => {
     expect(nodeOfType('Person').knowsAbout).toEqual([...profile.knowsAbout]);
   });
 
-  test('Person.sameAs contains every reference article URL', () => {
+  test('Person.sameAs contains every owned profile and reference article', () => {
     const sameAs: string[] = nodeOfType('Person').sameAs;
-    referenceArticles.forEach((a) => expect(sameAs).toContain(a.url));
-    expect(sameAs).toHaveLength(referenceArticles.length);
+    [...ownedProfiles, ...referenceArticles].forEach((a) =>
+      expect(sameAs).toContain(a.url)
+    );
+    expect(sameAs).toHaveLength(ownedProfiles.length + referenceArticles.length);
   });
 
   test('subjectOf articles match reference titles and publishers', () => {
@@ -130,10 +135,15 @@ describe('Backend JSON-LD is aligned with frontend profile data', () => {
 
 describe('Verified biography is reflected in structured data', () => {
   test('alumniOf matches the verified education', () => {
-    const alumni = nodeOfType('Person').alumniOf;
-    expect(alumni['@type']).toBe('CollegeOrUniversity');
-    expect(alumni.name).toBe(profile.alumniOf.name);
-    expect(alumni.url).toBe(profile.alumniOf.url);
+    const alumni: Record<string, string>[] = nodeOfType('Person').alumniOf;
+    expect(Array.isArray(alumni)).toBe(true);
+    expect(alumni).toHaveLength(profile.education.length);
+    alumni.forEach((a) => expect(a['@type']).toBe('CollegeOrUniversity'));
+    profile.education.forEach((e) => {
+      const match = alumni.find((a) => a.name === e.institution);
+      expect(match).toBeDefined();
+      expect(match!.url).toBe(e.url);
+    });
   });
 
   test('hasCredential covers the verified credentials', () => {
@@ -144,7 +154,7 @@ describe('Verified biography is reflected in structured data', () => {
     names.forEach((n) => {
       expect(credentials.map((c) => c.label)).toContain(n);
     });
-    expect(names).toContain('Certificate in Prompt Engineering');
+    expect(names).toContain('Certified Prompt Engineer™');
   });
 
   test('subjectOf uses the real published headlines and dates', () => {
@@ -226,8 +236,10 @@ describe('Crawler-facing files', () => {
   test('llms.txt carries the verified biography and attributable quotes', () => {
     // llms.txt is hard-wrapped prose, so compare on whitespace-normalized text
     const flat = llms.replace(/\s+/g, ' ');
-    expect(flat).toContain('Nanyang Business School');
+    expect(flat).toContain('Nanyang Technological University');
     expect(flat).toContain('25 years');
+    // Every knowsAbout topic must appear in the AI-facing summary too
+    profile.knowsAbout.forEach((t) => expect(flat).toContain(t));
     quotes.forEach((q) => expect(flat).toContain(q.text.replace(/\s+/g, ' ')));
   });
 

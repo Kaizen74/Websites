@@ -89,11 +89,25 @@ the site the moment you publish.
    `<!--` and `-->` around them, then submit `yourdomain.com/sitemap.xml` in
    both. This is what actually gets your pages indexed.
 
+Your LinkedIn profile is now linked from the site and registered as an
+official "this is the same person" signal, and the site repeats the same
+facts LinkedIn does — current role at SATS, both degrees, the prompt
+engineering certification, the Brandon Hall award and your career history.
+That agreement matters: when Google or an AI assistant sees the same facts on
+your site, on LinkedIn and in the two articles, it treats you as one
+well-established person rather than several uncertain ones. There is an
+automatic check that fails the build if the site ever drifts from what your
+LinkedIn says.
+
+**Note:** your email address appears in the LinkedIn export but is
+deliberately *not* published on the site — public pages get scraped for
+spam. Tell me if you would rather have a contact link.
+
 **Things only you can do, off the website:** create a Wikidata entry for
 yourself (wikidata.org — it needs independent coverage, which your two
-articles help support), and send me any other profiles you own, such as
-LinkedIn, so they can be added to the list of "this is the same person"
-links.
+articles help support), and tell me where your `bit.ly/2RQceu7` personal link
+points so it can be added properly (I left it out rather than link somewhere
+I could not check).
 
 ## What changed most recently (2026-08-13)
 

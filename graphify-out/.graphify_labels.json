@@ -3,7 +3,7 @@
   "1": "index.ts",
   "2": "App.tsx",
   "3": "constants.ts",
-  "4": "SECTION_IDS",
+  "4": "ChangeLevers.tsx",
   "5": "compilerOptions",
   "6": "scripts",
   "7": "compilerOptions",
@@ -33,6 +33,5 @@
   "31": ".claude/CLAUDE.md",
   "32": "extraction-spec.md",
   "33": "DECISIONS.md",
-  "34": "ResultsDashboard.tsx",
-  "35": "seo-alignment.test.ts"
+  "35": "profile.ts"
 }

@@ -50,7 +50,9 @@ describe('About the author section', () => {
       expect(screen.getByText(item.detail)).toBeTruthy();
     });
     // Appears in both the credential label and the bio paragraph
-    expect(screen.getAllByText(/Nanyang Business School/).length).toBeGreaterThan(0);
+    expect(
+      screen.getAllByText(/Nanyang Technological University/).length
+    ).toBeGreaterThan(0);
   });
 
   test('renders attributable quotes with their source', () => {
