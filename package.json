@@ -16,6 +16,7 @@
     "verify": "npm test && npm run build && npm run size:check"
   },
   "dependencies": {
+    "@vercel/analytics": "^2.0.1",
     "lucide-react": "^0.562.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"

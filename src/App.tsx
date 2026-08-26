@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { FrameworkSection } from './components/FrameworkSection';
@@ -166,6 +167,7 @@ function App() {
             onAddRespondent={handleNextRespondent}
           />
         </main>
+        <Analytics />
       </div>
     );
   }
@@ -184,6 +186,7 @@ function App() {
             onNextRespondent={handleNextRespondent}
           />
         </main>
+        <Analytics />
       </div>
     );
   }
@@ -195,6 +198,7 @@ function App() {
         <main className="pt-16">
           <DiagnosticSurvey onComplete={handleSurveyComplete} />
         </main>
+        <Analytics />
       </div>
     );
   }
@@ -308,6 +312,7 @@ function App() {
           </div>
         </footer>
       </main>
+      <Analytics />
     </div>
   );
 }

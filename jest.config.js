@@ -7,6 +7,9 @@ export default {
     '^@/(.*)$': '<rootDir>/src/$1',
   },
   testPathIgnorePatterns: ['/node_modules/', '/dist/'],
+  transformIgnorePatterns: [
+    'node_modules/(?!(@vercel/analytics)/)',
+  ],
   collectCoverageFrom: [
     'src/**/*.{ts,tsx}',
     '!src/**/*.d.ts',

@@ -1,5 +1,10 @@
 import '@testing-library/jest-dom';
 
+// Mock Vercel Analytics
+jest.mock('@vercel/analytics/react', () => ({
+  Analytics: () => null,
+}));
+
 // Real in-memory Storage implementation so persistence round-trips are
 // genuinely exercised in tests (a no-op mock would hide data-layer bugs).
 function createMemoryStorage(): Storage {
