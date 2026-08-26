@@ -1,5 +1,16 @@
 import { SECTION_IDS } from '../constants';
-import { profile, referenceArticles, faqEntries } from '../data/profile';
+import {
+  profile,
+  credentials,
+  referenceArticles,
+  quotes,
+  faqEntries,
+} from '../data/profile';
+
+const MICRO_LABEL = {
+  fontSize: 11,
+  letterSpacing: '.16em',
+} as const;
 
 /**
  * Author credibility + entity section (E-E-A-T / GEO / AEO).
@@ -42,6 +53,42 @@ export function AboutAuthor() {
             >
               {profile.description}
             </p>
+            <p
+              className="text-[var(--color-secondary)] mt-3"
+              style={{ fontSize: 15, lineHeight: 1.65, textWrap: 'pretty' }}
+            >
+              {profile.bio}
+            </p>
+
+            {/* Credentials — verified from the cited features */}
+            <p
+              className="uppercase font-semibold text-[var(--color-faint)] mt-8 mb-3"
+              style={MICRO_LABEL}
+            >
+              Background
+            </p>
+            <ul className="list-none p-0 m-0" style={{ borderTop: '1px solid var(--color-hairline)' }}>
+              {credentials.map((item) => (
+                <li
+                  key={item.label}
+                  className="py-3"
+                  style={{ borderBottom: '1px solid var(--color-hairline)' }}
+                >
+                  <span
+                    className="block text-[var(--color-ink)] font-semibold"
+                    style={{ fontSize: 14 }}
+                  >
+                    {item.label}
+                  </span>
+                  <span
+                    className="block text-[var(--color-secondary)]"
+                    style={{ fontSize: 13, lineHeight: 1.5 }}
+                  >
+                    {item.detail}
+                  </span>
+                </li>
+              ))}
+            </ul>
 
             {/* Expertise — topical entity associations */}
             <p
@@ -108,11 +155,41 @@ export function AboutAuthor() {
             </ul>
           </div>
 
-          {/* Q&A — visible counterpart of the FAQPage structured data */}
+          {/* Quotes + Q&A */}
           <div>
+            {/* Attributable quotes — highly extractable by answer engines */}
+            <p
+              className="uppercase font-semibold text-[var(--color-faint)] mb-4"
+              style={MICRO_LABEL}
+            >
+              In his words
+            </p>
+            <div className="mb-12">
+              {quotes.map((quote) => (
+                <figure
+                  key={quote.text}
+                  className="m-0 py-4"
+                  style={{ borderTop: '1px solid var(--color-hairline)' }}
+                >
+                  <blockquote
+                    className="m-0 font-display italic text-[var(--color-ink)]"
+                    style={{ fontSize: 19, lineHeight: 1.45 }}
+                  >
+                    “{quote.text}”
+                  </blockquote>
+                  <figcaption
+                    className="uppercase font-semibold text-[var(--color-faint)] mt-2"
+                    style={{ fontSize: 11, letterSpacing: '.14em' }}
+                  >
+                    {quote.source}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+
             <p
               className="uppercase font-semibold text-[var(--color-faint)] mb-6"
-              style={{ fontSize: 11, letterSpacing: '.16em' }}
+              style={MICRO_LABEL}
             >
               Common questions
             </p>

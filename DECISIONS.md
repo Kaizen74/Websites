@@ -4,6 +4,14 @@ One line of reasoning per decision, newest first.
 
 | Date | Decision | Why |
 |---|---|---|
+| 2026-08-26 | Biography rewritten from the two supplied PDFs; every fact now sourced | The PDFs were image-only (0 extractable chars), so pages were rendered and read visually. `alumniOf` (NBS 1998), the prompt-engineering certificate, 25 years' tenure, real headlines and the aTalent date are now verified rather than omitted |
+| 2026-08-26 | Added Article schema authored by the Person for the AI-native section | Author↔content association is a primary E-E-A-T/GEO signal; the aTalent piece shows the task-ladder thesis is genuinely his, so attributing the on-site article to him is accurate |
+| 2026-08-26 | Added `speakable`, `dateModified`, `disambiguatingDescription`, `hasCredential`, `ImageObject` | Voice-answer targeting, freshness, entity disambiguation against other people named Eric Yim, and a knowledge-panel-eligible image |
+| 2026-08-26 | Generated a real 1200×630 `og-image.png` with Playwright from the site's own tokens | `og:image` was missing entirely; referencing a non-existent file would be worse. A branded card is honest — a stock portrait would not be |
+| 2026-08-26 | Google/Bing verification tags shipped commented out, not with placeholder tokens | A live tag with a fake token is worse than no tag. A test strips HTML comments and asserts nothing active remains |
+| 2026-08-26 | Added a `<noscript>` entity fallback rather than hidden static text | Serves non-JS crawlers with the same facts. Hiding equivalent text with CSS would be cloaking and is penalised |
+| 2026-08-26 | Added an IndexNow key pair (`indexnow-key.txt` + `<key>.txt`) | Enables instant re-indexing pings to Bing/Yandex on publish; no equivalent exists for Google, which uses Search Console |
+| 2026-08-26 | Wikidata NOT created — documented as an off-site action instead | Wikidata items require independent notability and are created on wikidata.org; it cannot be shipped from this repo. The `sameAs` array is the insertion point once a QID exists |
 | 2026-08-26 | GEO/AEO entity layer: static JSON-LD (Person/ProfilePage/WebSite/FAQPage) in index.html, not React-injected | Many AI answer-engine crawlers do not execute JavaScript; keeping the entity graph in static HTML means it is readable without rendering the SPA |
 | 2026-08-26 | `src/data/profile.ts` is the single source of truth, mirrored into index.html, with `seo-alignment.test.ts` asserting parity | Structured data and visible content must match (Google requirement) and would otherwise drift silently — the test fails the build if they diverge |
 | 2026-08-26 | Reference articles cited by publisher + neutral title only; no summaries or quotes | Both domains (ntu.edu.sg, atalent.com) are blocked by the environment's egress proxy, so their contents could not be verified. `sameAs`/citation needs only the URLs; paraphrasing unread sources would be fabrication |

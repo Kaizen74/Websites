@@ -61,13 +61,24 @@ Testing Library. No charting library (plain-div bars). Deploys as a static
   Google-Extended et al., `sitemap.xml`, `llms.txt`), and the visible
   **About the author** section (`#about`) carrying the same strings.
   `src/__tests__/seo-alignment.test.ts` fails if schema and data drift.
-  **One thing to change on launch:** `SITE_URL` in `src/data/profile.ts`,
-  then the matching URLs in `index.html`, `public/robots.txt` and
-  `public/sitemap.xml` (the alignment test enforces they agree).
+  Biography facts are sourced from the two published features (NTU, aTalent)
+  and include `alumniOf` (Nanyang Business School, 1998), a prompt-engineering
+  credential, 25 years' tenure and three attributable quotes. The graph also
+  carries an `Article` authored by the Person (AI-native section), a
+  `speakable` spec for voice answers, `dateModified` freshness, and an
+  `ImageObject` backing a generated 1200×630 `og-image.png`. `public/` also
+  ships an IndexNow key pair; a `<noscript>` block in `index.html` repeats the
+  entity for non-JS crawlers.
+  **On launch:** (1) set `SITE_URL` in `src/data/profile.ts` and the matching
+  URLs in `index.html`, `public/robots.txt`, `public/sitemap.xml`; (2)
+  uncomment the two verification `<meta>` tags in `index.html` with real
+  Google Search Console / Bing tokens and submit the sitemap in each console.
+  **Off-site (cannot be done from this repo):** create a Wikidata item and add
+  its QID to `sameAs`; add LinkedIn and any other owned profiles to `sameAs`.
 - **Footer:** wordmark + tagline row, then a personal brand sign-off — an
   "EY" monogram seal (Signature.tsx) with "Eric Yim" in Playfair italic, a
   red underline flourish, and a © attribution line.
-- **Tests:** 112 passing across 13 suites (unit, integration, App smoke,
+- **Tests:** 126 passing across 13 suites (unit, integration, App smoke,
   SEO/structured-data alignment),
   plus two Playwright scripts: a 53-check E2E covering the AI-native
   section, framework overview/quadrant switching, the full two-respondent

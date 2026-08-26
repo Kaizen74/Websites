@@ -70,10 +70,30 @@ author** section near the bottom that human visitors can read too. There is
 also a plain-text summary at `/llms.txt` written specifically for AI
 assistants, and a `/robots.txt` that explicitly welcomes their crawlers.
 
-**One thing to do when you go live:** the site does not yet know its own web
-address. Open `src/data/profile.ts`, change `SITE_URL` to your real domain,
-then make the same change in `index.html`, `public/robots.txt` and
-`public/sitemap.xml`. If you miss one, `./run_checks.sh` will tell you.
+Your background is now on the site as published fact, taken from the two
+articles: Nanyang Business School 1998, the prompt-engineering certificate,
+25 years in the field, and three quotes with the publication credited. The
+site also has a shareable preview card (the image that appears when someone
+posts your link), and a plain-text file that tells search engines to re-check
+the site the moment you publish.
+
+**Two things to do when you go live:**
+
+1. The site does not yet know its own web address. Open
+   `src/data/profile.ts`, change `SITE_URL` to your real domain, then make the
+   same change in `index.html`, `public/robots.txt` and `public/sitemap.xml`.
+   If you miss one, `./run_checks.sh` will tell you.
+2. Register the site with Google and Bing. Sign up for Google Search Console
+   and Bing Webmaster Tools, each gives you a verification code; paste them
+   into the two commented-out lines near the top of `index.html`, remove the
+   `<!--` and `-->` around them, then submit `yourdomain.com/sitemap.xml` in
+   both. This is what actually gets your pages indexed.
+
+**Things only you can do, off the website:** create a Wikidata entry for
+yourself (wikidata.org — it needs independent coverage, which your two
+articles help support), and send me any other profiles you own, such as
+LinkedIn, so they can be added to the list of "this is the same person"
+links.
 
 ## What changed most recently (2026-08-13)
 

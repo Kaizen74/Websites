@@ -1,6 +1,6 @@
 import { render, screen, within } from '@testing-library/react';
 import { AboutAuthor } from '../components/AboutAuthor';
-import { profile, referenceArticles, faqEntries } from '../data/profile';
+import { profile, credentials, referenceArticles, quotes, faqEntries } from '../data/profile';
 
 describe('About the author section', () => {
   test('states the entity name and job title', () => {
@@ -24,7 +24,9 @@ describe('About the author section', () => {
   test('links both reference articles with publisher attribution', () => {
     const { container } = render(<AboutAuthor />);
     referenceArticles.forEach((article) => {
-      expect(screen.getByText(article.publisher)).toBeTruthy();
+      // Publisher names also appear as quote attributions, so assert the
+      // label exists at least once rather than requiring uniqueness.
+      expect(screen.getAllByText(article.publisher).length).toBeGreaterThan(0);
       const link = container.querySelector(`a[href="${article.url}"]`);
       expect(link).not.toBeNull();
       // External credibility links open safely and carry the me relationship
@@ -39,6 +41,26 @@ describe('About the author section', () => {
       expect(screen.getByRole('heading', { level: 3, name: entry.question })).toBeTruthy();
       expect(screen.getByText(entry.answer)).toBeTruthy();
     });
+  });
+
+  test('shows the verified background credentials', () => {
+    render(<AboutAuthor />);
+    credentials.forEach((item) => {
+      expect(screen.getByText(item.label)).toBeTruthy();
+      expect(screen.getByText(item.detail)).toBeTruthy();
+    });
+    // Appears in both the credential label and the bio paragraph
+    expect(screen.getAllByText(/Nanyang Business School/).length).toBeGreaterThan(0);
+  });
+
+  test('renders attributable quotes with their source', () => {
+    const { container } = render(<AboutAuthor />);
+    expect(container.querySelectorAll('blockquote')).toHaveLength(quotes.length);
+    quotes.forEach((q) => {
+      expect(screen.getByText(`“${q.text}”`)).toBeTruthy();
+    });
+    // Each quote is inside a figure with a figcaption crediting the source
+    expect(container.querySelectorAll('figure figcaption').length).toBe(quotes.length);
   });
 
   test('is static — no buttons, inputs or interactive state', () => {
