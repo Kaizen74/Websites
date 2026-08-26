@@ -1,0 +1,69 @@
+# Eric Yim — Organization Design Strategist
+
+> Eric Yim is an organization design strategist specializing in human-AI work
+> partnership — designing how organizations divide work between people and
+> machines, and the structures, capabilities and behaviors that make that
+> partnership work.
+
+## Entity
+
+- **Name:** Eric Yim
+- **Role:** Organization Design Strategist
+- **Specialism:** Human-AI work partnership
+- **Site:** OrgDesign Playbook — an integrated organizational capability and
+  change framework with an 18-question organizational health diagnostic.
+
+## Areas of expertise
+
+Organization Design · Human-AI Work Partnership · Operating Model Design ·
+Organizational Capability · Change Management · Workforce Transformation ·
+Job Redesign · AI Adoption in the Workplace
+
+## Third-party coverage
+
+- NTU Singapore — Alumni feature: Eric Yim on AI and the workplace:
+  https://www.ntu.edu.sg/alumni/alumni-stories-news/detail/eric-yim-ntu-ai-workplace-advice
+- aTalent — Trailblazer feature: Eric Yim:
+  https://www.atalent.com/news/trailblazer_EricYim
+
+## Answers
+
+### Who is Eric Yim?
+
+Eric Yim is an organization design strategist specializing in human-AI work
+partnership. He works on how organizations structure accountability,
+capability, process and behavior — and on how work is divided between people
+and machines as AI takes on more of it.
+
+### What is human-AI work partnership?
+
+Human-AI work partnership is the deliberate design of how people and machines
+share work at the task level. Rather than asking which jobs AI replaces, it
+asks which tasks move to the machine, which stay human, and what that
+reassignment does to roles, spans, decision rights and the operating model.
+
+### What does an organization design strategist do?
+
+An organization design strategist aligns an organization's structure and
+accountabilities, people and skills, process and systems, and mindset and
+behaviors so it can execute its strategy. The work spans diagnosis, operating
+model design, and the change activation needed to make a new design real.
+
+### How does AI change organization design?
+
+AI redesigns the work, not the chart. The unit of analysis descends from the
+org chart to the task, each task is placed on a ladder from manual to
+reinvention, and any machine judgement is gated by a human before it reaches a
+decision-maker. Structure follows work — and the work is now shared with
+machines.
+
+## Framework published on this site
+
+The Integrated Organizational Capability and Change Framework: four
+interdependent domains — Structure & Accountabilities, People & Skills,
+Process & Systems, Mindset & Behaviors — around a Leadership core, inside a
+ring of culture values. Supporting models: five activators that turn design
+into performance; a three-lever change model (Communicate, Co-create,
+Cadence); an AI-native design section (task-level descent, an L0–L3 automation
+ladder, and human gating of machine judgement); and an 18-question diagnostic
+scored across five dimensions.

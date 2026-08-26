@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, within } from '@testing-library/react';
 import App from '../App';
 import { addCohortMember } from '../utils/cohort';
 import { STORAGE_KEYS, SECTION_IDS } from '../constants';
@@ -61,10 +61,23 @@ describe('App smoke tests', () => {
     expect(screen.queryByText('04 · The diagnostic')).toBeNull();
   });
 
+  test('About-the-author section renders with entity and credibility links', () => {
+    render(<App />);
+    const about = document.getElementById('about');
+    expect(about).not.toBeNull();
+    expect(about!.textContent).toContain('Organization Design Strategist');
+    expect(about!.textContent).toContain('human-AI work partnership');
+    expect(about!.querySelector('a[href*="ntu.edu.sg"]')).not.toBeNull();
+    expect(about!.querySelector('a[href*="atalent.com"]')).not.toBeNull();
+  });
+
   test('footer shows the personal brand signature and attribution', () => {
     render(<App />);
-    expect(screen.getByTestId('signature')).toBeTruthy();
-    expect(screen.getByText('Eric Yim')).toBeTruthy();
+    const signature = screen.getByTestId('signature');
+    expect(signature).toBeTruthy();
+    // The name also appears in the About-the-author section, so scope to the
+    // signature block rather than matching page-wide.
+    expect(within(signature).getByText('Eric Yim')).toBeTruthy();
     expect(screen.getByText(/Designed & built by/i)).toBeTruthy();
     expect(screen.getByText(/Eric Yim · All rights reserved/i)).toBeTruthy();
   });

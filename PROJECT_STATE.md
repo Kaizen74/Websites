@@ -52,10 +52,23 @@ Testing Library. No charting library (plain-div bars). Deploys as a static
   ladder (hairline grid, L3 row tinted), the capability-vs-desire zone card,
   and the three-tier provenance strip. No state, no interactivity, no new
   tokens; all copy in `src/data/aiNative.ts`.
+- **Discoverability (GEO/AEO):** the entity is defined once in
+  `src/data/profile.ts` (Eric Yim · Organization Design Strategist ·
+  human-AI work partnership) and surfaces three ways: static JSON-LD in
+  `index.html` (Person / ProfilePage / WebSite / FAQPage, with `sameAs` +
+  `subjectOf` citing the NTU and aTalent features), crawler files in
+  `public/` (`robots.txt` allowing GPTBot/ClaudeBot/PerplexityBot/
+  Google-Extended et al., `sitemap.xml`, `llms.txt`), and the visible
+  **About the author** section (`#about`) carrying the same strings.
+  `src/__tests__/seo-alignment.test.ts` fails if schema and data drift.
+  **One thing to change on launch:** `SITE_URL` in `src/data/profile.ts`,
+  then the matching URLs in `index.html`, `public/robots.txt` and
+  `public/sitemap.xml` (the alignment test enforces they agree).
 - **Footer:** wordmark + tagline row, then a personal brand sign-off — an
   "EY" monogram seal (Signature.tsx) with "Eric Yim" in Playfair italic, a
   red underline flourish, and a © attribution line.
-- **Tests:** 89 passing across 11 suites (unit, integration, App smoke),
+- **Tests:** 112 passing across 13 suites (unit, integration, App smoke,
+  SEO/structured-data alignment),
   plus two Playwright scripts: a 53-check E2E covering the AI-native
   section, framework overview/quadrant switching, the full two-respondent
   cohort journey, the score-free homepage framework and the footer
