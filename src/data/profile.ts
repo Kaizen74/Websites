@@ -75,6 +75,14 @@ export const profile = {
   /** One-sentence definition used verbatim in meta description and JSON-LD */
   description:
     'Eric Yim is an organization design strategist specializing in human-AI work partnership — designing how organizations divide work between people and machines, and the structures, capabilities and behaviors that make that partnership work.',
+  /**
+   * One-line experience proof shown in the curated About section. The full
+   * `bio` and `career` below remain the machine-facing record (llms.txt and
+   * the consistency guard) — they are deliberately not rendered, to keep the
+   * visible section elegant without weakening the entity.
+   */
+  experienceSummary:
+    '25 years in organizational development — across Shell, Cargill, L’Oréal and the Singapore public sector.',
   /** Longer bio. Every clause is sourced from the two features below. */
   bio:
     'Eric Yim has spent 25 years in the gap between diagnosing an organization and redesigning it. He graduated from Nanyang Technological University in 1998 specializing in financial analysis, began in corporate banking, and moved into organizational development through the public sector — an unusual route that gave him a systems view of organizations. He has since led organization development and effectiveness work at L’Oréal, Shell and Cargill across Asia-Pacific, EMEA and the Middle East, and is now Global Head of OD and Talent at SATS Ltd. in Singapore, working at the intersection of organizational development and AI adoption in the workplace.',
@@ -115,6 +123,19 @@ export const profile = {
     'Strategy Execution',
     'Leadership Development',
     'Diversity and Inclusion',
+  ],
+  /**
+   * The subset shown as chips in the About section. `knowsAbout` above stays
+   * complete for the knowledge graph and llms.txt; this keeps the visible
+   * section from becoming a tag cloud. Must be a subset — enforced by test.
+   */
+  featuredTopics: [
+    'Organization Design',
+    'Human-AI Work Partnership',
+    'Operating Model Design',
+    'Change Management',
+    'Job Redesign',
+    'AI Adoption in the Workplace',
   ],
 } as const;
 
@@ -187,10 +208,6 @@ export const credentials: CredentialEntry[] = [
   {
     label: 'Certified Prompt Engineer™',
     detail: 'Applied to organizational development practice.',
-  },
-  {
-    label: '25 years in organizational development',
-    detail: 'Working between diagnosis and organizational redesign.',
   },
 ];
 

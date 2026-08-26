@@ -4,6 +4,11 @@ One line of reasoning per decision, newest first.
 
 | Date | Decision | Why |
 |---|---|---|
+| 2026-08-26 | About section curated: career list, long bio, award, 2 of 3 quotes and 6 of 12 topic chips removed from view — but kept in JSON-LD and llms.txt | The GEO/AEO payload is consumed from structured data and llms.txt, not from rendered pixels, so the human-facing surface can be trimmed without weakening the entity. Desktop section height fell 2297px → 1547px (−33%) |
+| 2026-08-26 | The FAQ block was NOT trimmed | FAQPage markup must match visible page content, so cutting questions would break the rich-result eligibility and lose the actual AEO payload. It is the one block where visible length earns its keep |
+| 2026-08-26 | Added `profile.featuredTopics` (6) and `profile.experienceSummary` alongside the full `knowsAbout` (12) / `bio` / `career` | Makes "what humans see" vs "what machines read" an explicit, testable distinction rather than an accident of markup |
+| 2026-08-26 | New test block: "Curating the visible section costs no machine-facing signal" | Pins the full career, award, all quotes and all 12 topics in llms.txt/schema, so a future UI trim can never quietly shrink the entity |
+| 2026-08-26 | Left identity column made sticky (matches the framework section) | Curation left the left column much shorter than the 7-question right column; sticky uses the gap and keeps the identity in view while reading the Q&A |
 | 2026-08-26 | `jobTitle` emitted as an ARRAY reconciling three titles rather than one | The site claimed "Organization Design Strategist" while LinkedIn says "Global OD, OE and Talent Leader" and aTalent says "Global Head of OD and Talent". A single conflicting title splits or weakens the entity; an array makes the three sources corroborate. The chosen positioning still leads the array |
 | 2026-08-26 | Added `worksFor` (SATS Ltd.), `homeLocation` (Singapore), `award`, `hasOccupation`, second `alumniOf` (University of North Texas) | All verified from the LinkedIn export; employment and location are primary entity-disambiguation signals and were previously absent |
 | 2026-08-26 | LinkedIn added to `sameAs` — the highest-authority professional identity link | Was the single biggest remaining identity gap; `ownedProfiles` now separates profiles-he-owns from third-party coverage |

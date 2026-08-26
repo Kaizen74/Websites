@@ -1,12 +1,25 @@
 import { render, screen, within } from '@testing-library/react';
 import { AboutAuthor } from '../components/AboutAuthor';
-import { profile, credentials, referenceArticles, quotes, faqEntries } from '../data/profile';
+import {
+  profile,
+  career,
+  credentials,
+  ownedProfiles,
+  referenceArticles,
+  quotes,
+  faqEntries,
+} from '../data/profile';
 
 describe('About the author section', () => {
-  test('states the entity name and job title', () => {
+  test('states the entity name, positioning and current role', () => {
     render(<AboutAuthor />);
     expect(screen.getByRole('heading', { level: 2, name: profile.name })).toBeTruthy();
     expect(screen.getByText(profile.jobTitle)).toBeTruthy();
+    expect(
+      screen.getByText(
+        `${profile.featuredRole}, ${profile.worksFor} · ${profile.location}`
+      )
+    ).toBeTruthy();
   });
 
   test('renders the entity description verbatim (must match structured data)', () => {
@@ -14,24 +27,45 @@ describe('About the author section', () => {
     expect(screen.getByText(profile.description)).toBeTruthy();
   });
 
-  test('lists every area of expertise', () => {
-    render(<AboutAuthor />);
-    profile.knowsAbout.forEach((topic) => {
-      expect(screen.getByText(topic)).toBeTruthy();
+  test('shows the one-line experience proof and a compact qualifications line', () => {
+    const { container } = render(<AboutAuthor />);
+    expect(screen.getByText(profile.experienceSummary)).toBeTruthy();
+    const line = credentials.map((c) => c.label).join(' · ');
+    expect(screen.getByText(line)).toBeTruthy();
+    // Qualifications are one line, not a stacked list of label+detail rows
+    credentials.forEach((c) => {
+      expect(container.textContent).not.toContain(c.detail);
     });
   });
 
-  test('links both reference articles with publisher attribution', () => {
+  test('lists the featured topics only, and they are a subset of knowsAbout', () => {
+    render(<AboutAuthor />);
+    profile.featuredTopics.forEach((topic) => {
+      expect(screen.getByText(topic)).toBeTruthy();
+    });
+    profile.featuredTopics.forEach((topic) => {
+      expect(profile.knowsAbout).toContain(topic);
+    });
+    expect(profile.featuredTopics.length).toBeLessThan(profile.knowsAbout.length);
+  });
+
+  test('links LinkedIn and both articles with publisher attribution', () => {
     const { container } = render(<AboutAuthor />);
-    referenceArticles.forEach((article) => {
-      // Publisher names also appear as quote attributions, so assert the
-      // label exists at least once rather than requiring uniqueness.
+    [...ownedProfiles, ...referenceArticles].forEach((article) => {
       expect(screen.getAllByText(article.publisher).length).toBeGreaterThan(0);
       const link = container.querySelector(`a[href="${article.url}"]`);
       expect(link).not.toBeNull();
-      // External credibility links open safely and carry the me relationship
       expect(link!.getAttribute('rel')).toContain('noopener');
       expect(link!.getAttribute('target')).toBe('_blank');
+    });
+  });
+
+  test('shows a single signature quote, not the full quote list', () => {
+    const { container } = render(<AboutAuthor />);
+    expect(container.querySelectorAll('blockquote')).toHaveLength(1);
+    expect(screen.getByText(`“${quotes[0].text}”`)).toBeTruthy();
+    quotes.slice(1).forEach((q) => {
+      expect(container.textContent).not.toContain(q.text);
     });
   });
 
@@ -43,26 +77,17 @@ describe('About the author section', () => {
     });
   });
 
-  test('shows the verified background credentials', () => {
-    render(<AboutAuthor />);
-    credentials.forEach((item) => {
-      expect(screen.getByText(item.label)).toBeTruthy();
-      expect(screen.getByText(item.detail)).toBeTruthy();
-    });
-    // Appears in both the credential label and the bio paragraph
-    expect(
-      screen.getAllByText(/Nanyang Technological University/).length
-    ).toBeGreaterThan(0);
-  });
-
-  test('renders attributable quotes with their source', () => {
+  test('the career history is deliberately NOT rendered (kept machine-facing)', () => {
     const { container } = render(<AboutAuthor />);
-    expect(container.querySelectorAll('blockquote')).toHaveLength(quotes.length);
-    quotes.forEach((q) => {
-      expect(screen.getByText(`“${q.text}”`)).toBeTruthy();
-    });
-    // Each quote is inside a figure with a figcaption crediting the source
-    expect(container.querySelectorAll('figure figcaption').length).toBe(quotes.length);
+    // Past employers other than the current one must not appear as a list
+    career
+      .filter((c) => c.organization !== profile.worksFor)
+      .forEach((entry) => {
+        expect(container.textContent).not.toContain(entry.role);
+      });
+    // …and neither does the long bio or the award line
+    expect(container.textContent).not.toContain(profile.bio);
+    expect(container.textContent).not.toContain(profile.award);
   });
 
   test('is static — no buttons, inputs or interactive state', () => {

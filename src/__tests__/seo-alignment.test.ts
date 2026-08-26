@@ -2,6 +2,7 @@ import { readFileSync } from 'fs';
 import { join } from 'path';
 import {
   profile,
+  career,
   credentials,
   ownedProfiles,
   referenceArticles,
@@ -222,6 +223,39 @@ describe('Additional GEO/AEO mechanisms', () => {
     expect(withoutComments).not.toContain('msvalidate.01');
     // …but the commented template is present for the owner to fill in
     expect(html).toContain('google-site-verification');
+  });
+});
+
+describe('Curating the visible section costs no machine-facing signal', () => {
+  // The About section renders a curated subset for humans. These assertions
+  // pin the full payload in the places crawlers actually read, so trimming
+  // the UI can never quietly shrink the entity.
+  test('the full knowsAbout list survives in the knowledge graph', () => {
+    expect(nodeOfType('Person').knowsAbout).toEqual([...profile.knowsAbout]);
+    expect(profile.knowsAbout.length).toBeGreaterThan(
+      profile.featuredTopics.length
+    );
+  });
+
+  test('the full career history survives in llms.txt even though it is not rendered', () => {
+    const flat = llms.replace(/\s+/g, ' ');
+    career.forEach((entry) => {
+      expect(flat).toContain(entry.organization);
+      expect(flat).toContain(entry.role);
+    });
+  });
+
+  test('the long bio and award survive in llms.txt / structured data', () => {
+    const flat = llms.replace(/\s+/g, ' ');
+    expect(flat).toContain('25 years in the gap between diagnosing');
+    expect(flat).toContain(profile.award);
+    expect(nodeOfType('Person').award).toBe(profile.award);
+  });
+
+  test('all quotes survive in llms.txt though only one is rendered', () => {
+    const flat = llms.replace(/\s+/g, ' ');
+    quotes.forEach((q) => expect(flat).toContain(q.text.replace(/\s+/g, ' ')));
+    expect(quotes.length).toBeGreaterThan(1);
   });
 });
 

@@ -56,7 +56,7 @@ everything as a file, or save the dashboard as a PDF.
 ## How to check nothing is broken
 
 Run `./run_checks.sh`. Success looks like: "ALL CHECKS PASSED".
-It runs the 47 automated tests, checks the code compiles, and builds the
+It runs the automated tests, checks the code compiles, and builds the
 deployable version.
 
 ## Being found by Google and AI assistants
@@ -71,8 +71,9 @@ also a plain-text summary at `/llms.txt` written specifically for AI
 assistants, and a `/robots.txt` that explicitly welcomes their crawlers.
 
 Your background is now on the site as published fact, taken from the two
-articles: Nanyang Business School 1998, the prompt-engineering certificate,
-25 years in the field, and three quotes with the publication credited. The
+articles and your LinkedIn: NTU 1998, University of North Texas 2022, the
+Certified Prompt Engineer™ credential, 25 years in the field, and quotes with
+the publication credited. The
 site also has a shareable preview card (the image that appears when someone
 posts your link), and a plain-text file that tells search engines to re-check
 the site the moment you publish.
@@ -88,6 +89,13 @@ the site the moment you publish.
    into the two commented-out lines near the top of `index.html`, remove the
    `<!--` and `-->` around them, then submit `yourdomain.com/sitemap.xml` in
    both. This is what actually gets your pages indexed.
+
+The About section is deliberately kept short and elegant: your name, role,
+one line of experience, your qualifications, six topics, the three links and
+the questions. Your full career history, the longer biography, the Brandon
+Hall award and the other quotes are still on the site — just not shown on
+screen. They live in the machine-readable parts that Google and AI assistants
+read, so you get the full credibility without a cluttered page.
 
 Your LinkedIn profile is now linked from the site and registered as an
 official "this is the same person" signal, and the site repeats the same
