@@ -7,6 +7,7 @@ import { ChangeLevers } from './components/ChangeLevers';
 import { DiagnosticSurvey } from './components/DiagnosticSurvey';
 import { ResultsDashboard } from './components/ResultsDashboard';
 import { CohortDashboard } from './components/CohortDashboard';
+import { AiNativeSection } from './components/AiNativeSection';
 import { Signature } from './components/Signature';
 import type { DiagnosticResults, CohortMember } from './types';
 import { STORAGE_KEYS, SECTION_IDS } from './constants';
@@ -206,12 +207,13 @@ function App() {
         <FrameworkSection />
         <ActivatorsSection priorityActivators={priorityActivators} />
         <ChangeLevers />
+        <AiNativeSection />
 
         {/* CTA Section — solid ink band */}
         <section className="py-24" style={{ background: 'var(--color-ink)' }}>
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <p className="eyebrow mb-4" style={{ color: 'var(--color-red-on-dark)' }}>
-              04 · The diagnostic
+              05 · The diagnostic
             </p>
             <h2
               className="font-display font-bold text-white mb-5"

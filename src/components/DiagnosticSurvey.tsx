@@ -95,7 +95,7 @@ export function DiagnosticSurvey({ onComplete }: DiagnosticSurveyProps) {
 
         {/* Header */}
         <div className="mb-10">
-          <p className="eyebrow mb-4">04 · The diagnostic</p>
+          <p className="eyebrow mb-4">05 · The diagnostic</p>
           <h2
             className="font-display font-bold text-[var(--color-ink)] mb-3"
             style={{ fontSize: 'clamp(28px, 4vw, 38px)', lineHeight: 1.15 }}

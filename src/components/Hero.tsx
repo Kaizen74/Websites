@@ -28,6 +28,12 @@ const indexRows: IndexRow[] = [
   },
   {
     number: '04',
+    title: 'AI-native design',
+    description: "What AI changes — and what it doesn't",
+    href: `#${SECTION_IDS.aiNative}`,
+  },
+  {
+    number: '05',
     title: 'The diagnostic',
     description: '18 questions, scored across five dimensions, saved locally',
     href: `#${SECTION_IDS.diagnostic}`,

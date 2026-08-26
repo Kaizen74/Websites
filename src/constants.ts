@@ -78,6 +78,7 @@ export const SECTION_IDS = {
   framework: 'framework',
   activators: 'activators',
   changeLevers: 'change-levers',
+  aiNative: 'ai-native',
   diagnostic: 'diagnostic',
   results: 'results',
 };
