@@ -25,3 +25,6 @@ dist-ssr
 
 # graphify: transient per-query timestamp (rewritten on every query)
 graphify-out/cache/last_query_stamp
+
+# SSR bundle used only by the build-time prerender
+dist-ssr

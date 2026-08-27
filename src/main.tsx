@@ -8,14 +8,18 @@ import App from './App.tsx'
  * crawlers which do not execute JavaScript receive the full page content.
  *
  * WHY createRoot AND NOT hydrateRoot
- * hydrateRoot was tried and rejected. The prerender captures the DOM from a
- * real browser via outerHTML, and the browser NORMALISES inline style
- * attributes: React emits `background: rgba(250,247,243,.92)`, the browser
- * serialises that back as eight longhand properties (background-image,
- * background-position-x, …, background-color). React then compares its own
- * expected style against the normalised string and reports a hydration
- * mismatch. This design system styles almost everything with inline style
- * objects, so the mismatch is pervasive and not fixable by guarding state.
+ * hydrateRoot was tried and rejected when the prerender captured the DOM from
+ * a real browser via outerHTML: browsers NORMALISE inline style attributes, so
+ * React could never match its own expected style against the captured string,
+ * and this design system styles almost everything with inline style objects.
+ *
+ * That specific obstacle is gone — the prerender now renders through
+ * react-dom/server, so the markup in dist/index.html is React's own and would
+ * match. createRoot is kept anyway, deliberately: it is the behaviour that is
+ * in production and proven, it cannot produce a hydration mismatch under any
+ * circumstance, and switching to hydrateRoot buys only a marginally cheaper
+ * first paint. Prerendering exists here to feed crawlers, not to speed up
+ * humans, so the extra risk has nothing to pay for it.
  *
  * createRoot replaces the prerendered markup on mount. Crawlers still get the
  * full content in the initial HTML — which is the entire point of the

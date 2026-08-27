@@ -80,16 +80,20 @@ Testing Library. No charting library (plain-div bars). Deploys as a static
   **Off-site (cannot be done from this repo):** create a Wikidata item and add
   its QID to `sameAs`. LinkedIn is already in `sameAs`; resolve the
   `bit.ly/2RQceu7` personal link before adding it.
-- **Prerendering (Phase 3):** `npm run build` runs `scripts/prerender.mjs`
-  after `vite build`. It serves `dist/`, loads the home route in a CLEAN
-  headless-browser context, and writes the rendered HTML back over
+- **Prerendering (Phase 3):** `npm run build` builds the client, then an SSR
+  bundle (`vite build --ssr src/entry-server.tsx --outDir dist-ssr`), then runs
+  `scripts/prerender.mjs`. The script imports that bundle, renders the app to a
+  string with `react-dom/server`, and injects it into the empty `#root` of
   `dist/index.html` — so crawlers that do not execute JavaScript get the full
-  page (67 KB, 96 paragraphs) instead of an empty `#root`. It fails the build
-  loudly rather than skipping, and refuses to capture if browser storage is
-  non-empty. The app boots with `createRoot`, NOT `hydrateRoot` — see
-  DECISIONS.md; browser style normalisation makes hydration structurally
-  impossible against a captured-DOM prerender. Storage reads must stay out of
-  `useState` initialisers; `prerender-safety.test.ts` enforces this.
+  page (67 KB, 96 paragraphs) instead of an empty `#root`. **No browser is
+  involved.** The earlier headless-Chromium version broke the Vercel deploy
+  (clean build hosts have no Chromium) — see DECISIONS.md. It fails the build
+  loudly rather than skipping: missing SSR bundle, empty render, missing
+  injection target or a lost module script each exit non-zero. The app boots
+  with `createRoot`, NOT `hydrateRoot`, deliberately. Storage reads must stay
+  out of `useState` initialisers; `prerender-safety.test.ts` enforces this and
+  that `entry-server.tsx` renders the same tree `main.tsx` mounts.
+  `dist-ssr/` is a build artefact and is gitignored.
 - **Footer:** wordmark + tagline row, then a personal brand sign-off — an
   "EY" monogram seal (Signature.tsx) with "Eric Yim" in Playfair italic, a
   red underline flourish, and a © attribution line.
@@ -106,7 +110,7 @@ Testing Library. No charting library (plain-div bars). Deploys as a static
   Certified Prompt Engineer™ credential and both awards. It also
   forbids superseded strings and any published email address. Update it and
   `profile.ts` together whenever LinkedIn changes.
-- **Tests:** 169 passing across 16 suites (unit, integration, App smoke,
+- **Tests:** 171 passing across 16 suites (unit, integration, App smoke,
   SEO/structured-data alignment, LinkedIn consistency),
   plus two Playwright scripts: a 53-check E2E covering the AI-native
   section, framework overview/quadrant switching, the full two-respondent
