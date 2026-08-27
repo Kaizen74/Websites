@@ -72,10 +72,11 @@ Testing Library. No charting library (plain-div bars). Deploys as a static
   `ImageObject` backing a generated 1200×630 `og-image.png`. `public/` also
   ships an IndexNow key pair; a `<noscript>` block in `index.html` repeats the
   entity for non-JS crawlers.
-  **On launch:** (1) set `SITE_URL` in `src/data/profile.ts` and the matching
-  URLs in `index.html`, `public/robots.txt`, `public/sitemap.xml`; (2)
-  uncomment the two verification `<meta>` tags in `index.html` with real
-  Google Search Console / Bing tokens and submit the sitemap in each console.
+  **Canonical host is set** (Phase 1): `https://www.ericyim.sg` in `SITE_URL`,
+  `index.html`, `public/robots.txt` and `public/sitemap.xml`, enforced by
+  `host-canonical.test.ts`. **Still to do on launch:** uncomment the two
+  verification `<meta>` tags in `index.html` with real Google Search Console /
+  Bing tokens and submit the sitemap in each console.
   **Off-site (cannot be done from this repo):** create a Wikidata item and add
   its QID to `sameAs`. LinkedIn is already in `sameAs`; resolve the
   `bit.ly/2RQceu7` personal link before adding it.
@@ -95,7 +96,7 @@ Testing Library. No charting library (plain-div bars). Deploys as a static
   Certified Prompt Engineer™ credential and both awards. It also
   forbids superseded strings and any published email address. Update it and
   `profile.ts` together whenever LinkedIn changes.
-- **Tests:** 145 passing across 14 suites (unit, integration, App smoke,
+- **Tests:** 161 passing across 15 suites (unit, integration, App smoke,
   SEO/structured-data alignment, LinkedIn consistency),
   plus two Playwright scripts: a 53-check E2E covering the AI-native
   section, framework overview/quadrant switching, the full two-respondent

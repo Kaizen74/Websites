@@ -1,9 +1,34 @@
+<!--
+  llms.txt is a PROPOSED convention for describing a site to language models.
+  Adoption by AI crawlers is unconfirmed — no major engine has committed to
+  reading it. It is a static text file that costs nothing to serve and may do
+  nothing. Keep it accurate; do not rely on it as the only place a fact lives.
+-->
 # Eric Yim — Organization Design Strategist
 
 > Eric Yim is an organization design strategist specializing in human-AI work
 > partnership — designing how organizations divide work between people and
 > machines, and the structures, capabilities and behaviors that make that
 > partnership work.
+
+## What this site covers
+
+A single-page playbook on organisational design and how AI changes it. The
+main sections, all on one page:
+
+- [The framework](https://www.ericyim.sg/#framework) — Integrated
+  Organizational Capability and Change Framework: four interdependent domains
+  around a leadership core.
+- [The five activators](https://www.ericyim.sg/#activators) — what turns an
+  organisation design into performance.
+- [The change model](https://www.ericyim.sg/#change-levers) — Communicate,
+  Co-create, Cadence, plus the T.C.C.A.R. team-health lens.
+- [AI-native design](https://www.ericyim.sg/#ai-native) — descend to the task,
+  place every task on an L0–L3 ladder, gate every machine judgement.
+- [About the author](https://www.ericyim.sg/#about) — entity, background and
+  common questions.
+- [The diagnostic](https://www.ericyim.sg/#diagnostic) — an 18-question
+  organisational health assessment scored across five dimensions.
 
 ## Entity
 
