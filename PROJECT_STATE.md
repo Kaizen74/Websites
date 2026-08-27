@@ -10,7 +10,7 @@ activators, a three-lever change model with the T.C.C.A.R. team-health
 lens, and an 18-question organizational health diagnostic with scored
 results and recommended interventions.
 
-**Stack:** React 18 + TypeScript + Vite · Tailwind CSS v4 · Jest + React
+**Stack:** React 19 + TypeScript + Vite · Tailwind CSS v4 · Jest + React
 Testing Library. No charting library (plain-div bars). Deploys as a static
 `dist/` bundle (~248 KB, 76 KB gzipped).
 
@@ -80,6 +80,16 @@ Testing Library. No charting library (plain-div bars). Deploys as a static
   **Off-site (cannot be done from this repo):** create a Wikidata item and add
   its QID to `sameAs`. LinkedIn is already in `sameAs`; resolve the
   `bit.ly/2RQceu7` personal link before adding it.
+- **Prerendering (Phase 3):** `npm run build` runs `scripts/prerender.mjs`
+  after `vite build`. It serves `dist/`, loads the home route in a CLEAN
+  headless-browser context, and writes the rendered HTML back over
+  `dist/index.html` — so crawlers that do not execute JavaScript get the full
+  page (67 KB, 96 paragraphs) instead of an empty `#root`. It fails the build
+  loudly rather than skipping, and refuses to capture if browser storage is
+  non-empty. The app boots with `createRoot`, NOT `hydrateRoot` — see
+  DECISIONS.md; browser style normalisation makes hydration structurally
+  impossible against a captured-DOM prerender. Storage reads must stay out of
+  `useState` initialisers; `prerender-safety.test.ts` enforces this.
 - **Footer:** wordmark + tagline row, then a personal brand sign-off — an
   "EY" monogram seal (Signature.tsx) with "Eric Yim" in Playfair italic, a
   red underline flourish, and a © attribution line.
@@ -96,7 +106,7 @@ Testing Library. No charting library (plain-div bars). Deploys as a static
   Certified Prompt Engineer™ credential and both awards. It also
   forbids superseded strings and any published email address. Update it and
   `profile.ts` together whenever LinkedIn changes.
-- **Tests:** 161 passing across 15 suites (unit, integration, App smoke,
+- **Tests:** 169 passing across 16 suites (unit, integration, App smoke,
   SEO/structured-data alignment, LinkedIn consistency),
   plus two Playwright scripts: a 53-check E2E covering the AI-native
   section, framework overview/quadrant switching, the full two-respondent

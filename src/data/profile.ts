@@ -51,6 +51,14 @@ export const SITE_URL = 'https://www.ericyim.sg';
 /** Bump when the entity content changes — feeds schema freshness signals. */
 export const CONTENT_LAST_MODIFIED = '2026-08-27';
 
+/**
+ * Copyright year, derived from the content date rather than `new Date()`.
+ * A live clock read during render is a hydration hazard: the prerendered HTML
+ * bakes in the build-time year, and a client rendering across a New Year
+ * boundary would mismatch it. Derived here so server and client always agree.
+ */
+export const COPYRIGHT_YEAR = CONTENT_LAST_MODIFIED.slice(0, 4);
+
 export const profile = {
   name: 'Eric Yim',
   /** Primary entity claim — how search and answer engines should classify him */

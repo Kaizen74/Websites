@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "tsc -b && vite build && node scripts/prerender.mjs",
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "jest",
@@ -13,7 +13,9 @@
     "test:alignment": "jest --testPathPattern=alignment",
     "size": "du -sh dist/ node_modules/ 2>/dev/null || echo 'Run build first'",
     "size:check": "npm run build && node scripts/check-size.js",
-    "verify": "npm test && npm run build && npm run size:check"
+    "verify": "npm test && npm run build && npm run size:check",
+    "build:nossg": "tsc -b && vite build",
+    "prerender": "node scripts/prerender.mjs"
   },
   "dependencies": {
     "lucide-react": "^0.562.0",
@@ -39,6 +41,7 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^30.2.0",
     "jest-environment-jsdom": "^30.2.0",
+    "playwright": "^1.62.1",
     "postcss": "^8.5.6",
     "tailwindcss": "^4.1.18",
     "ts-jest": "^29.4.6",

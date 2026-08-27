@@ -12,6 +12,7 @@ import { AboutAuthor } from './components/AboutAuthor';
 import { Signature } from './components/Signature';
 import type { DiagnosticResults, CohortMember } from './types';
 import { STORAGE_KEYS, SECTION_IDS } from './constants';
+import { COPYRIGHT_YEAR } from './data/profile';
 import { mapToActivators } from './utils/scoring';
 import {
   loadCohort,
@@ -27,10 +28,15 @@ function App() {
   const [currentView, setCurrentView] = useState<AppView>('home');
   const [results, setResults] = useState<DiagnosticResults | null>(null);
   const [priorityActivators, setPriorityActivators] = useState<string[]>([]);
-  const [cohort, setCohort] = useState<CohortMember[]>(() => loadCohort());
+  // Starts empty and is filled on mount, NOT from a lazy initialiser.
+  // The initialiser would read localStorage during render, which the
+  // prerendered HTML cannot reproduce — a returning visitor with a saved
+  // cohort would then hydrate a different tree than the captured markup.
+  const [cohort, setCohort] = useState<CohortMember[]>([]);
 
-  // Check for existing results on mount
+  // Check for existing results and cohort on mount
   useEffect(() => {
+    setCohort(loadCohort());
     try {
       const savedResults = localStorage.getItem(STORAGE_KEYS.results);
       if (savedResults) {
@@ -302,7 +308,7 @@ function App() {
             >
               <Signature />
               <span className="text-xs text-[var(--color-faint)] text-center sm:text-right">
-                © {new Date().getFullYear()} Eric Yim · All rights reserved
+                © {COPYRIGHT_YEAR} Eric Yim · All rights reserved
               </span>
             </div>
           </div>
