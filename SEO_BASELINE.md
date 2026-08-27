@@ -73,6 +73,41 @@ tells me not to make.
 
 ---
 
+### ✅ RESOLVED — 2026-08-27, by operator decision
+
+**Direction 2 chosen. Constraint 2 is amended as follows:**
+
+> **Constraint 2 (amended).** Employment facts that are publicly verifiable on
+> the operator's own public LinkedIn profile MAY appear in the site's content,
+> metadata and structured data. This covers current and prior employer names,
+> role titles, `worksFor`, and awards attributed to the organisation the work
+> was done in.
+>
+> **Unchanged and still forbidden:** internal organisational data not published
+> by the operator (headcounts, country counts, internal frameworks, unpublished
+> metrics), and named individuals other than the operator himself.
+
+Consequences, for a fresh session reading this file:
+
+- The 50 hits in item 4a/4b are **permitted** and must not be "cleaned up".
+- `worksFor` **stays** (§4.3's omit-rule is superseded for this field).
+- `jobTitle` **keeps** the three-title array (§4.3's generic-title rule is
+  superseded); the array exists so the site, LinkedIn and the press features
+  corroborate rather than conflict.
+- `src/__tests__/linkedin-consistency.test.ts` **stays** and remains the
+  enforcement mechanism.
+- Item 4f (Lencioni attributions) — left in place; scholarly credit, not
+  personnel data.
+- Item 4g (commit history) — accepted as-is; rule applies going forward.
+
+**Still open, NOT covered by this amendment:** §4.3 also says `address` /
+`addressLocality` should be omitted, on *exposure* grounds rather than boundary
+grounds. `homeLocation.addressLocality: "Singapore"` is still present
+(`index.html`). That is a JSON-LD field, so it belongs to Phase 4 — flagging it
+there rather than acting on it now.
+
+---
+
 ## 1. Toolchain
 
 | Item | Version | Note |
@@ -283,4 +318,5 @@ the shipped HTML.
 - [x] Boundary audit included (item 4), reported not fixed
 - [x] Prerendering option recommended with reason and failure mode (item 7)
 - [x] **No source file modified** — `git status` shows only this new file
-- [ ] **Operator approval — blocked on decision B above before Phase 1**
+- [x] **Operator approval received 2026-08-27** — constraint 2 amended (see
+      Resolution above); Phase 1 authorised and complete

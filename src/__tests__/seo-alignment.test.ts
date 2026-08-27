@@ -112,10 +112,21 @@ describe('Backend JSON-LD is aligned with frontend profile data', () => {
     });
   });
 
-  test('meta description matches the canonical profile description', () => {
+  test('meta description uses the short SERP snippet, JSON-LD keeps the full definition', () => {
+    // Spec §4.2 caps the meta description at 140–160 chars, so it is
+    // deliberately a different (shorter) string from the entity description.
     const meta = html.match(/<meta\s+name="description"\s+content="([\s\S]*?)"/);
     expect(meta).not.toBeNull();
-    expect(meta![1].replace(/\s+/g, ' ').trim()).toBe(profile.description);
+    expect(meta![1].replace(/\s+/g, ' ').trim()).toBe(profile.metaDescription);
+    expect(nodeOfType('Person').description).toBe(profile.description);
+    expect(profile.metaDescription.length).toBeLessThan(profile.description.length);
+  });
+
+  test('og and twitter descriptions use the same SERP snippet', () => {
+    const og = html.match(/<meta property="og:description" content="([\s\S]*?)"/);
+    const tw = html.match(/<meta name="twitter:description" content="([\s\S]*?)"/);
+    expect(og![1].replace(/\s+/g, ' ').trim()).toBe(profile.metaDescription);
+    expect(tw![1].replace(/\s+/g, ' ').trim()).toBe(profile.metaDescription);
   });
 
   test('title and canonical are set (not the Vite placeholder)', () => {

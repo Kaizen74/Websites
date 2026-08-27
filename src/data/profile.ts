@@ -38,11 +38,15 @@ export interface CareerEntry {
 }
 
 /**
- * PLACEHOLDER — replace with the live domain once deployed, then update the
- * same value in index.html (canonical, og:url, JSON-LD) and public/sitemap.xml.
- * The alignment test will fail if they disagree.
+ * Canonical host. Per the AI-search-visibility spec §4.1 this is the ONLY
+ * absolute origin the site may emit: https scheme, www subdomain, no trailing
+ * slash on the origin. The preview host and the bare apex are both forbidden —
+ * see `host-canonical.test.ts`, which enumerates them and fails if any appears
+ * in an emitted surface. Mirrored in index.html (canonical, og:url, JSON-LD),
+ * public/robots.txt and public/sitemap.xml; `seo-alignment.test.ts` fails if
+ * those copies disagree with this constant.
  */
-export const SITE_URL = 'https://www.ericyim.example';
+export const SITE_URL = 'https://www.ericyim.sg';
 
 /** Bump when the entity content changes — feeds schema freshness signals. */
 export const CONTENT_LAST_MODIFIED = '2026-08-27';
@@ -72,7 +76,15 @@ export const profile = {
   /** Verified: LinkedIn summary, in his own words */
   linkedInSummary:
     'Global OD and Talent leader experienced in building effective organisations and leading people with AI transformation.',
-  /** One-sentence definition used verbatim in meta description and JSON-LD */
+  /**
+   * SERP snippet. Spec §4.2 caps this at 140–160 characters — search results
+   * truncate around 155, so the longer `description` below would be cut
+   * mid-sentence. Deliberately separate: this is the snippet, `description`
+   * is the entity definition. Length is enforced by host-canonical.test.ts.
+   */
+  metaDescription:
+    'Eric Yim is an organization design strategist specializing in human-AI work partnership: how organizations divide work between people and machines.',
+  /** Full entity definition — used in JSON-LD and the visible About section */
   description:
     'Eric Yim is an organization design strategist specializing in human-AI work partnership — designing how organizations divide work between people and machines, and the structures, capabilities and behaviors that make that partnership work.',
   /**
