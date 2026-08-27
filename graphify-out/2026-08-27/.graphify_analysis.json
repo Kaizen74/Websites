@@ -1,57 +1,76 @@
 {
   "communities": {
     "0": [
-      "autoprefixer",
-      "eslint",
-      "eslint_js",
-      "eslint_plugin_react_hooks",
-      "eslint_plugin_react_refresh",
-      "globals",
-      "identity_obj_proxy",
-      "jest",
-      "jest_environment_jsdom",
-      "package_devdependencies",
-      "package_devdependencies_autoprefixer",
-      "package_devdependencies_eslint",
-      "package_devdependencies_eslint_js",
-      "package_devdependencies_eslint_plugin_react_hooks",
-      "package_devdependencies_eslint_plugin_react_refresh",
-      "package_devdependencies_globals",
-      "package_devdependencies_identity_obj_proxy",
-      "package_devdependencies_jest",
-      "package_devdependencies_jest_environment_jsdom",
-      "package_devdependencies_postcss",
-      "package_devdependencies_tailwindcss",
-      "package_devdependencies_tailwindcss_postcss",
-      "package_devdependencies_testing_library_jest_dom",
-      "package_devdependencies_testing_library_react",
-      "package_devdependencies_testing_library_user_event",
-      "package_devdependencies_ts_jest",
-      "package_devdependencies_types_jest",
-      "package_devdependencies_types_node",
-      "package_devdependencies_types_react",
-      "package_devdependencies_types_react_dom",
-      "package_devdependencies_typescript",
-      "package_devdependencies_typescript_eslint",
-      "package_devdependencies_vite",
-      "package_devdependencies_vitejs_plugin_react",
-      "package_json_tailwindcss",
-      "postcss",
-      "tailwindcss_postcss",
-      "testing_library_jest_dom",
-      "testing_library_react",
-      "testing_library_user_event",
-      "ts_jest",
-      "types_jest",
-      "types_node",
-      "types_react",
-      "types_react_dom",
-      "typescript",
-      "typescript_eslint",
-      "vite",
-      "vitejs_plugin_react"
+      "src_app",
+      "src_app_app",
+      "src_app_appview",
+      "src_components_cohortdashboard",
+      "src_components_cohortdashboard_cohortdashboard",
+      "src_components_cohortdashboard_cohortdashboardprops",
+      "src_components_cohortdashboard_dimensions",
+      "src_components_cohortdashboard_scorecell",
+      "src_components_cohortdashboard_statuscolor",
+      "src_components_cohortdashboard_statustint",
+      "src_components_dimensionchart",
+      "src_components_dimensionchart_dimensionchart",
+      "src_components_dimensionchart_dimensionchartprops",
+      "src_components_dimensionchart_fillcolor",
+      "src_components_exportbutton",
+      "src_components_exportbutton_exportbutton",
+      "src_components_exportbutton_exportbuttonprops",
+      "src_components_resultsdashboard",
+      "src_components_resultsdashboard_interpretation",
+      "src_components_resultsdashboard_quadrant_dimensions",
+      "src_components_resultsdashboard_rememberfocusquadrant",
+      "src_components_resultsdashboard_resultsdashboard",
+      "src_components_resultsdashboard_resultsdashboardprops",
+      "src_components_resultsdashboard_statuscolor",
+      "src_components_signature",
+      "src_components_signature_monogramseal",
+      "src_components_signature_signature",
+      "src_constants_max_cohort_size",
+      "src_constants_storage_keys",
+      "src_data_profile_copyright_year",
+      "src_main",
+      "src_tests_app_smoke_test",
+      "src_tests_app_smoke_test_makeresults",
+      "src_tests_app_smoke_test_scores",
+      "src_tests_cohort_test",
+      "src_tests_cohort_test_makeresults",
+      "src_tests_cohort_test_renderdashboard",
+      "src_tests_cohort_test_scoresa",
+      "src_tests_cohort_test_scoresb",
+      "src_tests_results_test",
+      "src_types_index_cohortmember",
+      "src_types_index_diagnosticresults",
+      "src_types_index_dimensionscores",
+      "src_types_index_dimensionstats",
+      "src_utils_cohort",
+      "src_utils_cohort_addcohortmember",
+      "src_utils_cohort_addmemberresult",
+      "src_utils_cohort_clearcohort",
+      "src_utils_cohort_cohortaveragescores",
+      "src_utils_cohort_cohortdimensionstats",
+      "src_utils_cohort_cohortoverallaverage",
+      "src_utils_cohort_deserializemember",
+      "src_utils_cohort_dimensions",
+      "src_utils_cohort_generateid",
+      "src_utils_cohort_loadcohort",
+      "src_utils_cohort_persist",
+      "src_utils_cohort_removecohortmember",
+      "src_utils_cohort_serializemember",
+      "src_utils_cohort_storedmember",
+      "src_utils_scoring_getscorebgcolorclass",
+      "src_utils_scoring_getscorecolor",
+      "src_utils_scoring_getscorecolorclass",
+      "src_utils_scoring_getscorelabel",
+      "src_utils_scoring_maptoactivators"
     ],
     "1": [
+      "src_components_changelevers",
+      "src_components_changelevers_changelevers",
+      "src_components_changelevers_displaytitle",
+      "src_components_changelevers_phaselabels",
       "src_components_frameworkdiagram",
       "src_components_frameworkdiagram_frameworkdiagram",
       "src_components_frameworkdiagram_quadrantspec",
@@ -72,8 +91,10 @@
       "src_components_quadrantdetail_quadrantdetail",
       "src_components_quadrantdetail_quadrantdetailprops",
       "src_components_tccarassessment",
+      "src_components_tccarassessment_tccarassessment",
       "src_constants_quadrant_labels",
       "src_data_interventions",
+      "src_data_interventions_changelevers",
       "src_data_interventions_dimensioninterventions",
       "src_data_interventions_playbookmodules",
       "src_data_interventions_quadrantdetails",
@@ -84,7 +105,6 @@
       "src_types_index_changelever",
       "src_types_index_dimension",
       "src_types_index_dimensionintervention",
-      "src_types_index_dimensionstats",
       "src_types_index_frameworkdiagramprops",
       "src_types_index_playbookmodule",
       "src_types_index_quadrant",
@@ -95,45 +115,43 @@
       "src_types_index_tccaritem"
     ],
     "2": [
-      "src_app",
-      "src_app_app",
-      "src_app_appview",
-      "src_components_cohortdashboard",
-      "src_components_cohortdashboard_cohortdashboard",
-      "src_components_cohortdashboard_cohortdashboardprops",
-      "src_components_cohortdashboard_dimensions",
-      "src_components_cohortdashboard_statuscolor",
-      "src_components_cohortdashboard_statustint",
-      "src_components_signature",
-      "src_components_signature_monogramseal",
-      "src_components_signature_signature",
-      "src_constants_max_cohort_size",
-      "src_constants_storage_keys",
-      "src_main",
-      "src_tests_app_smoke_test",
-      "src_tests_app_smoke_test_makeresults",
-      "src_tests_app_smoke_test_scores",
-      "src_tests_cohort_test",
-      "src_tests_cohort_test_makeresults",
-      "src_tests_cohort_test_renderdashboard",
-      "src_tests_cohort_test_scoresa",
-      "src_tests_cohort_test_scoresb",
-      "src_types_index_cohortmember",
-      "src_utils_cohort",
-      "src_utils_cohort_addcohortmember",
-      "src_utils_cohort_addmemberresult",
-      "src_utils_cohort_clearcohort",
-      "src_utils_cohort_cohortaveragescores",
-      "src_utils_cohort_cohortdimensionstats",
-      "src_utils_cohort_cohortoverallaverage",
-      "src_utils_cohort_deserializemember",
-      "src_utils_cohort_dimensions",
-      "src_utils_cohort_generateid",
-      "src_utils_cohort_loadcohort",
-      "src_utils_cohort_persist",
-      "src_utils_cohort_removecohortmember",
-      "src_utils_cohort_serializemember",
-      "src_utils_scoring_maptoactivators"
+      "src_components_aboutauthor",
+      "src_components_aboutauthor_aboutauthor",
+      "src_components_aboutauthor_micro_label",
+      "src_data_profile",
+      "src_data_profile_career",
+      "src_data_profile_careerentry",
+      "src_data_profile_content_last_modified",
+      "src_data_profile_credentialentry",
+      "src_data_profile_credentials",
+      "src_data_profile_faqentries",
+      "src_data_profile_faqentry",
+      "src_data_profile_ownedprofiles",
+      "src_data_profile_profile",
+      "src_data_profile_quotes",
+      "src_data_profile_referencearticle",
+      "src_data_profile_referencearticles",
+      "src_data_profile_site_url",
+      "src_data_profile_sourcedquote",
+      "src_tests_about_author_test",
+      "src_tests_host_canonical_test",
+      "src_tests_host_canonical_test_emittedsurfaces",
+      "src_tests_host_canonical_test_root",
+      "src_tests_host_canonical_test_surfaces",
+      "src_tests_linkedin_consistency_test",
+      "src_tests_linkedin_consistency_test_html",
+      "src_tests_linkedin_consistency_test_linkedin",
+      "src_tests_linkedin_consistency_test_llms",
+      "src_tests_linkedin_consistency_test_person",
+      "src_tests_linkedin_consistency_test_root",
+      "src_tests_seo_alignment_test",
+      "src_tests_seo_alignment_test_getjsonld",
+      "src_tests_seo_alignment_test_html",
+      "src_tests_seo_alignment_test_llms",
+      "src_tests_seo_alignment_test_nodeoftype",
+      "src_tests_seo_alignment_test_robots",
+      "src_tests_seo_alignment_test_root",
+      "src_tests_seo_alignment_test_sitemap"
     ],
     "3": [
       "src_components_diagnosticsurvey",
@@ -166,44 +184,13 @@
       "src_utils_scoring",
       "src_utils_scoring_calculateallscores",
       "src_utils_scoring_calculateoverallscore",
-      "src_utils_scoring_calculatescore",
-      "src_utils_scoring_getscorelabel"
+      "src_utils_scoring_calculatescore"
     ],
     "4": [
-      "src_components_activatorcard",
-      "src_components_activatorcard_activatorcard",
-      "src_components_activatorcard_activatorcardprops",
-      "src_components_activatorcard_signalcolumn",
-      "src_components_activatorcard_signalcolumnprops",
-      "src_components_activatorssection",
-      "src_components_activatorssection_activatorssection",
-      "src_components_activatorssection_activatorssectionprops",
-      "src_components_changelevers",
-      "src_components_changelevers_changelevers",
-      "src_components_changelevers_displaytitle",
-      "src_components_changelevers_phaselabels",
-      "src_components_header",
-      "src_components_header_header",
-      "src_components_header_navitem",
-      "src_components_header_navitems",
-      "src_components_header_quadrantmark",
-      "src_components_hero",
-      "src_components_hero_hero",
-      "src_components_hero_indexrow",
-      "src_components_hero_indexrows",
-      "src_components_tccarassessment_tccarassessment",
-      "src_constants_section_ids",
-      "src_data_activators",
-      "src_data_activators_activators",
-      "src_data_interventions_changelevers",
-      "src_tests_alignment_activators_alignment_test",
-      "src_tests_content_test",
-      "src_types_index_activator"
-    ],
-    "5": [
       "ref_dom",
       "ref_dom_iterable",
       "ref_es2022",
+      "ref_node",
       "ref_src",
       "ref_vite_client",
       "tsconfig_app",
@@ -229,6 +216,33 @@
       "tsconfig_app_compileroptions_verbatimmodulesyntax",
       "tsconfig_app_include"
     ],
+    "5": [
+      "claude_skills_graphify_skill",
+      "claude_skills_graphify_skill_for_graphify_add_and_watch",
+      "claude_skills_graphify_skill_for_graphify_query",
+      "claude_skills_graphify_skill_for_the_commit_hook_and_native_claude_md_integration",
+      "claude_skills_graphify_skill_for_update_and_cluster_only",
+      "claude_skills_graphify_skill_graphify",
+      "claude_skills_graphify_skill_honesty_rules",
+      "claude_skills_graphify_skill_interpreter_guard_for_subcommands",
+      "claude_skills_graphify_skill_part_a_structural_extraction_for_code_files",
+      "claude_skills_graphify_skill_part_b_semantic_extraction_parallel_subagents",
+      "claude_skills_graphify_skill_part_c_merge_ast_semantic_into_final_extraction",
+      "claude_skills_graphify_skill_step_0_github_repos_and_multi_path_merge_only_if_a_url_or_several_paths",
+      "claude_skills_graphify_skill_step_1_ensure_graphify_is_installed",
+      "claude_skills_graphify_skill_step_2_5_video_and_audio_only_if_video_files_detected",
+      "claude_skills_graphify_skill_step_2_detect_files",
+      "claude_skills_graphify_skill_step_3_extract_entities_and_relationships",
+      "claude_skills_graphify_skill_step_4_5_graph_health_check_read_only_integrity_gate",
+      "claude_skills_graphify_skill_step_4_build_graph_cluster_analyze_generate_outputs",
+      "claude_skills_graphify_skill_step_5_label_communities",
+      "claude_skills_graphify_skill_step_6_generate_obsidian_vault_opt_in_html",
+      "claude_skills_graphify_skill_step_9_save_manifest_update_cost_tracker_clean_up_and_report",
+      "claude_skills_graphify_skill_steps_6b_8_wiki_neo4j_falkordb_svg_graphml_mcp_benchmark_only_on_their_flags",
+      "claude_skills_graphify_skill_usage",
+      "claude_skills_graphify_skill_what_graphify_is_for",
+      "claude_skills_graphify_skill_what_you_must_do_when_invoked"
+    ],
     "6": [
       "lucide_react",
       "package",
@@ -240,8 +254,10 @@
       "package_private",
       "package_scripts",
       "package_scripts_build",
+      "package_scripts_build_nossg",
       "package_scripts_dev",
       "package_scripts_lint",
+      "package_scripts_prerender",
       "package_scripts_preview",
       "package_scripts_size",
       "package_scripts_size_check",
@@ -256,7 +272,6 @@
     ],
     "7": [
       "ref_es2023",
-      "ref_node",
       "ref_vite_config_ts",
       "tsconfig_node",
       "tsconfig_node_compileroptions",
@@ -277,89 +292,350 @@
       "tsconfig_node_compileroptions_tsbuildinfofile",
       "tsconfig_node_compileroptions_types",
       "tsconfig_node_compileroptions_verbatimmodulesyntax",
-      "tsconfig_node_include"
+      "tsconfig_node_include",
+      "tsconfig_node_json_ref_node"
     ],
     "8": [
-      "src_components_cohortdashboard_scorecell",
-      "src_components_dimensionchart",
-      "src_components_dimensionchart_dimensionchart",
-      "src_components_dimensionchart_dimensionchartprops",
-      "src_components_dimensionchart_fillcolor",
-      "src_components_exportbutton",
-      "src_components_exportbutton_exportbutton",
-      "src_components_exportbutton_exportbuttonprops",
-      "src_components_resultsdashboard",
-      "src_components_resultsdashboard_interpretation",
-      "src_components_resultsdashboard_quadrant_dimensions",
-      "src_components_resultsdashboard_rememberfocusquadrant",
-      "src_components_resultsdashboard_resultsdashboard",
-      "src_components_resultsdashboard_resultsdashboardprops",
-      "src_components_resultsdashboard_statuscolor",
-      "src_tests_results_test",
-      "src_types_index_diagnosticresults",
-      "src_types_index_dimensionscores",
-      "src_utils_cohort_storedmember",
-      "src_utils_scoring_getscorebgcolorclass",
-      "src_utils_scoring_getscorecolor",
-      "src_utils_scoring_getscorecolorclass"
+      "src_components_activatorcard",
+      "src_components_activatorcard_activatorcard",
+      "src_components_activatorcard_activatorcardprops",
+      "src_components_activatorcard_signalcolumn",
+      "src_components_activatorcard_signalcolumnprops",
+      "src_components_activatorssection",
+      "src_components_activatorssection_activatorssection",
+      "src_components_activatorssection_activatorssectionprops",
+      "src_components_header",
+      "src_components_header_header",
+      "src_components_header_navitem",
+      "src_components_header_navitems",
+      "src_components_header_quadrantmark",
+      "src_components_hero",
+      "src_components_hero_hero",
+      "src_components_hero_indexrow",
+      "src_components_hero_indexrows",
+      "src_constants_section_ids",
+      "src_data_activators",
+      "src_data_activators_activators",
+      "src_tests_alignment_activators_alignment_test",
+      "src_tests_content_test",
+      "src_types_index_activator"
     ],
     "9": [
+      "src_components_ainativesection",
+      "src_components_ainativesection_ainativesection",
+      "src_components_ainativesection_indentclasses",
+      "src_components_ainativesection_micro_label_style",
+      "src_components_ainativesection_moveheading",
+      "src_components_ainativesection_overline_style",
+      "src_data_ainative",
+      "src_data_ainative_ailevels",
+      "src_data_ainative_descentsteps",
+      "src_data_ainative_provenancetiers",
+      "src_data_ainative_scoringzones",
+      "src_data_ainative_sectioncopy",
+      "src_tests_ai_native_test",
+      "src_types_index_ailevel",
+      "src_types_index_descentstep",
+      "src_types_index_provenancetier",
+      "src_types_index_scoringzone"
+    ],
+    "10": [
+      "claude_skills_graphify_references_exports",
+      "claude_skills_graphify_references_exports_graphify_reference_extra_exports_and_benchmark",
+      "claude_skills_graphify_references_exports_step_6b_wiki_only_if_wiki_flag",
+      "claude_skills_graphify_references_exports_step_7_neo4j_export_only_if_neo4j_or_neo4j_push_flag",
+      "claude_skills_graphify_references_exports_step_7a_falkordb_export_only_if_falkordb_or_falkordb_push_flag",
+      "claude_skills_graphify_references_exports_step_7b_svg_export_only_if_svg_flag",
+      "claude_skills_graphify_references_exports_step_7c_graphml_export_only_if_graphml_flag",
+      "claude_skills_graphify_references_exports_step_7d_mcp_server_only_if_mcp_flag",
+      "claude_skills_graphify_references_exports_step_8_token_reduction_benchmark_only_if_total_words_5000"
+    ],
+    "11": [
+      "guide",
+      "guide_being_found_by_google_and_ai_assistants",
+      "guide_cohort_mode_comparing_a_team_s_answers",
+      "guide_earlier_changes_2026_07_08",
+      "guide_guide_md_what_the_orgdesign_playbook_does_and_how_to_run_it",
+      "guide_how_to_check_nothing_is_broken",
+      "guide_how_to_run_it_on_your_computer",
+      "guide_what_changed_most_recently_2026_08_13",
+      "guide_what_the_app_does"
+    ],
+    "12": [
+      "src_tests_prerender_safety_test",
+      "src_tests_prerender_safety_test_app",
+      "src_tests_prerender_safety_test_framework",
+      "src_tests_prerender_safety_test_main",
+      "src_tests_prerender_safety_test_pkg",
+      "src_tests_prerender_safety_test_prerender",
+      "src_tests_prerender_safety_test_read",
+      "src_tests_prerender_safety_test_root"
+    ],
+    "13": [
+      "autoprefixer",
+      "eslint",
+      "package_devdependencies",
+      "package_devdependencies_autoprefixer",
+      "package_devdependencies_eslint",
+      "package_devdependencies_testing_library_user_event",
+      "testing_library_user_event"
+    ],
+    "14": [
+      "project_state",
+      "project_state_current_state_2026_07_08",
+      "project_state_done_chronology",
+      "project_state_how_to_resume",
+      "project_state_next_open",
+      "project_state_project_state_md_orgdesign_playbook",
+      "project_state_what_this_project_is"
+    ],
+    "15": [
+      "claude_skills_graphify_references_query",
+      "claude_skills_graphify_references_query_for_graphify_explain",
+      "claude_skills_graphify_references_query_for_graphify_path",
+      "claude_skills_graphify_references_query_graphify_reference_query_path_explain",
+      "claude_skills_graphify_references_query_step_0_constrained_query_expansion_required_before_traversal",
+      "claude_skills_graphify_references_query_step_1_traversal"
+    ],
+    "16": [
+      "scripts_prerender",
+      "scripts_prerender_dist",
+      "scripts_prerender_fail",
+      "scripts_prerender_findinstalledchromium",
+      "scripts_prerender_mime",
+      "scripts_prerender_server"
+    ],
+    "17": [
+      "claude_skills_graphify_references_add_watch",
+      "claude_skills_graphify_references_add_watch_for_graphify_add",
+      "claude_skills_graphify_references_add_watch_for_watch",
+      "claude_skills_graphify_references_add_watch_graphify_reference_add_a_url_and_watch_a_folder"
+    ],
+    "18": [
+      "claude_skills_graphify_references_hooks",
+      "claude_skills_graphify_references_hooks_for_git_commit_hook",
+      "claude_skills_graphify_references_hooks_for_native_claude_md_integration",
+      "claude_skills_graphify_references_hooks_graphify_reference_commit_hook_and_native_claude_md_integration"
+    ],
+    "19": [
+      "claude_skills_graphify_references_update",
+      "claude_skills_graphify_references_update_for_cluster_only",
+      "claude_skills_graphify_references_update_for_update_incremental_re_extraction",
+      "claude_skills_graphify_references_update_graphify_reference_incremental_update_and_cluster_only"
+    ],
+    "20": [
+      "readme",
+      "readme_expanding_the_eslint_configuration",
+      "readme_react_compiler",
+      "readme_react_typescript_vite"
+    ],
+    "21": [
+      "claude_skills_graphify_references_github_and_merge",
+      "claude_skills_graphify_references_github_and_merge_graphify_reference_github_clone_and_cross_repo_merge",
+      "claude_skills_graphify_references_github_and_merge_step_0_clone_github_repo_s_only_if_a_github_url_was_given"
+    ],
+    "22": [
+      "claude_skills_graphify_references_transcribe",
+      "claude_skills_graphify_references_transcribe_graphify_reference_transcribe_video_and_audio",
+      "claude_skills_graphify_references_transcribe_step_2_5_transcribe_video_audio_files_only_if_video_files_detected"
+    ],
+    "23": [
       "scripts_check_size",
       "scripts_check_size_getfoldersize",
       "scripts_check_size_nodemodulessize"
     ],
-    "10": [
+    "24": [
       "tsconfig",
       "tsconfig_files",
       "tsconfig_references"
     ],
-    "11": [
+    "25": [
+      "claude",
+      "claude_graphify"
+    ],
+    "26": [
+      "claude_claude",
+      "claude_claude_graphify"
+    ],
+    "27": [
+      "claude_skills_graphify_references_extraction_spec",
+      "claude_skills_graphify_references_extraction_spec_graphify_reference_extraction_subagent_prompt"
+    ],
+    "28": [
+      "decisions",
+      "decisions_decisions_md_orgdesign_playbook"
+    ],
+    "29": [
+      "eslint_js",
+      "package_devdependencies_eslint_js"
+    ],
+    "30": [
+      "eslint_plugin_react_hooks",
+      "package_devdependencies_eslint_plugin_react_hooks"
+    ],
+    "31": [
+      "eslint_plugin_react_refresh",
+      "package_devdependencies_eslint_plugin_react_refresh"
+    ],
+    "32": [
+      "globals",
+      "package_devdependencies_globals"
+    ],
+    "33": [
+      "identity_obj_proxy",
+      "package_devdependencies_identity_obj_proxy"
+    ],
+    "34": [
+      "jest",
+      "package_devdependencies_jest"
+    ],
+    "35": [
+      "jest_environment_jsdom",
+      "package_devdependencies_jest_environment_jsdom"
+    ],
+    "36": [
+      "package_devdependencies_playwright",
+      "playwright"
+    ],
+    "37": [
+      "package_devdependencies_postcss",
+      "postcss"
+    ],
+    "38": [
+      "package_devdependencies_tailwindcss",
+      "tailwindcss"
+    ],
+    "39": [
+      "package_devdependencies_tailwindcss_postcss",
+      "tailwindcss_postcss"
+    ],
+    "40": [
+      "package_devdependencies_testing_library_jest_dom",
+      "testing_library_jest_dom"
+    ],
+    "41": [
+      "package_devdependencies_testing_library_react",
+      "testing_library_react"
+    ],
+    "42": [
+      "package_devdependencies_ts_jest",
+      "ts_jest"
+    ],
+    "43": [
+      "package_devdependencies_types_jest",
+      "types_jest"
+    ],
+    "44": [
+      "package_devdependencies_types_node",
+      "types_node"
+    ],
+    "45": [
+      "package_devdependencies_types_react",
+      "types_react"
+    ],
+    "46": [
+      "package_devdependencies_types_react_dom",
+      "types_react_dom"
+    ],
+    "47": [
+      "package_devdependencies_typescript",
+      "typescript"
+    ],
+    "48": [
+      "package_devdependencies_typescript_eslint",
+      "typescript_eslint"
+    ],
+    "49": [
+      "package_devdependencies_vite",
+      "vite"
+    ],
+    "50": [
+      "package_devdependencies_vitejs_plugin_react",
+      "vitejs_plugin_react"
+    ],
+    "51": [
       "run_checks",
       "run_checks_sh__entry"
     ],
-    "12": [
+    "52": [
       "src_setuptests",
       "src_setuptests_creatememorystorage"
     ],
-    "13": [
+    "53": [
       "eslint_config"
     ],
-    "14": [
+    "54": [
       "jest_config"
     ],
-    "15": [
+    "55": [
       "postcss_config"
     ],
-    "16": [
+    "56": [
       "tailwind_config"
     ],
-    "17": [
-      "tailwindcss_tailwindcss"
-    ],
-    "18": [
+    "57": [
       "vite_config"
     ]
   },
   "cohesion": {
-    "0": 0.04081632653061224,
-    "1": 0.09634146341463415,
-    "2": 0.11470985155195682,
-    "3": 0.15524193548387097,
-    "4": 0.0960591133004926,
-    "5": 0.07407407407407407,
-    "6": 0.08695652173913043,
+    "0": 0.07242063492063493,
+    "1": 0.08502415458937199,
+    "2": 0.0990990990990991,
+    "3": 0.15913978494623657,
+    "4": 0.07142857142857142,
+    "5": 0.08,
+    "6": 0.08,
     "7": 0.08695652173913043,
-    "8": 0.15584415584415584,
-    "9": 0.6666666666666666,
-    "10": 0.6666666666666666,
-    "11": 1.0,
-    "12": 1.0,
-    "13": 1.0,
-    "14": 1.0,
-    "15": 1.0,
-    "16": 1.0,
-    "17": 1.0,
-    "18": 1.0
+    "8": 0.11857707509881422,
+    "9": 0.19852941176470587,
+    "10": 0.2222222222222222,
+    "11": 0.2222222222222222,
+    "12": 0.25,
+    "13": 0.2857142857142857,
+    "14": 0.2857142857142857,
+    "15": 0.3333333333333333,
+    "16": 0.3333333333333333,
+    "17": 0.5,
+    "18": 0.5,
+    "19": 0.5,
+    "20": 0.5,
+    "21": 0.6666666666666666,
+    "22": 0.6666666666666666,
+    "23": 0.6666666666666666,
+    "24": 0.6666666666666666,
+    "25": 1.0,
+    "26": 1.0,
+    "27": 1.0,
+    "28": 1.0,
+    "29": 1.0,
+    "30": 1.0,
+    "31": 1.0,
+    "32": 1.0,
+    "33": 1.0,
+    "34": 1.0,
+    "35": 1.0,
+    "36": 1.0,
+    "37": 1.0,
+    "38": 1.0,
+    "39": 1.0,
+    "40": 1.0,
+    "41": 1.0,
+    "42": 1.0,
+    "43": 1.0,
+    "44": 1.0,
+    "45": 1.0,
+    "46": 1.0,
+    "47": 1.0,
+    "48": 1.0,
+    "49": 1.0,
+    "50": 1.0,
+    "51": 1.0,
+    "52": 1.0,
+    "53": 1.0,
+    "54": 1.0,
+    "55": 1.0,
+    "56": 1.0,
+    "57": 1.0
   },
   "gods": [
     {
@@ -388,29 +664,29 @@
       "degree": 13
     },
     {
+      "id": "package_scripts",
+      "label": "scripts",
+      "degree": 13
+    },
+    {
+      "id": "src_constants_section_ids",
+      "label": "SECTION_IDS",
+      "degree": 13
+    },
+    {
       "id": "src_types_index_quadrant",
       "label": "Quadrant",
       "degree": 12
     },
     {
-      "id": "package_scripts",
-      "label": "scripts",
-      "degree": 11
-    },
-    {
-      "id": "src_constants_section_ids",
-      "label": "SECTION_IDS",
-      "degree": 11
+      "id": "claude_skills_graphify_skill_what_you_must_do_when_invoked",
+      "label": "What You Must Do When Invoked",
+      "degree": 12
     },
     {
       "id": "src_types_index_dimension",
       "label": "Dimension",
       "degree": 10
-    },
-    {
-      "id": "src_components_resultsdashboard_resultsdashboard",
-      "label": "ResultsDashboard()",
-      "degree": 9
     }
   ],
   "surprises": [
@@ -426,52 +702,85 @@
       "why": "peripheral node `CohortDashboardProps` unexpectedly reaches hub `CohortMember`"
     },
     {
-      "source": "ScoreCell()",
-      "target": "getScoreColor()",
+      "source": "DimensionChartProps",
+      "target": "DimensionScores",
       "source_files": [
-        "src/components/CohortDashboard.tsx",
-        "src/utils/scoring.ts"
-      ],
-      "confidence": "EXTRACTED",
-      "relation": "calls",
-      "why": "peripheral node `ScoreCell()` unexpectedly reaches hub `getScoreColor()`"
-    },
-    {
-      "source": "CohortDashboard()",
-      "target": "getScoreColor()",
-      "source_files": [
-        "src/components/CohortDashboard.tsx",
-        "src/utils/scoring.ts"
-      ],
-      "confidence": "EXTRACTED",
-      "relation": "calls",
-      "why": "bridges separate communities"
-    },
-    {
-      "source": "CohortDashboard()",
-      "target": "getScoreLabel()",
-      "source_files": [
-        "src/components/CohortDashboard.tsx",
-        "src/utils/scoring.ts"
-      ],
-      "confidence": "EXTRACTED",
-      "relation": "calls",
-      "why": "bridges separate communities"
-    },
-    {
-      "source": "DiagnosticSurveyProps",
-      "target": "useDiagnostic()",
-      "source_files": [
-        "src/components/DiagnosticSurvey.tsx",
-        "src/hooks/useDiagnostic.ts"
+        "src/components/DimensionChart.tsx",
+        "src/types/index.ts"
       ],
       "confidence": "EXTRACTED",
       "relation": "references",
-      "why": "peripheral node `DiagnosticSurveyProps` unexpectedly reaches hub `useDiagnostic()`"
+      "why": "peripheral node `DimensionChartProps` unexpectedly reaches hub `DimensionScores`"
+    },
+    {
+      "source": "ExportButtonProps",
+      "target": "DiagnosticResults",
+      "source_files": [
+        "src/components/ExportButton.tsx",
+        "src/types/index.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "peripheral node `ExportButtonProps` unexpectedly reaches hub `DiagnosticResults`"
+    },
+    {
+      "source": "ResultsDashboardProps",
+      "target": "DiagnosticResults",
+      "source_files": [
+        "src/components/ResultsDashboard.tsx",
+        "src/types/index.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "peripheral node `ResultsDashboardProps` unexpectedly reaches hub `DiagnosticResults`"
+    },
+    {
+      "source": "StoredMember",
+      "target": "LikertValue",
+      "source_files": [
+        "src/utils/cohort.ts",
+        "src/types/index.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "bridges separate communities"
     }
   ],
-  "tokens": {
-    "input": 0,
-    "output": 0
-  }
+  "questions": [
+    {
+      "type": "bridge_node",
+      "question": "Why does `devDependencies` connect `devDependencies` to `scripts`, `@eslint/js`, `eslint-plugin-react-hooks`, `eslint-plugin-react-refresh`, `globals`, `identity-obj-proxy`, `jest`, `jest-environment-jsdom`, `playwright`, `postcss`, `tailwindcss`, `@tailwindcss/postcss`, `@testing-library/jest-dom`, `@testing-library/react`, `ts-jest`, `@types/jest`, `@types/node`, `@types/react`, `@types/react-dom`, `typescript`, `typescript-eslint`, `vite`, `@vitejs/plugin-react`?",
+      "why": "High betweenness centrality (0.023) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `Quadrant` connect `index.ts` to `App.tsx`, `constants.ts`?",
+      "why": "High betweenness centrality (0.006) - this node is a cross-community bridge."
+    },
+    {
+      "type": "isolated_nodes",
+      "question": "What connects `AddMemberResult`, `AppView`, `SurveyResponse` to the rest of the system?",
+      "why": "204 weakly-connected nodes found - possible documentation gaps or missing edges."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `App.tsx` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.07242063492063493 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `index.ts` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.08502415458937199 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `profile.ts` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.0990990990990991 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `compilerOptions` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.07142857142857142 - nodes in this community are weakly interconnected."
+    }
+  ]
 }

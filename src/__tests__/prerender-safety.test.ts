@@ -18,6 +18,7 @@ const app = read(join('src', 'App.tsx'));
 const framework = read(join('src', 'components', 'FrameworkSection.tsx'));
 const main = read(join('src', 'main.tsx'));
 const prerender = read(join('scripts', 'prerender.mjs'));
+const entryServer = read(join('src', 'entry-server.tsx'));
 
 describe('Prerender is wired into the build', () => {
   test('npm run build runs the prerender step', () => {
@@ -25,8 +26,34 @@ describe('Prerender is wired into the build', () => {
     expect(pkg.scripts.build).toContain('scripts/prerender.mjs');
   });
 
-  test('playwright is a real devDependency, not an ambient assumption', () => {
-    expect(pkg.devDependencies.playwright).toBeDefined();
+  test('npm run build builds the SSR bundle the prerender needs', () => {
+    // Ordering matters: the SSR bundle must exist before prerender imports it
+    const build: string = pkg.scripts.build;
+    expect(build).toContain('--ssr src/entry-server.tsx');
+    expect(build).toContain('--outDir dist-ssr');
+    expect(build.indexOf('--ssr')).toBeLessThan(build.indexOf('scripts/prerender.mjs'));
+  });
+
+  test('the prerender needs no browser', () => {
+    // A browser in the build path is what broke the Vercel deploy: clean build
+    // hosts have no Chromium, and the step correctly refused to ship an empty
+    // #root. Rendering through react-dom/server removes the dependency instead
+    // of downloading ~130 MB on every deploy.
+    // Checks real usage, not mentions: the script's header explains the
+    // history on purpose, and that prose must not fail this test.
+    expect(prerender).not.toMatch(/^\s*import\s[\s\S]*?\bfrom\s+['"]playwright['"]/m);
+    expect(prerender).not.toMatch(/chromium\.launch|browserType|newContext\(/);
+    expect(entryServer).toContain('react-dom/server');
+    expect(entryServer).toContain('renderToString');
+  });
+
+  test('the SSR entry renders the same tree main.tsx mounts', () => {
+    // If these drift, the prerendered markup stops matching what a visitor
+    // sees, and crawlers get a page the site does not actually serve.
+    for (const source of [entryServer, main]) {
+      expect(source).toMatch(/<StrictMode>/);
+      expect(source).toMatch(/<App \/>/);
+    }
   });
 
   test('the prerender script fails loudly rather than skipping', () => {
@@ -35,8 +62,12 @@ describe('Prerender is wired into the build', () => {
     expect(prerender).toMatch(/empty or near-empty #root/);
   });
 
-  test('the prerender script refuses to capture a browser with storage set', () => {
-    expect(prerender).toMatch(/storage is not empty/);
+  test('the prerender refuses to write markup it could not verify', () => {
+    // Guards, in order: the SSR bundle exists, render() returned real content,
+    // the injection target was found, and the boot script survived injection.
+    expect(prerender).toMatch(/entry-server\.js not found/);
+    expect(prerender).toMatch(/could not find an empty <div id="root">/);
+    expect(prerender).toMatch(/lost its module script/);
   });
 });
 
@@ -67,10 +98,13 @@ describe('No visitor state can be baked into the prerendered HTML', () => {
 describe('Entry point matches the prerender strategy', () => {
   test('uses createRoot, and records why hydration is not used', () => {
     expect(main).toContain('createRoot');
-    // hydrateRoot is incompatible here: the prerender captures browser-
-    // normalised inline styles that React can never match. If someone
+    // hydrateRoot is now technically possible — the markup is React's own
+    // since the prerender moved to react-dom/server — but it is deliberately
+    // not used: createRoot cannot produce a hydration mismatch, and a faster
+    // first paint is not what prerendering is for here. If someone
     // reintroduces it, this test should make them read the reason first.
     expect(main).not.toMatch(/^\s*hydrateRoot\(/m);
-    expect(main).toMatch(/normalis|normaliz/i);
+    expect(main).toMatch(/react-dom\/server/);
+    expect(main).toMatch(/cannot produce a hydration mismatch/i);
   });
 });
