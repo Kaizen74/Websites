@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { FrameworkDiagram } from './FrameworkDiagram';
 import { QuadrantDetail } from './QuadrantDetail';
 import { FrameworkOverview } from './FrameworkOverview';
@@ -28,7 +28,16 @@ export function FrameworkSection() {
   // The homepage framework is an educational explainer — never scored.
   // Default state shows the overarching narrative; clicking a quadrant
   // (or a deep link from results) swaps in that quadrant's detail.
-  const [activeQuadrant, setActiveQuadrant] = useState<Quadrant | null>(consumeFocusQuadrant);
+  //
+  // Starts at the overview and consumes the deep-link handoff on mount, NOT
+  // from a lazy initialiser: reading sessionStorage during render cannot be
+  // reproduced in prerendered HTML and would hydrate a mismatched tree.
+  const [activeQuadrant, setActiveQuadrant] = useState<Quadrant | null>(null);
+
+  useEffect(() => {
+    const focus = consumeFocusQuadrant();
+    if (focus) setActiveQuadrant(focus);
+  }, []);
 
   const handleQuadrantClick = (quadrant: Quadrant) => {
     setActiveQuadrant(quadrant);

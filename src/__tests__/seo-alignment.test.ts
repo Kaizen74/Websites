@@ -112,10 +112,21 @@ describe('Backend JSON-LD is aligned with frontend profile data', () => {
     });
   });
 
-  test('meta description matches the canonical profile description', () => {
+  test('meta description uses the short SERP snippet, JSON-LD keeps the full definition', () => {
+    // Spec §4.2 caps the meta description at 140–160 chars, so it is
+    // deliberately a different (shorter) string from the entity description.
     const meta = html.match(/<meta\s+name="description"\s+content="([\s\S]*?)"/);
     expect(meta).not.toBeNull();
-    expect(meta![1].replace(/\s+/g, ' ').trim()).toBe(profile.description);
+    expect(meta![1].replace(/\s+/g, ' ').trim()).toBe(profile.metaDescription);
+    expect(nodeOfType('Person').description).toBe(profile.description);
+    expect(profile.metaDescription.length).toBeLessThan(profile.description.length);
+  });
+
+  test('og and twitter descriptions use the same SERP snippet', () => {
+    const og = html.match(/<meta property="og:description" content="([\s\S]*?)"/);
+    const tw = html.match(/<meta name="twitter:description" content="([\s\S]*?)"/);
+    expect(og![1].replace(/\s+/g, ' ').trim()).toBe(profile.metaDescription);
+    expect(tw![1].replace(/\s+/g, ' ').trim()).toBe(profile.metaDescription);
   });
 
   test('title and canonical are set (not the Vite placeholder)', () => {
@@ -288,10 +299,45 @@ describe('Crawler-facing files', () => {
     quotes.forEach((q) => expect(flat).toContain(q.text.replace(/\s+/g, ' ')));
   });
 
-  test('robots.txt permits the major AI and answer-engine crawlers', () => {
-    ['GPTBot', 'OAI-SearchBot', 'ClaudeBot', 'PerplexityBot', 'Google-Extended', 'Bingbot']
-      .forEach((bot) => expect(robots).toContain(`User-agent: ${bot}`));
+  test('robots.txt permits every crawler the spec names, plus the extras already allowed', () => {
+    // The spec's Phase 2 list, verbatim
+    const specRequired = [
+      'GPTBot',
+      'OAI-SearchBot',
+      'ChatGPT-User',
+      'ClaudeBot',
+      'Claude-SearchBot',
+      'PerplexityBot',
+      'Google-Extended',
+      'Applebot-Extended',
+    ];
+    specRequired.forEach((bot) => expect(robots).toContain(`User-agent: ${bot}`));
+    // Kept from before the spec — binding constraint 4 forbids deleting content
+    ['Claude-Web', 'anthropic-ai', 'CCBot', 'Bingbot'].forEach((bot) =>
+      expect(robots).toContain(`User-agent: ${bot}`)
+    );
+    // Wildcard allow, and nothing globally disallowed
+    expect(robots).toContain('User-agent: *');
     expect(robots).not.toMatch(/Disallow:\s*\/\s*$/m);
+  });
+
+  test('sitemap declares lastmod, matching the content freshness date', () => {
+    expect(sitemap).toContain(`<lastmod>${CONTENT_LAST_MODIFIED}</lastmod>`);
+  });
+
+  test('sitemap lists exactly one URL and no anchor fragments', () => {
+    expect((sitemap.match(/<url>/g) || [])).toHaveLength(1);
+    expect(sitemap).not.toMatch(/<loc>[^<]*#/);
+  });
+
+  test('llms.txt carries a linked index of every main section', () => {
+    ['#framework', '#activators', '#change-levers', '#ai-native', '#about', '#diagnostic']
+      .forEach((frag) => expect(llms).toContain(`${SITE_URL}/${frag}`));
+  });
+
+  test('llms.txt states that the convention has unconfirmed adoption', () => {
+    expect(llms).toMatch(/PROPOSED convention/i);
+    expect(llms).toMatch(/unconfirmed/i);
   });
 
   test('sitemap.xml uses the correct sitemaps.org namespace', () => {
