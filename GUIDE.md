@@ -56,7 +56,7 @@ everything as a file, or save the dashboard as a PDF.
 ## How to check nothing is broken
 
 Run `./run_checks.sh`. Success looks like: "ALL CHECKS PASSED".
-It runs the 47 automated tests, checks the code compiles, and builds the
+It runs the automated tests, checks the code compiles, and builds the
 deployable version.
 
 ## Being found by Google and AI assistants
@@ -70,10 +70,53 @@ author** section near the bottom that human visitors can read too. There is
 also a plain-text summary at `/llms.txt` written specifically for AI
 assistants, and a `/robots.txt` that explicitly welcomes their crawlers.
 
-**One thing to do when you go live:** the site does not yet know its own web
-address. Open `src/data/profile.ts`, change `SITE_URL` to your real domain,
-then make the same change in `index.html`, `public/robots.txt` and
-`public/sitemap.xml`. If you miss one, `./run_checks.sh` will tell you.
+Your background is now on the site as published fact, taken from the two
+articles and your LinkedIn: NTU 1998, University of North Texas 2022, the
+Certified Prompt Engineer™ credential, 25 years in the field, and quotes with
+the publication credited. The
+site also has a shareable preview card (the image that appears when someone
+posts your link), and a plain-text file that tells search engines to re-check
+the site the moment you publish.
+
+**Two things to do when you go live:**
+
+1. The site does not yet know its own web address. Open
+   `src/data/profile.ts`, change `SITE_URL` to your real domain, then make the
+   same change in `index.html`, `public/robots.txt` and `public/sitemap.xml`.
+   If you miss one, `./run_checks.sh` will tell you.
+2. Register the site with Google and Bing. Sign up for Google Search Console
+   and Bing Webmaster Tools, each gives you a verification code; paste them
+   into the two commented-out lines near the top of `index.html`, remove the
+   `<!--` and `-->` around them, then submit `yourdomain.com/sitemap.xml` in
+   both. This is what actually gets your pages indexed.
+
+The About section is deliberately kept short and elegant: your name, role,
+one line of experience, your qualifications, six topics, the three links and
+the questions. Your full career history, the longer biography, the Brandon
+Hall and SHRI awards and the other quotes are still on the site — just not shown on
+screen. They live in the machine-readable parts that Google and AI assistants
+read, so you get the full credibility without a cluttered page.
+
+Your LinkedIn profile is now linked from the site and registered as an
+official "this is the same person" signal, and the site repeats the same
+facts LinkedIn does — current role at SATS, both degrees, the prompt
+engineering certification, both awards (including the SHRI Gold for Talent
+Management & Acquisition at SATS) and your career history.
+That agreement matters: when Google or an AI assistant sees the same facts on
+your site, on LinkedIn and in the two articles, it treats you as one
+well-established person rather than several uncertain ones. There is an
+automatic check that fails the build if the site ever drifts from what your
+LinkedIn says.
+
+**Note:** your email address appears in the LinkedIn export but is
+deliberately *not* published on the site — public pages get scraped for
+spam. Tell me if you would rather have a contact link.
+
+**Things only you can do, off the website:** create a Wikidata entry for
+yourself (wikidata.org — it needs independent coverage, which your two
+articles help support), and tell me where your `bit.ly/2RQceu7` personal link
+points so it can be added properly (I left it out rather than link somewhere
+I could not check).
 
 ## What changed most recently (2026-08-13)
 

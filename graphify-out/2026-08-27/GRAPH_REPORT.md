@@ -1,16 +1,16 @@
 # Graph Report - Websites  (2026-08-26)
 
 ## Corpus Check
-- 74 files · ~41,142 words
+- 74 files · ~41,726 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 438 nodes · 751 edges · 35 communities (26 shown, 9 thin omitted)
+- 438 nodes · 753 edges · 36 communities (27 shown, 9 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 3 edges (avg confidence: 0.5)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `296d567c`
+- Built from commit: `df543eed`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -42,6 +42,7 @@
 - .claude/CLAUDE.md
 - extraction-spec.md
 - DECISIONS.md
+- ResultsDashboard.tsx
 - profile.ts
 
 ## God Nodes (most connected - your core abstractions)
@@ -71,7 +72,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (35 total, 9 thin omitted)
+## Communities (36 total, 9 thin omitted)
 
 ### Community 0 - "devDependencies"
 Cohesion: 0.04
@@ -86,8 +87,8 @@ Cohesion: 0.08
 Nodes (38): App(), AppView, CohortDashboard(), CohortDashboardProps, DIMENSIONS, statusColor, statusTint, FrameworkDiagram() (+30 more)
 
 ### Community 3 - "constants.ts"
-Cohesion: 0.09
-Nodes (42): ScoreCell(), DiagnosticSurvey(), DiagnosticSurveyProps, dimensionColor, DimensionChart(), DimensionChartProps, fillColor, ExportButton() (+34 more)
+Cohesion: 0.15
+Nodes (24): DiagnosticSurvey(), DiagnosticSurveyProps, dimensionColor, QuestionCard(), QuestionCardProps, DIMENSION_LABELS, LIKERT_OPTIONS, QUADRANT_COLORS (+16 more)
 
 ### Community 4 - "ChangeLevers.tsx"
 Cohesion: 0.13
@@ -145,8 +146,12 @@ Nodes (3): For --cluster-only, For --update (incremental re-extraction), graphif
 Cohesion: 0.50
 Nodes (3): Expanding the ESLint configuration, React Compiler, React + TypeScript + Vite
 
+### Community 34 - "ResultsDashboard.tsx"
+Cohesion: 0.16
+Nodes (18): ScoreCell(), DimensionChart(), DimensionChartProps, fillColor, ExportButton(), ExportButtonProps, interpretation(), QUADRANT_DIMENSIONS (+10 more)
+
 ### Community 35 - "profile.ts"
-Cohesion: 0.11
+Cohesion: 0.12
 Nodes (27): AboutAuthor(), MICRO_LABEL, career, CareerEntry, CONTENT_LAST_MODIFIED, CredentialEntry, credentials, faqEntries (+19 more)
 
 ## Knowledge Gaps
@@ -159,7 +164,7 @@ _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `devDependencies` connect `devDependencies` to `scripts`?**
   _High betweenness centrality (0.023) - this node is a cross-community bridge._
-- **Why does `SECTION_IDS` connect `App.tsx` to `AiNativeSection.tsx`, `constants.ts`, `profile.ts`, `ChangeLevers.tsx`?**
+- **Why does `SECTION_IDS` connect `App.tsx` to `ResultsDashboard.tsx`, `constants.ts`, `profile.ts`, `ChangeLevers.tsx`, `AiNativeSection.tsx`?**
   _High betweenness centrality (0.011) - this node is a cross-community bridge._
 - **What connects `name`, `private`, `version` to the rest of the system?**
   _189 weakly-connected nodes found - possible documentation gaps or missing edges._
@@ -169,5 +174,5 @@ _Questions this graph is uniquely positioned to answer:_
   _Cohesion score 0.10420168067226891 - nodes in this community are weakly interconnected._
 - **Should `App.tsx` be split into smaller, more focused modules?**
   _Cohesion score 0.08313725490196078 - nodes in this community are weakly interconnected._
-- **Should `constants.ts` be split into smaller, more focused modules?**
-  _Cohesion score 0.09090909090909091 - nodes in this community are weakly interconnected._
+- **Should `ChangeLevers.tsx` be split into smaller, more focused modules?**
+  _Cohesion score 0.12987012987012986 - nodes in this community are weakly interconnected._

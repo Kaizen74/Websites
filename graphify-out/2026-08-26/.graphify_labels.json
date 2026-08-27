@@ -1,13 +1,13 @@
 {
   "0": "devDependencies",
-  "1": "FrameworkSection.tsx",
+  "1": "index.ts",
   "2": "App.tsx",
   "3": "constants.ts",
-  "4": "SECTION_IDS",
+  "4": "ChangeLevers.tsx",
   "5": "compilerOptions",
   "6": "scripts",
   "7": "compilerOptions",
-  "8": "index.ts",
+  "8": "AiNativeSection.tsx",
   "9": "check-size.js",
   "10": "tsconfig.json",
   "11": "run_checks.sh",
@@ -32,5 +32,6 @@
   "30": "CLAUDE.md",
   "31": ".claude/CLAUDE.md",
   "32": "extraction-spec.md",
-  "33": "DECISIONS.md"
+  "33": "DECISIONS.md",
+  "35": "profile.ts"
 }

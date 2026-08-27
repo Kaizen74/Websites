@@ -61,14 +61,42 @@ Testing Library. No charting library (plain-div bars). Deploys as a static
   Google-Extended et al., `sitemap.xml`, `llms.txt`), and the visible
   **About the author** section (`#about`) carrying the same strings.
   `src/__tests__/seo-alignment.test.ts` fails if schema and data drift.
-  **One thing to change on launch:** `SITE_URL` in `src/data/profile.ts`,
-  then the matching URLs in `index.html`, `public/robots.txt` and
-  `public/sitemap.xml` (the alignment test enforces they agree).
+  Biography facts are sourced from the two published features (NTU, aTalent)
+  and from the LinkedIn export, and include `alumniOf` (NTU 1998; University
+  of North Texas 2022), the Certified Prompt Engineer™ credential, `worksFor`
+  (SATS Ltd.), two awards (SHRI Singapore HR Awards 2025 Gold — Talent Management &
+  Acquisition at SATS; Brandon Hall Silver 2018 at Shell), 25 years' tenure
+  and three quotes. The graph also
+  carries an `Article` authored by the Person (AI-native section), a
+  `speakable` spec for voice answers, `dateModified` freshness, and an
+  `ImageObject` backing a generated 1200×630 `og-image.png`. `public/` also
+  ships an IndexNow key pair; a `<noscript>` block in `index.html` repeats the
+  entity for non-JS crawlers.
+  **On launch:** (1) set `SITE_URL` in `src/data/profile.ts` and the matching
+  URLs in `index.html`, `public/robots.txt`, `public/sitemap.xml`; (2)
+  uncomment the two verification `<meta>` tags in `index.html` with real
+  Google Search Console / Bing tokens and submit the sitemap in each console.
+  **Off-site (cannot be done from this repo):** create a Wikidata item and add
+  its QID to `sameAs`. LinkedIn is already in `sameAs`; resolve the
+  `bit.ly/2RQceu7` personal link before adding it.
 - **Footer:** wordmark + tagline row, then a personal brand sign-off — an
   "EY" monogram seal (Signature.tsx) with "Eric Yim" in Playfair italic, a
   red underline flourish, and a © attribution line.
-- **Tests:** 112 passing across 13 suites (unit, integration, App smoke,
-  SEO/structured-data alignment),
+- **About section is deliberately curated:** it renders the entity claim,
+  current role, a one-line experience proof, a compact qualifications line,
+  6 featured topics, the three profile/coverage links, one signature quote and
+  the full Q&A. The career history, long bio, award, remaining quotes and the
+  other 6 topics are intentionally NOT rendered — they stay in the JSON-LD and
+  `public/llms.txt`, which is what crawlers read. `seo-alignment.test.ts` has a
+  "curating costs no machine-facing signal" block enforcing this.
+- **Entity consistency:** `src/__tests__/linkedin-consistency.test.ts` pins the
+  LinkedIn profile as ground truth — name, headline, current role/employer
+  (Global Head of OD and Talent, SATS Ltd.), location, both degrees, the
+  Certified Prompt Engineer™ credential and both awards. It also
+  forbids superseded strings and any published email address. Update it and
+  `profile.ts` together whenever LinkedIn changes.
+- **Tests:** 145 passing across 14 suites (unit, integration, App smoke,
+  SEO/structured-data alignment, LinkedIn consistency),
   plus two Playwright scripts: a 53-check E2E covering the AI-native
   section, framework overview/quadrant switching, the full two-respondent
   cohort journey, the score-free homepage framework and the footer

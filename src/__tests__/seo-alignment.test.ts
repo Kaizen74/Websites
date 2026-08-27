@@ -1,6 +1,16 @@
 import { readFileSync } from 'fs';
 import { join } from 'path';
-import { profile, referenceArticles, faqEntries, SITE_URL } from '../data/profile';
+import {
+  profile,
+  career,
+  credentials,
+  ownedProfiles,
+  referenceArticles,
+  quotes,
+  faqEntries,
+  SITE_URL,
+  CONTENT_LAST_MODIFIED,
+} from '../data/profile';
 
 const ROOT = join(__dirname, '..', '..');
 const html = readFileSync(join(ROOT, 'index.html'), 'utf8');
@@ -64,7 +74,9 @@ describe('Backend JSON-LD is aligned with frontend profile data', () => {
   test('Person matches profile.ts identity', () => {
     const person = nodeOfType('Person');
     expect(person.name).toBe(profile.name);
-    expect(person.jobTitle).toBe(profile.jobTitle);
+    // jobTitle is an array so the site, LinkedIn and press titles corroborate
+    expect(person.jobTitle).toEqual([...profile.jobTitles]);
+    expect(person.jobTitle[0]).toBe(profile.jobTitle);
     expect(person.description).toBe(profile.description);
   });
 
@@ -72,10 +84,12 @@ describe('Backend JSON-LD is aligned with frontend profile data', () => {
     expect(nodeOfType('Person').knowsAbout).toEqual([...profile.knowsAbout]);
   });
 
-  test('Person.sameAs contains every reference article URL', () => {
+  test('Person.sameAs contains every owned profile and reference article', () => {
     const sameAs: string[] = nodeOfType('Person').sameAs;
-    referenceArticles.forEach((a) => expect(sameAs).toContain(a.url));
-    expect(sameAs).toHaveLength(referenceArticles.length);
+    [...ownedProfiles, ...referenceArticles].forEach((a) =>
+      expect(sameAs).toContain(a.url)
+    );
+    expect(sameAs).toHaveLength(ownedProfiles.length + referenceArticles.length);
   });
 
   test('subjectOf articles match reference titles and publishers', () => {
@@ -120,7 +134,160 @@ describe('Backend JSON-LD is aligned with frontend profile data', () => {
   });
 });
 
+describe('Verified biography is reflected in structured data', () => {
+  test('alumniOf matches the verified education', () => {
+    const alumni: Record<string, string>[] = nodeOfType('Person').alumniOf;
+    expect(Array.isArray(alumni)).toBe(true);
+    expect(alumni).toHaveLength(profile.education.length);
+    alumni.forEach((a) => expect(a['@type']).toBe('CollegeOrUniversity'));
+    profile.education.forEach((e) => {
+      const match = alumni.find((a) => a.name === e.institution);
+      expect(match).toBeDefined();
+      expect(match!.url).toBe(e.url);
+    });
+  });
+
+  test('hasCredential covers the verified credentials', () => {
+    const names: string[] = nodeOfType('Person').hasCredential.map(
+      (c: Record<string, string>) => c.name
+    );
+    // Every schema credential must exist in the data file
+    names.forEach((n) => {
+      expect(credentials.map((c) => c.label)).toContain(n);
+    });
+    expect(names).toContain('Certified Prompt Engineer™');
+  });
+
+  test('subjectOf uses the real published headlines and dates', () => {
+    const subjectOf: Record<string, any>[] = nodeOfType('Person').subjectOf;
+    const atalent = subjectOf.find((s) => s.url.includes('atalent.com'));
+    expect(atalent).toBeDefined();
+    expect(atalent!.name).toBe(
+      'Most OD Practitioners Hand Leaders a Report. Eric Yim Hands Them a System.'
+    );
+    expect(atalent!.datePublished).toBe('2026-07-17');
+    const ntu = subjectOf.find((s) => s.url.includes('ntu.edu.sg'));
+    expect(ntu).toBeDefined();
+    expect(ntu!.name).toBe('AI is a multiplier, and not a shortcut');
+  });
+
+  test('disambiguatingDescription is present for entity resolution', () => {
+    expect(nodeOfType('Person').disambiguatingDescription).toContain(
+      'human-AI work partnership'
+    );
+  });
+});
+
+describe('Additional GEO/AEO mechanisms', () => {
+  test('site content is attributed to the Person as author (Article schema)', () => {
+    const article = nodeOfType('Article');
+    expect(article.author['@id']).toBe(`${SITE_URL}/#person`);
+    expect(article.headline).toBe('AI redesigns the work, not the chart');
+  });
+
+  test('ProfilePage declares speakable regions for voice answers', () => {
+    const speakable = nodeOfType('ProfilePage').speakable;
+    expect(speakable['@type']).toBe('SpeakableSpecification');
+    expect(speakable.cssSelector.length).toBeGreaterThan(0);
+  });
+
+  test('freshness signals use CONTENT_LAST_MODIFIED', () => {
+    expect(nodeOfType('ProfilePage').dateModified).toBe(CONTENT_LAST_MODIFIED);
+    expect(nodeOfType('Article').dateModified).toBe(CONTENT_LAST_MODIFIED);
+  });
+
+  test('an ImageObject backs og:image at the correct dimensions', () => {
+    const img = nodeOfType('ImageObject');
+    expect(img.url).toBe(`${SITE_URL}/og-image.png`);
+    expect(img.width).toBe(1200);
+    expect(img.height).toBe(630);
+    expect(html).toContain(`<meta property="og:image" content="${SITE_URL}/og-image.png" />`);
+    expect(html).toContain('<meta property="og:image:width" content="1200" />');
+  });
+
+  test('a noscript fallback carries the entity for non-JS crawlers', () => {
+    const noscript = html.match(/<noscript>([\s\S]*?)<\/noscript>/);
+    expect(noscript).not.toBeNull();
+    const body = noscript![1];
+    expect(body).toContain(profile.name);
+    expect(body).toContain('human-AI');
+    referenceArticles.forEach((a) => expect(body).toContain(a.url));
+  });
+
+  test('search-console verification tags are commented out, not published with placeholders', () => {
+    // A live placeholder token would be worse than no tag at all, so the
+    // tags must exist only inside an HTML comment. Strip comments and assert
+    // nothing is left behind.
+    const withoutComments = html.replace(/<!--[\s\S]*?-->/g, '');
+    expect(withoutComments).not.toContain('google-site-verification');
+    expect(withoutComments).not.toContain('msvalidate.01');
+    // …but the commented template is present for the owner to fill in
+    expect(html).toContain('google-site-verification');
+  });
+});
+
+describe('Curating the visible section costs no machine-facing signal', () => {
+  // The About section renders a curated subset for humans. These assertions
+  // pin the full payload in the places crawlers actually read, so trimming
+  // the UI can never quietly shrink the entity.
+  test('the full knowsAbout list survives in the knowledge graph', () => {
+    expect(nodeOfType('Person').knowsAbout).toEqual([...profile.knowsAbout]);
+    expect(profile.knowsAbout.length).toBeGreaterThan(
+      profile.featuredTopics.length
+    );
+  });
+
+  test('the full career history survives in llms.txt even though it is not rendered', () => {
+    const flat = llms.replace(/\s+/g, ' ');
+    career.forEach((entry) => {
+      expect(flat).toContain(entry.organization);
+      expect(flat).toContain(entry.role);
+    });
+  });
+
+  test('the long bio and every award survive in llms.txt / structured data', () => {
+    const flat = llms.replace(/\s+/g, ' ');
+    expect(flat).toContain('25 years in the gap between diagnosing');
+    expect(nodeOfType('Person').award).toEqual([...profile.awards]);
+    profile.awards.forEach((a) => {
+      // llms.txt hard-wraps, so match on the distinguishing phrase
+      const key = a.split(' — ')[0].split(' (')[0];
+      expect(flat).toContain(key);
+    });
+  });
+
+  test('llms.txt has a Recognition section naming both awards', () => {
+    const flat = llms.replace(/\s+/g, ' ');
+    expect(flat).toContain('## Recognition');
+    expect(flat).toContain('SHRI Singapore HR Awards 2025');
+    expect(flat).toContain('Brandon Hall');
+  });
+
+  test('all quotes survive in llms.txt though only one is rendered', () => {
+    const flat = llms.replace(/\s+/g, ' ');
+    quotes.forEach((q) => expect(flat).toContain(q.text.replace(/\s+/g, ' ')));
+    expect(quotes.length).toBeGreaterThan(1);
+  });
+});
+
 describe('Crawler-facing files', () => {
+  test('an IndexNow key file is published and matches indexnow-key.txt', () => {
+    const key = readFileSync(join(ROOT, 'public', 'indexnow-key.txt'), 'utf8').trim();
+    expect(key).toMatch(/^[0-9a-f]{32}$/);
+    const keyFile = readFileSync(join(ROOT, 'public', `${key}.txt`), 'utf8').trim();
+    expect(keyFile).toBe(key);
+  });
+
+  test('llms.txt carries the verified biography and attributable quotes', () => {
+    // llms.txt is hard-wrapped prose, so compare on whitespace-normalized text
+    const flat = llms.replace(/\s+/g, ' ');
+    expect(flat).toContain('Nanyang Technological University');
+    expect(flat).toContain('25 years');
+    // Every knowsAbout topic must appear in the AI-facing summary too
+    profile.knowsAbout.forEach((t) => expect(flat).toContain(t));
+    quotes.forEach((q) => expect(flat).toContain(q.text.replace(/\s+/g, ' ')));
+  });
+
   test('robots.txt permits the major AI and answer-engine crawlers', () => {
     ['GPTBot', 'OAI-SearchBot', 'ClaudeBot', 'PerplexityBot', 'Google-Extended', 'Bingbot']
       .forEach((bot) => expect(robots).toContain(`User-agent: ${bot}`));
@@ -139,6 +306,9 @@ describe('Crawler-facing files', () => {
   });
 
   test('llms.txt answers every FAQ question', () => {
-    faqEntries.forEach((entry) => expect(llms).toContain(entry.question));
+    const flat = llms.replace(/\s+/g, ' ');
+    faqEntries.forEach((entry) =>
+      expect(flat).toContain(entry.question.replace(/\s+/g, ' '))
+    );
   });
 });

@@ -264,19 +264,6 @@
       "norm_label": "cohortmember"
     },
     {
-      "label": "LikertValue",
-      "file_type": "code",
-      "source_file": "src/types/index.ts",
-      "source_location": "L18",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "id": "src_types_index_likertvalue",
-      "community": 2,
-      "community_name": "App.tsx",
-      "norm_label": "likertvalue"
-    },
-    {
       "label": "AddMemberResult",
       "file_type": "code",
       "source_file": "src/utils/cohort.ts",
@@ -288,19 +275,6 @@
       "community": 2,
       "community_name": "App.tsx",
       "norm_label": "addmemberresult"
-    },
-    {
-      "label": "StoredMember",
-      "file_type": "code",
-      "source_file": "src/utils/cohort.ts",
-      "source_location": "L25",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "id": "src_utils_cohort_storedmember",
-      "community": 2,
-      "community_name": "App.tsx",
-      "norm_label": "storedmember"
     },
     {
       "label": "DiagnosticSurveyProps",
@@ -353,6 +327,32 @@
       "community": 3,
       "community_name": "constants.ts",
       "norm_label": "diagnosticquestion"
+    },
+    {
+      "label": "LikertValue",
+      "file_type": "code",
+      "source_file": "src/types/index.ts",
+      "source_location": "L18",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "id": "src_types_index_likertvalue",
+      "community": 3,
+      "community_name": "constants.ts",
+      "norm_label": "likertvalue"
+    },
+    {
+      "label": "ScoreColor",
+      "file_type": "code",
+      "source_file": "src/types/index.ts",
+      "source_location": "L8",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "id": "src_types_index_scorecolor",
+      "community": 3,
+      "community_name": "constants.ts",
+      "norm_label": "scorecolor"
     },
     {
       "label": "DimensionChartProps",
@@ -420,43 +420,82 @@
       "norm_label": "dimensionscores"
     },
     {
-      "label": "ScoreColor",
+      "label": "StoredMember",
       "file_type": "code",
-      "source_file": "src/types/index.ts",
-      "source_location": "L8",
+      "source_file": "src/utils/cohort.ts",
+      "source_location": "L25",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "id": "src_types_index_scorecolor",
+      "id": "src_utils_cohort_storedmember",
       "community": 34,
       "community_name": "ResultsDashboard.tsx",
-      "norm_label": "scorecolor"
+      "norm_label": "storedmember"
+    },
+    {
+      "label": "CareerEntry",
+      "file_type": "code",
+      "source_file": "src/data/profile.ts",
+      "source_location": "L34",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "id": "src_data_profile_careerentry",
+      "community": 35,
+      "community_name": "profile.ts",
+      "norm_label": "careerentry"
+    },
+    {
+      "label": "CredentialEntry",
+      "file_type": "code",
+      "source_file": "src/data/profile.ts",
+      "source_location": "L29",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "id": "src_data_profile_credentialentry",
+      "community": 35,
+      "community_name": "profile.ts",
+      "norm_label": "credentialentry"
     },
     {
       "label": "FaqEntry",
       "file_type": "code",
       "source_file": "src/data/profile.ts",
-      "source_location": "L15",
+      "source_location": "L18",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
       "id": "src_data_profile_faqentry",
       "community": 35,
-      "community_name": "seo-alignment.test.ts",
+      "community_name": "profile.ts",
       "norm_label": "faqentry"
     },
     {
       "label": "ReferenceArticle",
       "file_type": "code",
       "source_file": "src/data/profile.ts",
-      "source_location": "L7",
+      "source_location": "L10",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
       "id": "src_data_profile_referencearticle",
       "community": 35,
-      "community_name": "seo-alignment.test.ts",
+      "community_name": "profile.ts",
       "norm_label": "referencearticle"
+    },
+    {
+      "label": "SourcedQuote",
+      "file_type": "code",
+      "source_file": "src/data/profile.ts",
+      "source_location": "L23",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "id": "src_data_profile_sourcedquote",
+      "community": 35,
+      "community_name": "profile.ts",
+      "norm_label": "sourcedquote"
     },
     {
       "label": "ActivatorCardProps",
@@ -576,18 +615,6 @@
       "norm_label": "scoringzone"
     },
     {
-      "label": "FrameworkDiagram()",
-      "file_type": "code",
-      "source_file": "src/components/FrameworkDiagram.tsx",
-      "source_location": "L54",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "src_components_frameworkdiagram_frameworkdiagram",
-      "community": 1,
-      "community_name": "index.ts",
-      "norm_label": "frameworkdiagram()"
-    },
-    {
       "label": "FrameworkOverview()",
       "file_type": "code",
       "source_file": "src/components/FrameworkOverview.tsx",
@@ -600,30 +627,6 @@
       "norm_label": "frameworkoverview()"
     },
     {
-      "label": "consumeFocusQuadrant()",
-      "file_type": "code",
-      "source_file": "src/components/FrameworkSection.tsx",
-      "source_location": "L14",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "src_components_frameworksection_consumefocusquadrant",
-      "community": 1,
-      "community_name": "index.ts",
-      "norm_label": "consumefocusquadrant()"
-    },
-    {
-      "label": "FrameworkSection()",
-      "file_type": "code",
-      "source_file": "src/components/FrameworkSection.tsx",
-      "source_location": "L27",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "src_components_frameworksection_frameworksection",
-      "community": 1,
-      "community_name": "index.ts",
-      "norm_label": "frameworksection()"
-    },
-    {
       "label": "PlaybookModules()",
       "file_type": "code",
       "source_file": "src/components/PlaybookModules.tsx",
@@ -634,18 +637,6 @@
       "community": 1,
       "community_name": "index.ts",
       "norm_label": "playbookmodules()"
-    },
-    {
-      "label": "QuadrantDetail()",
-      "file_type": "code",
-      "source_file": "src/components/QuadrantDetail.tsx",
-      "source_location": "L15",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "src_components_quadrantdetail_quadrantdetail",
-      "community": 1,
-      "community_name": "index.ts",
-      "norm_label": "quadrantdetail()"
     },
     {
       "label": "TCCARAssessment()",
@@ -696,6 +687,42 @@
       "norm_label": "cohortdashboard()"
     },
     {
+      "label": "FrameworkDiagram()",
+      "file_type": "code",
+      "source_file": "src/components/FrameworkDiagram.tsx",
+      "source_location": "L54",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "src_components_frameworkdiagram_frameworkdiagram",
+      "community": 2,
+      "community_name": "App.tsx",
+      "norm_label": "frameworkdiagram()"
+    },
+    {
+      "label": "consumeFocusQuadrant()",
+      "file_type": "code",
+      "source_file": "src/components/FrameworkSection.tsx",
+      "source_location": "L14",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "src_components_frameworksection_consumefocusquadrant",
+      "community": 2,
+      "community_name": "App.tsx",
+      "norm_label": "consumefocusquadrant()"
+    },
+    {
+      "label": "FrameworkSection()",
+      "file_type": "code",
+      "source_file": "src/components/FrameworkSection.tsx",
+      "source_location": "L27",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "src_components_frameworksection_frameworksection",
+      "community": 2,
+      "community_name": "App.tsx",
+      "norm_label": "frameworksection()"
+    },
+    {
       "label": "Header()",
       "file_type": "code",
       "source_file": "src/components/Header.tsx",
@@ -718,6 +745,18 @@
       "community": 2,
       "community_name": "App.tsx",
       "norm_label": "quadrantmark()"
+    },
+    {
+      "label": "QuadrantDetail()",
+      "file_type": "code",
+      "source_file": "src/components/QuadrantDetail.tsx",
+      "source_location": "L15",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "src_components_quadrantdetail_quadrantdetail",
+      "community": 2,
+      "community_name": "App.tsx",
+      "norm_label": "quadrantdetail()"
     },
     {
       "label": "MonogramSeal()",
@@ -972,6 +1011,42 @@
       "norm_label": "calculateoverallscore()"
     },
     {
+      "label": "calculateScore()",
+      "file_type": "code",
+      "source_file": "src/utils/scoring.ts",
+      "source_location": "L12",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "src_utils_scoring_calculatescore",
+      "community": 3,
+      "community_name": "constants.ts",
+      "norm_label": "calculatescore()"
+    },
+    {
+      "label": "getScoreLabel()",
+      "file_type": "code",
+      "source_file": "src/utils/scoring.ts",
+      "source_location": "L69",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "src_utils_scoring_getscorelabel",
+      "community": 3,
+      "community_name": "constants.ts",
+      "norm_label": "getscorelabel()"
+    },
+    {
+      "label": "mapToActivators()",
+      "file_type": "code",
+      "source_file": "src/utils/scoring.ts",
+      "source_location": "L81",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "src_utils_scoring_maptoactivators",
+      "community": 3,
+      "community_name": "constants.ts",
+      "norm_label": "maptoactivators()"
+    },
+    {
       "label": "ScoreCell()",
       "file_type": "code",
       "source_file": "src/components/CohortDashboard.tsx",
@@ -1044,18 +1119,6 @@
       "norm_label": "resultsdashboard()"
     },
     {
-      "label": "calculateScore()",
-      "file_type": "code",
-      "source_file": "src/utils/scoring.ts",
-      "source_location": "L12",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "src_utils_scoring_calculatescore",
-      "community": 34,
-      "community_name": "ResultsDashboard.tsx",
-      "norm_label": "calculatescore()"
-    },
-    {
       "label": "getScoreBgColorClass()",
       "file_type": "code",
       "source_file": "src/utils/scoring.ts",
@@ -1092,63 +1155,51 @@
       "norm_label": "getscorecolorclass()"
     },
     {
-      "label": "getScoreLabel()",
-      "file_type": "code",
-      "source_file": "src/utils/scoring.ts",
-      "source_location": "L69",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "src_utils_scoring_getscorelabel",
-      "community": 34,
-      "community_name": "ResultsDashboard.tsx",
-      "norm_label": "getscorelabel()"
-    },
-    {
-      "label": "mapToActivators()",
-      "file_type": "code",
-      "source_file": "src/utils/scoring.ts",
-      "source_location": "L81",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "src_utils_scoring_maptoactivators",
-      "community": 34,
-      "community_name": "ResultsDashboard.tsx",
-      "norm_label": "maptoactivators()"
-    },
-    {
       "label": "AboutAuthor()",
       "file_type": "code",
       "source_file": "src/components/AboutAuthor.tsx",
-      "source_location": "L12",
+      "source_location": "L27",
       "_callable": true,
       "_origin": "ast",
       "id": "src_components_aboutauthor_aboutauthor",
       "community": 35,
-      "community_name": "seo-alignment.test.ts",
+      "community_name": "profile.ts",
       "norm_label": "aboutauthor()"
+    },
+    {
+      "label": "person()",
+      "file_type": "code",
+      "source_file": "src/__tests__/linkedin-consistency.test.ts",
+      "source_location": "L35",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "src_tests_linkedin_consistency_test_person",
+      "community": 35,
+      "community_name": "profile.ts",
+      "norm_label": "person()"
     },
     {
       "label": "getJsonLd()",
       "file_type": "code",
       "source_file": "src/__tests__/seo-alignment.test.ts",
-      "source_location": "L12",
+      "source_location": "L22",
       "_callable": true,
       "_origin": "ast",
       "id": "src_tests_seo_alignment_test_getjsonld",
       "community": 35,
-      "community_name": "seo-alignment.test.ts",
+      "community_name": "profile.ts",
       "norm_label": "getjsonld()"
     },
     {
       "label": "nodeOfType()",
       "file_type": "code",
       "source_file": "src/__tests__/seo-alignment.test.ts",
-      "source_location": "L20",
+      "source_location": "L30",
       "_callable": true,
       "_origin": "ast",
       "id": "src_tests_seo_alignment_test_nodeoftype",
       "community": 35,
-      "community_name": "seo-alignment.test.ts",
+      "community_name": "profile.ts",
       "norm_label": "nodeoftype()"
     },
     {
@@ -1854,28 +1905,6 @@
       "norm_label": "domains"
     },
     {
-      "label": "FrameworkSection.tsx",
-      "file_type": "code",
-      "source_file": "src/components/FrameworkSection.tsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "src_components_frameworksection",
-      "community": 1,
-      "community_name": "index.ts",
-      "norm_label": "frameworksection.tsx"
-    },
-    {
-      "label": "QUADRANTS",
-      "file_type": "code",
-      "source_file": "src/components/FrameworkSection.tsx",
-      "source_location": "L8",
-      "_origin": "ast",
-      "id": "src_components_frameworksection_quadrants",
-      "community": 1,
-      "community_name": "index.ts",
-      "norm_label": "quadrants"
-    },
-    {
       "label": "PlaybookModules.tsx",
       "file_type": "code",
       "source_file": "src/components/PlaybookModules.tsx",
@@ -1984,17 +2013,6 @@
       "community": 1,
       "community_name": "index.ts",
       "norm_label": "interventions-alignment.test.ts"
-    },
-    {
-      "label": "framework.test.tsx",
-      "file_type": "code",
-      "source_file": "src/__tests__/framework.test.tsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "src_tests_framework_test",
-      "community": 1,
-      "community_name": "index.ts",
-      "norm_label": "framework.test.tsx"
     },
     {
       "label": "index.ts",
@@ -2478,6 +2496,28 @@
       "norm_label": "statustint"
     },
     {
+      "label": "FrameworkSection.tsx",
+      "file_type": "code",
+      "source_file": "src/components/FrameworkSection.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_components_frameworksection",
+      "community": 2,
+      "community_name": "App.tsx",
+      "norm_label": "frameworksection.tsx"
+    },
+    {
+      "label": "QUADRANTS",
+      "file_type": "code",
+      "source_file": "src/components/FrameworkSection.tsx",
+      "source_location": "L8",
+      "_origin": "ast",
+      "id": "src_components_frameworksection_quadrants",
+      "community": 2,
+      "community_name": "App.tsx",
+      "norm_label": "quadrants"
+    },
+    {
       "label": "Header.tsx",
       "file_type": "code",
       "source_file": "src/components/Header.tsx",
@@ -2608,6 +2648,17 @@
       "community": 2,
       "community_name": "App.tsx",
       "norm_label": "scoresb"
+    },
+    {
+      "label": "framework.test.tsx",
+      "file_type": "code",
+      "source_file": "src/__tests__/framework.test.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_tests_framework_test",
+      "community": 2,
+      "community_name": "App.tsx",
+      "norm_label": "framework.test.tsx"
     },
     {
       "label": "cohort.ts",
@@ -2767,7 +2818,7 @@
       "label": "Earlier changes (2026-07-08)",
       "file_type": "document",
       "source_file": "GUIDE.md",
-      "source_location": "L90",
+      "source_location": "L133",
       "_origin": "ast",
       "id": "guide_earlier_changes_2026_07_08",
       "community": 21,
@@ -2811,7 +2862,7 @@
       "label": "What changed most recently (2026-08-13)",
       "file_type": "document",
       "source_file": "GUIDE.md",
-      "source_location": "L78",
+      "source_location": "L121",
       "_origin": "ast",
       "id": "guide_what_changed_most_recently_2026_08_13",
       "community": 21,
@@ -2855,7 +2906,7 @@
       "label": "Done (chronology)",
       "file_type": "document",
       "source_file": "PROJECT_STATE.md",
-      "source_location": "L92",
+      "source_location": "L120",
       "_origin": "ast",
       "id": "project_state_done_chronology",
       "community": 22,
@@ -2866,7 +2917,7 @@
       "label": "How to resume",
       "file_type": "document",
       "source_file": "PROJECT_STATE.md",
-      "source_location": "L81",
+      "source_location": "L109",
       "_origin": "ast",
       "id": "project_state_how_to_resume",
       "community": 22,
@@ -2877,7 +2928,7 @@
       "label": "Next (open)",
       "file_type": "document",
       "source_file": "PROJECT_STATE.md",
-      "source_location": "L108",
+      "source_location": "L136",
       "_origin": "ast",
       "id": "project_state_next_open",
       "community": 22,
@@ -3314,6 +3365,39 @@
       "norm_label": "questions_per_dimension"
     },
     {
+      "label": "SCORE_LABELS",
+      "file_type": "code",
+      "source_file": "src/constants.ts",
+      "source_location": "L48",
+      "_origin": "ast",
+      "id": "src_constants_score_labels",
+      "community": 3,
+      "community_name": "constants.ts",
+      "norm_label": "score_labels"
+    },
+    {
+      "label": "SCORE_THRESHOLDS",
+      "file_type": "code",
+      "source_file": "src/constants.ts",
+      "source_location": "L41",
+      "_origin": "ast",
+      "id": "src_constants_score_thresholds",
+      "community": 3,
+      "community_name": "constants.ts",
+      "norm_label": "score_thresholds"
+    },
+    {
+      "label": "dimensionToActivators",
+      "file_type": "code",
+      "source_file": "src/data/interventions.ts",
+      "source_location": "L309",
+      "_origin": "ast",
+      "id": "src_data_interventions_dimensiontoactivators",
+      "community": 3,
+      "community_name": "constants.ts",
+      "norm_label": "dimensiontoactivators"
+    },
+    {
       "label": "questions.ts",
       "file_type": "code",
       "source_file": "src/data/questions.ts",
@@ -3358,6 +3442,17 @@
       "norm_label": "questions-alignment.test.ts"
     },
     {
+      "label": "scoring-alignment.test.ts",
+      "file_type": "code",
+      "source_file": "src/__tests__/alignment/scoring-alignment.test.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_tests_alignment_scoring_alignment_test",
+      "community": 3,
+      "community_name": "constants.ts",
+      "norm_label": "scoring-alignment.test.ts"
+    },
+    {
       "label": "diagnostic.test.tsx",
       "file_type": "code",
       "source_file": "src/__tests__/diagnostic.test.tsx",
@@ -3367,6 +3462,17 @@
       "community": 3,
       "community_name": "constants.ts",
       "norm_label": "diagnostic.test.tsx"
+    },
+    {
+      "label": "scoring.ts",
+      "file_type": "code",
+      "source_file": "src/utils/scoring.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_utils_scoring",
+      "community": 3,
+      "community_name": "constants.ts",
+      "norm_label": "scoring.ts"
     },
     {
       "label": "CLAUDE.md",
@@ -3523,50 +3629,6 @@
       "norm_label": "statuscolor"
     },
     {
-      "label": "SCORE_LABELS",
-      "file_type": "code",
-      "source_file": "src/constants.ts",
-      "source_location": "L48",
-      "_origin": "ast",
-      "id": "src_constants_score_labels",
-      "community": 34,
-      "community_name": "ResultsDashboard.tsx",
-      "norm_label": "score_labels"
-    },
-    {
-      "label": "SCORE_THRESHOLDS",
-      "file_type": "code",
-      "source_file": "src/constants.ts",
-      "source_location": "L41",
-      "_origin": "ast",
-      "id": "src_constants_score_thresholds",
-      "community": 34,
-      "community_name": "ResultsDashboard.tsx",
-      "norm_label": "score_thresholds"
-    },
-    {
-      "label": "dimensionToActivators",
-      "file_type": "code",
-      "source_file": "src/data/interventions.ts",
-      "source_location": "L309",
-      "_origin": "ast",
-      "id": "src_data_interventions_dimensiontoactivators",
-      "community": 34,
-      "community_name": "ResultsDashboard.tsx",
-      "norm_label": "dimensiontoactivators"
-    },
-    {
-      "label": "scoring-alignment.test.ts",
-      "file_type": "code",
-      "source_file": "src/__tests__/alignment/scoring-alignment.test.ts",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "src_tests_alignment_scoring_alignment_test",
-      "community": 34,
-      "community_name": "ResultsDashboard.tsx",
-      "norm_label": "scoring-alignment.test.ts"
-    },
-    {
       "label": "results.test.tsx",
       "file_type": "code",
       "source_file": "src/__tests__/results.test.tsx",
@@ -3578,17 +3640,6 @@
       "norm_label": "results.test.tsx"
     },
     {
-      "label": "scoring.ts",
-      "file_type": "code",
-      "source_file": "src/utils/scoring.ts",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "src_utils_scoring",
-      "community": 34,
-      "community_name": "ResultsDashboard.tsx",
-      "norm_label": "scoring.ts"
-    },
-    {
       "label": "AboutAuthor.tsx",
       "file_type": "code",
       "source_file": "src/components/AboutAuthor.tsx",
@@ -3596,8 +3647,19 @@
       "_origin": "ast",
       "id": "src_components_aboutauthor",
       "community": 35,
-      "community_name": "seo-alignment.test.ts",
+      "community_name": "profile.ts",
       "norm_label": "aboutauthor.tsx"
+    },
+    {
+      "label": "MICRO_LABEL",
+      "file_type": "code",
+      "source_file": "src/components/AboutAuthor.tsx",
+      "source_location": "L11",
+      "_origin": "ast",
+      "id": "src_components_aboutauthor_micro_label",
+      "community": 35,
+      "community_name": "profile.ts",
+      "norm_label": "micro_label"
     },
     {
       "label": "profile.ts",
@@ -3607,51 +3669,106 @@
       "_origin": "ast",
       "id": "src_data_profile",
       "community": 35,
-      "community_name": "seo-alignment.test.ts",
+      "community_name": "profile.ts",
       "norm_label": "profile.ts"
+    },
+    {
+      "label": "career",
+      "file_type": "code",
+      "source_file": "src/data/profile.ts",
+      "source_location": "L154",
+      "_origin": "ast",
+      "id": "src_data_profile_career",
+      "community": 35,
+      "community_name": "profile.ts",
+      "norm_label": "career"
+    },
+    {
+      "label": "CONTENT_LAST_MODIFIED",
+      "file_type": "code",
+      "source_file": "src/data/profile.ts",
+      "source_location": "L48",
+      "_origin": "ast",
+      "id": "src_data_profile_content_last_modified",
+      "community": 35,
+      "community_name": "profile.ts",
+      "norm_label": "content_last_modified"
+    },
+    {
+      "label": "credentials",
+      "file_type": "code",
+      "source_file": "src/data/profile.ts",
+      "source_location": "L206",
+      "_origin": "ast",
+      "id": "src_data_profile_credentials",
+      "community": 35,
+      "community_name": "profile.ts",
+      "norm_label": "credentials"
     },
     {
       "label": "faqEntries",
       "file_type": "code",
       "source_file": "src/data/profile.ts",
-      "source_location": "L71",
+      "source_location": "L264",
       "_origin": "ast",
       "id": "src_data_profile_faqentries",
       "community": 35,
-      "community_name": "seo-alignment.test.ts",
+      "community_name": "profile.ts",
       "norm_label": "faqentries"
+    },
+    {
+      "label": "ownedProfiles",
+      "file_type": "code",
+      "source_file": "src/data/profile.ts",
+      "source_location": "L197",
+      "_origin": "ast",
+      "id": "src_data_profile_ownedprofiles",
+      "community": 35,
+      "community_name": "profile.ts",
+      "norm_label": "ownedprofiles"
     },
     {
       "label": "profile",
       "file_type": "code",
       "source_file": "src/data/profile.ts",
-      "source_location": "L27",
+      "source_location": "L50",
       "_origin": "ast",
       "id": "src_data_profile_profile",
       "community": 35,
-      "community_name": "seo-alignment.test.ts",
+      "community_name": "profile.ts",
       "norm_label": "profile"
+    },
+    {
+      "label": "quotes",
+      "file_type": "code",
+      "source_file": "src/data/profile.ts",
+      "source_location": "L244",
+      "_origin": "ast",
+      "id": "src_data_profile_quotes",
+      "community": 35,
+      "community_name": "profile.ts",
+      "norm_label": "quotes"
     },
     {
       "label": "referenceArticles",
       "file_type": "code",
       "source_file": "src/data/profile.ts",
-      "source_location": "L53",
+      "source_location": "L225",
       "_origin": "ast",
       "id": "src_data_profile_referencearticles",
       "community": 35,
-      "community_name": "seo-alignment.test.ts",
+      "community_name": "profile.ts",
       "norm_label": "referencearticles"
     },
     {
       "label": "SITE_URL",
       "file_type": "code",
       "source_file": "src/data/profile.ts",
-      "source_location": "L25",
+      "source_location": "L45",
       "_origin": "ast",
       "id": "src_data_profile_site_url",
       "community": 35,
-      "community_name": "seo-alignment.test.ts",
+      "community_name": "profile.ts",
       "norm_label": "site_url"
     },
     {
@@ -3662,8 +3779,63 @@
       "_origin": "ast",
       "id": "src_tests_about_author_test",
       "community": 35,
-      "community_name": "seo-alignment.test.ts",
+      "community_name": "profile.ts",
       "norm_label": "about-author.test.tsx"
+    },
+    {
+      "label": "linkedin-consistency.test.ts",
+      "file_type": "code",
+      "source_file": "src/__tests__/linkedin-consistency.test.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_tests_linkedin_consistency_test",
+      "community": 35,
+      "community_name": "profile.ts",
+      "norm_label": "linkedin-consistency.test.ts"
+    },
+    {
+      "label": "html",
+      "file_type": "code",
+      "source_file": "src/__tests__/linkedin-consistency.test.ts",
+      "source_location": "L32",
+      "_origin": "ast",
+      "id": "src_tests_linkedin_consistency_test_html",
+      "community": 35,
+      "community_name": "profile.ts",
+      "norm_label": "html"
+    },
+    {
+      "label": "LINKEDIN",
+      "file_type": "code",
+      "source_file": "src/__tests__/linkedin-consistency.test.ts",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "src_tests_linkedin_consistency_test_linkedin",
+      "community": 35,
+      "community_name": "profile.ts",
+      "norm_label": "linkedin"
+    },
+    {
+      "label": "llms",
+      "file_type": "code",
+      "source_file": "src/__tests__/linkedin-consistency.test.ts",
+      "source_location": "L33",
+      "_origin": "ast",
+      "id": "src_tests_linkedin_consistency_test_llms",
+      "community": 35,
+      "community_name": "profile.ts",
+      "norm_label": "llms"
+    },
+    {
+      "label": "ROOT",
+      "file_type": "code",
+      "source_file": "src/__tests__/linkedin-consistency.test.ts",
+      "source_location": "L31",
+      "_origin": "ast",
+      "id": "src_tests_linkedin_consistency_test_root",
+      "community": 35,
+      "community_name": "profile.ts",
+      "norm_label": "root"
     },
     {
       "label": "seo-alignment.test.ts",
@@ -3673,62 +3845,62 @@
       "_origin": "ast",
       "id": "src_tests_seo_alignment_test",
       "community": 35,
-      "community_name": "seo-alignment.test.ts",
+      "community_name": "profile.ts",
       "norm_label": "seo-alignment.test.ts"
     },
     {
       "label": "html",
       "file_type": "code",
       "source_file": "src/__tests__/seo-alignment.test.ts",
-      "source_location": "L6",
+      "source_location": "L16",
       "_origin": "ast",
       "id": "src_tests_seo_alignment_test_html",
       "community": 35,
-      "community_name": "seo-alignment.test.ts",
+      "community_name": "profile.ts",
       "norm_label": "html"
     },
     {
       "label": "llms",
       "file_type": "code",
       "source_file": "src/__tests__/seo-alignment.test.ts",
-      "source_location": "L8",
+      "source_location": "L18",
       "_origin": "ast",
       "id": "src_tests_seo_alignment_test_llms",
       "community": 35,
-      "community_name": "seo-alignment.test.ts",
+      "community_name": "profile.ts",
       "norm_label": "llms"
     },
     {
       "label": "robots",
       "file_type": "code",
       "source_file": "src/__tests__/seo-alignment.test.ts",
-      "source_location": "L7",
+      "source_location": "L17",
       "_origin": "ast",
       "id": "src_tests_seo_alignment_test_robots",
       "community": 35,
-      "community_name": "seo-alignment.test.ts",
+      "community_name": "profile.ts",
       "norm_label": "robots"
     },
     {
       "label": "ROOT",
       "file_type": "code",
       "source_file": "src/__tests__/seo-alignment.test.ts",
-      "source_location": "L5",
+      "source_location": "L15",
       "_origin": "ast",
       "id": "src_tests_seo_alignment_test_root",
       "community": 35,
-      "community_name": "seo-alignment.test.ts",
+      "community_name": "profile.ts",
       "norm_label": "root"
     },
     {
       "label": "sitemap",
       "file_type": "code",
       "source_file": "src/__tests__/seo-alignment.test.ts",
-      "source_location": "L9",
+      "source_location": "L19",
       "_origin": "ast",
       "id": "src_tests_seo_alignment_test_sitemap",
       "community": 35,
-      "community_name": "seo-alignment.test.ts",
+      "community_name": "profile.ts",
       "norm_label": "sitemap"
     },
     {
@@ -5104,7 +5276,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/__tests__/seo-alignment.test.ts",
-      "source_location": "L21",
+      "source_location": "L31",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_tests_seo_alignment_test_nodeoftype",
@@ -6116,6 +6288,18 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_components_aboutauthor",
+      "target": "src_data_profile_credentials",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/AboutAuthor.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_components_aboutauthor",
       "target": "src_data_profile_faqentries",
       "confidence_score": 1.0
     },
@@ -6128,7 +6312,31 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_components_aboutauthor",
+      "target": "src_data_profile_ownedprofiles",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/AboutAuthor.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_components_aboutauthor",
       "target": "src_data_profile_profile",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/AboutAuthor.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_components_aboutauthor",
+      "target": "src_data_profile_quotes",
       "confidence_score": 1.0
     },
     {
@@ -7292,6 +7500,30 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_tests_about_author_test",
+      "target": "src_data_profile_career",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/__tests__/about-author.test.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_tests_about_author_test",
+      "target": "src_data_profile_credentials",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/__tests__/about-author.test.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_tests_about_author_test",
       "target": "src_data_profile_faqentries",
       "confidence_score": 1.0
     },
@@ -7304,7 +7536,31 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_tests_about_author_test",
+      "target": "src_data_profile_ownedprofiles",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/__tests__/about-author.test.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_tests_about_author_test",
       "target": "src_data_profile_profile",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/__tests__/about-author.test.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_tests_about_author_test",
+      "target": "src_data_profile_quotes",
       "confidence_score": 1.0
     },
     {
@@ -7935,6 +8191,54 @@
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "src/__tests__/linkedin-consistency.test.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_tests_linkedin_consistency_test",
+      "target": "src_data_profile_career",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/__tests__/linkedin-consistency.test.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_tests_linkedin_consistency_test",
+      "target": "src_data_profile_credentials",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/__tests__/linkedin-consistency.test.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_tests_linkedin_consistency_test",
+      "target": "src_data_profile_ownedprofiles",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/__tests__/linkedin-consistency.test.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_tests_linkedin_consistency_test",
+      "target": "src_data_profile_profile",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "src/__tests__/results.test.tsx",
       "source_location": "L2",
       "weight": 1.0,
@@ -7988,6 +8292,42 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_tests_seo_alignment_test",
+      "target": "src_data_profile_career",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/__tests__/seo-alignment.test.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_tests_seo_alignment_test",
+      "target": "src_data_profile_content_last_modified",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/__tests__/seo-alignment.test.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_tests_seo_alignment_test",
+      "target": "src_data_profile_credentials",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/__tests__/seo-alignment.test.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_tests_seo_alignment_test",
       "target": "src_data_profile_faqentries",
       "confidence_score": 1.0
     },
@@ -8000,7 +8340,31 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_tests_seo_alignment_test",
+      "target": "src_data_profile_ownedprofiles",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/__tests__/seo-alignment.test.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_tests_seo_alignment_test",
       "target": "src_data_profile_profile",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/__tests__/seo-alignment.test.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_tests_seo_alignment_test",
+      "target": "src_data_profile_quotes",
       "confidence_score": 1.0
     },
     {
@@ -9555,6 +9919,18 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "src/__tests__/linkedin-consistency.test.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_tests_linkedin_consistency_test",
+      "target": "src_data_profile",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "src/__tests__/results.test.tsx",
       "source_location": "L2",
       "weight": 1.0,
@@ -10280,6 +10656,28 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "GUIDE.md",
+      "source_location": "L121",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "guide_guide_md_what_the_orgdesign_playbook_does_and_how_to_run_it",
+      "target": "guide_what_changed_most_recently_2026_08_13",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "GUIDE.md",
+      "source_location": "L133",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "guide_guide_md_what_the_orgdesign_playbook_does_and_how_to_run_it",
+      "target": "guide_earlier_changes_2026_07_08",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "GUIDE.md",
       "source_location": "L37",
       "weight": 1.0,
       "_origin": "ast",
@@ -10329,28 +10727,6 @@
       "_origin": "ast",
       "source": "guide_guide_md_what_the_orgdesign_playbook_does_and_how_to_run_it",
       "target": "guide_being_found_by_google_and_ai_assistants",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "GUIDE.md",
-      "source_location": "L78",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "guide_guide_md_what_the_orgdesign_playbook_does_and_how_to_run_it",
-      "target": "guide_what_changed_most_recently_2026_08_13",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "GUIDE.md",
-      "source_location": "L90",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "guide_guide_md_what_the_orgdesign_playbook_does_and_how_to_run_it",
-      "target": "guide_earlier_changes_2026_07_08",
       "confidence_score": 1.0
     },
     {
@@ -10852,7 +11228,29 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "PROJECT_STATE.md",
-      "source_location": "L108",
+      "source_location": "L109",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "project_state_project_state_md_orgdesign_playbook",
+      "target": "project_state_how_to_resume",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PROJECT_STATE.md",
+      "source_location": "L120",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "project_state_project_state_md_orgdesign_playbook",
+      "target": "project_state_done_chronology",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PROJECT_STATE.md",
+      "source_location": "L136",
       "weight": 1.0,
       "_origin": "ast",
       "source": "project_state_project_state_md_orgdesign_playbook",
@@ -10879,28 +11277,6 @@
       "_origin": "ast",
       "source": "project_state_project_state_md_orgdesign_playbook",
       "target": "project_state_what_this_project_is",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "PROJECT_STATE.md",
-      "source_location": "L81",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "project_state_project_state_md_orgdesign_playbook",
-      "target": "project_state_how_to_resume",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "PROJECT_STATE.md",
-      "source_location": "L92",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "project_state_project_state_md_orgdesign_playbook",
-      "target": "project_state_done_chronology",
       "confidence_score": 1.0
     },
     {
@@ -10995,7 +11371,18 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/components/AboutAuthor.tsx",
-      "source_location": "L12",
+      "source_location": "L11",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_components_aboutauthor",
+      "target": "src_components_aboutauthor_micro_label",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/AboutAuthor.tsx",
+      "source_location": "L27",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_components_aboutauthor",
@@ -11919,51 +12306,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/data/profile.ts",
-      "source_location": "L15",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "src_data_profile",
-      "target": "src_data_profile_faqentry",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/data/profile.ts",
-      "source_location": "L25",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "src_data_profile",
-      "target": "src_data_profile_site_url",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/data/profile.ts",
-      "source_location": "L27",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "src_data_profile",
-      "target": "src_data_profile_profile",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/data/profile.ts",
-      "source_location": "L53",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "src_data_profile",
-      "target": "src_data_profile_referencearticles",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/data/profile.ts",
-      "source_location": "L7",
+      "source_location": "L10",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_data_profile",
@@ -11974,11 +12317,143 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/data/profile.ts",
-      "source_location": "L71",
+      "source_location": "L154",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_data_profile",
+      "target": "src_data_profile_career",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/profile.ts",
+      "source_location": "L18",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_data_profile",
+      "target": "src_data_profile_faqentry",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/profile.ts",
+      "source_location": "L197",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_data_profile",
+      "target": "src_data_profile_ownedprofiles",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/profile.ts",
+      "source_location": "L206",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_data_profile",
+      "target": "src_data_profile_credentials",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/profile.ts",
+      "source_location": "L225",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_data_profile",
+      "target": "src_data_profile_referencearticles",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/profile.ts",
+      "source_location": "L23",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_data_profile",
+      "target": "src_data_profile_sourcedquote",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/profile.ts",
+      "source_location": "L244",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_data_profile",
+      "target": "src_data_profile_quotes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/profile.ts",
+      "source_location": "L264",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_data_profile",
       "target": "src_data_profile_faqentries",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/profile.ts",
+      "source_location": "L29",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_data_profile",
+      "target": "src_data_profile_credentialentry",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/profile.ts",
+      "source_location": "L34",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_data_profile",
+      "target": "src_data_profile_careerentry",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/profile.ts",
+      "source_location": "L45",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_data_profile",
+      "target": "src_data_profile_site_url",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/profile.ts",
+      "source_location": "L48",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_data_profile",
+      "target": "src_data_profile_content_last_modified",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/profile.ts",
+      "source_location": "L50",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_data_profile",
+      "target": "src_data_profile_profile",
       "confidence_score": 1.0
     },
     {
@@ -12094,30 +12569,63 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "src/__tests__/seo-alignment.test.ts",
-      "source_location": "L12",
+      "source_file": "src/__tests__/linkedin-consistency.test.ts",
+      "source_location": "L15",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "src_tests_seo_alignment_test",
-      "target": "src_tests_seo_alignment_test_getjsonld",
+      "source": "src_tests_linkedin_consistency_test",
+      "target": "src_tests_linkedin_consistency_test_linkedin",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/__tests__/linkedin-consistency.test.ts",
+      "source_location": "L31",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_tests_linkedin_consistency_test",
+      "target": "src_tests_linkedin_consistency_test_root",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/__tests__/linkedin-consistency.test.ts",
+      "source_location": "L32",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_tests_linkedin_consistency_test",
+      "target": "src_tests_linkedin_consistency_test_html",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/__tests__/linkedin-consistency.test.ts",
+      "source_location": "L33",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_tests_linkedin_consistency_test",
+      "target": "src_tests_linkedin_consistency_test_llms",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/__tests__/linkedin-consistency.test.ts",
+      "source_location": "L35",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_tests_linkedin_consistency_test",
+      "target": "src_tests_linkedin_consistency_test_person",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/__tests__/seo-alignment.test.ts",
-      "source_location": "L20",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "src_tests_seo_alignment_test",
-      "target": "src_tests_seo_alignment_test_nodeoftype",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/__tests__/seo-alignment.test.ts",
-      "source_location": "L5",
+      "source_location": "L15",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_tests_seo_alignment_test",
@@ -12128,7 +12636,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/__tests__/seo-alignment.test.ts",
-      "source_location": "L6",
+      "source_location": "L16",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_tests_seo_alignment_test",
@@ -12139,7 +12647,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/__tests__/seo-alignment.test.ts",
-      "source_location": "L7",
+      "source_location": "L17",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_tests_seo_alignment_test",
@@ -12150,7 +12658,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/__tests__/seo-alignment.test.ts",
-      "source_location": "L8",
+      "source_location": "L18",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_tests_seo_alignment_test",
@@ -12161,11 +12669,33 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/__tests__/seo-alignment.test.ts",
-      "source_location": "L9",
+      "source_location": "L19",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_tests_seo_alignment_test",
       "target": "src_tests_seo_alignment_test_sitemap",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/__tests__/seo-alignment.test.ts",
+      "source_location": "L22",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_tests_seo_alignment_test",
+      "target": "src_tests_seo_alignment_test_getjsonld",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/__tests__/seo-alignment.test.ts",
+      "source_location": "L30",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_tests_seo_alignment_test",
+      "target": "src_tests_seo_alignment_test_nodeoftype",
       "confidence_score": 1.0
     },
     {
@@ -13163,5 +13693,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "70d1fbdcbceecfc04f5b3ddb065bd52aa58527cc"
+  "built_at_commit": "586aaf6d40628693c28184e81e3b031490511c63"
 }

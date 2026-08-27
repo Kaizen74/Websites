@@ -30,8 +30,8 @@
     "semantic_hash": "9723d0b0dc0c9f9856dffe76db669e87"
   },
   "src/App.tsx": {
-    "mtime": 1787742459.490548,
-    "ast_hash": "41b1e7f88f57b5899fc3db55f536617e",
+    "mtime": 1787743887.0653841,
+    "ast_hash": "ec8345abfd5c7c54279b09fc7ad78791",
     "semantic_hash": ""
   },
   "src/__tests__/alignment/activators-alignment.test.ts": {
@@ -55,8 +55,8 @@
     "semantic_hash": "be788b3388064bae31b2245d63b35a3d"
   },
   "src/__tests__/app-smoke.test.tsx": {
-    "mtime": 1787742459.490548,
-    "ast_hash": "4bfc7bf044269f7a54b2ea9bc83c35ac",
+    "mtime": 1787743988.2733824,
+    "ast_hash": "2bb57d8f8d25387c00231e8d0ef77170",
     "semantic_hash": ""
   },
   "src/__tests__/cohort.test.tsx": {
@@ -175,8 +175,8 @@
     "semantic_hash": "9eb158ccc42ce548e323132173d77860"
   },
   "src/constants.ts": {
-    "mtime": 1787742459.490548,
-    "ast_hash": "45e9c6bab8b9e22d6b12d8b2d9409889",
+    "mtime": 1787743875.2053843,
+    "ast_hash": "c52a1950322de5b4adb072583d221ec0",
     "semantic_hash": ""
   },
   "src/data/activators.ts": {
@@ -230,9 +230,9 @@
     "semantic_hash": "e78507f2546de2adc02da228a9311097"
   },
   "tsconfig.app.json": {
-    "mtime": 1786517181.0052028,
-    "ast_hash": "06fed9d2d293837c0571529eaae7204a",
-    "semantic_hash": "06fed9d2d293837c0571529eaae7204a"
+    "mtime": 1787744041.4693813,
+    "ast_hash": "17b090d7211f887583f7d8fc01fe0b1e",
+    "semantic_hash": ""
   },
   "tsconfig.json": {
     "mtime": 1786517181.0052028,
@@ -320,18 +320,18 @@
     "semantic_hash": ""
   },
   "DECISIONS.md": {
-    "mtime": 1787742670.4071338,
-    "ast_hash": "979e7aeb7d759f6c7a0b60f99a162130",
+    "mtime": 1787756843.304733,
+    "ast_hash": "a47caf7b7cde80d18075764db1c5f3b7",
     "semantic_hash": ""
   },
   "GUIDE.md": {
-    "mtime": 1787742659.9191341,
-    "ast_hash": "b55457f4213f5576eb310b36aa985981",
+    "mtime": 1787756862.4607325,
+    "ast_hash": "08bb850d44f419e775029755c1d93c8c",
     "semantic_hash": ""
   },
   "PROJECT_STATE.md": {
-    "mtime": 1787742684.7231338,
-    "ast_hash": "39ab9f13055916c61df408ba697269c7",
+    "mtime": 1787756851.9327328,
+    "ast_hash": "72b84d341a889899d3b0a2ed89b6a051",
     "semantic_hash": ""
   },
   "README.md": {
@@ -340,8 +340,8 @@
     "semantic_hash": ""
   },
   "index.html": {
-    "mtime": 1786517180.984605,
-    "ast_hash": "ef451ccd6ce621f4f4252ca098c34489",
+    "mtime": 1787756485.904741,
+    "ast_hash": "692f9b3f9329a3043cd81414674c911c",
     "semantic_hash": ""
   },
   "public/vite.svg": {
@@ -352,6 +352,61 @@
   "src/assets/react.svg": {
     "mtime": 1786517180.9963272,
     "ast_hash": "f0402b67b6ce880f65666bb49e841696",
+    "semantic_hash": ""
+  },
+  "src/__tests__/about-author.test.tsx": {
+    "mtime": 1787756636.8847377,
+    "ast_hash": "871f78330a479e54ba5a55c5d751c564",
+    "semantic_hash": ""
+  },
+  "src/__tests__/seo-alignment.test.ts": {
+    "mtime": 1787756686.6647365,
+    "ast_hash": "24dfa581f590d1bdadf718dc2d7631c1",
+    "semantic_hash": ""
+  },
+  "src/components/AboutAuthor.tsx": {
+    "mtime": 1787756519.6727405,
+    "ast_hash": "780c9de67d31988c586221b3290bbab0",
+    "semantic_hash": ""
+  },
+  "src/data/profile.ts": {
+    "mtime": 1787756441.7247422,
+    "ast_hash": "787270e84da38e0d67665cdad20a5c77",
+    "semantic_hash": ""
+  },
+  "public/llms.txt": {
+    "mtime": 1787756669.6496983,
+    "ast_hash": "810c3593be4219aed63c66b2d38b612b",
+    "semantic_hash": ""
+  },
+  "public/robots.txt": {
+    "mtime": 1787743812.2973855,
+    "ast_hash": "8d375e83911bf3e36dd5dabc0819adf5",
+    "semantic_hash": ""
+  },
+  "public/favicon.svg": {
+    "mtime": 1787743845.7293847,
+    "ast_hash": "855836bc32240b68999f7889d0faf2c0",
+    "semantic_hash": ""
+  },
+  "public/ed3d572b9fc84f1688083adfa9ece7e5.txt": {
+    "mtime": 1787755689.8314383,
+    "ast_hash": "5dce980a72d0a9c4396559aa71727d22",
+    "semantic_hash": ""
+  },
+  "public/indexnow-key.txt": {
+    "mtime": 1787755689.8314383,
+    "ast_hash": "5dce980a72d0a9c4396559aa71727d22",
+    "semantic_hash": ""
+  },
+  "public/og-image.png": {
+    "mtime": 1787755736.7327583,
+    "ast_hash": "a8a99a2197a3d7ee1a19388ae4c91d25",
+    "semantic_hash": ""
+  },
+  "src/__tests__/linkedin-consistency.test.ts": {
+    "mtime": 1787756571.9207392,
+    "ast_hash": "bacb23c7daabc6be10d69770f5cc6503",
     "semantic_hash": ""
   }
 }
