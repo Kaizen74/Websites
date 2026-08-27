@@ -45,7 +45,7 @@ export interface CareerEntry {
 export const SITE_URL = 'https://www.ericyim.example';
 
 /** Bump when the entity content changes — feeds schema freshness signals. */
-export const CONTENT_LAST_MODIFIED = '2026-08-26';
+export const CONTENT_LAST_MODIFIED = '2026-08-27';
 
 export const profile = {
   name: 'Eric Yim',
@@ -107,8 +107,15 @@ export const profile = {
       period: '2020–2022',
     },
   ],
-  /** Verified: LinkedIn (Shell Business Operations, 2018) */
-  award: 'Global Brandon Hall Silver Excellence for Blended Learning (2018)',
+  /**
+   * Awards, most recent first. Verified from LinkedIn. Each names the awarding
+   * programme, tier, category, year and the organization the work was done in
+   * — accurate attribution matters more than a bigger-sounding claim.
+   */
+  awards: [
+    'SHRI Singapore HR Awards 2025 — Gold, Talent Management & Acquisition (SATS Ltd.)',
+    'Global Brandon Hall Silver Excellence for Blended Learning (2018, Shell Business Operations)',
+  ],
   /** Topical entity associations for knowledge-graph disambiguation */
   knowsAbout: [
     'Organization Design',

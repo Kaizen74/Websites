@@ -93,14 +93,15 @@ the site the moment you publish.
 The About section is deliberately kept short and elegant: your name, role,
 one line of experience, your qualifications, six topics, the three links and
 the questions. Your full career history, the longer biography, the Brandon
-Hall award and the other quotes are still on the site — just not shown on
+Hall and SHRI awards and the other quotes are still on the site — just not shown on
 screen. They live in the machine-readable parts that Google and AI assistants
 read, so you get the full credibility without a cluttered page.
 
 Your LinkedIn profile is now linked from the site and registered as an
 official "this is the same person" signal, and the site repeats the same
 facts LinkedIn does — current role at SATS, both degrees, the prompt
-engineering certification, the Brandon Hall award and your career history.
+engineering certification, both awards (including the SHRI Gold for Talent
+Management & Acquisition at SATS) and your career history.
 That agreement matters: when Google or an AI assistant sees the same facts on
 your site, on LinkedIn and in the two articles, it treats you as one
 well-established person rather than several uncertain ones. There is an

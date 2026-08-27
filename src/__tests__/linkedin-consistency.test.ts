@@ -21,7 +21,10 @@ const LINKEDIN = {
   currentRole: 'Global Head of OD and Talent',
   degrees: ['Nanyang Technological University Singapore', 'University of North Texas'],
   certification: 'Certified Prompt Engineer™',
-  award: 'Global Brandon Hall Silver Excellence for Blended Learning (2018)',
+  awards: [
+    'SHRI Singapore HR Awards 2025 — Gold, Talent Management & Acquisition (SATS Ltd.)',
+    'Global Brandon Hall Silver Excellence for Blended Learning (2018, Shell Business Operations)',
+  ],
   employers: ['SATS Ltd.', 'Shell', 'Cargill', 'Civil Service College', 'Mizuho'],
 } as const;
 
@@ -84,9 +87,19 @@ describe('Site entity is consistent with the LinkedIn profile', () => {
     expect(certs).toContain(LINKEDIN.certification);
   });
 
-  test('the award from LinkedIn is claimed', () => {
-    expect(profile.award).toBe(LINKEDIN.award);
-    expect(person().award).toBe(LINKEDIN.award);
+  test('every award on LinkedIn is claimed, most recent first', () => {
+    expect(profile.awards).toEqual([...LINKEDIN.awards]);
+    expect(person().award).toEqual([...LINKEDIN.awards]);
+    // The current-role award must lead — recency is the stronger signal
+    expect(profile.awards[0]).toContain('2025');
+    expect(profile.awards[0]).toContain(LINKEDIN.currentEmployer);
+  });
+
+  test('the SHRI award is attributed to the SATS work, not claimed as a solo prize', () => {
+    const shri = profile.awards.find((a) => a.includes('SHRI'));
+    expect(shri).toBeDefined();
+    expect(shri).toContain('Talent Management & Acquisition');
+    expect(shri).toContain('SATS Ltd.');
   });
 
   test('every employer named on the site exists on LinkedIn (no invented history)', () => {

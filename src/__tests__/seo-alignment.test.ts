@@ -245,11 +245,22 @@ describe('Curating the visible section costs no machine-facing signal', () => {
     });
   });
 
-  test('the long bio and award survive in llms.txt / structured data', () => {
+  test('the long bio and every award survive in llms.txt / structured data', () => {
     const flat = llms.replace(/\s+/g, ' ');
     expect(flat).toContain('25 years in the gap between diagnosing');
-    expect(flat).toContain(profile.award);
-    expect(nodeOfType('Person').award).toBe(profile.award);
+    expect(nodeOfType('Person').award).toEqual([...profile.awards]);
+    profile.awards.forEach((a) => {
+      // llms.txt hard-wraps, so match on the distinguishing phrase
+      const key = a.split(' — ')[0].split(' (')[0];
+      expect(flat).toContain(key);
+    });
+  });
+
+  test('llms.txt has a Recognition section naming both awards', () => {
+    const flat = llms.replace(/\s+/g, ' ');
+    expect(flat).toContain('## Recognition');
+    expect(flat).toContain('SHRI Singapore HR Awards 2025');
+    expect(flat).toContain('Brandon Hall');
   });
 
   test('all quotes survive in llms.txt though only one is rendered', () => {

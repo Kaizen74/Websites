@@ -4,6 +4,11 @@ One line of reasoning per decision, newest first.
 
 | Date | Decision | Why |
 |---|---|---|
+| 2026-08-27 | `profile.award` (string) → `profile.awards` (array), SHRI Singapore HR Awards 2025 Gold added first | A second, more recent accolade tied to the current SATS role. schema.org `award` accepts multiple values; recency-first ordering puts the stronger signal in front of engines that read only the first item |
+| 2026-08-27 | SHRI award worded as "Gold, Talent Management & Acquisition (SATS Ltd.)" | SHRI HR Awards are programme awards won for organizational work. Naming the tier, category and organization is accurate; stating it as a solo personal prize would overclaim. A test asserts the SATS attribution stays attached |
+| 2026-08-27 | Award added to the BACKEND only — schema + llms.txt, not the visible section | Explicitly what was asked, and consistent with the previous turn's curation. `award` feeds Google knowledge panels and llms.txt covers AI assistants, so the value lands without re-cluttering the page |
+| 2026-08-27 | llms.txt gained a `## Recognition` section plus a prose mention in the biography | Answer engines resolve "what awards has X won" better from a labelled section, and better still when the fact also appears in narrative context |
+| 2026-08-27 | `CONTENT_LAST_MODIFIED` / `dateModified` bumped to 2026-08-27 | The entity content changed; stale freshness dates get content discounted |
 | 2026-08-26 | About section curated: career list, long bio, award, 2 of 3 quotes and 6 of 12 topic chips removed from view — but kept in JSON-LD and llms.txt | The GEO/AEO payload is consumed from structured data and llms.txt, not from rendered pixels, so the human-facing surface can be trimmed without weakening the entity. Desktop section height fell 2297px → 1547px (−33%) |
 | 2026-08-26 | The FAQ block was NOT trimmed | FAQPage markup must match visible page content, so cutting questions would break the rich-result eligibility and lose the actual AEO payload. It is the one block where visible length earns its keep |
 | 2026-08-26 | Added `profile.featuredTopics` (6) and `profile.experienceSummary` alongside the full `knowsAbout` (12) / `bio` / `career` | Makes "what humans see" vs "what machines read" an explicit, testable distinction rather than an accident of markup |

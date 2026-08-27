@@ -64,7 +64,9 @@ Testing Library. No charting library (plain-div bars). Deploys as a static
   Biography facts are sourced from the two published features (NTU, aTalent)
   and from the LinkedIn export, and include `alumniOf` (NTU 1998; University
   of North Texas 2022), the Certified Prompt Engineer™ credential, `worksFor`
-  (SATS Ltd.), the Brandon Hall award, 25 years' tenure and three quotes. The graph also
+  (SATS Ltd.), two awards (SHRI Singapore HR Awards 2025 Gold — Talent Management &
+  Acquisition at SATS; Brandon Hall Silver 2018 at Shell), 25 years' tenure
+  and three quotes. The graph also
   carries an `Article` authored by the Person (AI-native section), a
   `speakable` spec for voice answers, `dateModified` freshness, and an
   `ImageObject` backing a generated 1200×630 `og-image.png`. `public/` also
@@ -90,10 +92,10 @@ Testing Library. No charting library (plain-div bars). Deploys as a static
 - **Entity consistency:** `src/__tests__/linkedin-consistency.test.ts` pins the
   LinkedIn profile as ground truth — name, headline, current role/employer
   (Global Head of OD and Talent, SATS Ltd.), location, both degrees, the
-  Certified Prompt Engineer™ credential and the Brandon Hall award. It also
+  Certified Prompt Engineer™ credential and both awards. It also
   forbids superseded strings and any published email address. Update it and
   `profile.ts` together whenever LinkedIn changes.
-- **Tests:** 143 passing across 14 suites (unit, integration, App smoke,
+- **Tests:** 145 passing across 14 suites (unit, integration, App smoke,
   SEO/structured-data alignment, LinkedIn consistency),
   plus two Playwright scripts: a 53-check E2E covering the AI-native
   section, framework overview/quadrant switching, the full two-respondent

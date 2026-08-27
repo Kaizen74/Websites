@@ -85,9 +85,12 @@ describe('About the author section', () => {
       .forEach((entry) => {
         expect(container.textContent).not.toContain(entry.role);
       });
-    // …and neither does the long bio or the award line
+    // …and neither does the long bio or any award line
     expect(container.textContent).not.toContain(profile.bio);
-    expect(container.textContent).not.toContain(profile.award);
+    profile.awards.forEach((a) => {
+      expect(container.textContent).not.toContain(a);
+    });
+    expect(container.textContent).not.toContain('SHRI');
   });
 
   test('is static — no buttons, inputs or interactive state', () => {
