@@ -384,9 +384,9 @@
     "semantic_hash": ""
   },
   "DECISIONS.md": {
-    "mtime": 1787815161.7212038,
-    "seen": 1787815185.4792933,
-    "ast_hash": "f25ee205eabefcbc4aaf26975d88a1bf",
+    "mtime": 1787831543.269324,
+    "seen": 1787831556.599029,
+    "ast_hash": "6b77bb80dbf9edf1dd89795e11a4b2a8",
     "semantic_hash": ""
   },
   "GUIDE.md": {
@@ -396,9 +396,9 @@
     "semantic_hash": ""
   },
   "PROJECT_STATE.md": {
-    "mtime": 1787815175.9012046,
-    "seen": 1787815185.479295,
-    "ast_hash": "554c1fa670d93ec30d88be28ffb0e204",
+    "mtime": 1787831550.909324,
+    "seen": 1787831556.599032,
+    "ast_hash": "f932656290044b97a97fb9d5d3e32d33",
     "semantic_hash": ""
   },
   "README.md": {
@@ -504,10 +504,10 @@
     "semantic_hash": ""
   },
   "src/__tests__/host-canonical.test.ts": {
-    "mtime": 1787813064.785893,
-    "seen": 1787813331.357613,
-    "ast_hash": "f1f5fd95e24f1c7d2a13cf27f7778d79",
-    "semantic_hash": "f1f5fd95e24f1c7d2a13cf27f7778d79"
+    "mtime": 1787831476.733326,
+    "seen": 1787831556.598935,
+    "ast_hash": "60d6f737ef1b256a4c6d3e7cc18af136",
+    "semantic_hash": ""
   },
   "src/__tests__/prerender-safety.test.ts": {
     "mtime": 1787815100.3252,
@@ -531,6 +531,12 @@
     "mtime": 1787813064.744841,
     "seen": 1787815185.4792964,
     "ast_hash": "f1556b4482919f2f002a0e384ba79181",
+    "semantic_hash": ""
+  },
+  "vercel.json": {
+    "mtime": 1787831441.8413272,
+    "seen": 1787831556.5990071,
+    "ast_hash": "578980198d7aadc87470981b6bba6db3",
     "semantic_hash": ""
   }
 }

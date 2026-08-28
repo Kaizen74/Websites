@@ -10,6 +10,7 @@ import {
   faqEntries,
   SITE_URL,
   CONTENT_LAST_MODIFIED,
+  CONTENT_LAST_MODIFIED_ISO,
 } from '../data/profile';
 
 const ROOT = join(__dirname, '..', '..');
@@ -202,9 +203,35 @@ describe('Additional GEO/AEO mechanisms', () => {
     expect(speakable.cssSelector.length).toBeGreaterThan(0);
   });
 
-  test('freshness signals use CONTENT_LAST_MODIFIED', () => {
-    expect(nodeOfType('ProfilePage').dateModified).toBe(CONTENT_LAST_MODIFIED);
-    expect(nodeOfType('Article').dateModified).toBe(CONTENT_LAST_MODIFIED);
+  test('freshness signals use the full-datetime constant', () => {
+    expect(nodeOfType('ProfilePage').dateModified).toBe(CONTENT_LAST_MODIFIED_ISO);
+    expect(nodeOfType('Article').dateModified).toBe(CONTENT_LAST_MODIFIED_ISO);
+  });
+
+  test('every dateModified is a full ISO 8601 datetime with a UTC offset', () => {
+    // Google parses ProfilePage's dateModified as a datetime. A bare
+    // YYYY-MM-DD has no time and no offset, so it cannot resolve to an
+    // instant — Search Console reported "Invalid datetime value" for exactly
+    // that. This makes the date-only form impossible to reintroduce.
+    const ISO_WITH_OFFSET = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:Z|[+-]\d{2}:\d{2})$/;
+    const graph = getJsonLd()['@graph'] as Record<string, unknown>[];
+    const modified = graph
+      .filter((n) => typeof n.dateModified === 'string')
+      .map((n) => n.dateModified as string);
+
+    expect(modified.length).toBeGreaterThan(0);
+    modified.forEach((value) => expect(value).toMatch(ISO_WITH_OFFSET));
+  });
+
+  test('dateModified is stamped in Singapore time', () => {
+    expect(CONTENT_LAST_MODIFIED_ISO.endsWith('+08:00')).toBe(true);
+    // …and is a real instant, not merely a well-shaped string
+    expect(Number.isNaN(Date.parse(CONTENT_LAST_MODIFIED_ISO))).toBe(false);
+  });
+
+  test('the date-only constant is derived from the datetime, so they cannot drift', () => {
+    expect(CONTENT_LAST_MODIFIED).toBe(CONTENT_LAST_MODIFIED_ISO.slice(0, 10));
+    expect(CONTENT_LAST_MODIFIED).toMatch(/^\d{4}-\d{2}-\d{2}$/);
   });
 
   test('an ImageObject backs og:image at the correct dimensions', () => {
@@ -323,6 +350,17 @@ describe('Crawler-facing files', () => {
 
   test('sitemap declares lastmod, matching the content freshness date', () => {
     expect(sitemap).toContain(`<lastmod>${CONTENT_LAST_MODIFIED}</lastmod>`);
+  });
+
+  test('sitemap lastmod stays date-only — the JSON-LD change must not leak here', () => {
+    // Sitemaps use W3C Datetime, where a plain date is correct and
+    // conventional for <lastmod>. The datetime form belongs to schema.org's
+    // dateModified only; propagating it here would be a different, unrequested
+    // change to a surface that is already valid.
+    const lastmod = sitemap.match(/<lastmod>([^<]*)<\/lastmod>/)![1];
+    expect(lastmod).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+    expect(lastmod).not.toContain('T');
+    expect(lastmod).not.toContain('+08:00');
   });
 
   test('sitemap lists exactly one URL and no anchor fragments', () => {

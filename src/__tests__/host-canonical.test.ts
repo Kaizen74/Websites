@@ -99,6 +99,97 @@ describe('Canonical host (acceptance criterion 4)', () => {
   });
 });
 
+describe('Canonical host consolidation (acceptance criterion 7)', () => {
+  /**
+   * Phase 5. Two hostnames serving byte-identical content split crawl budget
+   * and weaken the entity signal, so the preview host is redirected onto the
+   * canonical one.
+   *
+   * vercel.json is deliberately NOT in emittedSurfaces() above. That guard
+   * covers files whose contents reach crawlers; this one is deployment
+   * configuration, and naming the preview host is the entire point of the
+   * redirect — it is the source being consolidated away, not a URL being
+   * published.
+   */
+  const config = JSON.parse(readFileSync(join(ROOT, 'vercel.json'), 'utf8'));
+  const PREVIEW_HOST = ['orgdesign', 'vercel', 'app'].join('.');
+
+  const previewRules = (config.redirects || []).filter((r: { has?: { type: string; value: string }[] }) =>
+    (r.has || []).some((h) => h.type === 'host' && h.value === PREVIEW_HOST)
+  );
+
+  test('vercel.json declares host-based redirects off the preview host', () => {
+    // Two rules: an exact "/" rule, then the path-preserving catch-all.
+    expect(previewRules).toHaveLength(2);
+  });
+
+  test('every redirect is permanent — 308, not a temporary 307/302', () => {
+    // permanent:true is how Vercel expresses 308. A temporary redirect would
+    // not consolidate the signal, which is the whole purpose of the phase.
+    previewRules.forEach((r: { permanent: boolean }) => expect(r.permanent).toBe(true));
+  });
+
+  test('the root redirect keeps the trailing slash, and is matched first', () => {
+    // `/:path*` with an empty capture can expand to an origin with no trailing
+    // slash. The spec's gate expects `location: https://www.ericyim.sg/`
+    // exactly, so the root case is pinned by its own rule rather than left to
+    // depend on how the wildcard expands. Vercel matches in order, so this
+    // rule must come first or the catch-all would swallow "/".
+    const [first] = previewRules;
+    expect(first.source).toBe('/');
+    expect(first.destination).toBe(`${CANONICAL}/`);
+  });
+
+  test('the catch-all redirect preserves the path', () => {
+    // /framework on the preview host must land on /framework, not the home page
+    const catchAll = previewRules[1];
+    expect(catchAll.source).toBe('/:path*');
+    expect(catchAll.destination).toBe(`${CANONICAL}/:path*`);
+  });
+
+  test('every destination is on the canonical origin', () => {
+    previewRules.forEach((r: { destination: string }) =>
+      expect(r.destination.startsWith(`${CANONICAL}/`)).toBe(true)
+    );
+  });
+
+  test('per-commit preview deployments are not caught', () => {
+    // Redirecting every *.vercel.app host would consolidate the signal and
+    // also break the operator's ability to preview a deploy before promoting
+    // it. Only the named production alias is redirected.
+    previewRules.forEach((r: { has: { type: string; value: string }[] }) =>
+      r.has.forEach((h) => {
+        expect(h.value).not.toContain('*');
+        expect(h.value).toBe(PREVIEW_HOST);
+      })
+    );
+  });
+
+  test('no rule touches the apex host', () => {
+    // ericyim.sg → www.ericyim.sg is configured in the Vercel dashboard and is
+    // already correct. Restating it here could only introduce a conflict.
+    const apexRules = (config.redirects || []).filter((r: { has?: { type: string; value: string }[] }) =>
+      (r.has || []).some((h) => h.type === 'host' && /^ericyim\.sg$/.test(h.value))
+    );
+    expect(apexRules).toHaveLength(0);
+  });
+
+  test('noindex was not used as an alternative to redirecting', () => {
+    // Spec §6 Phase 5: a redirect consolidates signal, noindex discards it.
+    const headers = JSON.stringify(config.headers || []);
+    expect(headers).not.toMatch(/noindex/i);
+  });
+
+  test('vercel.json does not override the project build settings', () => {
+    // The build command is what broke the last deploy. This config exists only
+    // to redirect; silently taking ownership of build/output settings here
+    // would make the dashboard and the repo disagree.
+    for (const key of ['buildCommand', 'outputDirectory', 'installCommand', 'framework']) {
+      expect(config[key]).toBeUndefined();
+    }
+  });
+});
+
 describe('Document head contract (spec §4.2)', () => {
   const html = readFileSync(join(ROOT, 'index.html'), 'utf8');
 

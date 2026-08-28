@@ -384,9 +384,9 @@
     "semantic_hash": ""
   },
   "DECISIONS.md": {
-    "mtime": 1787815161.7212038,
-    "seen": 1787815185.4792933,
-    "ast_hash": "f25ee205eabefcbc4aaf26975d88a1bf",
+    "mtime": 1787902999.3569713,
+    "seen": 1787903011.1796927,
+    "ast_hash": "af404b2a718ad2140ff133170746e780",
     "semantic_hash": ""
   },
   "GUIDE.md": {
@@ -396,9 +396,9 @@
     "semantic_hash": ""
   },
   "PROJECT_STATE.md": {
-    "mtime": 1787815175.9012046,
-    "seen": 1787815185.479295,
-    "ast_hash": "554c1fa670d93ec30d88be28ffb0e204",
+    "mtime": 1787903006.4649715,
+    "seen": 1787903011.179695,
+    "ast_hash": "5f49c08cea0328d452b0d529e2c7dd58",
     "semantic_hash": ""
   },
   "README.md": {
@@ -408,9 +408,9 @@
     "semantic_hash": ""
   },
   "index.html": {
-    "mtime": 1787813064.772841,
-    "seen": 1787815185.4792972,
-    "ast_hash": "78a123cfaa43c7712265dc2a2de4d553",
+    "mtime": 1787902866.2849634,
+    "seen": 1787903011.179698,
+    "ast_hash": "2c591384cf187e160136367e5501668c",
     "semantic_hash": ""
   },
   "public/vite.svg": {
@@ -432,10 +432,10 @@
     "semantic_hash": "00f6d4e1aefb8a0e37c44f6f01da7113"
   },
   "src/__tests__/seo-alignment.test.ts": {
-    "mtime": 1787813064.785893,
-    "seen": 1787813331.3576186,
-    "ast_hash": "f8c3162af823c94813372a31f307e32e",
-    "semantic_hash": "f8c3162af823c94813372a31f307e32e"
+    "mtime": 1787902891.4569647,
+    "seen": 1787903011.1796422,
+    "ast_hash": "cb8d960fa8fb5d4c8679387a7ba1a335",
+    "semantic_hash": ""
   },
   "src/components/AboutAuthor.tsx": {
     "mtime": 1787813064.788841,
@@ -444,10 +444,10 @@
     "semantic_hash": "6a3dda00cdaba5dce642a8e5e5987195"
   },
   "src/data/profile.ts": {
-    "mtime": 1787813064.7960176,
-    "seen": 1787813331.357638,
-    "ast_hash": "ff9dc74c9bcd4bd52dde1f29ae6c3b5f",
-    "semantic_hash": "ff9dc74c9bcd4bd52dde1f29ae6c3b5f"
+    "mtime": 1787902863.676963,
+    "seen": 1787903011.1796684,
+    "ast_hash": "b1dea6e04010ffcdb417547ab89d3cfb",
+    "semantic_hash": ""
   },
   "public/llms.txt": {
     "mtime": 1787813064.7817264,
@@ -504,10 +504,10 @@
     "semantic_hash": ""
   },
   "src/__tests__/host-canonical.test.ts": {
-    "mtime": 1787813064.785893,
-    "seen": 1787813331.357613,
-    "ast_hash": "f1f5fd95e24f1c7d2a13cf27f7778d79",
-    "semantic_hash": "f1f5fd95e24f1c7d2a13cf27f7778d79"
+    "mtime": 1787831476.733326,
+    "seen": 1787831556.598935,
+    "ast_hash": "60d6f737ef1b256a4c6d3e7cc18af136",
+    "semantic_hash": ""
   },
   "src/__tests__/prerender-safety.test.ts": {
     "mtime": 1787815100.3252,
@@ -531,6 +531,12 @@
     "mtime": 1787813064.744841,
     "seen": 1787815185.4792964,
     "ast_hash": "f1556b4482919f2f002a0e384ba79181",
+    "semantic_hash": ""
+  },
+  "vercel.json": {
+    "mtime": 1787831441.8413272,
+    "seen": 1787831556.5990071,
+    "ast_hash": "578980198d7aadc87470981b6bba6db3",
     "semantic_hash": ""
   }
 }

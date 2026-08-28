@@ -48,8 +48,26 @@ export interface CareerEntry {
  */
 export const SITE_URL = 'https://www.ericyim.sg';
 
-/** Bump when the entity content changes — feeds schema freshness signals. */
-export const CONTENT_LAST_MODIFIED = '2026-08-27';
+/**
+ * Bump when the entity content changes — feeds schema freshness signals.
+ *
+ * Full ISO 8601 with an explicit UTC offset. Google parses `dateModified` on
+ * ProfilePage as a *datetime*, and a bare `YYYY-MM-DD` carries no time and no
+ * offset, so it cannot be resolved to an instant — Search Console reports
+ * "Invalid datetime value" for it. Singapore is UTC+08:00.
+ *
+ * The time component is a convention, not a claim: content freshness is
+ * tracked at day resolution here, so this is midnight SGT on that day rather
+ * than an invented clock time (spec constraint 6 — never guess a value).
+ */
+export const CONTENT_LAST_MODIFIED_ISO = '2026-08-27T00:00:00+08:00';
+
+/**
+ * Date-only form, derived so the two can never disagree.
+ * Sitemaps use W3C Datetime, where a plain date is the correct and conventional
+ * form for <lastmod> — that surface must NOT gain a time component.
+ */
+export const CONTENT_LAST_MODIFIED = CONTENT_LAST_MODIFIED_ISO.slice(0, 10);
 
 /**
  * Copyright year, derived from the content date rather than `new Date()`.
@@ -329,4 +347,5 @@ export default {
   faqEntries,
   SITE_URL,
   CONTENT_LAST_MODIFIED,
+  CONTENT_LAST_MODIFIED_ISO,
 };

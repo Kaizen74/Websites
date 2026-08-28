@@ -1,16 +1,16 @@
-# Graph Report - Websites  (2026-08-28)
+# Graph Report - Websites  (2026-08-27)
 
 ## Corpus Check
-- 81 files · ~50,429 words
+- 81 files · ~49,756 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 493 nodes · 809 edges · 61 communities (29 shown, 32 thin omitted)
+- 492 nodes · 807 edges · 61 communities (29 shown, 32 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 2 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `7949e0d8`
+- Built from commit: `6f2397c4`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -23,7 +23,7 @@
 - What You Must Do When Invoked
 - scripts
 - compilerOptions
-- ChangeLevers.tsx
+- ActivatorsSection.tsx
 - AiNativeSection.tsx
 - graphify reference: extra exports and benchmark
 - GUIDE.md — What the OrgDesign Playbook does and how to run it
@@ -47,7 +47,7 @@
 - @eslint/js
 - eslint-plugin-react-hooks
 - eslint-plugin-react-refresh
-- globals
+- eslint
 - identity-obj-proxy
 - jest
 - jest-environment-jsdom
@@ -83,16 +83,16 @@
 10. `Dimension` - 10 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `App()` --calls--> `mapToActivators()`  [EXTRACTED]
-  src/App.tsx → src/utils/scoring.ts
-- `CohortDashboardProps` --references--> `CohortMember`  [EXTRACTED]
-  src/components/CohortDashboard.tsx → src/types/index.ts
 - `ScoreCell()` --calls--> `getScoreColor()`  [EXTRACTED]
   src/components/CohortDashboard.tsx → src/utils/scoring.ts
+- `CohortDashboardProps` --references--> `CohortMember`  [EXTRACTED]
+  src/components/CohortDashboard.tsx → src/types/index.ts
 - `CohortDashboard()` --calls--> `getScoreColor()`  [EXTRACTED]
   src/components/CohortDashboard.tsx → src/utils/scoring.ts
 - `CohortDashboard()` --calls--> `getScoreLabel()`  [EXTRACTED]
   src/components/CohortDashboard.tsx → src/utils/scoring.ts
+- `DiagnosticSurveyProps` --references--> `useDiagnostic()`  [EXTRACTED]
+  src/components/DiagnosticSurvey.tsx → src/hooks/useDiagnostic.ts
 
 ## Import Cycles
 - None detected.
@@ -100,20 +100,20 @@
 ## Communities (61 total, 32 thin omitted)
 
 ### Community 0 - "App.tsx"
-Cohesion: 0.09
-Nodes (33): App(), AppView, CohortDashboard(), CohortDashboardProps, DIMENSIONS, statusColor, statusTint, Header() (+25 more)
+Cohesion: 0.08
+Nodes (37): App(), AppView, CohortDashboard(), CohortDashboardProps, DIMENSIONS, ScoreCell(), statusColor, statusTint (+29 more)
 
 ### Community 1 - "index.ts"
 Cohesion: 0.09
-Nodes (32): FrameworkDiagram(), QuadrantSpec, quadrantSpecs, scoreTextClass, domains, FrameworkOverview(), FrameworkOverviewProps, consumeFocusQuadrant() (+24 more)
+Nodes (35): ChangeLevers(), displayTitle(), phaseLabels, FrameworkDiagram(), QuadrantSpec, quadrantSpecs, scoreTextClass, domains (+27 more)
 
 ### Community 2 - "profile.ts"
-Cohesion: 0.09
-Nodes (31): AboutAuthor(), MICRO_LABEL, career, CareerEntry, CONTENT_LAST_MODIFIED, CONTENT_LAST_MODIFIED_ISO, COPYRIGHT_YEAR, CredentialEntry (+23 more)
+Cohesion: 0.10
+Nodes (29): AboutAuthor(), MICRO_LABEL, career, CareerEntry, CONTENT_LAST_MODIFIED, CredentialEntry, credentials, faqEntries (+21 more)
 
 ### Community 3 - "constants.ts"
 Cohesion: 0.09
-Nodes (42): ScoreCell(), DiagnosticSurvey(), DiagnosticSurveyProps, dimensionColor, DimensionChart(), DimensionChartProps, fillColor, ExportButton() (+34 more)
+Nodes (40): DiagnosticSurvey(), DiagnosticSurveyProps, dimensionColor, DimensionChart(), DimensionChartProps, fillColor, ExportButton(), ExportButtonProps (+32 more)
 
 ### Community 4 - "compilerOptions"
 Cohesion: 0.07
@@ -131,9 +131,9 @@ Nodes (24): lucide-react, dependencies, lucide-react, react, react-dom, name, pr
 Cohesion: 0.09
 Nodes (22): ES2023, vite.config.ts, compilerOptions, allowImportingTsExtensions, erasableSyntaxOnly, lib, module, moduleDetection (+14 more)
 
-### Community 8 - "ChangeLevers.tsx"
-Cohesion: 0.13
-Nodes (14): ActivatorCard(), ActivatorCardProps, SignalColumnProps, ActivatorsSection(), ActivatorsSectionProps, ChangeLevers(), displayTitle(), phaseLabels (+6 more)
+### Community 8 - "ActivatorsSection.tsx"
+Cohesion: 0.17
+Nodes (10): ActivatorCard(), ActivatorCardProps, SignalColumnProps, ActivatorsSection(), ActivatorsSectionProps, Hero(), IndexRow, indexRows (+2 more)
 
 ### Community 9 - "AiNativeSection.tsx"
 Cohesion: 0.20
@@ -153,7 +153,7 @@ Nodes (7): app, entryServer, framework, main, pkg, prerender, ROOT
 
 ### Community 13 - "devDependencies"
 Cohesion: 0.29
-Nodes (7): autoprefixer, eslint, devDependencies, autoprefixer, eslint, @testing-library/user-event, @testing-library/user-event
+Nodes (7): autoprefixer, globals, devDependencies, autoprefixer, globals, @testing-library/user-event, @testing-library/user-event
 
 ### Community 14 - "PROJECT_STATE.md — OrgDesign Playbook"
 Cohesion: 0.29
@@ -195,17 +195,17 @@ Nodes (23): 1. Toolchain, 2. Routes / anchor sections, 3. Per-section content, a
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `devDependencies` connect `devDependencies` to `scripts`, `@eslint/js`, `eslint-plugin-react-hooks`, `eslint-plugin-react-refresh`, `globals`, `identity-obj-proxy`, `jest`, `jest-environment-jsdom`, `playwright`, `postcss`, `tailwindcss`, `@tailwindcss/postcss`, `@testing-library/jest-dom`, `@testing-library/react`, `ts-jest`, `@types/jest`, `@types/node`, `@types/react`, `@types/react-dom`, `typescript`, `typescript-eslint`, `vite`, `@vitejs/plugin-react`?**
+- **Why does `devDependencies` connect `devDependencies` to `scripts`, `@eslint/js`, `eslint-plugin-react-hooks`, `eslint-plugin-react-refresh`, `eslint`, `identity-obj-proxy`, `jest`, `jest-environment-jsdom`, `playwright`, `postcss`, `tailwindcss`, `@tailwindcss/postcss`, `@testing-library/jest-dom`, `@testing-library/react`, `ts-jest`, `@types/jest`, `@types/node`, `@types/react`, `@types/react-dom`, `typescript`, `typescript-eslint`, `vite`, `@vitejs/plugin-react`?**
   _High betweenness centrality (0.020) - this node is a cross-community bridge._
 - **Why does `Quadrant` connect `index.ts` to `constants.ts`?**
   _High betweenness centrality (0.005) - this node is a cross-community bridge._
 - **What connects `name`, `private`, `version` to the rest of the system?**
   _227 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `App.tsx` be split into smaller, more focused modules?**
-  _Cohesion score 0.0927536231884058 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.08244897959183674 - nodes in this community are weakly interconnected._
 - **Should `index.ts` be split into smaller, more focused modules?**
-  _Cohesion score 0.09291521486643438 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.08502415458937199 - nodes in this community are weakly interconnected._
 - **Should `profile.ts` be split into smaller, more focused modules?**
-  _Cohesion score 0.0931174089068826 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.0990990990990991 - nodes in this community are weakly interconnected._
 - **Should `constants.ts` be split into smaller, more focused modules?**
-  _Cohesion score 0.09090909090909091 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.09361393323657474 - nodes in this community are weakly interconnected._
