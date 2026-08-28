@@ -56,6 +56,19 @@
       "source_location": "L98"
     },
     {
+      "id": "src_types_index_dimensionstats",
+      "label": "DimensionStats",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "App.tsx",
+      "file_type": "code",
+      "norm_label": "dimensionstats",
+      "source_file": "src/types/index.ts",
+      "source_location": "L105"
+    },
+    {
       "id": "src_utils_cohort_addmemberresult",
       "label": "AddMemberResult",
       "_callable": true,
@@ -158,19 +171,6 @@
       "norm_label": "dimensionintervention",
       "source_file": "src/types/index.ts",
       "source_location": "L152"
-    },
-    {
-      "id": "src_types_index_dimensionstats",
-      "label": "DimensionStats",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "index.ts",
-      "file_type": "code",
-      "norm_label": "dimensionstats",
-      "source_file": "src/types/index.ts",
-      "source_location": "L105"
     },
     {
       "id": "src_types_index_frameworkdiagramprops",
@@ -504,7 +504,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 8,
-      "community_name": "ChangeLevers.tsx",
+      "community_name": "ActivatorsSection.tsx",
       "file_type": "code",
       "norm_label": "activatorcardprops",
       "source_file": "src/components/ActivatorCard.tsx",
@@ -517,7 +517,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 8,
-      "community_name": "ChangeLevers.tsx",
+      "community_name": "ActivatorsSection.tsx",
       "file_type": "code",
       "norm_label": "signalcolumnprops",
       "source_file": "src/components/ActivatorCard.tsx",
@@ -530,7 +530,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 8,
-      "community_name": "ChangeLevers.tsx",
+      "community_name": "ActivatorsSection.tsx",
       "file_type": "code",
       "norm_label": "activatorssectionprops",
       "source_file": "src/components/ActivatorsSection.tsx",
@@ -543,7 +543,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 8,
-      "community_name": "ChangeLevers.tsx",
+      "community_name": "ActivatorsSection.tsx",
       "file_type": "code",
       "norm_label": "indexrow",
       "source_file": "src/components/Hero.tsx",
@@ -556,7 +556,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 8,
-      "community_name": "ChangeLevers.tsx",
+      "community_name": "ActivatorsSection.tsx",
       "file_type": "code",
       "norm_label": "activator",
       "source_file": "src/types/index.ts",
@@ -637,6 +637,18 @@
       "norm_label": "cohortdashboard()",
       "source_file": "src/components/CohortDashboard.tsx",
       "source_location": "L48"
+    },
+    {
+      "id": "src_components_cohortdashboard_scorecell",
+      "label": "ScoreCell()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "App.tsx",
+      "file_type": "code",
+      "norm_label": "scorecell()",
+      "source_file": "src/components/CohortDashboard.tsx",
+      "source_location": "L32"
     },
     {
       "id": "src_components_header_header",
@@ -867,6 +879,42 @@
       "source_location": "L33"
     },
     {
+      "id": "src_utils_scoring_maptoactivators",
+      "label": "mapToActivators()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "App.tsx",
+      "file_type": "code",
+      "norm_label": "maptoactivators()",
+      "source_file": "src/utils/scoring.ts",
+      "source_location": "L81"
+    },
+    {
+      "id": "src_components_changelevers_changelevers",
+      "label": "ChangeLevers()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "index.ts",
+      "file_type": "code",
+      "norm_label": "changelevers()",
+      "source_file": "src/components/ChangeLevers.tsx",
+      "source_location": "L20"
+    },
+    {
+      "id": "src_components_changelevers_displaytitle",
+      "label": "displayTitle()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "index.ts",
+      "file_type": "code",
+      "norm_label": "displaytitle()",
+      "source_file": "src/components/ChangeLevers.tsx",
+      "source_location": "L12"
+    },
+    {
       "id": "src_components_frameworkdiagram_frameworkdiagram",
       "label": "FrameworkDiagram()",
       "_callable": true,
@@ -1020,7 +1068,7 @@
       "file_type": "code",
       "norm_label": "getjsonld()",
       "source_file": "src/__tests__/seo-alignment.test.ts",
-      "source_location": "L23"
+      "source_location": "L22"
     },
     {
       "id": "src_tests_seo_alignment_test_nodeoftype",
@@ -1032,7 +1080,7 @@
       "file_type": "code",
       "norm_label": "nodeoftype()",
       "source_file": "src/__tests__/seo-alignment.test.ts",
-      "source_location": "L31"
+      "source_location": "L30"
     },
     {
       "id": "scripts_check_size_getfoldersize",
@@ -1045,18 +1093,6 @@
       "norm_label": "getfoldersize()",
       "source_file": "scripts/check-size.js",
       "source_location": "L6"
-    },
-    {
-      "id": "src_components_cohortdashboard_scorecell",
-      "label": "ScoreCell()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "constants.ts",
-      "file_type": "code",
-      "norm_label": "scorecell()",
-      "source_file": "src/components/CohortDashboard.tsx",
-      "source_location": "L32"
     },
     {
       "id": "src_components_diagnosticsurvey_diagnosticsurvey",
@@ -1239,18 +1275,6 @@
       "source_location": "L69"
     },
     {
-      "id": "src_utils_scoring_maptoactivators",
-      "label": "mapToActivators()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "constants.ts",
-      "file_type": "code",
-      "norm_label": "maptoactivators()",
-      "source_file": "src/utils/scoring.ts",
-      "source_location": "L81"
-    },
-    {
       "id": "src_setuptests_creatememorystorage",
       "label": "createMemoryStorage()",
       "_callable": true,
@@ -1268,7 +1292,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 8,
-      "community_name": "ChangeLevers.tsx",
+      "community_name": "ActivatorsSection.tsx",
       "file_type": "code",
       "norm_label": "activatorcard()",
       "source_file": "src/components/ActivatorCard.tsx",
@@ -1280,7 +1304,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 8,
-      "community_name": "ChangeLevers.tsx",
+      "community_name": "ActivatorsSection.tsx",
       "file_type": "code",
       "norm_label": "signalcolumn()",
       "source_file": "src/components/ActivatorCard.tsx",
@@ -1292,35 +1316,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 8,
-      "community_name": "ChangeLevers.tsx",
+      "community_name": "ActivatorsSection.tsx",
       "file_type": "code",
       "norm_label": "activatorssection()",
       "source_file": "src/components/ActivatorsSection.tsx",
       "source_location": "L10"
-    },
-    {
-      "id": "src_components_changelevers_changelevers",
-      "label": "ChangeLevers()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 8,
-      "community_name": "ChangeLevers.tsx",
-      "file_type": "code",
-      "norm_label": "changelevers()",
-      "source_file": "src/components/ChangeLevers.tsx",
-      "source_location": "L20"
-    },
-    {
-      "id": "src_components_changelevers_displaytitle",
-      "label": "displayTitle()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 8,
-      "community_name": "ChangeLevers.tsx",
-      "file_type": "code",
-      "norm_label": "displaytitle()",
-      "source_file": "src/components/ChangeLevers.tsx",
-      "source_location": "L12"
     },
     {
       "id": "src_components_hero_hero",
@@ -1328,7 +1328,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 8,
-      "community_name": "ChangeLevers.tsx",
+      "community_name": "ActivatorsSection.tsx",
       "file_type": "code",
       "norm_label": "hero()",
       "source_file": "src/components/Hero.tsx",
@@ -1480,6 +1480,17 @@
       "source_location": "L64"
     },
     {
+      "id": "src_data_profile_copyright_year",
+      "label": "COPYRIGHT_YEAR",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "App.tsx",
+      "file_type": "code",
+      "norm_label": "copyright_year",
+      "source_file": "src/data/profile.ts",
+      "source_location": "L60"
+    },
+    {
       "id": "src_entry_server",
       "label": "entry-server.tsx",
       "_origin": "ast",
@@ -1577,6 +1588,28 @@
       "norm_label": "dimensions",
       "source_file": "src/utils/cohort.ts",
       "source_location": "L15"
+    },
+    {
+      "id": "src_components_changelevers",
+      "label": "ChangeLevers.tsx",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "index.ts",
+      "file_type": "code",
+      "norm_label": "changelevers.tsx",
+      "source_file": "src/components/ChangeLevers.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_components_changelevers_phaselabels",
+      "label": "phaseLabels",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "index.ts",
+      "file_type": "code",
+      "norm_label": "phaselabels",
+      "source_file": "src/components/ChangeLevers.tsx",
+      "source_location": "L5"
     },
     {
       "id": "src_components_frameworkdiagram",
@@ -1709,6 +1742,17 @@
       "norm_label": "interventions.ts",
       "source_file": "src/data/interventions.ts",
       "source_location": "L1"
+    },
+    {
+      "id": "src_data_interventions_changelevers",
+      "label": "changeLevers",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "index.ts",
+      "file_type": "code",
+      "norm_label": "changelevers",
+      "source_file": "src/data/interventions.ts",
+      "source_location": "L10"
     },
     {
       "id": "src_data_interventions_dimensioninterventions",
@@ -2114,15 +2158,15 @@
       "source_location": "L36"
     },
     {
-      "id": "package_devdependencies_eslint",
-      "label": "eslint",
+      "id": "package_devdependencies_globals",
+      "label": "globals",
       "_origin": "ast",
       "community": 13,
       "community_name": "devDependencies",
       "file_type": "code",
-      "norm_label": "eslint",
+      "norm_label": "globals",
       "source_file": "package.json",
-      "source_location": "L37"
+      "source_location": "L40"
     },
     {
       "id": "package_devdependencies_testing_library_user_event",
@@ -2147,15 +2191,15 @@
       "source_location": "L36"
     },
     {
-      "id": "eslint",
-      "label": "eslint",
+      "id": "globals",
+      "label": "globals",
       "_origin": "ast",
       "community": 13,
       "community_name": "devDependencies",
       "file_type": "concept",
-      "norm_label": "eslint",
+      "norm_label": "globals",
       "source_file": "package.json",
-      "source_location": "L37"
+      "source_location": "L40"
     },
     {
       "id": "testing_library_user_event",
@@ -2202,7 +2246,7 @@
       "node_kind": "heading",
       "norm_label": "done (chronology)",
       "source_file": "PROJECT_STATE.md",
-      "source_location": "L154"
+      "source_location": "L146"
     },
     {
       "id": "project_state_how_to_resume",
@@ -2214,7 +2258,7 @@
       "node_kind": "heading",
       "norm_label": "how to resume",
       "source_file": "PROJECT_STATE.md",
-      "source_location": "L143"
+      "source_location": "L135"
     },
     {
       "id": "project_state_next_open",
@@ -2226,7 +2270,7 @@
       "node_kind": "heading",
       "norm_label": "next (open)",
       "source_file": "PROJECT_STATE.md",
-      "source_location": "L170"
+      "source_location": "L162"
     },
     {
       "id": "project_state_project_state_md_orgdesign_playbook",
@@ -2587,7 +2631,7 @@
       "file_type": "code",
       "norm_label": "career",
       "source_file": "src/data/profile.ts",
-      "source_location": "L192"
+      "source_location": "L174"
     },
     {
       "id": "src_data_profile_content_last_modified",
@@ -2598,29 +2642,7 @@
       "file_type": "code",
       "norm_label": "content_last_modified",
       "source_file": "src/data/profile.ts",
-      "source_location": "L70"
-    },
-    {
-      "id": "src_data_profile_content_last_modified_iso",
-      "label": "CONTENT_LAST_MODIFIED_ISO",
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "profile.ts",
-      "file_type": "code",
-      "norm_label": "content_last_modified_iso",
-      "source_file": "src/data/profile.ts",
-      "source_location": "L63"
-    },
-    {
-      "id": "src_data_profile_copyright_year",
-      "label": "COPYRIGHT_YEAR",
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "profile.ts",
-      "file_type": "code",
-      "norm_label": "copyright_year",
-      "source_file": "src/data/profile.ts",
-      "source_location": "L78"
+      "source_location": "L52"
     },
     {
       "id": "src_data_profile_credentials",
@@ -2631,7 +2653,7 @@
       "file_type": "code",
       "norm_label": "credentials",
       "source_file": "src/data/profile.ts",
-      "source_location": "L244"
+      "source_location": "L226"
     },
     {
       "id": "src_data_profile_faqentries",
@@ -2642,7 +2664,7 @@
       "file_type": "code",
       "norm_label": "faqentries",
       "source_file": "src/data/profile.ts",
-      "source_location": "L302"
+      "source_location": "L284"
     },
     {
       "id": "src_data_profile_ownedprofiles",
@@ -2653,7 +2675,7 @@
       "file_type": "code",
       "norm_label": "ownedprofiles",
       "source_file": "src/data/profile.ts",
-      "source_location": "L235"
+      "source_location": "L217"
     },
     {
       "id": "src_data_profile_profile",
@@ -2664,7 +2686,7 @@
       "file_type": "code",
       "norm_label": "profile",
       "source_file": "src/data/profile.ts",
-      "source_location": "L80"
+      "source_location": "L62"
     },
     {
       "id": "src_data_profile_quotes",
@@ -2675,7 +2697,7 @@
       "file_type": "code",
       "norm_label": "quotes",
       "source_file": "src/data/profile.ts",
-      "source_location": "L282"
+      "source_location": "L264"
     },
     {
       "id": "src_data_profile_referencearticles",
@@ -2686,7 +2708,7 @@
       "file_type": "code",
       "norm_label": "referencearticles",
       "source_file": "src/data/profile.ts",
-      "source_location": "L263"
+      "source_location": "L245"
     },
     {
       "id": "src_data_profile_site_url",
@@ -2818,7 +2840,7 @@
       "file_type": "code",
       "norm_label": "html",
       "source_file": "src/__tests__/seo-alignment.test.ts",
-      "source_location": "L17"
+      "source_location": "L16"
     },
     {
       "id": "src_tests_seo_alignment_test_llms",
@@ -2829,7 +2851,7 @@
       "file_type": "code",
       "norm_label": "llms",
       "source_file": "src/__tests__/seo-alignment.test.ts",
-      "source_location": "L19"
+      "source_location": "L18"
     },
     {
       "id": "src_tests_seo_alignment_test_robots",
@@ -2840,7 +2862,7 @@
       "file_type": "code",
       "norm_label": "robots",
       "source_file": "src/__tests__/seo-alignment.test.ts",
-      "source_location": "L18"
+      "source_location": "L17"
     },
     {
       "id": "src_tests_seo_alignment_test_root",
@@ -2851,7 +2873,7 @@
       "file_type": "code",
       "norm_label": "root",
       "source_file": "src/__tests__/seo-alignment.test.ts",
-      "source_location": "L16"
+      "source_location": "L15"
     },
     {
       "id": "src_tests_seo_alignment_test_sitemap",
@@ -2862,7 +2884,7 @@
       "file_type": "code",
       "norm_label": "sitemap",
       "source_file": "src/__tests__/seo-alignment.test.ts",
-      "source_location": "L20"
+      "source_location": "L19"
     },
     {
       "id": "readme",
@@ -3488,26 +3510,26 @@
       "source_location": "L39"
     },
     {
-      "id": "package_devdependencies_globals",
-      "label": "globals",
+      "id": "package_devdependencies_eslint",
+      "label": "eslint",
       "_origin": "ast",
       "community": 32,
-      "community_name": "globals",
+      "community_name": "eslint",
       "file_type": "code",
-      "norm_label": "globals",
+      "norm_label": "eslint",
       "source_file": "package.json",
-      "source_location": "L40"
+      "source_location": "L37"
     },
     {
-      "id": "globals",
-      "label": "globals",
+      "id": "eslint",
+      "label": "eslint",
       "_origin": "ast",
       "community": 32,
-      "community_name": "globals",
+      "community_name": "eslint",
       "file_type": "concept",
-      "norm_label": "globals",
+      "norm_label": "eslint",
       "source_file": "package.json",
-      "source_location": "L40"
+      "source_location": "L37"
     },
     {
       "id": "package_devdependencies_identity_obj_proxy",
@@ -5467,7 +5489,7 @@
       "label": "ActivatorCard.tsx",
       "_origin": "ast",
       "community": 8,
-      "community_name": "ChangeLevers.tsx",
+      "community_name": "ActivatorsSection.tsx",
       "file_type": "code",
       "norm_label": "activatorcard.tsx",
       "source_file": "src/components/ActivatorCard.tsx",
@@ -5478,40 +5500,18 @@
       "label": "ActivatorsSection.tsx",
       "_origin": "ast",
       "community": 8,
-      "community_name": "ChangeLevers.tsx",
+      "community_name": "ActivatorsSection.tsx",
       "file_type": "code",
       "norm_label": "activatorssection.tsx",
       "source_file": "src/components/ActivatorsSection.tsx",
       "source_location": "L1"
     },
     {
-      "id": "src_components_changelevers",
-      "label": "ChangeLevers.tsx",
-      "_origin": "ast",
-      "community": 8,
-      "community_name": "ChangeLevers.tsx",
-      "file_type": "code",
-      "norm_label": "changelevers.tsx",
-      "source_file": "src/components/ChangeLevers.tsx",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_components_changelevers_phaselabels",
-      "label": "phaseLabels",
-      "_origin": "ast",
-      "community": 8,
-      "community_name": "ChangeLevers.tsx",
-      "file_type": "code",
-      "norm_label": "phaselabels",
-      "source_file": "src/components/ChangeLevers.tsx",
-      "source_location": "L5"
-    },
-    {
       "id": "src_components_hero",
       "label": "Hero.tsx",
       "_origin": "ast",
       "community": 8,
-      "community_name": "ChangeLevers.tsx",
+      "community_name": "ActivatorsSection.tsx",
       "file_type": "code",
       "norm_label": "hero.tsx",
       "source_file": "src/components/Hero.tsx",
@@ -5522,7 +5522,7 @@
       "label": "indexRows",
       "_origin": "ast",
       "community": 8,
-      "community_name": "ChangeLevers.tsx",
+      "community_name": "ActivatorsSection.tsx",
       "file_type": "code",
       "norm_label": "indexrows",
       "source_file": "src/components/Hero.tsx",
@@ -5533,7 +5533,7 @@
       "label": "activators.ts",
       "_origin": "ast",
       "community": 8,
-      "community_name": "ChangeLevers.tsx",
+      "community_name": "ActivatorsSection.tsx",
       "file_type": "code",
       "norm_label": "activators.ts",
       "source_file": "src/data/activators.ts",
@@ -5544,29 +5544,18 @@
       "label": "activators",
       "_origin": "ast",
       "community": 8,
-      "community_name": "ChangeLevers.tsx",
+      "community_name": "ActivatorsSection.tsx",
       "file_type": "code",
       "norm_label": "activators",
       "source_file": "src/data/activators.ts",
       "source_location": "L3"
     },
     {
-      "id": "src_data_interventions_changelevers",
-      "label": "changeLevers",
-      "_origin": "ast",
-      "community": 8,
-      "community_name": "ChangeLevers.tsx",
-      "file_type": "code",
-      "norm_label": "changelevers",
-      "source_file": "src/data/interventions.ts",
-      "source_location": "L10"
-    },
-    {
       "id": "src_tests_alignment_activators_alignment_test",
       "label": "activators-alignment.test.ts",
       "_origin": "ast",
       "community": 8,
-      "community_name": "ChangeLevers.tsx",
+      "community_name": "ActivatorsSection.tsx",
       "file_type": "code",
       "norm_label": "activators-alignment.test.ts",
       "source_file": "src/__tests__/alignment/activators-alignment.test.ts",
@@ -5577,7 +5566,7 @@
       "label": "content.test.tsx",
       "_origin": "ast",
       "community": 8,
-      "community_name": "ChangeLevers.tsx",
+      "community_name": "ActivatorsSection.tsx",
       "file_type": "code",
       "norm_label": "content.test.tsx",
       "source_file": "src/__tests__/content.test.tsx",
@@ -6015,7 +6004,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/__tests__/seo-alignment.test.ts",
-      "source_location": "L32",
+      "source_location": "L31",
       "weight": 1.0
     },
     {
@@ -9092,18 +9081,6 @@
     },
     {
       "source": "src_tests_seo_alignment_test",
-      "target": "src_data_profile_content_last_modified_iso",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "src/__tests__/seo-alignment.test.ts",
-      "source_location": "L3",
-      "weight": 1.0
-    },
-    {
-      "source": "src_tests_seo_alignment_test",
       "target": "src_data_profile_credentials",
       "relation": "imports",
       "_origin": "ast",
@@ -12096,7 +12073,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "PROJECT_STATE.md",
-      "source_location": "L143",
+      "source_location": "L135",
       "weight": 1.0
     },
     {
@@ -12107,7 +12084,18 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "PROJECT_STATE.md",
-      "source_location": "L154",
+      "source_location": "L146",
+      "weight": 1.0
+    },
+    {
+      "source": "project_state_project_state_md_orgdesign_playbook",
+      "target": "project_state_next_open",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "PROJECT_STATE.md",
+      "source_location": "L162",
       "weight": 1.0
     },
     {
@@ -12119,17 +12107,6 @@
       "confidence_score": 1.0,
       "source_file": "PROJECT_STATE.md",
       "source_location": "L17",
-      "weight": 1.0
-    },
-    {
-      "source": "project_state_project_state_md_orgdesign_playbook",
-      "target": "project_state_next_open",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "PROJECT_STATE.md",
-      "source_location": "L170",
       "weight": 1.0
     },
     {
@@ -13509,6 +13486,17 @@
     },
     {
       "source": "src_data_profile",
+      "target": "src_data_profile_career",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/data/profile.ts",
+      "source_location": "L174",
+      "weight": 1.0
+    },
+    {
+      "source": "src_data_profile",
       "target": "src_data_profile_faqentry",
       "relation": "contains",
       "_origin": "ast",
@@ -13520,13 +13508,24 @@
     },
     {
       "source": "src_data_profile",
-      "target": "src_data_profile_career",
+      "target": "src_data_profile_ownedprofiles",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/data/profile.ts",
-      "source_location": "L192",
+      "source_location": "L217",
+      "weight": 1.0
+    },
+    {
+      "source": "src_data_profile",
+      "target": "src_data_profile_credentials",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/data/profile.ts",
+      "source_location": "L226",
       "weight": 1.0
     },
     {
@@ -13542,35 +13541,13 @@
     },
     {
       "source": "src_data_profile",
-      "target": "src_data_profile_ownedprofiles",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/data/profile.ts",
-      "source_location": "L235",
-      "weight": 1.0
-    },
-    {
-      "source": "src_data_profile",
-      "target": "src_data_profile_credentials",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/data/profile.ts",
-      "source_location": "L244",
-      "weight": 1.0
-    },
-    {
-      "source": "src_data_profile",
       "target": "src_data_profile_referencearticles",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/data/profile.ts",
-      "source_location": "L263",
+      "source_location": "L245",
       "weight": 1.0
     },
     {
@@ -13581,7 +13558,18 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/data/profile.ts",
-      "source_location": "L282",
+      "source_location": "L264",
+      "weight": 1.0
+    },
+    {
+      "source": "src_data_profile",
+      "target": "src_data_profile_faqentries",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/data/profile.ts",
+      "source_location": "L284",
       "weight": 1.0
     },
     {
@@ -13593,17 +13581,6 @@
       "confidence_score": 1.0,
       "source_file": "src/data/profile.ts",
       "source_location": "L29",
-      "weight": 1.0
-    },
-    {
-      "source": "src_data_profile",
-      "target": "src_data_profile_faqentries",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/data/profile.ts",
-      "source_location": "L302",
       "weight": 1.0
     },
     {
@@ -13630,24 +13607,13 @@
     },
     {
       "source": "src_data_profile",
-      "target": "src_data_profile_content_last_modified_iso",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/data/profile.ts",
-      "source_location": "L63",
-      "weight": 1.0
-    },
-    {
-      "source": "src_data_profile",
       "target": "src_data_profile_content_last_modified",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/data/profile.ts",
-      "source_location": "L70",
+      "source_location": "L52",
       "weight": 1.0
     },
     {
@@ -13658,7 +13624,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/data/profile.ts",
-      "source_location": "L78",
+      "source_location": "L60",
       "weight": 1.0
     },
     {
@@ -13669,7 +13635,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/data/profile.ts",
-      "source_location": "L80",
+      "source_location": "L62",
       "weight": 1.0
     },
     {
@@ -13977,7 +13943,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/__tests__/seo-alignment.test.ts",
-      "source_location": "L16",
+      "source_location": "L15",
       "weight": 1.0
     },
     {
@@ -13988,7 +13954,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/__tests__/seo-alignment.test.ts",
-      "source_location": "L17",
+      "source_location": "L16",
       "weight": 1.0
     },
     {
@@ -13999,7 +13965,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/__tests__/seo-alignment.test.ts",
-      "source_location": "L18",
+      "source_location": "L17",
       "weight": 1.0
     },
     {
@@ -14010,7 +13976,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/__tests__/seo-alignment.test.ts",
-      "source_location": "L19",
+      "source_location": "L18",
       "weight": 1.0
     },
     {
@@ -14021,7 +13987,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/__tests__/seo-alignment.test.ts",
-      "source_location": "L20",
+      "source_location": "L19",
       "weight": 1.0
     },
     {
@@ -14032,7 +13998,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/__tests__/seo-alignment.test.ts",
-      "source_location": "L23",
+      "source_location": "L22",
       "weight": 1.0
     },
     {
@@ -14043,7 +14009,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/__tests__/seo-alignment.test.ts",
-      "source_location": "L31",
+      "source_location": "L30",
       "weight": 1.0
     },
     {
@@ -15040,5 +15006,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "7949e0d8354e530265327d0e237ef4383ad0410f"
+  "built_at_commit": "6f2397c49cf16bf847ba59ac35eaf75648a97c82"
 }

@@ -121,7 +121,15 @@ Testing Library. No charting library (plain-div bars). Deploys as a static
   ownership of `buildCommand`/`outputDirectory`, or the dashboard and the repo
   would disagree. All of this is pinned by `host-canonical.test.ts`.
   **Not yet verified against the live host** — the gate needs the deploy.
-- **Tests:** 180 passing across 16 suites (unit, integration, App smoke,
+- **Schema freshness:** `CONTENT_LAST_MODIFIED_ISO` in `src/data/profile.ts`
+  (`2026-08-27T00:00:00+08:00`) is the single source of truth. JSON-LD
+  `dateModified` on both ProfilePage and Article uses it in full ISO 8601 with
+  the `+08:00` offset — Search Console rejects a bare date there as an invalid
+  datetime. `CONTENT_LAST_MODIFIED` is **derived** from it (`.slice(0, 10)`)
+  and feeds the sitemap's `<lastmod>` and `COPYRIGHT_YEAR`; sitemap `<lastmod>`
+  stays date-only by design and a test fails if the datetime form leaks there.
+  Bump the ISO constant only — the date follows automatically.
+- **Tests:** 184 passing across 16 suites (unit, integration, App smoke,
   SEO/structured-data alignment, LinkedIn consistency),
   plus two Playwright scripts: a 53-check E2E covering the AI-native
   section, framework overview/quadrant switching, the full two-respondent
