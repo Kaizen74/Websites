@@ -1,7 +1,7 @@
 # Graph Report - Websites  (2026-11-19)
 
 ## Corpus Check
-- 87 files · ~57,378 words
+- 87 files · ~57,358 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 13 file(s) not represented in the graph (top: .woff2 10, (none) 1, .xml 1)
 
@@ -11,7 +11,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `2934d631`
+- Built from commit: `4dc6dcda`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -75,10 +75,10 @@
   SEO_BASELINE.md → src/utils/cohort.ts
 - `DimensionChartProps` --references--> `DimensionScores`  [EXTRACTED]
   src/components/DimensionChart.tsx → src/types/index.ts
-- `App()` --calls--> `ActivatorsSection()`  [EXTRACTED]
-  src/App.tsx → src/components/ActivatorsSection.tsx
-- `App()` --calls--> `AiNativeSection()`  [EXTRACTED]
-  src/App.tsx → src/components/AiNativeSection.tsx
+- `App()` --calls--> `FrameworkSection()`  [EXTRACTED]
+  src/App.tsx → src/components/FrameworkSection.tsx
+- `QuadrantSpec` --references--> `Quadrant`  [EXTRACTED]
+  src/components/FrameworkDiagram.tsx → src/types/index.ts
 
 ## Import Cycles
 - None detected.

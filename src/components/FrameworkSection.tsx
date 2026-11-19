@@ -67,10 +67,8 @@ export function FrameworkSection() {
             {frameworkAnswer.answer}
           </p>
           <p className="text-[17px] leading-[1.65] text-[var(--color-secondary)]" style={{ maxWidth: 640 }}>
-            A holistic view of organizational design across four interconnected
-            dimensions around a leadership core. Start with the overview, then
-            select any quadrant to explore its components, playbook modules, and
-            diagnostic questions.
+            Start with the overview, then select any of the four domains to
+            explore its components, playbook modules and diagnostic questions.
           </p>
         </div>
 

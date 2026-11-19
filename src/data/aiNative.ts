@@ -17,7 +17,7 @@ export const sectionCopy = {
   answer:
     'It moves the unit of design from the org chart to the task. Each task goes on a ladder from manual to reinvented, and a person reviews every machine judgement before it reaches a decision-maker.',
   lede:
-    'Structure follows work, and work is now shared with machines. Three moves keep an AI-era design sound: start from the task, decide how much of each task a machine should do, and have a person check its judgement before anyone acts on it.',
+    'Structure follows work, and work is now shared with machines. Three moves follow from that.',
   moveOneOverline: 'Move one',
   moveOneHeading: 'Start from the task',
   descentNote:

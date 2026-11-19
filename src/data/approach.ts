@@ -98,7 +98,7 @@ export const evidenceCopy = {
   heading: 'How much should a leader trust a diagnostic finding?',
   answer:
     'As much as its evidence grade allows. Decide on confirmed findings, decide with care on indicated ones and say so, and never decide on a hypothesis alone.',
-  lede: 'I grade every finding one of three ways, and use it only for what its grade allows.',
+  lede: 'Every finding gets one of three grades.',
   note:
     '“We don’t know yet” is a valid answer. A guess says something false with confidence.',
 };

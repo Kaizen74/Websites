@@ -143,8 +143,7 @@ As much as its evidence grade allows. Decide on confirmed findings, decide
 with care on indicated ones and say so, and never decide on a hypothesis
 alone.
 
-I grade every finding one of three ways, and use it only for what its grade
-allows.
+Every finding gets one of three grades.
 
 - **Confirmed**: Verified at source. Use it to: decide.
 - **Indicated**: Supported, not yet verified. Use it to: decide with care, and

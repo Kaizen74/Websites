@@ -156,9 +156,9 @@
     "semantic_hash": ""
   },
   "src/components/FrameworkSection.tsx": {
-    "mtime": 1795089451.7603147,
-    "seen": 1795089503.7838936,
-    "ast_hash": "19626de0669b9ba7ff44f2eedbc29aa8",
+    "mtime": 1795090350.0762208,
+    "seen": 1795090441.0464802,
+    "ast_hash": "34d6d74ebfc38c5724c357bf17bb1c0e",
     "semantic_hash": ""
   },
   "src/components/Header.tsx": {
@@ -312,9 +312,9 @@
     "semantic_hash": ""
   },
   "src/data/aiNative.ts": {
-    "mtime": 1795089136.142706,
-    "seen": 1795089503.7839086,
-    "ast_hash": "da27e887bb5859d4f5d74d6f8b05cebf",
+    "mtime": 1795090350.0760913,
+    "seen": 1795090441.0464923,
+    "ast_hash": "a87a892d9ebe9dc13eacdda7f54e3551",
     "semantic_hash": ""
   },
   ".claude/CLAUDE.md": {
@@ -330,9 +330,9 @@
     "semantic_hash": ""
   },
   "DECISIONS.md": {
-    "mtime": 1795089443.7149029,
-    "seen": 1795089503.7839339,
-    "ast_hash": "ebc25d649fbabf0ffc4f424c8a9288b0",
+    "mtime": 1795090440.0450635,
+    "seen": 1795090441.0465143,
+    "ast_hash": "646d125a91d598687b68a52ec75318f0",
     "semantic_hash": ""
   },
   "GUIDE.md": {
@@ -396,9 +396,9 @@
     "semantic_hash": ""
   },
   "public/llms.txt": {
-    "mtime": 1795089284.7091994,
-    "seen": 1795089503.7839444,
-    "ast_hash": "85064a0f49b82019e2b8702e44387a58",
+    "mtime": 1795090350.0764043,
+    "seen": 1795090441.0465252,
+    "ast_hash": "704c517d1cbcf7149795292cf92363f7",
     "semantic_hash": ""
   },
   "public/robots.txt": {
@@ -528,9 +528,9 @@
     "semantic_hash": ""
   },
   "src/data/approach.ts": {
-    "mtime": 1795089136.1423945,
-    "seen": 1795089503.7839112,
-    "ast_hash": "a2a18a60a8f0fee9da2a61416e970346",
+    "mtime": 1795090350.0757573,
+    "seen": 1795090441.046494,
+    "ast_hash": "ed5bbdd7b3b2a1d7503b517b12928d8c",
     "semantic_hash": ""
   },
   "src/data/principles.ts": {
