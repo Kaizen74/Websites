@@ -85,12 +85,12 @@ describe('Backend JSON-LD is aligned with frontend profile data', () => {
     expect(nodeOfType('Person').knowsAbout).toEqual([...profile.knowsAbout]);
   });
 
-  test('Person.sameAs contains every owned profile and reference article', () => {
+  test('Person.sameAs lists identity profiles only, never articles about him', () => {
+    // sameAs means "this URL is the same entity". Press features are about
+    // him, so they belong in subjectOf (asserted below), not here.
     const sameAs: string[] = nodeOfType('Person').sameAs;
-    [...ownedProfiles, ...referenceArticles].forEach((a) =>
-      expect(sameAs).toContain(a.url)
-    );
-    expect(sameAs).toHaveLength(ownedProfiles.length + referenceArticles.length);
+    expect(sameAs).toEqual(ownedProfiles.map((a) => a.url));
+    referenceArticles.forEach((a) => expect(sameAs).not.toContain(a.url));
   });
 
   test('subjectOf articles match reference titles and publishers', () => {
@@ -206,6 +206,16 @@ describe('Additional GEO/AEO mechanisms', () => {
   test('freshness signals use the full-datetime constant', () => {
     expect(nodeOfType('ProfilePage').dateModified).toBe(CONTENT_LAST_MODIFIED_ISO);
     expect(nodeOfType('Article').dateModified).toBe(CONTENT_LAST_MODIFIED_ISO);
+  });
+
+  test('the Article carries a recorded publication date and an image', () => {
+    const article = nodeOfType('Article');
+    // The merge of PR #19 into main: a recorded timestamp, not a guess
+    expect(article.datePublished).toBe('2026-08-26T19:14:10+08:00');
+    expect(Date.parse(article.datePublished)).toBeLessThanOrEqual(Date.parse(article.dateModified));
+    // image must resolve to a real ImageObject in the graph
+    const graph = getJsonLd()['@graph'] as { '@id'?: string; '@type'?: string }[];
+    expect(graph.some((n) => n['@id'] === article.image['@id'] && n['@type'] === 'ImageObject')).toBe(true);
   });
 
   test('every dateModified is a full ISO 8601 datetime with a UTC offset', () => {

@@ -88,6 +88,11 @@ const portraitId = (node('Person').image || {})['@id'];
 const portrait = graph.find((n) => n['@id'] === portraitId) || {};
 check('crawler', 'Person.image resolves to the portrait, and the file ships', portrait['@type'] === 'ImageObject'
   && existsSync(join(DIST, (portrait.url || '').replace(`${CANONICAL}/`, ''))), portrait.url);
+check('crawler', 'Person.sameAs lists identity profiles only (no press articles)',
+  (node('Person').sameAs || []).every((u) => /linkedin\.com\/in\//.test(u)), JSON.stringify(node('Person').sameAs));
+check('crawler', 'Article has datePublished (ISO + offset, not after dateModified) and an image',
+  ISO.test(node('Article').datePublished || '') && Date.parse(node('Article').datePublished) <= Date.parse(node('Article').dateModified)
+  && graph.some((n) => n['@id'] === (node('Article').image || {})['@id'] && n['@type'] === 'ImageObject'));
 check('crawler', 'DefinedTermSet names Eric Yim as author', (node('DefinedTermSet').author || {})['@id'] === `${CANONICAL}/#person`);
 const allIds = JSON.stringify(graph).match(/"@id":\s*"[^"]+"/g) || [];
 check('crawler', 'every JSON-LD @id is on the canonical host', allIds.every((s) => s.includes(`${CANONICAL}/`)));
