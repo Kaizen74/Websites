@@ -27,7 +27,7 @@ export function ChangeLevers() {
       <div className="max-w-[1140px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="mb-14" style={{ maxWidth: 760 }}>
-          <p className="eyebrow mb-4">03 · The change model</p>
+          <p className="eyebrow mb-4">4.3 · The change model</p>
           <h2
             className="font-display font-bold text-[var(--color-ink)] mb-4"
             style={{ fontSize: 'clamp(30px, 4vw, 40px)', lineHeight: 1.15 }}

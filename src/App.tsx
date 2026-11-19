@@ -10,9 +10,13 @@ import { CohortDashboard } from './components/CohortDashboard';
 import { AiNativeSection } from './components/AiNativeSection';
 import { AboutAuthor } from './components/AboutAuthor';
 import { Signature } from './components/Signature';
+import { Principles } from './components/Principles';
+import { Approach } from './components/Approach';
+import { Differences } from './components/Differences';
+import { PlaybookIntro } from './components/PlaybookIntro';
 import type { DiagnosticResults, CohortMember } from './types';
 import { STORAGE_KEYS, SECTION_IDS } from './constants';
-import { COPYRIGHT_YEAR } from './data/profile';
+import { COPYRIGHT_YEAR, ownedProfiles } from './data/profile';
 import { mapToActivators } from './utils/scoring';
 import {
   loadCohort,
@@ -211,6 +215,12 @@ function App() {
       <Header />
       <main>
         <Hero />
+        {/* The argument: who, what he believes, how he works */}
+        <Principles />
+        <Approach />
+        <Differences />
+        {/* The evidence: the playbook, 4.1–4.4 */}
+        <PlaybookIntro />
         <FrameworkSection />
         <ActivatorsSection priorityActivators={priorityActivators} />
         <ChangeLevers />
@@ -229,12 +239,21 @@ function App() {
               Ready to assess your organization?
             </h2>
             <p
-              className="text-[16px] leading-relaxed mb-9 mx-auto"
+              className="text-[16px] leading-relaxed mb-4 mx-auto"
               style={{ color: 'rgba(255,255,255,.72)', maxWidth: 560 }}
             >
               Eighteen questions across five dimensions, in about five minutes —
               a baseline read of organizational health, where to focus first,
               and a targeted intervention for each weak spot.
+            </p>
+            <p
+              className="text-[13px] leading-relaxed mb-9 mx-auto"
+              style={{ color: 'rgba(255,255,255,.55)', maxWidth: 560 }}
+            >
+              Why it matters: healthy organizations are roughly three times more
+              likely to outperform their peers (McKinsey Organizational Health
+              Index), and active, visible sponsorship is the top contributor to
+              change success (Prosci benchmarking research).
             </p>
             <button onClick={handleStartDiagnostic} className="btn btn-primary text-lg px-8 py-4">
               Start the diagnostic
@@ -293,12 +312,18 @@ function App() {
         >
           <div className="max-w-[1140px] mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
-              <span className="font-display font-bold text-[var(--color-ink)]">
-                OrgDesign Playbook
+              <span className="text-sm text-[var(--color-faint)] text-center sm:text-left">
+                Organization design · Human-AI work partnership · Singapore
               </span>
-              <span className="text-sm text-[var(--color-faint)]">
-                A framework for organizational design and transformation
-              </span>
+              {/* rel="me" ties this site and the profile together as one identity */}
+              <a
+                href={ownedProfiles[0].url}
+                target="_blank"
+                rel="me noopener noreferrer"
+                className="text-sm font-medium text-[var(--color-ink)] underline underline-offset-4 hover:text-[var(--color-primary)]"
+              >
+                Follow on LinkedIn ↗
+              </a>
             </div>
 
             {/* Personal brand sign-off */}

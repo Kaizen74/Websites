@@ -119,6 +119,14 @@ export const profile = {
    * the consistency guard) — they are deliberately not rendered, to keep the
    * visible section elegant without weakening the entity.
    */
+  /**
+   * First-person note for human readers, shown above the third-person entity
+   * definition. Facts are sourced (banking → public sector route: NTU feature
+   * and bio; anthropology: University of North Texas, 2022). The closing line
+   * is voice, not a factual claim.
+   */
+  firstPersonNote:
+    'I came to organization design through corporate banking and the public sector, and later studied business and organizational anthropology. It left me with one habit I still rely on: look at how the work really runs, not how the chart says it runs.',
   experienceSummary:
     '25 years in organizational development — across Shell, Cargill, L’Oréal and the Singapore public sector.',
   /** Longer bio. Every clause is sourced from the two features below. */

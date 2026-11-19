@@ -55,6 +55,20 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/*
+ * `--font-display` lives in :root, not Tailwind's @theme, so Tailwind never
+ * generates a `font-display` utility. Without this rule the class was a silent
+ * no-op: headings were serif only through the element rule below, and every
+ * other element marked font-display (wordmark, signature, index numbers, the
+ * results score) fell back to DM Sans.
+ */
+.font-display {
+  font-family: var(--font-display);
+  /* Playfair defaults to old-style figures, where 0 reads as the letter o and
+     a large score looks uneven. Display numbers are data: use lining figures. */
+  font-variant-numeric: lining-nums;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
   font-weight: 700;

@@ -7,11 +7,12 @@ interface NavItem {
   href: string;
 }
 
+/** Follows the visitor's route: belief → method → reference → who */
 const navItems: NavItem[] = [
-  { label: 'Framework', href: `#${SECTION_IDS.framework}` },
-  { label: 'Activators', href: `#${SECTION_IDS.activators}` },
-  { label: 'Change model', href: `#${SECTION_IDS.changeLevers}` },
-  { label: 'AI-native', href: `#${SECTION_IDS.aiNative}` },
+  { label: 'Principles', href: `#${SECTION_IDS.principles}` },
+  { label: 'How I work', href: `#${SECTION_IDS.approach}` },
+  { label: 'Playbook', href: `#${SECTION_IDS.playbook}` },
+  { label: 'About', href: `#${SECTION_IDS.about}` },
 ];
 
 /** 2×2 mini-grid mark using the four quadrant colors */
@@ -48,14 +49,13 @@ export function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Wordmark */}
+          {/* Wordmark is the person: visible at every width, including phones */}
           <a
             href={`#${SECTION_IDS.hero}`}
             className="flex items-center gap-3 text-[var(--color-ink)]"
           >
             <QuadrantMark />
-            <span className="font-display font-bold text-lg hidden sm:block">
-              OrgDesign Playbook
-            </span>
+            <span className="font-display font-bold text-lg">Eric Yim</span>
           </a>
 
           {/* Desktop Navigation */}

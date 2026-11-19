@@ -40,7 +40,7 @@ export function AboutAuthor() {
         <div className="grid lg:grid-cols-[380px_1fr] gap-10 lg:gap-16 items-start">
           {/* ---------- Identity (sticky, as in the framework section) ---------- */}
           <div className="lg:sticky" style={{ top: 96 }}>
-            <p className="eyebrow mb-4">About the author</p>
+            <p className="eyebrow mb-4">About</p>
             <h2
               className="font-display font-bold text-[var(--color-ink)] mb-2"
               style={{ fontSize: 'clamp(28px, 3.6vw, 36px)', lineHeight: 1.15 }}
@@ -55,6 +55,14 @@ export function AboutAuthor() {
             </p>
             <p className="text-[var(--color-faint)] mb-5" style={{ fontSize: 13.5 }}>
               {profile.featuredRole}, {profile.worksFor} · {profile.location}
+            </p>
+
+            {/* In his own voice first; the third-person entity text follows */}
+            <p
+              className="font-display text-[var(--color-ink)] mb-4"
+              style={{ fontSize: 17, lineHeight: 1.5, fontStyle: 'italic', textWrap: 'pretty' }}
+            >
+              {profile.firstPersonNote}
             </p>
 
             <p
