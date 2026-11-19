@@ -139,9 +139,21 @@ export function AboutAuthor() {
             </ul>
           </div>
 
-          {/* ---------- Signature quote + Q&A ---------- */}
+          {/* ---------- Portrait + signature quote, then Q&A ---------- */}
           <div>
-            <figure className="m-0 mb-12">
+            <div className="grid sm:grid-cols-[220px_1fr] gap-6 sm:gap-8 items-center mb-12">
+              {/* width/height reserve the 4:5 box before the image loads: no layout shift */}
+              <img
+                src="/images/eric-yim-portrait.webp"
+                width={640}
+                height={800}
+                alt="Eric Yim, organization design strategist"
+                loading="lazy"
+                decoding="async"
+                className="w-full h-auto"
+                style={{ maxWidth: 260, borderRadius: 2, border: '1px solid var(--color-hairline)' }}
+              />
+            <figure className="m-0">
               <blockquote
                 className="m-0 font-display italic text-[var(--color-ink)]"
                 style={{ fontSize: 26, lineHeight: 1.4, textWrap: 'pretty' }}
@@ -155,6 +167,7 @@ export function AboutAuthor() {
                 {signatureQuote.source}
               </figcaption>
             </figure>
+            </div>
 
             <p
               className="uppercase font-semibold text-[var(--color-faint)] mb-5"

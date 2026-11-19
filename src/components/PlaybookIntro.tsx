@@ -61,7 +61,7 @@ export function PlaybookIntro() {
               style={{ maxWidth: 560, textWrap: 'pretty' }}
             >
               Four tools I use to design and change organizations, free to
-              explore. Start anywhere: each one stands on its own.
+              explore. Start anywhere. Each one stands on its own.
             </p>
             <a
               href={`#${SECTION_IDS.framework}`}

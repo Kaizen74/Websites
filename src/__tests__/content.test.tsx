@@ -9,9 +9,18 @@ describe('Static Content', () => {
     render(<Hero />);
     // The H1 is the argument, not a generic tagline
     const h1 = screen.getByRole('heading', { level: 1 });
-    expect(h1.textContent).toMatch(/Leaders don.t need another report\. They need a system\./);
-    // The visitor learns whose site this is above the fold
-    expect(screen.getByText(/Eric Yim · Organization Design Strategist · Singapore/)).toBeTruthy();
+    expect(h1.textContent).toMatch(/I design organizations as systems that leaders\s+can run\./);
+    // The visitor sees a face and a name above the fold
+    const byline = screen.getByTestId('hero-byline');
+    expect(byline.textContent).toContain('Eric Yim');
+    expect(byline.textContent).toContain('Organization Design Strategist · Singapore');
+    const avatar = byline.querySelector('img')!;
+    expect(avatar.getAttribute('src')).toBe('/images/eric-yim-avatar.webp');
+    // fixed dimensions reserve space before the image loads: no layout shift
+    expect(avatar.getAttribute('width')).toBe('56');
+    expect(avatar.getAttribute('height')).toBe('56');
+    // decorative beside the visible name, so screen readers don't hear it twice
+    expect(avatar.getAttribute('alt')).toBe('');
     // Third-party proof, linked to its source
     const proof = screen.getByText(/Hands Them a System/);
     expect(proof).toBeTruthy();

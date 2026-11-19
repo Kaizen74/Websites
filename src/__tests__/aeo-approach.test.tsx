@@ -23,8 +23,8 @@ interface LdNode {
   alternateName?: string[];
   url?: string;
   caption?: string;
-  author?: unknown;
-  creator?: unknown;
+  author?: { '@id': string };
+  creator?: { '@id': string };
   speakable?: { cssSelector: string[] };
   hasDefinedTerm?: {
     '@type': string;
@@ -72,11 +72,11 @@ describe('Required / chosen / inherited as a DefinedTermSet', () => {
     expect(set['@id']?.startsWith(`${SITE_URL}/`)).toBe(true);
   });
 
-  test('claims no authorship: originality of the lens is not yet verified', () => {
-    // Constraint 6 — never assert what has not been checked. Add author/creator
-    // only once the operator confirms the lens is his own coinage.
-    expect(set.author).toBeUndefined();
-    expect(set.creator).toBeUndefined();
+  test('names Eric Yim as author and creator of the lens', () => {
+    // Confirmed by the operator 2026-11-19 as his own coinage. Points at the
+    // Person node by @id so engines attach the terms to the entity.
+    expect(set.author).toEqual({ '@id': `${SITE_URL}/#person` });
+    expect(set.creator).toEqual({ '@id': `${SITE_URL}/#person` });
   });
 });
 
@@ -95,7 +95,7 @@ describe('FAQ answers stay in step with the content they summarise', () => {
 
   test('the differences answer carries every category and its response', () => {
     const a = answerTo(/required, chosen and inherited/).toLowerCase();
-    ['required', 'chosen', 'inherited', 'stays local', 'keep it or align it', 'harmonised'].forEach(
+    ['required', 'chosen', 'inherited', 'stays local', 'keep it or align it', 'harmonized'].forEach(
       (s) => expect(a).toContain(s)
     );
   });
@@ -143,7 +143,7 @@ describe('Share card (Phase 4 gate, kept true after the refresh)', () => {
     expect(nodeOfType('ImageObject').caption).toBe(og);
     // and it describes what the card actually says
     expect(og).toContain(profile.name);
-    expect(og).toMatch(/They need a system\./);
+    expect(og).toMatch(/I design organizations as systems that leaders can run\./);
   });
 
   test('the card source mirrors the live design tokens', () => {
@@ -153,5 +153,109 @@ describe('Share card (Phase 4 gate, kept true after the refresh)', () => {
     expect(card.toUpperCase()).toContain(`--PAPER:${token('paper')}`);
     expect(card.toUpperCase()).toContain(`--INK:${token('ink')}`);
     expect(card.toUpperCase()).toContain(`--PRIMARY:${token('primary')}`);
+  });
+});
+
+describe('Headshot', () => {
+  const pub = (p: string) => join(ROOT, 'public', p);
+
+  test('every image the page and structured data reference exists', () => {
+    for (const f of ['images/eric-yim-avatar.webp', 'images/eric-yim-portrait.webp', 'images/eric-yim.jpg']) {
+      expect(() => readFileSync(pub(f))).not.toThrow();
+    }
+  });
+
+  test('Person.image is the portrait, on the canonical host, with true dimensions', () => {
+    const person = graph.find((n) => n['@type'] === 'Person') as LdNode & { image: { '@id': string } };
+    // Person points at a top-level ImageObject by @id (a flat graph resolves everywhere)
+    const portrait = graph.find((n) => n['@id'] === person.image['@id']) as LdNode & {
+      url: string; width: number; height: number;
+    };
+    expect(portrait['@type']).toBe('ImageObject');
+    expect(portrait.url).toBe(`${SITE_URL}/images/eric-yim.jpg`);
+    const jpg = readFileSync(pub('images/eric-yim.jpg'));
+    // read the JPEG SOF0/SOF2 frame for the real pixel size
+    let i = 2, w = 0, h = 0;
+    while (i < jpg.length) {
+      if (jpg[i] !== 0xff) { i++; continue; }
+      const marker = jpg[i + 1];
+      if (marker >= 0xc0 && marker <= 0xc2) { h = jpg.readUInt16BE(i + 5); w = jpg.readUInt16BE(i + 7); break; }
+      i += 2 + jpg.readUInt16BE(i + 2);
+    }
+    expect([w, h]).toEqual([portrait.width, portrait.height]);
+    const profilePage = graph.find((n) => n['@type'] === 'ProfilePage') as LdNode & {
+      primaryImageOfPage: { '@id': string };
+    };
+    expect(profilePage.primaryImageOfPage['@id']).toBe(person.image['@id']);
+  });
+
+  test('the About portrait renders with alt text and reserved dimensions', () => {
+    render(<App />);
+    const img = document.querySelector('#about img[src="/images/eric-yim-portrait.webp"]')!;
+    expect(img).not.toBeNull();
+    expect(img.getAttribute('alt')).toMatch(/Eric Yim/);
+    expect(img.getAttribute('width')).toBe('640');
+    expect(img.getAttribute('height')).toBe('800');
+    expect(img.getAttribute('loading')).toBe('lazy');
+  });
+});
+
+describe('Voice guard: the slop patterns removed on 2026-11-19 stay out', () => {
+  // The no-ai-slop edit removed "X, not Y" contrasts, negative headings and em
+  // dashes from the copy written for the new sections. These checks keep them
+  // out of the data files that hold that copy.
+  /* eslint-disable @typescript-eslint/no-require-imports */
+  const { principles: ps, principlesCopy: pc } = require('../data/principles');
+  const ap = require('../data/approach');
+  /* eslint-enable @typescript-eslint/no-require-imports */
+
+  test('no principle title is a binary contrast or a negation', () => {
+    ps.forEach((p: { title: string }) => {
+      expect(p.title).not.toMatch(/, not /);
+      expect(p.title).not.toMatch(/^Not /);
+    });
+  });
+
+  test('the six principle titles do not all share one sentence shape', () => {
+    const shapes = new Set(ps.map((p: { title: string }) => p.title.split(' ')[0]));
+    expect(shapes.size).toBeGreaterThanOrEqual(5);
+  });
+
+  test('no em dashes in the new section copy', () => {
+    const copy = JSON.stringify({ pc, ps, a: ap.approachCopy, d: ap.differencesCopy, e: ap.evidenceCopy, x: ap.exampleCopy });
+    expect(copy).not.toContain('—');
+  });
+
+  test('headings state the point rather than negating something', () => {
+    expect(ap.differencesCopy.heading).not.toMatch(/^Not /);
+  });
+});
+
+describe('Self-hosted brand fonts', () => {
+  const css = readFileSync(join(ROOT, 'src', 'index.css'), 'utf8');
+  const fontFiles = [...css.matchAll(/url\('\/fonts\/([^']+\.woff2)'\)/g)].map((m) => m[1]);
+  const preloads = [...html.matchAll(/<link rel="preload" href="\/fonts\/([^"]+\.woff2)" as="font" type="font\/woff2" crossorigin \/>/g)].map((m) => m[1]);
+
+  test('every @font-face file exists in public/fonts', () => {
+    expect(fontFiles.length).toBe(10);
+    fontFiles.forEach((f) => expect(() => readFileSync(join(ROOT, 'public', 'fonts', f))).not.toThrow());
+  });
+
+  test('the four first-screen faces are preloaded, and each is a declared face', () => {
+    expect(preloads.sort()).toEqual([
+      'dm-sans-latin-400-normal.woff2', 'dm-sans-latin-600-normal.woff2',
+      'playfair-display-latin-700-italic.woff2', 'playfair-display-latin-700-normal.woff2',
+    ]);
+    preloads.forEach((p) => expect(fontFiles).toContain(p));
+  });
+
+  test('the SIL Open Font License ships alongside the files', () => {
+    for (const f of ['LICENSE-PlayfairDisplay-OFL.txt', 'LICENSE-DMSans-OFL.txt']) {
+      expect(readFileSync(join(ROOT, 'public', 'fonts', f), 'utf8')).toMatch(/SIL OPEN FONT LICENSE/i);
+    }
+  });
+
+  test('no Google Fonts request remains, in the page or the stylesheet', () => {
+    for (const src of [html, css]) expect(src).not.toMatch(/fonts\.(googleapis|gstatic)\.com/);
   });
 });

@@ -36,6 +36,20 @@ Testing Library. No charting library (plain-div bars). Deploys as a static
   About (first-person note above the third-person entity text) → footer
   (LinkedIn `rel="me"`). Hero index numbers must match section eyebrows;
   `app-smoke.test.tsx` enforces numbering and order.
+- **Headshot:** `public/images/` — `eric-yim-avatar.webp` (hero byline,
+  56px, alt="" beside the visible name), `eric-yim-portrait.webp` (About,
+  4:5, lazy), `eric-yim.jpg` (Person.image / ProfilePage primary image,
+  1000×1333). Metadata stripped. All `<img>` carry width/height (no CLS).
+- **Fonts are self-hosted** (`public/fonts`, OFL licences alongside): 10 Latin
+  faces declared in `src/index.css`; the 4 first-screen faces are preloaded in
+  `index.html`. Never reintroduce Google Fonts — the page makes zero
+  third-party requests, and `verify-site` checks it.
+- **Deep links** (`/#section`): App's mount effect re-aligns to 72px after font
+  batches, `load` and short checkpoints for 3s, yielding immediately to real
+  user input (wheel/touch/key/pointer). `verify-site` checks both.
+- **Voice:** new copy follows the operator's voice (plain, imperative, no
+  "X, not Y" slogans, no em dashes). `aeo-approach.test.tsx` has a voice guard.
+  Spelling is US for consistency with the existing site and LinkedIn title.
 - **Typography:** `.font-display` is defined explicitly in `src/index.css`
   (Tailwind never generated it because `--font-display` lives in `:root`, not
   `@theme`). Display numbers use lining figures. Fonts load from `index.html`
@@ -160,9 +174,9 @@ Testing Library. No charting library (plain-div bars). Deploys as a static
   and feeds the sitemap's `<lastmod>` and `COPYRIGHT_YEAR`; sitemap `<lastmod>`
   stays date-only by design and a test fails if the datetime form leaks there.
   Bump the ISO constant only — the date follows automatically.
-- **Tests:** 234 passing across 18 suites (unit, integration, App smoke,
+- **Tests:** 245 passing across 18 suites (unit, integration, App smoke,
   SEO/structured-data alignment, LinkedIn consistency, the new sections and
-  their AEO surfaces), plus `npm run verify:site` (115 end-to-end checks).
+  their AEO surfaces), plus `npm run verify:site` (132 end-to-end checks).
   **Build:** clean. **Lint:** 12 pre-existing errors (9 `no-explicit-any` in
   older tests, 3 `set-state-in-effect`), identical to main — do not add more.
 - **Known issue (pre-existing):** `scripts/check-size.js` fails on
@@ -200,14 +214,12 @@ working increment.
 
 - **Merge to main.** Vercel deploys `main`; nothing in this branch is live
   until it is merged.
-- **Operator decisions pending:** (1) credit Kates & Kesler on 4.2 — still
-  withheld per the July request, enforced by `app-smoke.test.tsx`; (2) confirm
-  required/chosen/inherited is his own coinage, then add `author` to the
-  DefinedTermSet (test currently asserts none); (3) a professional headshot;
-  (4) approve the new copy in his voice (principles, About note, thesis).
-- **Performance follow-up:** CLS is 0.019 (good band) from the hero rewrapping
-  when Playfair arrives on slow first visits. Self-hosting the fonts would
-  remove it.
+- **Resolved 2026-11-19:** Kates & Kesler credited on 4.2 (test now requires
+  it); required/chosen/inherited confirmed as his coinage (DefinedTermSet
+  author + creator = Person; test requires it); headshot added; copy edited
+  for voice. CLS fixed by self-hosting fonts (0.064 → 0.002).
+- **Open:** British vs American spelling across the whole site (operator's
+  own writing is British; site is US).
 - **After deploy:** refresh the LinkedIn preview via Post Inspector; add the
   Search Console / Bing verification tokens and submit the sitemap.
 - Phase 6 of the AI-search-visibility spec (answer-shaped headings proposal)

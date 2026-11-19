@@ -77,17 +77,53 @@ function App() {
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, [results, cohort.length]);
 
-  // When returning home with a section hash from another view, scroll after
-  // mount with a fixed-header offset (scrollIntoView would hide the heading)
+  // When the home view mounts with a section hash (a deep link, or returning
+  // from another view), scroll there with a fixed-header offset
+  // (scrollIntoView would hide the heading).
   useEffect(() => {
     if (currentView !== 'home') return;
     const hash = window.location.hash;
     if (!hash || hash === `#${SECTION_IDS.hero}`) return;
-    const target = document.querySelector(hash);
-    if (target) {
+    const align = () => {
+      const target = document.querySelector(hash);
+      if (!target) return;
       const top = target.getBoundingClientRect().top + window.scrollY - 72;
-      window.scrollTo({ top, behavior: 'auto' });
-    }
+      // 'instant', not 'auto': the page sets scroll-behavior: smooth, which
+      // would animate and leave scrollY mid-flight when it is read below
+      window.scrollTo({ top, behavior: 'instant' });
+    };
+    align();
+    // Two things move the target after that first scroll:
+    //  - brand fonts arriving late rewrap the text above it (in batches);
+    //  - the browser's own smooth fragment-scroll, started during load because
+    //    the prerendered HTML already contains the target, keeps animating
+    //    toward a position it computed before either the fonts or React.
+    // So re-align at each point where layout can still change, for the first
+    // few seconds — and stop the moment the visitor scrolls themselves. Intent
+    // is read from input events, not scrollY, because the browser's animation
+    // also moves scrollY.
+    let done = false;
+    const settle = () => {
+      if (!done) align();
+    };
+    const yieldToVisitor = () => {
+      done = true;
+    };
+    const intents = ['wheel', 'touchstart', 'keydown', 'pointerdown'] as const;
+    intents.forEach((e) => window.addEventListener(e, yieldToVisitor, { passive: true, once: true }));
+    const fonts = document.fonts;
+    fonts?.ready.then(settle);
+    fonts?.addEventListener?.('loadingdone', settle);
+    window.addEventListener('load', settle, { once: true });
+    const checkpoints = [150, 600, 1500].map((ms) => window.setTimeout(settle, ms));
+    const stop = window.setTimeout(yieldToVisitor, 3000);
+    return () => {
+      done = true;
+      [...checkpoints, stop].forEach((t) => window.clearTimeout(t));
+      intents.forEach((e) => window.removeEventListener(e, yieldToVisitor));
+      fonts?.removeEventListener?.('loadingdone', settle);
+      window.removeEventListener('load', settle);
+    };
   }, [currentView]);
 
   const handleSurveyComplete = (newResults: DiagnosticResults) => {
@@ -250,10 +286,10 @@ function App() {
               className="text-[13px] leading-relaxed mb-9 mx-auto"
               style={{ color: 'rgba(255,255,255,.55)', maxWidth: 560 }}
             >
-              Why it matters: healthy organizations are roughly three times more
-              likely to outperform their peers (McKinsey Organizational Health
-              Index), and active, visible sponsorship is the top contributor to
-              change success (Prosci benchmarking research).
+              Healthy organizations are roughly three times more likely to
+              outperform their peers (McKinsey Organizational Health Index), and
+              active, visible sponsorship is the top contributor to change
+              success (Prosci benchmarking research).
             </p>
             <button onClick={handleStartDiagnostic} className="btn btn-primary text-lg px-8 py-4">
               Start the diagnostic

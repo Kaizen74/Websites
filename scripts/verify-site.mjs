@@ -40,7 +40,7 @@ const text = decode(root);
 
 check('crawler', '#root is server-rendered (not an empty shell)', text.length > 8000, `${text.length} chars`);
 check('crawler', 'exactly one <h1> in the rendered page', (root.match(/<h1[\s>]/g) || []).length === 1);
-check('crawler', 'H1 carries the thesis', /Leaders don.t need another report\. They need a\s*system/.test(decode((root.match(/<h1[\s\S]*?<\/h1>/) || [''])[0])));
+check('crawler', 'H1 carries the thesis', /I design organizations as\s*systems\s*that leaders can run\./.test(decode((root.match(/<h1[\s\S]*?<\/h1>/) || [''])[0])));
 const nameAt = text.indexOf('Eric Yim');
 check('crawler', 'entity name appears in the first 1% of page text', nameAt >= 0 && nameAt / text.length < 0.01, `at char ${nameAt} of ${text.length}`);
 
@@ -49,9 +49,9 @@ for (const id of ['hero', 'principles', 'approach', 'differences', 'playbook', '
   check('crawler', `section #${id} is in the raw HTML`, root.includes(`id="${id}"`));
 }
 for (const phrase of [
-  'A system, not a report.', 'One system, not four fixes.', 'Not every difference is a problem.',
-  'Change is a behaviour, not an announcement.', 'AI redesigns the work, not the chart.',
-  'Say what you know, and how you know it.',
+  'Every diagnosis ends in a plan.', 'Move all four domains together.', 'Ask why before you harmonize.',
+  'Script what each leader does differently.', 'Start AI at the task.',
+  'Say what you know, and how you know it.', 'Adapted from Gregory Kesler and Amy Kates',
   'Frame', 'Focus', 'Find', 'Dial', 'Design', 'Deliver', 'Confirmed', 'Indicated', 'Hypothesis',
   'Regulation, a customer contract or the physical site makes it so.',
   'A deliberate local decision, made for a reason someone can still state.',
@@ -84,6 +84,11 @@ check('crawler', 'every dateModified is ISO 8601 with offset', graph.filter((n) 
 check('crawler', 'WebSite.name is the person', node('WebSite').name === 'Eric Yim');
 check('crawler', 'FAQPage has 10 answers', (node('FAQPage').mainEntity || []).length === 10);
 check('crawler', 'DefinedTermSet has 3 terms', (node('DefinedTermSet').hasDefinedTerm || []).length === 3);
+const portraitId = (node('Person').image || {})['@id'];
+const portrait = graph.find((n) => n['@id'] === portraitId) || {};
+check('crawler', 'Person.image resolves to the portrait, and the file ships', portrait['@type'] === 'ImageObject'
+  && existsSync(join(DIST, (portrait.url || '').replace(`${CANONICAL}/`, ''))), portrait.url);
+check('crawler', 'DefinedTermSet names Eric Yim as author', (node('DefinedTermSet').author || {})['@id'] === `${CANONICAL}/#person`);
 const allIds = JSON.stringify(graph).match(/"@id":\s*"[^"]+"/g) || [];
 check('crawler', 'every JSON-LD @id is on the canonical host', allIds.every((s) => s.includes(`${CANONICAL}/`)));
 
@@ -153,6 +158,8 @@ try {
     if (/hydrat|did not match|Minified React error #4(18|23|25)/i.test(m.text())) hydration.push(m.text());
   });
   page.on('pageerror', (e) => errors.push(`pageerror: ${e.message}`));
+  const thirdParty = [];
+  page.on('request', (r) => { if (!r.url().startsWith(BASE) && !r.url().startsWith('data:')) thirdParty.push(r.url()); });
   await page.goto(BASE + '/', { waitUntil: 'load' });
   await page.waitForSelector('#about');
   await page.waitForTimeout(600);
@@ -164,6 +171,19 @@ try {
     return { wordmark: f('header a span.font-display'), h1: f('h1'), signature: f('footer .font-display') };
   });
   for (const [k, v] of Object.entries(fonts)) check('visitor', `${k} renders in Playfair Display`, /Playfair/.test(v), v);
+  const loadedFaces = await page.evaluate(() => [...document.fonts].filter((f) => f.status === 'loaded').length);
+  check('visitor', 'brand fonts load from the site itself', loadedFaces >= 4, `${loadedFaces} faces loaded`);
+  check('visitor', 'no third-party requests on load (no visitor data leaves the site)', thirdParty.length === 0, thirdParty.slice(0, 3).join(', '));
+
+  // --- photos: the lazy About portrait decodes once scrolled to; no shift on load
+  await page.locator('#about img').first().scrollIntoViewIfNeeded();
+  await page.waitForTimeout(600);
+  const portraitOk = await page.evaluate(() => { const i = document.querySelector('#about img'); return i.complete && i.naturalWidth === 640; });
+  check('visitor', 'About portrait decodes at full resolution', portraitOk);
+  const imgShift = await page.evaluate(() => performance.getEntriesByType('layout-shift')
+    .filter((e) => (e.sources || []).some((s) => s.node && s.node.nodeName === 'IMG')).length);
+  check('visitor', 'images cause no layout shift', imgShift === 0, `${imgShift} shifts`);
+  await page.evaluate(() => window.scrollTo({ top: 0, behavior: 'instant' }));
 
   // --- every in-page link resolves, and lands below the fixed header
   const hrefs = await page.evaluate(() => [...new Set([...document.querySelectorAll('a[href^="#"]')].map((a) => a.getAttribute('href')))]);
@@ -193,6 +213,28 @@ try {
       exists ? `top=${top}px` : 'link not found');
   }
 
+  // --- deep links (e.g. a shared ericyim.sg/#differences) land under the header
+  //     once fonts settle, and never fight a visitor who starts scrolling
+  for (const [w, h] of [[390, 844], [1440, 900]]) {
+    for (const id of ['differences', 'about']) {
+      const p = await browser.newPage({ viewport: { width: w, height: h } });
+      await p.goto(`${BASE}/#${id}`, { waitUntil: 'networkidle' });
+      await p.waitForTimeout(3300);
+      const top = await p.evaluate((i) => Math.round(document.getElementById(i).getBoundingClientRect().top), id);
+      check('visitor', `${w}px deep link /#${id} lands at the header line`, Math.abs(top - 72) <= 2, `top=${top}px`);
+      await p.close();
+    }
+    const p = await browser.newPage({ viewport: { width: w, height: h } });
+    await p.goto(`${BASE}/#about`, { waitUntil: 'domcontentloaded' });
+    await p.waitForTimeout(200);
+    await p.mouse.move(w / 2, h / 2);
+    await p.mouse.wheel(0, -500); // the visitor scrolls up during the settling window
+    await p.waitForTimeout(3300);
+    const top = await p.evaluate(() => Math.round(document.getElementById('about').getBoundingClientRect().top));
+    check('visitor', `${w}px: a visitor's own scroll is never undone`, top > 200, `about top=${top}px after scrolling up`);
+    await p.close();
+  }
+
   // --- the sorter, clicked like a visitor
   await page.evaluate(() => { localStorage.clear(); sessionStorage.clear(); });
   const sorter = page.getByTestId('difference-sorter');
@@ -204,7 +246,7 @@ try {
   await click(1, 'No'); await click(2, 'Yes');
   check('visitor', 'sorter: chosen → "Decide: keep or align."', await sorter.getByText('Decide: keep or align.').isVisible());
   await click(2, 'No');
-  check('visitor', 'sorter: inherited → "Harmonise."', await sorter.getByText('Harmonise.').isVisible());
+  check('visitor', 'sorter: inherited → "Harmonize."', await sorter.getByText('Harmonize.').isVisible());
   const stored = await page.evaluate(() => localStorage.length + sessionStorage.length);
   check('visitor', 'sorter stores nothing in the browser', stored === 0, `${stored} keys`);
 
@@ -245,11 +287,13 @@ try {
     const m = await p.evaluate(() => ({
       overflow: document.documentElement.scrollWidth - innerWidth,
       wordmark: getComputedStyle([...document.querySelectorAll('header a span')].find((s) => s.textContent === 'Eric Yim')).display !== 'none',
-      nameInFirstScreen: (() => { const r = document.querySelector('#hero .eyebrow').getBoundingClientRect(); return r.top < innerHeight; })(),
+      nameInFirstScreen: (() => { const r = document.querySelector('[data-testid="hero-byline"]').getBoundingClientRect(); return r.top < innerHeight; })(),
+      faceInFirstScreen: (() => { const i = document.querySelector('[data-testid="hero-byline"] img'); const r = i.getBoundingClientRect(); return i.complete && i.naturalWidth > 0 && r.bottom < innerHeight; })(),
     }));
     check('visitor', `${w}px: no horizontal page overflow`, m.overflow <= 0, `${m.overflow}px`);
     check('visitor', `${w}px: "Eric Yim" wordmark visible in header`, m.wordmark);
     check('visitor', `${w}px: name is on the first screen`, m.nameInFirstScreen);
+    check('visitor', `${w}px: face (avatar) loaded and on the first screen`, m.faceInFirstScreen);
     await p.close();
   }
 } finally {

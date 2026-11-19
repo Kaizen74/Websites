@@ -38,9 +38,13 @@ describe('App smoke tests', () => {
       screen.getByText(/Integrated Organizational Capability and Change Framework/i)
     ).toBeTruthy();
     expect(screen.getByText(/The three C's of change/i)).toBeTruthy();
-    // No framework-attribution label anywhere on the page
-    expect(screen.queryByText(/Kates/i)).toBeNull();
-    expect(screen.queryByText(/Kesler/i)).toBeNull();
+    // The five activators are credited to their source (operator decision,
+    // 2026-11-19, reversing the July framework-neutral request)
+    const activators = document.getElementById('activators')!;
+    expect(activators.textContent).toMatch(/Adapted from Gregory Kesler and Amy Kates/);
+    expect(activators.querySelector('cite')!.textContent).toBe(
+      'Bridging Organization Design and Performance'
+    );
   });
 
   test('AI-native section renders on the home view between change model and CTA', () => {

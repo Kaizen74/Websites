@@ -28,6 +28,12 @@ const loaded = await page.evaluate(async () => {
   await document.fonts.ready;
   return [...document.fonts].filter((f) => f.status === 'loaded').map((f) => `${f.family.replace(/"/g, '')} ${f.style} ${f.weight}`);
 });
+const photoOk = await page.evaluate(() => [...document.images].every((i) => i.complete && i.naturalWidth > 0));
+if (!photoOk) {
+  console.error('[og] the portrait did not load. Not writing the image.');
+  await browser.close();
+  process.exit(1);
+}
 const need = ['Playfair Display normal 700', 'Playfair Display italic 700', 'DM Sans normal 600'];
 const missing = need.filter((n) => !loaded.includes(n));
 if (missing.length) {

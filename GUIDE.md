@@ -8,9 +8,9 @@ It is your personal site, built to make senior executives and founders
 remember two things: who you are, and how you think. A visitor reads it top
 to bottom as an argument:
 
-- **Opening screen** — your name, your thesis ("Leaders don't need another
-  report. They need a system."), and the aTalent headline about your work as
-  proof. The card on the right lists the five stops below.
+- **Opening screen** — your photo and name, your thesis ("I design
+  organizations as systems that leaders can run."), and the aTalent headline
+  about your work as proof. The card on the right lists the five stops below.
 - **01 · How I think** — six principles behind your work. Each one links to
   the part of the page that puts it to work.
 - **02 · How I work** — your six-stage method (Frame, Focus, Find, Dial,
@@ -180,20 +180,30 @@ The page loads slightly faster than before despite carrying about 70% more
 readable content, and the LinkedIn preview image was redrawn in the brand
 fonts with your thesis on it.
 
-**Decisions waiting on you** (none blocks the site):
+**Your four decisions, now done (2026-11-19, later the same day):**
 
-1. *Crediting Kates & Kesler.* The five activators are recognisably their
-   work and are still uncredited on screen, because you asked for that in
-   July. Crediting them would protect your credibility with OD experts —
-   your call; it is a one-line change.
-2. *Is required/chosen/inherited your own coinage?* If you confirm it is, the
-   site can name you as its author in the machine-readable data. Until then
-   it deliberately does not.
-3. *A photo.* A professional headshot is the strongest single addition to a
-   personal-brand site. Optional — your decision on visibility.
-4. *Read the new wording.* The principles, the first-person note in About and
-   the thesis line are written in your voice from your published quotes and
-   your workflow; change anything that does not sound like you.
+1. The five activators now carry a credit line to Gregory Kesler and Amy
+   Kates.
+2. Required, chosen and inherited are marked as your own coinage: the site
+   says "I call the three reasons…", and Google and AI assistants are told you
+   are the author.
+3. Your headshot is on the site: a small photo next to your name at the top,
+   a larger portrait beside your mission quote in About, and on the LinkedIn
+   preview image. It is also registered as your official photo in the
+   machine-readable data. The photo's hidden file details were removed.
+4. The wording was edited to sound like you rather than like AI: no "not X,
+   but Y" slogans, no dramatic colons, plain sentences in the style of your
+   own workflow notes. One choice to flag: the page uses American spelling
+   ("organization", "harmonize") to match the rest of the site and your
+   LinkedIn title. Your own writing uses British spelling; say the word and
+   the whole site can switch.
+
+**Two fixes found along the way.** Links that jump to a section (for example
+someone sharing ericyim.sg/#differences) were landing slightly off on phones;
+they now land exactly under the header and never fight you if you start
+scrolling. And the brand fonts are now served from your own site instead of
+Google's, which removed the last visible jump on slow connections and means
+visitors' browsers no longer contact Google at all.
 
 ## Earlier changes (2026-08-13)
 

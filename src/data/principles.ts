@@ -20,47 +20,47 @@ export const principlesCopy = {
   eyebrow: '01 · How I think',
   heading: 'Six principles behind the work',
   lede:
-    'Every diagnosis, design and plan on this site is built on these. Each one links to the part of the playbook that puts it to work.',
+    'Every diagnosis, design and plan I make starts from these six. Each one links to where I apply it below.',
 };
 
 export const principles: Principle[] = [
   {
     number: '01',
-    title: 'A system, not a report.',
+    title: 'Every diagnosis ends in a plan.',
     body:
-      'A diagnosis is only worth what it hands leaders next: the decision, the owner and the first move. The work ends in a plan that runs, not a deck that sits.',
+      'A finding is only useful if it names the decision, the owner and the first move. I don’t consider the work done until that plan is running.',
     href: '#diagnostic',
     linkLabel: 'See it in the diagnostic',
   },
   {
     number: '02',
-    title: 'One system, not four fixes.',
+    title: 'Move all four domains together.',
     body:
-      'Structure, people, process and mindset move together, held by leadership, or they don’t move at all. A new chart on its own is a reorganization, not a redesign.',
+      'Structure, people, process and mindset move together, held by leadership, or they don’t move at all. A new org chart on its own only changes who reports to whom.',
     href: '#framework',
     linkLabel: 'See it in the framework',
   },
   {
     number: '03',
-    title: 'Not every difference is a problem.',
+    title: 'Ask why before you harmonize.',
     body:
-      'When two parts of a business work differently, ask why before you harmonise. Some differences are required, some were chosen and some were simply inherited, and each calls for a different decision.',
+      'When two parts of a business work differently, find out why first. Some differences are required, some were chosen and some were inherited. Each needs a different decision.',
     href: '#differences',
     linkLabel: 'Sort a difference',
   },
   {
     number: '04',
-    title: 'Change is a behaviour, not an announcement.',
+    title: 'Script what each leader does differently.',
     body:
-      'People usually know the why. What’s missing is the specific move each leader makes, the moment that makes it stick and the rhythm that keeps it going.',
+      'People usually know the why. They need the specific move each leader makes, the moment that makes it stick and the rhythm that keeps it going.',
     href: '#change-levers',
     linkLabel: 'See it in the change model',
   },
   {
     number: '05',
-    title: 'AI redesigns the work, not the chart.',
+    title: 'Start AI at the task.',
     body:
-      'Go down to the task. Decide what is automated, assisted or kept human, and let a person, not a model, make the final call.',
+      'Break each role into tasks. Decide which are automated, which are assisted and which stay human, and have a person make the final call on anything a model recommends.',
     href: '#ai-native',
     linkLabel: 'See it in AI-native design',
   },
@@ -68,7 +68,7 @@ export const principles: Principle[] = [
     number: '06',
     title: 'Say what you know, and how you know it.',
     body:
-      'Separate what is confirmed from what is indicated and what is still a hypothesis. A gap marked “not scored” is honest; a guessed score becomes a false finding.',
+      'Grade every finding as confirmed, indicated or a hypothesis. A gap marked “not scored” is honest; a guessed score becomes a false finding.',
     href: '#approach',
     linkLabel: 'See the evidence rules',
   },

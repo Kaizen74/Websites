@@ -26,9 +26,9 @@ export const approachCopy = {
   eyebrow: '02 · How I work',
   heading: 'Six stages, one evidence trail',
   lede:
-    'Every engagement follows the same arc. The first three stages establish what is actually true. The last three decide what to change, install it, and prove it worked.',
+    'I run every engagement the same way. Stages 0 to 2 establish what is true. In stages 3 to 5, leaders decide what to change, install it and check that it worked.',
   stageZeroNote:
-    'Stage 0 is deliberate: agree how the design will be judged before anyone argues for one.',
+    'Stage 0 comes first because without agreed criteria, every unit argues that its own way is right.',
 };
 
 export const stageGroups: StageGroup[] = [
@@ -45,7 +45,7 @@ export const stageGroups: StageGroup[] = [
         number: '1',
         name: 'Focus',
         question: 'Where must the model change, and where does it matter most?',
-        produces: 'A shortlist of where capability is weak where the value is made',
+        produces: 'Where capability is weak where the money is made',
       },
       {
         number: '2',
@@ -92,7 +92,7 @@ export interface EvidenceGrade {
 
 export const evidenceCopy = {
   heading: 'How sure are we?',
-  lede: 'Every finding carries one of three grades, and the grade sets what it can be used for.',
+  lede: 'I grade every finding one of three ways, and use it only for what its grade allows.',
   note:
     '“Not scored” is a valid answer. A blank says we don’t know yet; a guess says something false with confidence.',
 };
@@ -118,9 +118,9 @@ export interface DifferenceCategory {
 
 export const differencesCopy = {
   eyebrow: '03 · Required, chosen or inherited?',
-  heading: 'Not every difference is a problem',
+  heading: 'Why the same work gets done differently',
   lede:
-    'As a business grows across markets, sites and acquisitions, the same work ends up done in different ways. Before harmonising anything, ask why each difference exists. The answer tells you what to do.',
+    'As a business grows across markets, sites and acquisitions, the same work ends up done in different ways. Before harmonizing anything, I sort each difference by why it exists. I call the three reasons required, chosen and inherited, and each one leads to a different decision.',
   sorterHeading: 'Sort a difference in two questions',
   sorterLede:
     'Think of one thing your organization does differently in two places, then answer for it.',
@@ -145,7 +145,7 @@ export const differenceCategories: DifferenceCategory[] = [
     kind: 'inherited',
     label: 'Inherited',
     definition: 'History, an acquisition or habit. Nobody decided it.',
-    action: 'Harmonise',
+    action: 'Harmonize',
     labelColor: 'var(--color-primary)',
   },
 ];
@@ -190,7 +190,7 @@ export const exampleCopy = {
   lede:
     'A fictional software company sells in three markets. Here is who decides three things on paper, and who actually does.',
   verdict:
-    'Harmonise the discount authority. Decide whether the local customer-success team should become the model. Leave data residency alone.',
+    'Harmonize the discount authority. Decide whether the local customer-success team should become the model. Leave data residency alone.',
   disclaimer: 'Illustrative and fictional: the company, markets and decisions are made up.',
 };
 

@@ -128,7 +128,7 @@ export const profile = {
    * is voice, not a factual claim.
    */
   firstPersonNote:
-    'I came to organization design through corporate banking and the public sector, and later studied business and organizational anthropology. It left me with one habit I still rely on: look at how the work really runs, not how the chart says it runs.',
+    'I came to organization design through corporate banking and the public sector, and later studied business and organizational anthropology. That route left me with a habit I still rely on. I look at how the work really runs before I look at the org chart.',
   experienceSummary:
     '25 years in organizational development — across Shell, Cargill, L’Oréal and the Singapore public sector.',
   /** Longer bio. Every clause is sourced from the two features below. */
@@ -348,17 +348,17 @@ export const faqEntries: FaqEntry[] = [
   {
     question: 'What principles guide Eric Yim’s work?',
     // Built from src/data/principles.ts so the answer cannot drift from the page
-    answer: `Eric Yim works from six principles: ${principleList()}. Each one is put to work in a part of his organizational design playbook.`,
+    answer: `Eric Yim works from six principles: ${principleList()}. Each one maps to a part of his organizational design playbook.`,
   },
   {
     question: 'How does Eric Yim approach an organization design engagement?',
     answer:
-      'In six stages. Frame agrees how the design will be judged before anyone argues for one. Focus finds where capability is weak where the value is made. Find maps how the work really runs and who really decides. Dial decides what should be one way everywhere and how much AI should do. Design scores structure, role and system options against the criteria agreed at the start. Deliver tracks, cycle by cycle, whether capability is actually lifting.',
+      'Eric Yim works in six stages: Frame, Focus, Find, Dial, Design and Deliver. The first three establish what is true: the criteria the design will be judged on, where capability is weak where the money is made, and how the work really runs and who really decides. In the last three, leaders decide what should be one way everywhere and how much AI should do, score structure, role and system options against the agreed criteria, and track cycle by cycle whether capability is rising.',
   },
   {
     question: 'What are required, chosen and inherited differences?',
     answer:
-      'They are the three reasons the same work ends up done differently across markets, sites or acquired units, and each calls for a different response. A required difference is imposed by regulation, a customer contract or the physical site, so it stays local. A chosen difference was a deliberate local decision, so leaders decide whether to keep it or align it. An inherited difference came from history, an acquisition or habit and nobody decided it, so it should be harmonised. Two questions sort any difference: is it required, and was it decided on purpose?',
+      'Required, chosen and inherited are Eric Yim’s three labels for why the same work ends up done differently across markets, sites or acquired units. A required difference is imposed by regulation, a customer contract or the physical site, so it stays local. A chosen difference was a deliberate local decision, so leaders decide whether to keep it or align it. An inherited difference came from history, an acquisition or habit and nobody decided it, so it should be harmonized. Two questions sort any difference: is it required, and was it decided on purpose?',
   },
 ];
 

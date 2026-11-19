@@ -60,9 +60,28 @@ export function Hero() {
         <div className="grid lg:grid-cols-[1.08fr_.92fr] gap-12 lg:gap-20 items-center">
           {/* Left: who, the thesis, the proof */}
           <div className="animate-slide-up">
-            <p className="eyebrow mb-5">
-              {profile.name} · {profile.jobTitle} · {profile.location}
-            </p>
+            {/* Byline: a face and a name before the argument */}
+            <div className="flex items-center gap-4 mb-7" data-testid="hero-byline">
+              <img
+                src="/images/eric-yim-avatar.webp"
+                width={56}
+                height={56}
+                alt=""
+                className="rounded-full flex-shrink-0"
+                style={{ border: '1px solid var(--color-hairline)' }}
+              />
+              <div>
+                <p
+                  className="font-display font-bold text-[var(--color-ink)]"
+                  style={{ fontSize: 19, lineHeight: 1.2 }}
+                >
+                  {profile.name}
+                </p>
+                <p className="eyebrow mt-1">
+                  {profile.jobTitle} · {profile.location}
+                </p>
+              </div>
+            </div>
             <h1
               className="font-display font-bold text-[var(--color-ink)] mb-6"
               style={{
@@ -72,8 +91,9 @@ export function Hero() {
                 textWrap: 'balance',
               }}
             >
-              Leaders don’t need another report. They need a{' '}
-              <em className="text-[var(--color-primary)]">system</em>.
+              I design organizations as{' '}
+              <em className="text-[var(--color-primary)]">systems</em> that leaders
+              can run.
             </h1>
 
             <p
@@ -81,8 +101,8 @@ export function Hero() {
               style={{ maxWidth: 560, textWrap: 'pretty' }}
             >
               For 25 years I’ve worked in the gap between diagnosing an
-              organization and redesigning it — and, increasingly, deciding
-              which work belongs to people and which to machines.
+              organization and redesigning it. More and more, that means
+              deciding which work goes to people and which goes to machines.
             </p>
 
             <figure
