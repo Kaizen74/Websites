@@ -60,6 +60,20 @@ for (const phrase of [
   'History, an acquisition or habit. Nobody decided it.',
 ]) check('crawler', `crawler can read: "${phrase.slice(0, 48)}"`, text.includes(phrase));
 
+// Phase 6: each question heading is followed directly by its answer in the raw HTML
+for (const [q, a] of [
+  ['Where should an organization design start?', 'With the current state.'],
+  ['How much should a leader trust a diagnostic finding?', 'As much as its evidence grade allows.'],
+  ['Should you standardize how different parts of a business work?', 'Only once you know why each difference exists.'],
+  ['What makes an organization design work?', 'Structure, people, process and mindset move as one system'],
+  ['What turns an organization design into performance?', 'Five activators, adapted from Kesler and Kates:'],
+  ['How do you make organizational change stick?', 'Pull three levers at once.'],
+  ['How does AI change organization design?', 'It moves the unit of design from the org chart to the task.'],
+]) {
+  const qi = text.indexOf(q);
+  const ai = text.indexOf(a, qi);
+  check('crawler', `answer follows "${q.slice(0, 40)}"`, qi >= 0 && ai >= 0 && ai - (qi + q.length) <= 2, `gap ${ai - (qi + q.length)}`);
+}
 check('crawler', 'sorter ships in its unanswered state', text.includes('Answer the first question') && !root.includes('aria-pressed="true"'));
 check('crawler', 'no visitor state baked into HTML', !/cohort_results|diagnostic_responses/.test(root));
 

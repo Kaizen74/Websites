@@ -137,6 +137,12 @@ that it worked.
 Framing comes first because without agreed criteria, every unit argues that
 its own way is right.
 
+### How much should a leader trust a diagnostic finding?
+
+As much as its evidence grade allows. Decide on confirmed findings, decide
+with care on indicated ones and say so, and never decide on a hypothesis
+alone.
+
 I grade every finding one of three ways, and use it only for what its grade
 allows.
 
@@ -149,6 +155,12 @@ allows.
 confidence.
 
 ## Required, chosen and inherited differences
+
+### Should you standardize how different parts of a business work?
+
+Only once you know why each difference exists. Required differences stay
+local, chosen ones need a decision to keep or align, and inherited ones, which
+nobody decided, should be harmonized.
 
 A lens coined by Eric Yim. As a business grows across markets, sites and
 acquisitions, the same work ends up done in different ways. Before harmonizing
@@ -231,9 +243,9 @@ model design, and the change activation needed to make a new design real.
 
 ### How does AI change organization design?
 
-AI redesigns the work, not the chart. Design starts from the task instead of
-the org chart: each task is placed on a ladder from manual to reinvented, and
-a person checks any machine judgement before it reaches a decision-maker.
+AI redesigns the work, not the chart. It moves the unit of design from the org
+chart to the task. Each task goes on a ladder from manual to reinvented, and a
+person reviews every machine judgement before it reaches a decision-maker.
 Structure follows work, and work is now shared with machines.
 
 ### What is Eric Yim’s background?
@@ -298,3 +310,21 @@ Cadence); an AI-native design section (start from the task, a four-level ladder
 from manual to reinvented, and a person checking every machine judgement); and
 an 18-question diagnostic
 scored across five dimensions.
+
+### What makes an organization design work?
+
+Structure, people, process and mindset move as one system around a leadership
+core, expressed through the organization’s culture values. I map those four
+domains in the Integrated Organizational Capability and Change Framework.
+
+### What turns an organization design into performance?
+
+Five activators, adapted from Kesler and Kates: value-adding layers,
+innovation and execution networks, the business handshake, governance and
+decision rights, and matrix-ready leaders.
+
+### How do you make organizational change stick?
+
+Pull three levers at once. Communicate a future people can picture, co-create
+the design with the people who will run it, and set a cadence of rituals that
+reinforce the new behaviors.

@@ -59,6 +59,12 @@ export function AiNativeSection() {
             {sectionCopy.heading}
           </h2>
           <p
+            className="text-[17px] leading-[1.65] text-[var(--color-ink)] mb-3"
+            style={{ maxWidth: 640, textWrap: 'pretty' }}
+          >
+            {sectionCopy.answer}
+          </p>
+          <p
             className="text-[var(--color-secondary)]"
             style={{ fontSize: 17, lineHeight: 1.65, maxWidth: 640, textWrap: 'pretty' }}
           >

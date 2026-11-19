@@ -138,6 +138,12 @@ export function Approach() {
               {evidenceCopy.heading}
             </h3>
             <p
+              className="text-[var(--color-ink)] mb-3"
+              style={{ fontSize: 15.5, lineHeight: 1.6, textWrap: 'pretty' }}
+            >
+              {evidenceCopy.answer}
+            </p>
+            <p
               className="text-[var(--color-secondary)]"
               style={{ fontSize: 15.5, lineHeight: 1.6, textWrap: 'pretty' }}
             >

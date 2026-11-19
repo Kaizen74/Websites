@@ -328,7 +328,7 @@ export const faqEntries: FaqEntry[] = [
   {
     question: 'How does AI change organization design?',
     answer:
-      'AI redesigns the work, not the chart. Design starts from the task instead of the org chart: each task is placed on a ladder from manual to reinvented, and a person checks any machine judgement before it reaches a decision-maker. Structure follows work, and work is now shared with machines.',
+      'AI redesigns the work, not the chart. It moves the unit of design from the org chart to the task. Each task goes on a ladder from manual to reinvented, and a person reviews every machine judgement before it reaches a decision-maker. Structure follows work, and work is now shared with machines.',
   },
   {
     question: 'What is Eric Yim’s background?',

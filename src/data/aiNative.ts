@@ -9,7 +9,13 @@ import type {
 
 export const sectionCopy = {
   eyebrow: '4.4 · AI-native design',
-  heading: 'AI redesigns the work, not the chart',
+  // Phase 6 row 8: the visible heading is the reader's question. Eric's line
+  // "AI redesigns the work, not the chart" stays as the Article headline in
+  // the structured data and opens the matching FAQ answer.
+  heading: 'How does AI change organization design?',
+  tagline: 'AI redesigns the work, not the chart',
+  answer:
+    'It moves the unit of design from the org chart to the task. Each task goes on a ladder from manual to reinvented, and a person reviews every machine judgement before it reaches a decision-maker.',
   lede:
     'Structure follows work, and work is now shared with machines. Three moves keep an AI-era design sound: start from the task, decide how much of each task a machine should do, and have a person check its judgement before anyone acts on it.',
   moveOneOverline: 'Move one',

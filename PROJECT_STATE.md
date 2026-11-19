@@ -226,9 +226,9 @@ working increment.
   own writing is British; site is US).
 - **After deploy:** refresh the LinkedIn preview via Post Inspector; add the
   Search Console / Bing verification tokens and submit the sitemap.
-- **Phase 6** (`SEO_PHASE6_PROPOSAL.md`): rows 1–2 decided and shipped (row 1
-  rejected; row 2 = "Where should an organization design start?"). Rows 3–8
-  await approval. Ship nothing from them until approved.
+- **Phase 6** (`SEO_PHASE6_PROPOSAL.md`): complete. Row 1 rejected; rows 2–8
+  shipped as question headings, each followed directly by an answer of 40
+  words or fewer.
 - **IndexNow** pings after each successful Production deploy
   (`.github/workflows/indexnow.yml` → `scripts/indexnow.mjs --verify-live`).
   First real run is unverified: check the Actions tab after the next deploy.

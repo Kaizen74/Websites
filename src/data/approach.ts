@@ -95,7 +95,9 @@ export interface EvidenceGrade {
 }
 
 export const evidenceCopy = {
-  heading: 'How sure are we?',
+  heading: 'How much should a leader trust a diagnostic finding?',
+  answer:
+    'As much as its evidence grade allows. Decide on confirmed findings, decide with care on indicated ones and say so, and never decide on a hypothesis alone.',
   lede: 'I grade every finding one of three ways, and use it only for what its grade allows.',
   note:
     '“We don’t know yet” is a valid answer. A guess says something false with confidence.',
@@ -122,7 +124,9 @@ export interface DifferenceCategory {
 
 export const differencesCopy = {
   eyebrow: '03 · Required, chosen or inherited?',
-  heading: 'Why the same work gets done differently',
+  heading: 'Should you standardize how different parts of a business work?',
+  answer:
+    'Only once you know why each difference exists. Required differences stay local, chosen ones need a decision to keep or align, and inherited ones, which nobody decided, should be harmonized.',
   lede:
     'As a business grows across markets, sites and acquisitions, the same work ends up done in different ways. Before harmonizing anything, I sort each difference by why it exists. I call the three reasons required, chosen and inherited, and each one leads to a different decision.',
   // How the lens sets the order of the work (operator-confirmed 2026-11-19)

@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, within } from '@testing-library/react';
 import { Hero } from '../components/Hero';
 import { ActivatorsSection } from '../components/ActivatorsSection';
 import { ChangeLevers } from '../components/ChangeLevers';
@@ -35,8 +35,9 @@ describe('Static Content', () => {
 
   test('All 3 Change Levers render', () => {
     render(<ChangeLevers />);
-    expect(screen.getByText(/COMMUNICATE/i)).toBeTruthy();
-    expect(screen.getByText(/CO-CREATE/i)).toBeTruthy();
+    // The answer under the heading names all three, so match the lever titles exactly
+    expect(screen.getAllByText(/COMMUNICATE/i).length).toBeGreaterThan(1);
+    expect(screen.getAllByText(/CO-CREATE/i).length).toBeGreaterThan(1);
     // Use getAllByText since "CADENCE" appears in both the lever title and TCCAR section
     const cadenceElements = screen.getAllByText(/CADENCE/i);
     expect(cadenceElements.length).toBeGreaterThan(0);
@@ -68,10 +69,13 @@ describe('Static Content', () => {
 
   test('Activators have correct titles', () => {
     render(<ActivatorsSection />);
-    expect(screen.getByText(/Unique Value-Adding Layers/i)).toBeTruthy();
-    expect(screen.getByText(/Innovation & Execution Networks/i)).toBeTruthy();
-    expect(screen.getByText(/The Business Handshake/i)).toBeTruthy();
-    expect(screen.getByText(/Power, Governance & Decision-Making/i)).toBeTruthy();
-    expect(screen.getByText(/Matrix-Ready Leaders/i)).toBeTruthy();
+    // Scope to the cards: the answer under the heading names the activators too
+    const cards = screen.getAllByTestId('activator-card').map((c) => within(c));
+    const has = (re: RegExp) => cards.some((c) => c.queryByText(re));
+    expect(has(/Unique Value-Adding Layers/i)).toBe(true);
+    expect(has(/Innovation & Execution Networks/i)).toBe(true);
+    expect(has(/The Business Handshake/i)).toBe(true);
+    expect(has(/Power, Governance & Decision-Making/i)).toBe(true);
+    expect(has(/Matrix-Ready Leaders/i)).toBe(true);
   });
 });

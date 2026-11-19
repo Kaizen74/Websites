@@ -299,6 +299,37 @@ describe('Phase 6 — approved answer-shaped content', () => {
     expect(approachCopy.answer.startsWith('With the current state.')).toBe(true);
   });
 
+  test('rows 2-8: every answer heading is a question, answered by the very next element in 40 words or fewer', () => {
+    /* eslint-disable-next-line @typescript-eslint/no-require-imports */
+    const { pageAnswers } = require('../data/answers');
+    render(<App />);
+    expect(pageAnswers).toHaveLength(7);
+    pageAnswers.forEach((a: { anchor: string; question: string; answer: string }) => {
+      expect(a.question.endsWith('?')).toBe(true);
+      expect(a.answer.split(/\s+/).length).toBeLessThanOrEqual(40);
+      const heading = Array.from(
+        document.getElementById(a.anchor)!.querySelectorAll('h2, h3')
+      ).find((h) => h.textContent === a.question);
+      expect(heading).toBeDefined();
+      expect(heading!.nextElementSibling!.textContent).toBe(a.answer);
+      expect(llms).toContain(`### ${a.question}`);
+      expect(llms).toContain(a.answer);
+    });
+  });
+
+  test('row 5 says "move as one system", matching principle 2', () => {
+    /* eslint-disable-next-line @typescript-eslint/no-require-imports */
+    const { frameworkAnswer } = require('../data/playbookAnswers');
+    expect(frameworkAnswer.answer).toMatch(/move as one system/);
+  });
+
+  test('row 8 names the top rung exactly as the ladder does', () => {
+    /* eslint-disable @typescript-eslint/no-require-imports */
+    const ai = require('../data/aiNative');
+    /* eslint-enable @typescript-eslint/no-require-imports */
+    expect(ai.sectionCopy.answer).toMatch(/from manual to reinvented/);
+  });
+
   test('row 1 was rejected: the principles heading stays editorial', () => {
     render(<App />);
     expect(document.querySelector('#principles h2')!.textContent).toBe('Six principles behind the work');

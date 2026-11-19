@@ -1,6 +1,7 @@
 import { changeLevers } from '../data/interventions';
 import { SECTION_IDS } from '../constants';
 import { TCCARAssessment } from './TCCARAssessment';
+import { changeAnswer } from '../data/playbookAnswers';
 
 const phaseLabels: Record<number, string> = {
   1: 'Narrative',
@@ -32,8 +33,14 @@ export function ChangeLevers() {
             className="font-display font-bold text-[var(--color-ink)] mb-4"
             style={{ fontSize: 'clamp(30px, 4vw, 40px)', lineHeight: 1.15 }}
           >
-            The three C's of change
+            {changeAnswer.heading}
           </h2>
+          <p
+            className="text-[17px] leading-[1.65] text-[var(--color-ink)] mb-3"
+            style={{ maxWidth: 640, textWrap: 'pretty' }}
+          >
+            {changeAnswer.answer}
+          </p>
           <p className="text-[17px] leading-[1.65] text-[var(--color-secondary)]" style={{ maxWidth: 640 }}>
             An operating system for driving organizational change — moving from
             awareness to embedding new behaviors. Each lever activates all four

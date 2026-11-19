@@ -36,12 +36,12 @@ the no-AI-slop rules.
 |---|---|---|---|---|
 | 1 | 01 · How I think (`#principles`) | Six principles behind the work | ~~What principles should guide organization design?~~ **REJECTED: heading kept** | (none: a list of beliefs doesn't need to be a query) |
 | 2 | 02 · How I work (`#approach`) | Six stages, one evidence trail | **APPROVED (revised):** Where should an organization design start? | With the current state. I map where the organization and its operating system create and lose value, and why its parts work differently, before deciding which of the four domains to move, in what order and when. **(37)** |
-| 3 | 02 · evidence grades (H3) | How sure are we? | How much should a leader trust a diagnostic finding? | As much as its evidence grade allows. Decide on confirmed findings, decide with care on indicated ones and say so, and never decide on a hypothesis alone. **(27)** |
-| 4 | 03 · Required, chosen or inherited? (`#differences`) | Why the same work gets done differently | Should you standardize how different parts of a business work? | Only once you know why each difference exists. Required differences stay local, chosen ones need a decision to keep or align, and inherited ones, which nobody decided, should be harmonized. **(30)** |
-| 5 | 4.1 · The framework (`#framework`) | Integrated Organizational Capability and Change Framework | What makes an organization design work? | Structure, people, process and mindset change together around a leadership core, expressed through the organization's culture values. I map those four domains in the Integrated Organizational Capability and Change Framework. **(30)** |
-| 6 | 4.2 · The five activators (`#activators`) | What turns a design into performance | What turns an organization design into performance? | Five activators, adapted from Kesler and Kates: value-adding layers, innovation and execution networks, the business handshake, governance and decision rights, and matrix-ready leaders. **(23)** |
-| 7 | 4.3 · The change model (`#change-levers`) | The three C's of change | How do you make organizational change stick? | Pull three levers at once. Communicate a future people can picture, co-create the design with the people who will run it, and set a cadence of rituals that reinforce the new behaviors. **(32)** |
-| 8 | 4.4 · AI-native design (`#ai-native`) | AI redesigns the work, not the chart | How does AI change organization design? | It moves the unit of design from the org chart to the task. Each task goes on a ladder from manual to reinvention, and a person reviews every machine judgement before it reaches a decision-maker. **(35)** |
+| 3 | 02 · evidence grades (H3) | How sure are we? | **APPROVED:** How much should a leader trust a diagnostic finding? | As much as its evidence grade allows. Decide on confirmed findings, decide with care on indicated ones and say so, and never decide on a hypothesis alone. **(27)** |
+| 4 | 03 · Required, chosen or inherited? (`#differences`) | Why the same work gets done differently | **APPROVED:** Should you standardize how different parts of a business work? | Only once you know why each difference exists. Required differences stay local, chosen ones need a decision to keep or align, and inherited ones, which nobody decided, should be harmonized. **(30)** |
+| 5 | 4.1 · The framework (`#framework`) | Integrated Organizational Capability and Change Framework | **APPROVED:** What makes an organization design work? | **(edited)** Structure, people, process and mindset move as one system around a leadership core, expressed through the organization's culture values. I map those four domains in the Integrated Organizational Capability and Change Framework. **(30)** |
+| 6 | 4.2 · The five activators (`#activators`) | What turns a design into performance | **APPROVED:** What turns an organization design into performance? | Five activators, adapted from Kesler and Kates: value-adding layers, innovation and execution networks, the business handshake, governance and decision rights, and matrix-ready leaders. **(23)** |
+| 7 | 4.3 · The change model (`#change-levers`) | The three C's of change | **APPROVED:** How do you make organizational change stick? | Pull three levers at once. Communicate a future people can picture, co-create the design with the people who will run it, and set a cadence of rituals that reinforce the new behaviors. **(32)** |
+| 8 | 4.4 · AI-native design (`#ai-native`) | AI redesigns the work, not the chart | **APPROVED:** How does AI change organization design? | It moves the unit of design from the org chart to the task. Each task goes on a ladder from manual to reinvented, and a person reviews every machine judgement before it reaches a decision-maker. **(35) (edited)** |
 
 ## Points to weigh on specific rows
 
@@ -90,6 +90,24 @@ are not section headings. Each change ships with the full gate: tests, build,
 `npm run verify:site`, screenshots, and lint at its baseline.
 
 ## Decision log
+
+**2026-11-19: rows 3 to 8 approved and shipped.**
+
+- **Rows 3, 4, 6 and 7** shipped exactly as proposed.
+- **Row 5** says "move as one system" instead of "change together", to match
+  principle 2 ("Move all four domains as one system … not all at once").
+- **Row 8** says "from manual to reinvented", the ladder's own name for its top
+  rung, instead of "reinvention".
+- Each answer is the first paragraph under its heading, in ink. The section's
+  existing introduction follows it unchanged.
+- The "AI redesigns the work, not the chart" line stays as the Article
+  headline. The structured-data FAQ answer to "How does AI change organization
+  design?" now opens with that line followed by the row 8 answer word for word,
+  so the page, the FAQ and `llms.txt` give one answer, not two versions.
+- All seven answers are in `llms.txt`. Tests check that each heading is a
+  question, that its answer comes directly after it and stays within 40 words,
+  and that `llms.txt` carries both. The site check confirms the same order in
+  the prerendered HTML.
 
 **2026-11-19: rows 1 and 2, plus two related edits, approved and shipped.**
 
