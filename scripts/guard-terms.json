@@ -1,0 +1,28 @@
+{
+  "_note": "Guard patterns, base64-encoded so this public repository does not spell out the names it guards against. Decode: Buffer.from(s, 'base64').toString(). Every pattern is matched case-insensitively.",
+  "boundary": [
+    "XGJTQVRTXGI=",
+    "XGJJT01BXGI=",
+    "XGJBZHZpc29yeVxi",
+    "XGJFWENPXGI=",
+    "XGJyYW1wXGI=",
+    "XGJjYXJnb1xi",
+    "XGJjYXRlcmluZ1xi",
+    "XGJsb2FkIChjb250cm9sbGVyfHBsYW4p",
+    "XGJnYXRld2F5XGI=",
+    "XGJhaXJsaW5l",
+    "XGJhdmlhdGlvblxi",
+    "XGJodWIgc2VydmljZXNcYg=="
+  ],
+  "commercial": [
+    "XGJBZHZpc29yeVxi",
+    "XGJJT01BXGI=",
+    "XGJwcmljaW5nXGI=",
+    "XGJib29rIGEgY2FsbFxi",
+    "XGJ3b3JrIHdpdGggbWVcYg==",
+    "XGJoaXJlIG1lXGI=",
+    "XGJvdXIgc2VydmljZXNcYg==",
+    "XGJuZXdzbGV0dGVyXGI=",
+    "XGJzdWJzY3JpYmVcYg=="
+  ]
+}

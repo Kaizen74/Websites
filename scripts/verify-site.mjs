@@ -49,15 +49,31 @@ for (const id of ['hero', 'principles', 'approach', 'differences', 'playbook', '
   check('crawler', `section #${id} is in the raw HTML`, root.includes(`id="${id}"`));
 }
 for (const phrase of [
-  'Every diagnosis ends in a plan.', 'Move all four domains together.', 'Ask why before you harmonize.',
+  'Every diagnosis ends in a plan.', 'Move all four domains as one system.', 'Ask why before you harmonize.',
   'Script what each leader does differently.', 'Start AI at the task.',
   'Say what you know, and how you know it.', 'Adapted from Gregory Kesler and Amy Kates',
-  'Frame', 'Focus', 'Find', 'Dial', 'Design', 'Deliver', 'Confirmed', 'Indicated', 'Hypothesis',
+  'Where should an organization design start?', 'With the current state.',
+  'The three also set the order of the work.',
+  'Frame', 'Focus', 'Find', 'Decide', 'Design', 'Deliver', 'Confirmed', 'Indicated', 'Hypothesis',
   'Regulation, a customer contract or the physical site makes it so.',
   'A deliberate local decision, made for a reason someone can still state.',
   'History, an acquisition or habit. Nobody decided it.',
 ]) check('crawler', `crawler can read: "${phrase.slice(0, 48)}"`, text.includes(phrase));
 
+// Phase 6: each question heading is followed directly by its answer in the raw HTML
+for (const [q, a] of [
+  ['Where should an organization design start?', 'With the current state.'],
+  ['How much should a leader trust a diagnostic finding?', 'As much as its evidence grade allows.'],
+  ['Should you standardize how different parts of a business work?', 'Only once you know why each difference exists.'],
+  ['What makes an organization design work?', 'Structure, people, process and mindset move as one system'],
+  ['What turns an organization design into performance?', 'Five activators, adapted from Kesler and Kates:'],
+  ['How do you make organizational change stick?', 'Pull three levers at once.'],
+  ['How does AI change organization design?', 'It moves the unit of design from the org chart to the task.'],
+]) {
+  const qi = text.indexOf(q);
+  const ai = text.indexOf(a, qi);
+  check('crawler', `answer follows "${q.slice(0, 40)}"`, qi >= 0 && ai >= 0 && ai - (qi + q.length) <= 2, `gap ${ai - (qi + q.length)}`);
+}
 check('crawler', 'sorter ships in its unanswered state', text.includes('Answer the first question') && !root.includes('aria-pressed="true"'));
 check('crawler', 'no visitor state baked into HTML', !/cohort_results|diagnostic_responses/.test(root));
 
@@ -108,17 +124,17 @@ check('crawler', 'llms.txt indexes the new sections', ['#principles', '#approach
 const png = readFileSync(join(DIST, 'og-image.png'));
 check('crawler', 'og-image.png is 1200x630 and under 1 MB', png.readUInt32BE(16) === 1200 && png.readUInt32BE(20) === 630 && png.length < 1048576, `${png.length} bytes`);
 
-// boundary rule + employment gate, on what actually ships
+// boundary rule + no commercial offering, on what actually ships
 const section = (id) => decode((root.match(new RegExp(`<section[^>]*id="${id}"[\\s\\S]*?</section>`)) || [''])[0]);
 const teaching = ['principles', 'approach', 'differences', 'playbook'].map(section).join(' ');
-for (const re of [/\bSATS\b/, /\bIOMA\b/, /\bramp\b/i, /\bcargo\b/i, /\bcatering\b/i, /\bgateway\b/i, /\bEXCO\b/, /\baviation\b/i]) {
-  check('crawler', `boundary: new teaching content has no ${re.source}`, !re.test(teaching));
-}
-for (const re of [/\bAdvisory\b/i, /\bIOMA\b/, /\bbook a call\b/i, /\bwork with me\b/i, /\bhire me\b/i, /\bour services\b/i, /\bnewsletter\b/i, /\bsubscribe\b/i]) {
-  check('crawler', `employment gate: whole page has no ${re.source}`, !re.test(text));
-}
-check('crawler', 'employment gate: no email capture field', !/type="email"/.test(raw));
-check('crawler', 'employment gate: no form posts anywhere', !/<form[^>]*action=/i.test(raw));
+const guards = JSON.parse(readFileSync(join(ROOT, 'scripts', 'guard-terms.json'), 'utf8'));
+const decodeAll = (list) => list.map((b64) => new RegExp(Buffer.from(b64, 'base64').toString(), 'i'));
+decodeAll(guards.boundary).forEach((re, i) =>
+  check('crawler', `boundary: new teaching content clear of guarded term #${i + 1}`, !re.test(teaching)));
+decodeAll(guards.commercial).forEach((re, i) =>
+  check('crawler', `no commercial offering: page clear of guarded phrase #${i + 1}`, !re.test(text)));
+check('crawler', 'no commercial offering: no email capture field', !/type="email"/.test(raw));
+check('crawler', 'no commercial offering: no form posts anywhere', !/<form[^>]*action=/i.test(raw));
 
 // Phase 5: host redirect rules (model of Vercel's ordered, first-match routing)
 const vercel = JSON.parse(readFileSync(join(ROOT, 'vercel.json'), 'utf8'));

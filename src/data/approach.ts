@@ -24,11 +24,15 @@ export interface StageGroup {
 
 export const approachCopy = {
   eyebrow: '02 · How I work',
-  heading: 'Six stages, one evidence trail',
+  // Phase 6, row 2 (approved 2026-11-19): the heading is the question a reader
+  // types; `answer` is the first sentence under it and answers it in full.
+  heading: 'Where should an organization design start?',
+  answer:
+    'With the current state. I map where the organization and its operating system create and lose value, and why its parts work differently, before deciding which of the four domains to move, in what order and when.',
   lede:
-    'I run every engagement the same way. Stages 0 to 2 establish what is true. In stages 3 to 5, leaders decide what to change, install it and check that it worked.',
+    'I run every engagement the same way. The first three stages establish what is true. In the last three, leaders decide what to change, install it and check that it worked.',
   stageZeroNote:
-    'Stage 0 comes first because without agreed criteria, every unit argues that its own way is right.',
+    'Framing comes first because without agreed criteria, every unit argues that its own way is right.',
 };
 
 export const stageGroups: StageGroup[] = [
@@ -36,22 +40,22 @@ export const stageGroups: StageGroup[] = [
     label: 'Find out what’s true',
     stages: [
       {
-        number: '0',
+        number: '1',
         name: 'Frame',
         question: 'What are we building, and how will we judge the design?',
-        produces: 'Agreed criteria, locked before the debate starts',
+        produces: 'Agreed criteria for judging the design, set before the debate starts',
       },
       {
-        number: '1',
+        number: '2',
         name: 'Focus',
         question: 'Where must the model change, and where does it matter most?',
         produces: 'Where capability is weak where the money is made',
       },
       {
-        number: '2',
+        number: '3',
         name: 'Find',
         question: 'How does the work really run, and who really decides?',
-        produces: 'Evidence-traced maps of paper versus practice',
+        produces: 'A clear picture of how the work really runs and who really decides',
       },
     ],
   },
@@ -59,22 +63,22 @@ export const stageGroups: StageGroup[] = [
     label: 'Change it, and prove it',
     stages: [
       {
-        number: '3',
-        name: 'Dial',
+        number: '4',
+        name: 'Decide',
         question: 'What should be one way everywhere, and how much should AI do?',
         produces: 'A call on every difference and every task',
       },
       {
-        number: '4',
+        number: '5',
         name: 'Design',
         question: 'Which structure, roles and system do we install together?',
-        produces: 'Options scored against the criteria from stage 0',
+        produces: 'Options compared against the criteria agreed at the start',
       },
       {
-        number: '5',
+        number: '6',
         name: 'Deliver',
         question: 'Is it lifting capability, cycle by cycle?',
-        produces: 'A scoreboard that holds each forecast to account',
+        produces: 'A regular check that capability is rising and that earlier calls were right',
       },
     ],
   },
@@ -91,10 +95,12 @@ export interface EvidenceGrade {
 }
 
 export const evidenceCopy = {
-  heading: 'How sure are we?',
-  lede: 'I grade every finding one of three ways, and use it only for what its grade allows.',
+  heading: 'How much should a leader trust a diagnostic finding?',
+  answer:
+    'As much as its evidence grade allows. Decide on confirmed findings, decide with care on indicated ones and say so, and never decide on a hypothesis alone.',
+  lede: 'Every finding gets one of three grades.',
   note:
-    '“Not scored” is a valid answer. A blank says we don’t know yet; a guess says something false with confidence.',
+    '“We don’t know yet” is a valid answer. A guess says something false with confidence.',
 };
 
 export const evidenceGrades: EvidenceGrade[] = [
@@ -118,9 +124,14 @@ export interface DifferenceCategory {
 
 export const differencesCopy = {
   eyebrow: '03 · Required, chosen or inherited?',
-  heading: 'Why the same work gets done differently',
+  heading: 'Should you standardize how different parts of a business work?',
+  answer:
+    'Only once you know why each difference exists. Required differences stay local, chosen ones need a decision to keep or align, and inherited ones, which nobody decided, should be harmonized.',
   lede:
     'As a business grows across markets, sites and acquisitions, the same work ends up done in different ways. Before harmonizing anything, I sort each difference by why it exists. I call the three reasons required, chosen and inherited, and each one leads to a different decision.',
+  // How the lens sets the order of the work (operator-confirmed 2026-11-19)
+  sequencing:
+    'The three also set the order of the work. Required differences mark what the design can’t change, inherited ones are where harmonizing starts, and chosen ones wait for a leadership decision.',
   sorterHeading: 'Sort a difference in two questions',
   sorterLede:
     'Think of one thing your organization does differently in two places, then answer for it.',
@@ -194,7 +205,7 @@ export const exampleCopy = {
   disclaimer: 'Illustrative and fictional: the company, markets and decisions are made up.',
 };
 
-export const exampleMarkets = ['Arden', 'Belmar', 'Caldera'];
+export const exampleMarkets = ['Market A', 'Market B', 'Market C'];
 
 export const exampleDecisions: DecisionRow[] = [
   {
@@ -211,7 +222,7 @@ export const exampleDecisions: DecisionRow[] = [
     inPractice: ['Group cloud region', 'In-country', 'Group cloud region'],
     drifted: [1],
     kind: 'required',
-    why: 'Data-residency law in Belmar',
+    why: 'Data-residency law in Market B',
   },
   {
     decision: 'Who runs customer success',

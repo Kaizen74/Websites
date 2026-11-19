@@ -120,7 +120,7 @@ export interface DescentStep {
   leadIn?: string;
 }
 
-// One level of the L0–L3 automation ladder
+// One level of the four-level ladder (manual → reinvented)
 export interface AiLevel {
   code: string;
   name: string;
@@ -130,23 +130,17 @@ export interface AiLevel {
   ruleColor: string;
   task: string;
   cost: string;
-  /** L3 only — the operating-model row */
+  /** Top level only: the operating-model row */
   emphasis?: boolean;
 }
 
-// One cell of the capability-vs-desire matrix
+// One cell of the can-AI-do-it / do-people-want-it matrix
 export interface ScoringZone {
   label: string;
   labelColor: string;
   line: string;
 }
 
-// One tier of the provenance strip
-export interface ProvenanceTier {
-  label: string;
-  labelColor: string;
-  line: string;
-}
 
 // Targeted intervention prescribed for a weak dimension
 export interface DimensionIntervention {

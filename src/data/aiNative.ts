@@ -2,7 +2,6 @@ import type {
   DescentStep,
   AiLevel,
   ScoringZone,
-  ProvenanceTier,
 } from '../types';
 
 // All copy for the AI-native design section lives here — none inline in the
@@ -10,88 +9,90 @@ import type {
 
 export const sectionCopy = {
   eyebrow: '4.4 · AI-native design',
-  heading: 'AI redesigns the work, not the chart',
+  // Phase 6 row 8: the visible heading is the reader's question. Eric's line
+  // "AI redesigns the work, not the chart" stays as the Article headline in
+  // the structured data and opens the matching FAQ answer.
+  heading: 'How does AI change organization design?',
+  tagline: 'AI redesigns the work, not the chart',
+  answer:
+    'It moves the unit of design from the org chart to the task. Each task goes on a ladder from manual to reinvented, and a person reviews every machine judgement before it reaches a decision-maker.',
   lede:
-    'Structure follows work — and work is now shared with machines. Three moves make an AI-era design defensible: descend to the task, place every task on the ladder, and let no machine judgement reach a decision-maker unreviewed.',
+    'Structure follows work, and work is now shared with machines. Three moves follow from that.',
   moveOneOverline: 'Move one',
-  moveOneHeading: 'Descend to the task',
+  moveOneHeading: 'Start from the task',
   descentNote:
-    'Findings roll back up the org graph and across value streams — that is how a task-level insight becomes a layer, function and P&L conversation.',
+    'What you learn at the task level adds up to decisions about layers, functions and cost.',
   moveTwoOverline: 'Move two',
   moveTwoHeading: 'Place every task on the ladder',
   moveThreeOverline: 'Move three',
-  moveThreeHeading: "Gate the machine's judgement",
-  gateBodyBefore: 'Every score and mapping carries a source and a confidence value. Low confidence is routed to human review by ',
-  gateBodyEmphasis: 'score, not by source label',
-  gateBodyAfter: ' — and approvals become the house standard.',
-  gateFootnote:
-    'Human-in-the-loop is a workflow with a gate, not a disclaimer at the back of the deck.',
+  moveThreeHeading: "Check the machine's judgement",
+  gateBodyBefore: 'Every AI recommendation should show where it came from and how sure it is. A person reviews ',
+  gateBodyEmphasis: 'anything uncertain',
+  gateBodyAfter: ' before it reaches a decision-maker.',
+  gateFootnote: 'Build that review into the process from the start.',
   ladderHeaders: {
     level: 'Level',
     task: 'What happens to the task',
-    cost: 'What it costs the organisation',
+    cost: 'What it costs the organization',
   },
   zoneHeading: 'Capability is only half the question',
-  zoneFootnote:
-    'Physical work carries no software-agent overlay — it surfaces as a separate robotics and equipment lever, so the analysis never quietly automates hands-on site work.',
   zoneSource:
     'Zones adapted from Stanford’s WORKBank study of what workers want automated and what AI can do (Shao et al., 2025).',
-  provenanceOverline: 'Provenance — every claim carries its source',
 } as const;
 
 export const descentSteps: DescentStep[] = [
   {
     label: 'Organisation',
-    line: 'Layers, spans, anchor layer — where accountability sits',
+    line: 'Layers and spans: where accountability sits',
   },
   {
     label: 'Position',
-    line: 'Grade, cost, reporting line — what HR systems can move',
+    line: 'Grade, cost and reporting line',
   },
   {
     label: 'Task',
-    leadIn: 'Where AI attaches',
-    line: ' — scored and reassigned between human and machine',
+    leadIn: 'Where AI actually fits',
+    line: ', done by a person, a machine or both',
     emphasis: true,
   },
   {
     label: 'Process',
-    line: 'The value stream those tasks assemble into, across every box',
+    line: 'How those tasks join up into end-to-end work',
   },
 ];
 
 export const aiLevels: AiLevel[] = [
   {
-    code: 'L0',
+    code: '1',
     name: 'Manual',
     ruleWidth: 12,
     ruleColor: '#D8CFC2',
-    task: 'Human end to end. Judgement, presence or dexterity is the point.',
-    cost: 'Nothing. Protect it — and stop counting it as a laggard.',
+    task: 'People do it end to end. Judgement, presence or skill is the point.',
+    cost: 'Nothing. Protect it, and stop treating it as behind.',
   },
   {
-    code: 'L1',
+    code: '2',
     name: 'Assisted',
     ruleWidth: 36,
     ruleColor: 'var(--quad-mindset)',
-    task: 'Same task, faster — drafting, summarising, retrieval, first-pass analysis.',
-    cost: 'Tools and habits. No structural change; quiet productivity gains.',
+    task: 'The same task, done faster: drafting, summarising, searching, first-pass analysis.',
+    cost: 'New tools and habits. No change to structure.',
   },
   {
-    code: 'L2',
-    name: 'Enabled',
+    code: '3',
+    name: 'Automated',
     ruleWidth: 66,
     ruleColor: 'var(--quad-people)',
-    task: 'The machine runs the task; the human sets intent and handles exceptions.',
-    cost: 'Roles are rewritten and spans widen. Supervision replaces execution.',
+    task: 'The machine does the task. A person sets the goal and handles exceptions.',
+    cost: 'Roles are rewritten and spans widen. People supervise instead of doing.',
   },
   {
-    code: 'L3',
-    name: 'Reinvention',
+    code: '4',
+    name: 'Reinvented',
     ruleWidth: 96,
     ruleColor: 'var(--color-primary)',
-    task: 'The task stops existing in its current form; the process is redrawn around the outcome.',
-    cost: 'An operating-model decision — layers, hand-offs and decision rights move.',
+    task: 'The task disappears in its current form, and the process is redrawn around the result.',
+    cost: 'An operating-model decision. Layers, hand-offs and decision rights all move.',
     emphasis: true,
   },
 ];
@@ -119,22 +120,4 @@ export const scoringZones: ScoringZone[] = [
   },
 ];
 
-export const provenanceTiers: ProvenanceTier[] = [
-  {
-    label: 'Regulator-backed',
-    labelColor: 'var(--color-score-green)',
-    line: 'National skills frameworks. Quotable to a regulator or a union.',
-  },
-  {
-    label: 'Research-backed',
-    labelColor: 'var(--color-score-amber)',
-    line: 'Published task and agency datasets. Foreign preference data stays a hypothesis until tested locally.',
-  },
-  {
-    label: 'Model-inferred',
-    labelColor: 'var(--color-primary)',
-    line: 'Useful, fast — and never decision-facing until a human signs it.',
-  },
-];
-
-export default { descentSteps, aiLevels, scoringZones, provenanceTiers };
+export default { descentSteps, aiLevels, scoringZones };

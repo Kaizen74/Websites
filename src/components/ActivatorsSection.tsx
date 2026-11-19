@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { ActivatorCard } from './ActivatorCard';
 import { activators } from '../data/activators';
 import { SECTION_IDS } from '../constants';
+import { activatorsAnswer } from '../data/playbookAnswers';
 
 interface ActivatorsSectionProps {
   priorityActivators?: string[];
@@ -32,8 +33,14 @@ export function ActivatorsSection({ priorityActivators = [] }: ActivatorsSection
             className="font-display font-bold text-[var(--color-ink)] mb-4"
             style={{ fontSize: 'clamp(30px, 4vw, 40px)', lineHeight: 1.15 }}
           >
-            What turns a design into performance
+            {activatorsAnswer.heading}
           </h2>
+          <p
+            className="text-[17px] leading-[1.65] text-[var(--color-ink)] mb-3"
+            style={{ maxWidth: 640, textWrap: 'pretty' }}
+          >
+            {activatorsAnswer.answer}
+          </p>
           <p className="text-[17px] leading-[1.65] text-[var(--color-secondary)]" style={{ maxWidth: 640 }}>
             These five activators bridge organization design and results — the
             right connections, the right conversations, and the right know-how.

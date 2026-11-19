@@ -4,7 +4,6 @@ import {
   descentSteps,
   aiLevels,
   scoringZones,
-  provenanceTiers,
 } from '../data/aiNative';
 
 // Progressive indent for the descent cards — flat below lg.
@@ -59,6 +58,12 @@ export function AiNativeSection() {
           >
             {sectionCopy.heading}
           </h2>
+          <p
+            className="text-[17px] leading-[1.65] text-[var(--color-ink)] mb-3"
+            style={{ maxWidth: 640, textWrap: 'pretty' }}
+          >
+            {sectionCopy.answer}
+          </p>
           <p
             className="text-[var(--color-secondary)]"
             style={{ fontSize: 17, lineHeight: 1.65, maxWidth: 640, textWrap: 'pretty' }}
@@ -128,13 +133,11 @@ export function AiNativeSection() {
                 className="mt-4 text-[var(--color-faint)]"
                 style={{ fontSize: 13, lineHeight: 1.5 }}
               >
-                Findings roll back <em>up</em> the org graph and <em>across</em> value
-                streams — that is how a task-level insight becomes a layer, function and
-                P&amp;L conversation.
+                {sectionCopy.descentNote}
               </p>
             </div>
 
-            {/* Move three — gate the machine's judgement */}
+            {/* Move three: check the machine's judgement */}
             <div
               style={{
                 borderTop: '1px solid var(--color-hairline)',
@@ -302,8 +305,8 @@ export function AiNativeSection() {
                   className="text-[var(--color-secondary)]"
                   style={{ fontSize: 13, lineHeight: 1.5 }}
                 >
-                  What AI <em>can</em> do, and whether the people doing the work{' '}
-                  <em>want</em> it automated — scored separately, never collapsed.
+                  Ask two things separately: what AI <em>can</em> do, and whether the
+                  people doing the work <em>want</em> it automated.
                 </p>
               </div>
 
@@ -343,56 +346,10 @@ export function AiNativeSection() {
                 className="mt-4 text-[var(--color-faint)]"
                 style={{ fontSize: 12.5, lineHeight: 1.5 }}
               >
-                {sectionCopy.zoneFootnote}
-              </p>
-              <p
-                className="mt-2 text-[var(--color-faint)]"
-                style={{ fontSize: 12.5, lineHeight: 1.5 }}
-              >
                 {sectionCopy.zoneSource}
               </p>
             </div>
 
-            {/* Provenance strip */}
-            <div
-              style={{
-                borderTop: '1px solid var(--color-hairline)',
-                paddingTop: 30,
-              }}
-            >
-              <p
-                className="uppercase font-semibold mb-4"
-                style={OVERLINE_STYLE}
-              >
-                {sectionCopy.provenanceOverline}
-              </p>
-              <div className="grid gap-6 md:grid-cols-3 md:gap-0">
-                {provenanceTiers.map((tier, i) => (
-                  <div
-                    key={tier.label}
-                    className={i > 0 ? 'md:border-l md:pl-[26px]' : 'md:pr-[26px]'}
-                    style={
-                      i > 0
-                        ? { borderColor: 'var(--color-hairline)' }
-                        : undefined
-                    }
-                  >
-                    <p
-                      className="uppercase font-semibold"
-                      style={{ ...MICRO_LABEL_STYLE, color: tier.labelColor }}
-                    >
-                      {tier.label}
-                    </p>
-                    <p
-                      className="mt-1.5 text-[var(--color-secondary)]"
-                      style={{ fontSize: 13, lineHeight: 1.5 }}
-                    >
-                      {tier.line}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
           </div>
         </div>
       </div>

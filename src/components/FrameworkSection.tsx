@@ -4,6 +4,7 @@ import { QuadrantDetail } from './QuadrantDetail';
 import { FrameworkOverview } from './FrameworkOverview';
 import type { Quadrant } from '../types';
 import { SECTION_IDS, STORAGE_KEYS } from '../constants';
+import { frameworkAnswer } from '../data/playbookAnswers';
 
 const QUADRANTS: Quadrant[] = ['structure', 'people', 'process', 'mindset'];
 
@@ -57,13 +58,17 @@ export function FrameworkSection() {
             className="font-display font-bold text-[var(--color-ink)] mb-4"
             style={{ fontSize: 'clamp(30px, 4vw, 40px)', lineHeight: 1.15 }}
           >
-            Integrated Organizational Capability and Change Framework
+            {frameworkAnswer.heading}
           </h2>
+          <p
+            className="text-[17px] leading-[1.65] text-[var(--color-ink)] mb-3"
+            style={{ maxWidth: 640, textWrap: 'pretty' }}
+          >
+            {frameworkAnswer.answer}
+          </p>
           <p className="text-[17px] leading-[1.65] text-[var(--color-secondary)]" style={{ maxWidth: 640 }}>
-            A holistic view of organizational design across four interconnected
-            dimensions around a leadership core. Start with the overview, then
-            select any quadrant to explore its components, playbook modules, and
-            diagnostic questions.
+            Start with the overview, then select any of the four domains to
+            explore its components, playbook modules and diagnostic questions.
           </p>
         </div>
 

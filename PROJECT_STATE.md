@@ -12,10 +12,14 @@ playbook (an integrated capability & change framework, five activators, a
 three-lever change model with the T.C.C.A.R. lens, AI-native design) and an
 18-question organizational health diagnostic with cohort mode.
 
-**Binding constraints** (from the AI-search-visibility spec): employment gate —
-no services, pricing, hiring call-to-action, email capture or "Advisory"/IOMA
-naming; boundary rule — no employer data, every example fictional and
-sector-neutral; canonical host https://www.ericyim.sg only.
+**Binding constraints** (from the AI-search-visibility spec): no commercial
+offering: no services, pricing, hiring call-to-action, email capture, and no
+business or brand name other than Eric's own. Boundary rule: no employer data,
+every example fictional and sector-neutral. No tool content: nothing technical
+from Eric's own tools (names, screens, IDs, internal labels or mechanics); ideas
+are written in plain language. Canonical host https://www.ericyim.sg only.
+Guard patterns live base64-encoded in `scripts/guard-terms.json`; the repo is
+public, so never write the guarded names in plain text in tracked files.
 
 **Stack:** React 19 + TypeScript + Vite · Tailwind CSS v4 · Jest + React
 Testing Library. No charting library (plain-div bars). Deploys as a static
@@ -67,8 +71,8 @@ Testing Library. No charting library (plain-div bars). Deploys as a static
 - **Framework diagram:** four quarter-disc quadrants around a white
   Leadership circle, "Culture values" ink pill, hairline outer ring.
   Quadrant labels are centered in the readable band of each pie slice.
-  The homepage panel defaults to an overarching narrative (FrameworkOverview,
-  IOMA integrated-activation model); clicking a quadrant — or a domain row
+  The homepage panel defaults to an overarching narrative (FrameworkOverview:
+  four domains, a leadership core, a culture-values ring); clicking a quadrant — or a domain row
   in the overview — swaps in that quadrant's detail with a "← Framework
   overview" back link. The homepage framework is a score-free educational
   view; score badges appear only on the results dashboard's own diagram.
@@ -174,9 +178,9 @@ Testing Library. No charting library (plain-div bars). Deploys as a static
   and feeds the sitemap's `<lastmod>` and `COPYRIGHT_YEAR`; sitemap `<lastmod>`
   stays date-only by design and a test fails if the datetime form leaks there.
   Bump the ISO constant only — the date follows automatically.
-- **Tests:** 249 passing across 18 suites (unit, integration, App smoke,
+- **Tests:** 253 passing across 18 suites (unit, integration, App smoke,
   SEO/structured-data alignment, LinkedIn consistency, the new sections and
-  their AEO surfaces), plus `npm run verify:site` (134 end-to-end checks).
+  their AEO surfaces), plus `npm run verify:site` (137 end-to-end checks).
   **Build:** clean. **Lint:** 12 pre-existing errors (9 `no-explicit-any` in
   older tests, 3 `set-state-in-effect`), identical to main — do not add more.
 - **Known issue (pre-existing):** `scripts/check-size.js` fails on
@@ -222,8 +226,9 @@ working increment.
   own writing is British; site is US).
 - **After deploy:** refresh the LinkedIn preview via Post Inspector; add the
   Search Console / Bing verification tokens and submit the sitemap.
-- **Phase 6 proposal written** (`SEO_PHASE6_PROPOSAL.md`, 8 rows): awaiting
-  row-by-row approval. Ship nothing from it until approved.
+- **Phase 6** (`SEO_PHASE6_PROPOSAL.md`): complete. Row 1 rejected; rows 2–8
+  shipped as question headings, each followed directly by an answer of 40
+  words or fewer.
 - **IndexNow** pings after each successful Production deploy
   (`.github/workflows/indexnow.yml` → `scripts/indexnow.mjs --verify-live`).
   First real run is unverified: check the Actions tab after the next deploy.

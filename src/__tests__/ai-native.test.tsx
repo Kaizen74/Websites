@@ -1,11 +1,11 @@
 import { render, screen, within } from '@testing-library/react';
 import { AiNativeSection } from '../components/AiNativeSection';
-import { descentSteps, aiLevels, scoringZones, provenanceTiers } from '../data/aiNative';
+import { descentSteps, aiLevels, scoringZones } from '../data/aiNative';
 
 describe('AI-native design section', () => {
   test('renders the section headline', () => {
     render(<AiNativeSection />);
-    expect(screen.getByText('AI redesigns the work, not the chart')).toBeTruthy();
+    expect(screen.getByRole('heading', { level: 2, name: 'How does AI change organization design?' })).toBeTruthy();
   });
 
   test('renders the four descent labels in order', () => {
@@ -21,26 +21,34 @@ describe('AI-native design section', () => {
     expect(positions).toEqual([...positions].sort((a, b) => a - b));
   });
 
-  test('renders all four level codes and the L3 organisational implication', () => {
+  test('renders the four ladder levels and what the top level implies', () => {
     render(<AiNativeSection />);
-    ['L0', 'L1', 'L2', 'L3'].forEach((code) => {
-      expect(screen.getByText(code)).toBeTruthy();
-    });
+    expect(aiLevels.map((l) => l.name)).toEqual(['Manual', 'Assisted', 'Automated', 'Reinvented']);
+    aiLevels.forEach((l) => expect(screen.getByText(l.name)).toBeTruthy());
     expect(
-      screen.getByText(
-        /An operating-model decision — layers, hand-offs and decision rights move\./i
-      )
+      screen.getByText(/An operating-model decision\. Layers, hand-offs and decision rights all move\./)
     ).toBeTruthy();
   });
 
-  test('renders the four zone labels and three provenance labels', () => {
-    render(<AiNativeSection />);
+  test('renders the four zone labels with their research credit', () => {
+    const { container } = render(<AiNativeSection />);
     scoringZones.forEach((zone) => {
       expect(screen.getByText(zone.label)).toBeTruthy();
     });
-    provenanceTiers.forEach((tier) => {
-      expect(screen.getByText(tier.label)).toBeTruthy();
-    });
+    expect(container.textContent).toMatch(/Stanford.s WORKBank study/);
+  });
+
+  test('describes ideas, not the inner workings of any tool', () => {
+    // Removed 2026-11-19 at Eric's request: technical detail from his own
+    // tool suite (level codes, confidence routing, source-credibility tiers,
+    // graph roll-ups, agent overlays) had leaked into this section.
+    const { container } = render(<AiNativeSection />);
+    const text = container.textContent ?? '';
+    [/\bL[0-3]\b/, /provenance/i, /org graph/i, /routed to human review/i, /confidence value/i,
+     /software-agent/i, /anchor layer/i, /Regulator-backed|Research-backed|Model-inferred/i,
+     /scored separately, never collapsed/i, /value streams?/i].forEach((re) =>
+      expect(text).not.toMatch(re)
+    );
   });
 
   test('is a static section — renders no button and no interactive handlers', () => {
@@ -55,9 +63,9 @@ describe('AI-native design section', () => {
     expect(descentSteps.find((s) => s.emphasis)?.label).toBe('Task');
   });
 
-  test('L3 is the single emphasised ladder level and rule widths ascend', () => {
+  test('the top level is the single emphasised ladder level and rule widths ascend', () => {
     expect(aiLevels.filter((l) => l.emphasis)).toHaveLength(1);
-    expect(aiLevels.find((l) => l.emphasis)?.code).toBe('L3');
+    expect(aiLevels.find((l) => l.emphasis)?.name).toBe('Reinvented');
     const widths = aiLevels.map((l) => l.ruleWidth);
     expect(widths).toEqual([...widths].sort((a, b) => a - b));
   });

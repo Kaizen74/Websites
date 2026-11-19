@@ -328,7 +328,7 @@ export const faqEntries: FaqEntry[] = [
   {
     question: 'How does AI change organization design?',
     answer:
-      'AI redesigns the work, not the chart. The unit of analysis descends from the org chart to the task, each task is placed on a ladder from manual to reinvention, and any machine judgement is gated by a human before it reaches a decision-maker. Structure follows work — and the work is now shared with machines.',
+      'AI redesigns the work, not the chart. It moves the unit of design from the org chart to the task. Each task goes on a ladder from manual to reinvented, and a person reviews every machine judgement before it reaches a decision-maker. Structure follows work, and work is now shared with machines.',
   },
   {
     question: 'What is Eric Yim’s background?',
@@ -353,7 +353,7 @@ export const faqEntries: FaqEntry[] = [
   {
     question: 'How does Eric Yim approach an organization design engagement?',
     answer:
-      'Eric Yim works in six stages: Frame, Focus, Find, Dial, Design and Deliver. The first three establish what is true: the criteria the design will be judged on, where capability is weak where the money is made, and how the work really runs and who really decides. In the last three, leaders decide what should be one way everywhere and how much AI should do, score structure, role and system options against the agreed criteria, and track cycle by cycle whether capability is rising.',
+      'Eric Yim works in six stages: Frame, Focus, Find, Decide, Design and Deliver. The first three establish what is true: the criteria the design will be judged on, where capability is weak where the money is made, and how the work really runs and who really decides. In the last three, leaders decide what should be one way everywhere and how much AI should do, compare structure, role and system options against the agreed criteria, and check regularly that capability is rising.',
   },
   {
     question: 'What are required, chosen and inherited differences?',

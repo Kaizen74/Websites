@@ -282,3 +282,70 @@ describe('IndexNow wiring', () => {
     expect(workflow).not.toMatch(/secrets\./);
   });
 });
+
+describe('Phase 6 — approved answer-shaped content', () => {
+  /* eslint-disable @typescript-eslint/no-require-imports */
+  const { approachCopy, differencesCopy } = require('../data/approach');
+  const { principles: ps } = require('../data/principles');
+  /* eslint-enable @typescript-eslint/no-require-imports */
+
+  test('row 2: the How I work heading is a question, answered first in 40 words or fewer', () => {
+    render(<App />);
+    const h2 = document.querySelector('#approach h2')!;
+    expect(h2.textContent).toBe('Where should an organization design start?');
+    // the answer is the very first paragraph after the heading
+    expect(h2.nextElementSibling!.textContent).toBe(approachCopy.answer);
+    expect(approachCopy.answer.split(/\s+/).length).toBeLessThanOrEqual(40);
+    expect(approachCopy.answer.startsWith('With the current state.')).toBe(true);
+  });
+
+  test('rows 2-8: every answer heading is a question, answered by the very next element in 40 words or fewer', () => {
+    /* eslint-disable-next-line @typescript-eslint/no-require-imports */
+    const { pageAnswers } = require('../data/answers');
+    render(<App />);
+    expect(pageAnswers).toHaveLength(7);
+    pageAnswers.forEach((a: { anchor: string; question: string; answer: string }) => {
+      expect(a.question.endsWith('?')).toBe(true);
+      expect(a.answer.split(/\s+/).length).toBeLessThanOrEqual(40);
+      const heading = Array.from(
+        document.getElementById(a.anchor)!.querySelectorAll('h2, h3')
+      ).find((h) => h.textContent === a.question);
+      expect(heading).toBeDefined();
+      expect(heading!.nextElementSibling!.textContent).toBe(a.answer);
+      expect(llms).toContain(`### ${a.question}`);
+      expect(llms).toContain(a.answer);
+    });
+  });
+
+  test('row 5 says "move as one system", matching principle 2', () => {
+    /* eslint-disable-next-line @typescript-eslint/no-require-imports */
+    const { frameworkAnswer } = require('../data/playbookAnswers');
+    expect(frameworkAnswer.answer).toMatch(/move as one system/);
+  });
+
+  test('row 8 names the top rung exactly as the ladder does', () => {
+    /* eslint-disable @typescript-eslint/no-require-imports */
+    const ai = require('../data/aiNative');
+    /* eslint-enable @typescript-eslint/no-require-imports */
+    expect(ai.sectionCopy.answer).toMatch(/from manual to reinvented/);
+  });
+
+  test('row 1 was rejected: the principles heading stays editorial', () => {
+    render(<App />);
+    expect(document.querySelector('#principles h2')!.textContent).toBe('Six principles behind the work');
+  });
+
+  test('principle 2 no longer contradicts sequencing ("move together or not at all")', () => {
+    const p2 = ps.find((p: { number: string }) => p.number === '02');
+    expect(p2.title).toBe('Move all four domains as one system.');
+    expect(p2.body).toMatch(/not all at once/);
+    expect(p2.body).not.toMatch(/don.t move at all/);
+  });
+
+  test('the differences section says how the lens sets the order of the work', () => {
+    render(<App />);
+    const text = document.getElementById('differences')!.textContent!;
+    expect(text).toContain(differencesCopy.sequencing);
+    expect(llms).toContain('The three also set the order of the work.');
+  });
+});

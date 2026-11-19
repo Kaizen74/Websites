@@ -132,6 +132,12 @@ export function Differences() {
             {differencesCopy.heading}
           </h2>
           <p
+            className="text-[17px] leading-[1.65] text-[var(--color-ink)] mb-3"
+            style={{ maxWidth: 640, textWrap: 'pretty' }}
+          >
+            {differencesCopy.answer}
+          </p>
+          <p
             className="text-[17px] leading-[1.65] text-[var(--color-secondary)]"
             style={{ maxWidth: 640, textWrap: 'pretty' }}
           >
@@ -168,6 +174,12 @@ export function Differences() {
             </div>
           ))}
         </dl>
+        <p
+          className="mt-6 text-[var(--color-ink)]"
+          style={{ fontSize: 16, lineHeight: 1.6, maxWidth: 760, textWrap: 'pretty' }}
+        >
+          {differencesCopy.sequencing}
+        </p>
 
         {/* ---------- The sorter ---------- */}
         <div className="mt-20 grid lg:grid-cols-[1fr_1.35fr] gap-8 lg:gap-16 items-start">
