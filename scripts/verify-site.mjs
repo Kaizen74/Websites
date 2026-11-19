@@ -19,7 +19,7 @@ import { existsSync, readFileSync } from 'node:fs';
 import { join, extname, resolve } from 'node:path';
 
 const ROOT = resolve('.');
-const DIST = join(ROOT, process.argv[2] || 'dist');
+const DIST = resolve(ROOT, process.argv[2] || 'dist'); // resolve, not join: accepts absolute paths
 const CANONICAL = 'https://www.ericyim.sg';
 
 const results = [];

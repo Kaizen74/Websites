@@ -4,17 +4,48 @@
 
 ## What this project is
 
-A single-page React web playbook for organizational design consultants:
-an integrated capability & change framework, the five Kates-Kesler
-activators, a three-lever change model with the T.C.C.A.R. team-health
-lens, and an 18-question organizational health diagnostic with scored
-results and recommended interventions.
+Eric Yim's personal site (www.ericyim.sg), built for awareness among senior
+executives and founders. It leads with the person and his argument, and uses
+the OrgDesign Playbook as the evidence: six principles, a six-stage method,
+the required / chosen / inherited lens with an interactive sorter, then the
+playbook (an integrated capability & change framework, five activators, a
+three-lever change model with the T.C.C.A.R. lens, AI-native design) and an
+18-question organizational health diagnostic with cohort mode.
+
+**Binding constraints** (from the AI-search-visibility spec): employment gate —
+no services, pricing, hiring call-to-action, email capture or "Advisory"/IOMA
+naming; boundary rule — no employer data, every example fictional and
+sector-neutral; canonical host https://www.ericyim.sg only.
 
 **Stack:** React 19 + TypeScript + Vite · Tailwind CSS v4 · Jest + React
 Testing Library. No charting library (plain-div bars). Deploys as a static
 `dist/` bundle (~248 KB, 76 KB gzipped).
 
-## Current state (2026-07-08)
+## Current state (2026-11-19)
+
+- **Page structure (Nov 2026 repositioning):** Header wordmark "Eric Yim"
+  (visible at every width) → Hero (name eyebrow, thesis H1 "Leaders don't
+  need another report. They need a system.", aTalent headline as linked proof,
+  index card 01–05) → **01 Principles** (`#principles`, `src/data/principles.ts`)
+  → **02 How I work** (`#approach`: six-stage HTML infographic + evidence
+  grades, `src/data/approach.ts`) → **03 Required, chosen or inherited?**
+  (`#differences`: definitions, two-question sorter with component state only,
+  paper-vs-practice example that restacks into cards below md) → **04 The
+  playbook** (`#playbook` intro + "In this playbook" index) → 4.1 Framework →
+  4.2 Activators → 4.3 Change model → 4.4 AI-native → **05** diagnostic CTA →
+  About (first-person note above the third-person entity text) → footer
+  (LinkedIn `rel="me"`). Hero index numbers must match section eyebrows;
+  `app-smoke.test.tsx` enforces numbering and order.
+- **Typography:** `.font-display` is defined explicitly in `src/index.css`
+  (Tailwind never generated it because `--font-display` lives in `:root`, not
+  `@theme`). Display numbers use lining figures. Fonts load from `index.html`
+  with preconnect — never via `@import` in CSS (that chain delayed first paint).
+- **Share card:** `public/og-image.png` is rendered from
+  `scripts/og/card.html` by `npm run og:render` (local Chromium; refuses to
+  write if brand fonts fail to load). 1200×630, tested.
+- **Verification:** `npm run verify:site` (after a build) runs 115 crawler
+  and visitor checks against `dist/`, including boundary and employment-gate
+  scans. Needs a local Chromium, so it is not part of the Vercel build.
 
 - **Visual system:** editorial consulting design — warm paper background
   (`#FAF7F3`), hairline borders, Playfair Display headings, DM Sans body,
@@ -45,7 +76,7 @@ Testing Library. No charting library (plain-div bars). Deploys as a static
   respondent × dimension heatmap table, a widest-divergence insight,
   cohort-level focus interventions, remove/clear members, JSON export and
   print. Stored in localStorage under `cohort_results`.
-- **AI-native design (`#ai-native`, section 04):** static teaching content
+- **AI-native design (`#ai-native`, section 4.4):** static teaching content
   between the change model and the diagnostic CTA. Left column: the
   Organisation → Position → **Task** → Process descent (indented cards, Task
   emphasised) plus "gate the machine's judgement". Right column: the L0–L3
@@ -94,7 +125,7 @@ Testing Library. No charting library (plain-div bars). Deploys as a static
   out of `useState` initialisers; `prerender-safety.test.ts` enforces this and
   that `entry-server.tsx` renders the same tree `main.tsx` mounts.
   `dist-ssr/` is a build artefact and is gitignored.
-- **Footer:** wordmark + tagline row, then a personal brand sign-off — an
+- **Footer:** specialism line + "Follow on LinkedIn" (`rel="me"`), then a personal brand sign-off — an
   "EY" monogram seal (Signature.tsx) with "Eric Yim" in Playfair italic, a
   red underline flourish, and a © attribution line.
 - **About section is deliberately curated:** it renders the entity claim,
@@ -129,13 +160,11 @@ Testing Library. No charting library (plain-div bars). Deploys as a static
   and feeds the sitemap's `<lastmod>` and `COPYRIGHT_YEAR`; sitemap `<lastmod>`
   stays date-only by design and a test fails if the datetime form leaks there.
   Bump the ISO constant only — the date follows automatically.
-- **Tests:** 184 passing across 16 suites (unit, integration, App smoke,
-  SEO/structured-data alignment, LinkedIn consistency),
-  plus two Playwright scripts: a 53-check E2E covering the AI-native
-  section, framework overview/quadrant switching, the full two-respondent
-  cohort journey, the score-free homepage framework and the footer
-  signature; and a 20-check responsive/a11y pass at 375/768/1440.
-  **Build:** clean, no warnings.
+- **Tests:** 234 passing across 18 suites (unit, integration, App smoke,
+  SEO/structured-data alignment, LinkedIn consistency, the new sections and
+  their AEO surfaces), plus `npm run verify:site` (115 end-to-end checks).
+  **Build:** clean. **Lint:** 12 pre-existing errors (9 `no-explicit-any` in
+  older tests, 3 `set-state-in-effect`), identical to main — do not add more.
 - **Known issue (pre-existing):** `scripts/check-size.js` fails on
   `node_modules` (254MB vs 200MB limit). Not deployment-affecting — Vercel
   ships only `dist` (~320KB). See DECISIONS.md.
@@ -168,6 +197,21 @@ working increment.
    run_checks.sh).
 
 ## Next (open)
+
+- **Merge to main.** Vercel deploys `main`; nothing in this branch is live
+  until it is merged.
+- **Operator decisions pending:** (1) credit Kates & Kesler on 4.2 — still
+  withheld per the July request, enforced by `app-smoke.test.tsx`; (2) confirm
+  required/chosen/inherited is his own coinage, then add `author` to the
+  DefinedTermSet (test currently asserts none); (3) a professional headshot;
+  (4) approve the new copy in his voice (principles, About note, thesis).
+- **Performance follow-up:** CLS is 0.019 (good band) from the hero rewrapping
+  when Playfair arrives on slow first visits. Self-hosting the fonts would
+  remove it.
+- **After deploy:** refresh the LinkedIn preview via Post Inspector; add the
+  Search Console / Bing verification tokens and submit the sitemap.
+- Phase 6 of the AI-search-visibility spec (answer-shaped headings proposal)
+  is still unstarted.
 
 - Optional: shareable results link (URL-encoded scores) for client
   conversations.

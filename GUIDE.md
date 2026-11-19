@@ -1,11 +1,37 @@
-# GUIDE.md — What the OrgDesign Playbook does and how to run it
+# GUIDE.md — What ericyim.sg does and how to run it
 
 *Written for a non-technical reader.*
 
-## What the app does
+## What the site does
 
-It is a one-page consulting playbook with four parts, listed in the card on
-the opening screen:
+It is your personal site, built to make senior executives and founders
+remember two things: who you are, and how you think. A visitor reads it top
+to bottom as an argument:
+
+- **Opening screen** — your name, your thesis ("Leaders don't need another
+  report. They need a system."), and the aTalent headline about your work as
+  proof. The card on the right lists the five stops below.
+- **01 · How I think** — six principles behind your work. Each one links to
+  the part of the page that puts it to work.
+- **02 · How I work** — your six-stage method (Frame, Focus, Find, Dial,
+  Design, Deliver) drawn as a diagram, plus the three evidence grades
+  (Confirmed, Indicated, Hypothesis).
+- **03 · Required, chosen or inherited?** — your lens for differences between
+  markets, sites or acquired teams. Visitors can try it: two yes/no questions
+  sort any difference and tell them what to do about it. Nothing they click is
+  saved or sent anywhere. A made-up software company shows the lens applied
+  ("paper versus practice").
+- **04 · The playbook** — the four tools below, numbered 4.1 to 4.4.
+- **05 · The diagnostic** — the 18-question health check.
+- **About** — a short note in your own voice, then your background and the
+  common questions people (and AI assistants) ask about you.
+
+Every example on the site is invented and deliberately set outside your
+employer's industry, and nothing on the page offers services, prices or a way
+to hire you — the site builds your reputation without breaching your
+employment terms.
+
+The playbook sections:
 
 1. **The framework** — a circular diagram of the four organizational
    dimensions (Structure, People, Process, Mindset) around a Leadership
@@ -59,14 +85,31 @@ Run `./run_checks.sh`. Success looks like: "ALL CHECKS PASSED".
 It runs the automated tests, checks the code compiles, and builds the
 deployable version.
 
+For a deeper check, run `npm run verify:site` after that. It opens the built
+site in a real browser and checks 115 things the way a visitor and an AI
+crawler would: every link, the sorter, the whole diagnostic, the layout on a
+phone and a laptop, the search-engine data, and that nothing commercial or
+employer-specific has slipped in. Success looks like "ALL 115 CHECKS PASSED".
+(It needs a browser on the machine, so it runs on your computer or in a Claude
+session, not on Vercel.)
+
+## How to change the LinkedIn preview image
+
+The image people see when your link is shared is `public/og-image.png`. To
+change its wording, edit `scripts/og/card.html`, then run `npm run og:render`.
+It refuses to save the image if your brand fonts fail to load, so you can
+never ship a card in the wrong typeface. After it is live, paste your URL into
+LinkedIn's Post Inspector (linkedin.com/post-inspector) so LinkedIn fetches the
+new image instead of its cached copy.
+
 ## Being found by Google and AI assistants
 
 The site now tells search engines and AI assistants (ChatGPT, Claude,
 Perplexity, Google AI) who you are: **Eric Yim, organization design
 strategist specializing in human-AI work partnership**. That identity, your
 areas of expertise, and the NTU and aTalent articles about you are written
-into the page in a machine-readable form, and repeated in an **About the
-author** section near the bottom that human visitors can read too. There is
+into the page in a machine-readable form, and repeated in an **About**
+section near the bottom that human visitors can read too. There is
 also a plain-text summary at `/llms.txt` written specifically for AI
 assistants, and a `/robots.txt` that explicitly welcomes their crawlers.
 
@@ -78,17 +121,18 @@ site also has a shareable preview card (the image that appears when someone
 posts your link), and a plain-text file that tells search engines to re-check
 the site the moment you publish.
 
-**Two things to do when you go live:**
+**One thing still to do:** register the site with Google and Bing. Sign up
+for Google Search Console and Bing Webmaster Tools; each gives you a
+verification code. Paste them into the two commented-out lines near the top
+of `index.html`, remove the `<!--` and `-->` around them, then submit
+`https://www.ericyim.sg/sitemap.xml` in both. This is what actually gets your
+pages indexed. (The site's own address, www.ericyim.sg, is already set
+everywhere.)
 
-1. The site does not yet know its own web address. Open
-   `src/data/profile.ts`, change `SITE_URL` to your real domain, then make the
-   same change in `index.html`, `public/robots.txt` and `public/sitemap.xml`.
-   If you miss one, `./run_checks.sh` will tell you.
-2. Register the site with Google and Bing. Sign up for Google Search Console
-   and Bing Webmaster Tools, each gives you a verification code; paste them
-   into the two commented-out lines near the top of `index.html`, remove the
-   `<!--` and `-->` around them, then submit `yourdomain.com/sitemap.xml` in
-   both. This is what actually gets your pages indexed.
+Since November 2026, Google and AI assistants also get your six principles,
+your six-stage method and the required/chosen/inherited lens in machine-
+readable form, with three new questions and answers about your approach. Search
+results now show the site name as "Eric Yim" rather than "OrgDesign Playbook".
 
 The About section is deliberately kept short and elegant: your name, role,
 one line of experience, your qualifications, six topics, the three links and
@@ -118,7 +162,40 @@ articles help support), and tell me where your `bit.ly/2RQceu7` personal link
 points so it can be added properly (I left it out rather than link somewhere
 I could not check).
 
-## What changed most recently (2026-08-13)
+## What changed most recently (2026-11-19)
+
+The site was reorganised around you. Before, a visitor reached your name
+about eight screens down on a laptop (thirteen on a phone) and the phone
+header showed no name at all. Now your name and your thesis are the first
+thing anyone sees, followed by your principles, your method and an
+interactive version of your required/chosen/inherited lens. The playbook and
+diagnostic are unchanged apart from their numbering (now 4.1–4.4 and 05).
+
+A long-standing typography fault was fixed along the way: your name in the
+header and your signature at the bottom had been showing in the plain body
+font instead of the serif brand font. Both are now correct, and so are the
+numbers on the results page.
+
+The page loads slightly faster than before despite carrying about 70% more
+readable content, and the LinkedIn preview image was redrawn in the brand
+fonts with your thesis on it.
+
+**Decisions waiting on you** (none blocks the site):
+
+1. *Crediting Kates & Kesler.* The five activators are recognisably their
+   work and are still uncredited on screen, because you asked for that in
+   July. Crediting them would protect your credibility with OD experts —
+   your call; it is a one-line change.
+2. *Is required/chosen/inherited your own coinage?* If you confirm it is, the
+   site can name you as its author in the machine-readable data. Until then
+   it deliberately does not.
+3. *A photo.* A professional headshot is the strongest single addition to a
+   personal-brand site. Optional — your decision on visibility.
+4. *Read the new wording.* The principles, the first-person note in About and
+   the thesis line are written in your voice from your published quotes and
+   your workflow; change anything that does not sound like you.
+
+## Earlier changes (2026-08-13)
 
 Added a new reference section, **AI-native design**, between the change
 model and the diagnostic. It answers the question executives ask first —
