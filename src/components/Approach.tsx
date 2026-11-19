@@ -35,6 +35,13 @@ export function Approach() {
           >
             {approachCopy.heading}
           </h2>
+          {/* The answer comes first, in ink, so it is the passage engines lift */}
+          <p
+            className="text-[17px] leading-[1.65] text-[var(--color-ink)] mb-3"
+            style={{ maxWidth: 640, textWrap: 'pretty' }}
+          >
+            {approachCopy.answer}
+          </p>
           <p
             className="text-[17px] leading-[1.65] text-[var(--color-secondary)]"
             style={{ maxWidth: 640, textWrap: 'pretty' }}

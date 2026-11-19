@@ -24,7 +24,11 @@ export interface StageGroup {
 
 export const approachCopy = {
   eyebrow: '02 · How I work',
-  heading: 'Six stages, one evidence trail',
+  // Phase 6, row 2 (approved 2026-11-19): the heading is the question a reader
+  // types; `answer` is the first sentence under it and answers it in full.
+  heading: 'Where should an organization design start?',
+  answer:
+    'With the current state. I map where the organization and its operating system create and lose value, and why its parts work differently, before deciding which of the four domains to move, in what order and when.',
   lede:
     'I run every engagement the same way. Stages 0 to 2 establish what is true. In stages 3 to 5, leaders decide what to change, install it and check that it worked.',
   stageZeroNote:
@@ -121,6 +125,9 @@ export const differencesCopy = {
   heading: 'Why the same work gets done differently',
   lede:
     'As a business grows across markets, sites and acquisitions, the same work ends up done in different ways. Before harmonizing anything, I sort each difference by why it exists. I call the three reasons required, chosen and inherited, and each one leads to a different decision.',
+  // How the lens sets the order of the work (operator-confirmed 2026-11-19)
+  sequencing:
+    'The three also set the order of the work. Required differences mark what the design can’t change, inherited ones are where harmonizing starts, and chosen ones wait for a leadership decision.',
   sorterHeading: 'Sort a difference in two questions',
   sorterLede:
     'Think of one thing your organization does differently in two places, then answer for it.',

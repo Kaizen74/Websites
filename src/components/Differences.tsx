@@ -168,6 +168,12 @@ export function Differences() {
             </div>
           ))}
         </dl>
+        <p
+          className="mt-6 text-[var(--color-ink)]"
+          style={{ fontSize: 16, lineHeight: 1.6, maxWidth: 760, textWrap: 'pretty' }}
+        >
+          {differencesCopy.sequencing}
+        </p>
 
         {/* ---------- The sorter ---------- */}
         <div className="mt-20 grid lg:grid-cols-[1fr_1.35fr] gap-8 lg:gap-16 items-start">

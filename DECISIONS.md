@@ -4,6 +4,7 @@ One line of reasoning per decision, newest first.
 
 | Date | Decision | Why |
 |---|---|---|
+| 2026-11-19 | Phase 6 rows 1–2: row 1 rejected; row 2 → "Where should an organization design start?" (current-state value proposition); principle 2 reworded to "as one system … not all at once"; R/C/I sequencing line added | Operator-led. The current-state framing links the stages, the R/C/I lens and the four domains into one argument; it exposed a contradiction in principle 2's "move together or not at all". Rows 3–8 pending |
 | 2026-11-19 | Person.sameAs → LinkedIn only; press features stay in subjectOf | sameAs asserts identity; an article about him is not him. Mixing them blurs entity resolution |
 | 2026-11-19 | Article.datePublished = 2026-08-26T19:14:10+08:00 (merge of PR #19) | A recorded timestamp from git, not an estimate. Corrects an earlier verbal claim of 2026-08-13, which was the DECISIONS-row date, not the ship date |
 | 2026-11-19 | IndexNow via a GitHub Action on `deployment_status` (Production, success), with `--verify-live` | Pinging before the deploy serves the key file earns a 403. No secrets needed; inputs come only from the repo |

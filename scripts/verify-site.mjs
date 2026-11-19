@@ -49,9 +49,11 @@ for (const id of ['hero', 'principles', 'approach', 'differences', 'playbook', '
   check('crawler', `section #${id} is in the raw HTML`, root.includes(`id="${id}"`));
 }
 for (const phrase of [
-  'Every diagnosis ends in a plan.', 'Move all four domains together.', 'Ask why before you harmonize.',
+  'Every diagnosis ends in a plan.', 'Move all four domains as one system.', 'Ask why before you harmonize.',
   'Script what each leader does differently.', 'Start AI at the task.',
   'Say what you know, and how you know it.', 'Adapted from Gregory Kesler and Amy Kates',
+  'Where should an organization design start?', 'With the current state.',
+  'The three also set the order of the work.',
   'Frame', 'Focus', 'Find', 'Dial', 'Design', 'Deliver', 'Confirmed', 'Indicated', 'Hypothesis',
   'Regulation, a customer contract or the physical site makes it so.',
   'A deliberate local decision, made for a reason someone can still state.',

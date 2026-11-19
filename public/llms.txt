@@ -89,9 +89,9 @@ to where I apply it on the site.
 01. **Every diagnosis ends in a plan.** A finding is only useful if it names
     the decision, the owner and the first move. I don’t consider the work done
     until that plan is running.
-02. **Move all four domains together.** Structure, people, process and mindset
-    move together, held by leadership, or they don’t move at all. A new org
-    chart on its own only changes who reports to whom.
+02. **Move all four domains as one system.** Structure, people, process and
+    mindset are held together by leadership. They all have to move, though not
+    all at once. The current state tells you which to move first and how fast.
 03. **Ask why before you harmonize.** When two parts of a business work
     differently, find out why first. Some differences are required, some were
     chosen and some were inherited. Each needs a different decision.
@@ -106,6 +106,12 @@ to where I apply it on the site.
     a guessed score becomes a false finding.
 
 ## How Eric Yim works
+
+### Where should an organization design start?
+
+With the current state. I map where the organization and its operating system
+create and lose value, and why its parts work differently, before deciding
+which of the four domains to move, in what order and when.
 
 I run every engagement the same way. Stages 0 to 2 establish what is true. In
 stages 3 to 5, leaders decide what to change, install it and check that it
@@ -151,6 +157,10 @@ required, chosen and inherited, and each one leads to a different decision.
   state. Response: decide: keep or align.
 - **Inherited**: History, an acquisition or habit. Nobody decided it.
   Response: harmonize.
+
+The three also set the order of the work. Required differences mark what the
+design can’t change, inherited ones are where harmonizing starts, and chosen
+ones wait for a leadership decision.
 
 Two questions sort any difference: is it required by regulation, a customer
 contract or the physical site? If not, did someone decide it on purpose, for a
@@ -249,9 +259,9 @@ The discipline is discerning the right time and place to use AI.
 ### What principles guide Eric Yim’s work?
 
 Eric Yim works from six principles: every diagnosis ends in a plan; move all
-four domains together; ask why before you harmonize; script what each leader
-does differently; start AI at the task; and say what you know, and how you
-know it. Each one maps to a part of his organizational design playbook.
+four domains as one system; ask why before you harmonize; script what each
+leader does differently; start AI at the task; and say what you know, and how
+you know it. Each one maps to a part of his organizational design playbook.
 
 ### How does Eric Yim approach an organization design engagement?
 

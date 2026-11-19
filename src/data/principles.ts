@@ -34,9 +34,9 @@ export const principles: Principle[] = [
   },
   {
     number: '02',
-    title: 'Move all four domains together.',
+    title: 'Move all four domains as one system.',
     body:
-      'Structure, people, process and mindset move together, held by leadership, or they don’t move at all. A new org chart on its own only changes who reports to whom.',
+      'Structure, people, process and mindset are held together by leadership. They all have to move, though not all at once. The current state tells you which to move first and how fast.',
     href: '#framework',
     linkLabel: 'See it in the framework',
   },
