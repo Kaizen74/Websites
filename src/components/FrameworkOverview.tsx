@@ -14,9 +14,8 @@ const domains: { id: Quadrant; gloss: string; color: string }[] = [
 
 /**
  * Default panel shown before any quadrant is selected — the overarching
- * narrative of the framework, grounded in the IOMA integrated-activation
- * model: four interdependent domains, a leadership core, a culture-values
- * ring, activated together rather than in sequence.
+ * narrative of the framework: four interdependent domains, a leadership core, a culture-values
+ * ring. All four move as one system, in an order the current state decides.
  */
 export function FrameworkOverview({ onExploreQuadrant }: FrameworkOverviewProps) {
   return (

@@ -1,3 +1,5 @@
+import { readFileSync } from 'fs';
+import { join } from 'path';
 import { render, screen, fireEvent, within } from '@testing-library/react';
 import { renderToString } from 'react-dom/server';
 import App from '../App';
@@ -41,9 +43,9 @@ describe('01 · How I think — principles', () => {
 });
 
 describe('02 · How I work — the six stages', () => {
-  test('six stages numbered 0-5 in order: Frame → Deliver', () => {
-    expect(allStages.map((s) => s.number)).toEqual(['0', '1', '2', '3', '4', '5']);
-    expect(allStages.map((s) => s.name)).toEqual(['Frame', 'Focus', 'Find', 'Dial', 'Design', 'Deliver']);
+  test('six stages numbered 1-6 in order: Frame → Deliver', () => {
+    expect(allStages.map((s) => s.number)).toEqual(['1', '2', '3', '4', '5', '6']);
+    expect(allStages.map((s) => s.name)).toEqual(['Frame', 'Focus', 'Find', 'Decide', 'Design', 'Deliver']);
   });
 
   test('every stage renders its question and what it produces', () => {
@@ -188,17 +190,16 @@ describe('New sections are safe to prerender', () => {
 });
 
 describe('Boundary rule: the new teaching content stays employer-neutral', () => {
-  // Words that would place an example in a specific employer's sector, or that
-  // read as a commercial offering. All examples must stay generic and fictional.
-  const FORBIDDEN = [
-    /\bSATS\b/, /\bIOMA\b/, /\bAdvisory\b/i, /\bEXCO\b/,
-    /\bramp\b/i, /\bcargo\b/i, /\bcatering\b/i, /\bload (controller|plan)/i,
-    /\bgateway\b/i, /\bairline/i, /\baviation\b/i, /\bhub services\b/i,
-    /\bpricing\b/i, /\bbook a call\b/i, /\bwork with me\b/i, /\bhire me\b/i,
-  ];
+  // Words that would place an example in a specific employer's sector, name a
+  // planned brand, or read as a commercial offering. Kept base64-encoded in
+  // scripts/guard-terms.json so this public repository doesn't spell them out.
+  const guards = JSON.parse(readFileSync(join(__dirname, '..', '..', 'scripts', 'guard-terms.json'), 'utf8'));
+  const patterns: RegExp[] = [...guards.boundary, ...guards.commercial].map(
+    (b64: string) => new RegExp(Buffer.from(b64, 'base64').toString(), 'i')
+  );
   const corpus = JSON.stringify({ principles, principlesCopy, approach });
 
-  test.each(FORBIDDEN.map((r) => [r.source, r]))('no "%s"', (_label, pattern) => {
+  test.each(patterns.map((r, i) => [i + 1, r]))('clear of guarded pattern #%i', (_n, pattern) => {
     expect(corpus).not.toMatch(pattern as RegExp);
   });
 });

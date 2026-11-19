@@ -28,8 +28,8 @@ to bottom as an argument:
 
 Every example on the site is invented and deliberately set outside your
 employer's industry, and nothing on the page offers services, prices or a way
-to hire you — the site builds your reputation without breaching your
-employment terms.
+to hire you. Your method appears as plain ideas only: nothing technical from your
+own tools (names, screens, codes or internal mechanics) is on the site.
 
 The playbook sections:
 

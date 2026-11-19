@@ -68,9 +68,9 @@ export const principles: Principle[] = [
     number: '06',
     title: 'Say what you know, and how you know it.',
     body:
-      'Grade every finding as confirmed, indicated or a hypothesis. A gap marked “not scored” is honest; a guessed score becomes a false finding.',
+      'Grade every finding as confirmed, indicated or a hypothesis. Admitting a gap is honest; a guess becomes a false finding.',
     href: '#approach',
-    linkLabel: 'See the evidence rules',
+    linkLabel: 'See how I grade evidence',
   },
 ];
 

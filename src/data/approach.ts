@@ -30,9 +30,9 @@ export const approachCopy = {
   answer:
     'With the current state. I map where the organization and its operating system create and lose value, and why its parts work differently, before deciding which of the four domains to move, in what order and when.',
   lede:
-    'I run every engagement the same way. Stages 0 to 2 establish what is true. In stages 3 to 5, leaders decide what to change, install it and check that it worked.',
+    'I run every engagement the same way. The first three stages establish what is true. In the last three, leaders decide what to change, install it and check that it worked.',
   stageZeroNote:
-    'Stage 0 comes first because without agreed criteria, every unit argues that its own way is right.',
+    'Framing comes first because without agreed criteria, every unit argues that its own way is right.',
 };
 
 export const stageGroups: StageGroup[] = [
@@ -40,22 +40,22 @@ export const stageGroups: StageGroup[] = [
     label: 'Find out what’s true',
     stages: [
       {
-        number: '0',
+        number: '1',
         name: 'Frame',
         question: 'What are we building, and how will we judge the design?',
-        produces: 'Agreed criteria, locked before the debate starts',
+        produces: 'Agreed criteria for judging the design, set before the debate starts',
       },
       {
-        number: '1',
+        number: '2',
         name: 'Focus',
         question: 'Where must the model change, and where does it matter most?',
         produces: 'Where capability is weak where the money is made',
       },
       {
-        number: '2',
+        number: '3',
         name: 'Find',
         question: 'How does the work really run, and who really decides?',
-        produces: 'Evidence-traced maps of paper versus practice',
+        produces: 'A clear picture of how the work really runs and who really decides',
       },
     ],
   },
@@ -63,22 +63,22 @@ export const stageGroups: StageGroup[] = [
     label: 'Change it, and prove it',
     stages: [
       {
-        number: '3',
-        name: 'Dial',
+        number: '4',
+        name: 'Decide',
         question: 'What should be one way everywhere, and how much should AI do?',
         produces: 'A call on every difference and every task',
       },
       {
-        number: '4',
+        number: '5',
         name: 'Design',
         question: 'Which structure, roles and system do we install together?',
-        produces: 'Options scored against the criteria from stage 0',
+        produces: 'Options compared against the criteria agreed at the start',
       },
       {
-        number: '5',
+        number: '6',
         name: 'Deliver',
         question: 'Is it lifting capability, cycle by cycle?',
-        produces: 'A scoreboard that holds each forecast to account',
+        produces: 'A regular check that capability is rising and that earlier calls were right',
       },
     ],
   },
@@ -98,7 +98,7 @@ export const evidenceCopy = {
   heading: 'How sure are we?',
   lede: 'I grade every finding one of three ways, and use it only for what its grade allows.',
   note:
-    '“Not scored” is a valid answer. A blank says we don’t know yet; a guess says something false with confidence.',
+    '“We don’t know yet” is a valid answer. A guess says something false with confidence.',
 };
 
 export const evidenceGrades: EvidenceGrade[] = [
@@ -201,7 +201,7 @@ export const exampleCopy = {
   disclaimer: 'Illustrative and fictional: the company, markets and decisions are made up.',
 };
 
-export const exampleMarkets = ['Arden', 'Belmar', 'Caldera'];
+export const exampleMarkets = ['Market A', 'Market B', 'Market C'];
 
 export const exampleDecisions: DecisionRow[] = [
   {
@@ -218,7 +218,7 @@ export const exampleDecisions: DecisionRow[] = [
     inPractice: ['Group cloud region', 'In-country', 'Group cloud region'],
     drifted: [1],
     kind: 'required',
-    why: 'Data-residency law in Belmar',
+    why: 'Data-residency law in Market B',
   },
   {
     decision: 'Who runs customer success',

@@ -19,7 +19,7 @@ works, and the playbook and diagnostic he uses. All sections are on one page:
 - [How I think](https://www.ericyim.sg/#principles) — six principles behind
   the work.
 - [How I work](https://www.ericyim.sg/#approach) — a six-stage method (Frame,
-  Focus, Find, Dial, Design, Deliver) and three evidence grades.
+  Focus, Find, Decide, Design, Deliver) and three evidence grades.
 - [Required, chosen or inherited?](https://www.ericyim.sg/#differences) — Eric
   Yim's lens for deciding what to do about differences between markets, sites or
   acquired units, with a two-question sorter.
@@ -33,7 +33,8 @@ works, and the playbook and diagnostic he uses. All sections are on one page:
   - [The change model](https://www.ericyim.sg/#change-levers) — Communicate,
     Co-create, Cadence, plus the T.C.C.A.R. team-health lens.
   - [AI-native design](https://www.ericyim.sg/#ai-native) — descend to the
-    task, place every task on an L0–L3 ladder, gate every machine judgement.
+    task, place every task on a ladder from manual to reinvented, and have a
+    person check every machine judgement.
 - [The diagnostic](https://www.ericyim.sg/#diagnostic) — an 18-question
   organisational health assessment scored across five dimensions.
 - [About](https://www.ericyim.sg/#about) — entity, background and common
@@ -102,8 +103,8 @@ to where I apply it on the site.
     automated, which are assisted and which stay human, and have a person make
     the final call on anything a model recommends.
 06. **Say what you know, and how you know it.** Grade every finding as
-    confirmed, indicated or a hypothesis. A gap marked “not scored” is honest;
-    a guessed score becomes a false finding.
+    confirmed, indicated or a hypothesis. Admitting a gap is honest; a guess
+    becomes a false finding.
 
 ## How Eric Yim works
 
@@ -113,24 +114,27 @@ With the current state. I map where the organization and its operating system
 create and lose value, and why its parts work differently, before deciding
 which of the four domains to move, in what order and when.
 
-I run every engagement the same way. Stages 0 to 2 establish what is true. In
-stages 3 to 5, leaders decide what to change, install it and check that it
-worked.
+I run every engagement the same way. The first three stages establish what is
+true. In the last three, leaders decide what to change, install it and check
+that it worked.
 
-- **Stage 0 — Frame.** What are we building, and how will we judge the design?
-  Produces: agreed criteria, locked before the debate starts.
-- **Stage 1 — Focus.** Where must the model change, and where does it matter
+- **Stage 1 — Frame.** What are we building, and how will we judge the design?
+  Produces: agreed criteria for judging the design, set before the debate
+  starts.
+- **Stage 2 — Focus.** Where must the model change, and where does it matter
   most? Produces: where capability is weak where the money is made.
-- **Stage 2 — Find.** How does the work really run, and who really decides?
-  Produces: evidence-traced maps of paper versus practice.
-- **Stage 3 — Dial.** What should be one way everywhere, and how much should
+- **Stage 3 — Find.** How does the work really run, and who really decides?
+  Produces: a clear picture of how the work really runs and who really
+  decides.
+- **Stage 4 — Decide.** What should be one way everywhere, and how much should
   AI do? Produces: a call on every difference and every task.
-- **Stage 4 — Design.** Which structure, roles and system do we install
-  together? Produces: options scored against the criteria from stage 0.
-- **Stage 5 — Deliver.** Is it lifting capability, cycle by cycle? Produces: a
-  scoreboard that holds each forecast to account.
+- **Stage 5 — Design.** Which structure, roles and system do we install
+  together? Produces: options compared against the criteria agreed at the
+  start.
+- **Stage 6 — Deliver.** Is it lifting capability, cycle by cycle? Produces: a
+  regular check that capability is rising and that earlier calls were right.
 
-Stage 0 comes first because without agreed criteria, every unit argues that
+Framing comes first because without agreed criteria, every unit argues that
 its own way is right.
 
 I grade every finding one of three ways, and use it only for what its grade
@@ -141,8 +145,8 @@ allows.
   say so.
 - **Hypothesis**: Still to test. Use it to: never decide on this alone.
 
-“Not scored” is a valid answer. A blank says we don’t know yet; a guess says
-something false with confidence.
+“We don’t know yet” is a valid answer. A guess says something false with
+confidence.
 
 ## Required, chosen and inherited differences
 
@@ -220,18 +224,17 @@ reassignment does to roles, spans, decision rights and the operating model.
 
 ### What does an organization design strategist do?
 
-An organization design strategist aligns an organization's structure and
+An organization design strategist aligns an organization’s structure and
 accountabilities, people and skills, process and systems, and mindset and
 behaviors so it can execute its strategy. The work spans diagnosis, operating
 model design, and the change activation needed to make a new design real.
 
 ### How does AI change organization design?
 
-AI redesigns the work, not the chart. The unit of analysis descends from the
-org chart to the task, each task is placed on a ladder from manual to
-reinvention, and any machine judgement is gated by a human before it reaches a
-decision-maker. Structure follows work — and the work is now shared with
-machines.
+AI redesigns the work, not the chart. Design starts from the task instead of
+the org chart: each task is placed on a ladder from manual to reinvented, and
+a person checks any machine judgement before it reaches a decision-maker.
+Structure follows work, and work is now shared with machines.
 
 ### What is Eric Yim’s background?
 
@@ -252,9 +255,9 @@ years at Cargill in organization effectiveness consulting.
 ### Why does Eric Yim say AI is a multiplier and not a shortcut?
 
 Because a multiplier amplifies whatever expertise already exists — and zero
-multiplied by any number is still zero. AI is most valuable to people with deep
-domain expertise to amplify, not to those merely quickest to adopt the tools.
-The discipline is discerning the right time and place to use AI.
+multiplied by any number is still zero. AI is most valuable to people with
+deep domain expertise to amplify, not to those merely quickest to adopt the
+tools. The discipline is discerning the right time and place to use AI.
 
 ### What principles guide Eric Yim’s work?
 
@@ -265,12 +268,12 @@ you know it. Each one maps to a part of his organizational design playbook.
 
 ### How does Eric Yim approach an organization design engagement?
 
-Eric Yim works in six stages: Frame, Focus, Find, Dial, Design and Deliver.
+Eric Yim works in six stages: Frame, Focus, Find, Decide, Design and Deliver.
 The first three establish what is true: the criteria the design will be judged
 on, where capability is weak where the money is made, and how the work really
 runs and who really decides. In the last three, leaders decide what should be
-one way everywhere and how much AI should do, score structure, role and system
-options against the agreed criteria, and track cycle by cycle whether
+one way everywhere and how much AI should do, compare structure, role and
+system options against the agreed criteria, and check regularly that
 capability is rising.
 
 ### What are required, chosen and inherited differences?
@@ -291,6 +294,7 @@ interdependent domains — Structure & Accountabilities, People & Skills,
 Process & Systems, Mindset & Behaviors — around a Leadership core, inside a
 ring of culture values. Supporting models: five activators that turn design
 into performance (adapted from Kesler and Kates); a three-lever change model (Communicate, Co-create,
-Cadence); an AI-native design section (task-level descent, an L0–L3 automation
-ladder, and human gating of machine judgement); and an 18-question diagnostic
+Cadence); an AI-native design section (start from the task, a four-level ladder
+from manual to reinvented, and a person checking every machine judgement); and
+an 18-question diagnostic
 scored across five dimensions.

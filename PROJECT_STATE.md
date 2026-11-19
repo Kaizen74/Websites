@@ -12,10 +12,14 @@ playbook (an integrated capability & change framework, five activators, a
 three-lever change model with the T.C.C.A.R. lens, AI-native design) and an
 18-question organizational health diagnostic with cohort mode.
 
-**Binding constraints** (from the AI-search-visibility spec): employment gate —
-no services, pricing, hiring call-to-action, email capture or "Advisory"/IOMA
-naming; boundary rule — no employer data, every example fictional and
-sector-neutral; canonical host https://www.ericyim.sg only.
+**Binding constraints** (from the AI-search-visibility spec): no commercial
+offering: no services, pricing, hiring call-to-action, email capture, and no
+business or brand name other than Eric's own. Boundary rule: no employer data,
+every example fictional and sector-neutral. No tool content: nothing technical
+from Eric's own tools (names, screens, IDs, internal labels or mechanics); ideas
+are written in plain language. Canonical host https://www.ericyim.sg only.
+Guard patterns live base64-encoded in `scripts/guard-terms.json`; the repo is
+public, so never write the guarded names in plain text in tracked files.
 
 **Stack:** React 19 + TypeScript + Vite · Tailwind CSS v4 · Jest + React
 Testing Library. No charting library (plain-div bars). Deploys as a static
@@ -67,8 +71,8 @@ Testing Library. No charting library (plain-div bars). Deploys as a static
 - **Framework diagram:** four quarter-disc quadrants around a white
   Leadership circle, "Culture values" ink pill, hairline outer ring.
   Quadrant labels are centered in the readable band of each pie slice.
-  The homepage panel defaults to an overarching narrative (FrameworkOverview,
-  IOMA integrated-activation model); clicking a quadrant — or a domain row
+  The homepage panel defaults to an overarching narrative (FrameworkOverview:
+  four domains, a leadership core, a culture-values ring); clicking a quadrant — or a domain row
   in the overview — swaps in that quadrant's detail with a "← Framework
   overview" back link. The homepage framework is a score-free educational
   view; score badges appear only on the results dashboard's own diagram.
