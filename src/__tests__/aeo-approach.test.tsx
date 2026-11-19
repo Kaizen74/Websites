@@ -259,3 +259,26 @@ describe('Self-hosted brand fonts', () => {
     for (const src of [html, css]) expect(src).not.toMatch(/fonts\.(googleapis|gstatic)\.com/);
   });
 });
+
+describe('IndexNow wiring', () => {
+  const key = readFileSync(join(ROOT, 'public', 'indexnow-key.txt'), 'utf8').trim();
+  const workflow = readFileSync(join(ROOT, '.github', 'workflows', 'indexnow.yml'), 'utf8');
+
+  test('the key is valid and its verification file serves exactly the key', () => {
+    expect(key).toMatch(/^[a-f0-9]{8,128}$/i);
+    expect(readFileSync(join(ROOT, 'public', `${key}.txt`), 'utf8').trim()).toBe(key);
+  });
+
+  test('the workflow pings only after a successful Production deploy, or by hand', () => {
+    expect(workflow).toMatch(/deployment_status:/);
+    expect(workflow).toMatch(/workflow_dispatch:/);
+    expect(workflow).toMatch(/deployment_status\.state == 'success'/);
+    expect(workflow).toMatch(/deployment\.environment == 'Production'/);
+  });
+
+  test('the workflow verifies the live key file before pinging, with read-only permissions', () => {
+    expect(workflow).toMatch(/node scripts\/indexnow\.mjs --verify-live/);
+    expect(workflow).toMatch(/permissions:\s*\n\s*contents: read/);
+    expect(workflow).not.toMatch(/secrets\./);
+  });
+});

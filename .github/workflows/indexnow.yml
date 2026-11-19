@@ -1,0 +1,28 @@
+# Notify IndexNow (Bing and partner engines) after each successful Production
+# deployment, so re-crawls happen in hours rather than whenever the crawler
+# next visits. Vercel's GitHub integration reports deployments to GitHub,
+# which fires `deployment_status`. Run it by hand from the Actions tab too.
+name: IndexNow ping
+
+on:
+  deployment_status:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  ping:
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (github.event.deployment_status.state == 'success' &&
+       github.event.deployment.environment == 'Production')
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      # --verify-live refuses to ping until the deployment serves the key file
+      - run: node scripts/indexnow.mjs --verify-live
