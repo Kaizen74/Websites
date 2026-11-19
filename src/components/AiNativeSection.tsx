@@ -345,6 +345,12 @@ export function AiNativeSection() {
               >
                 {sectionCopy.zoneFootnote}
               </p>
+              <p
+                className="mt-2 text-[var(--color-faint)]"
+                style={{ fontSize: 12.5, lineHeight: 1.5 }}
+              >
+                {sectionCopy.zoneSource}
+              </p>
             </div>
 
             {/* Provenance strip */}

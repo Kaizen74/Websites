@@ -27,7 +27,7 @@ export function ActivatorsSection({ priorityActivators = [] }: ActivatorsSection
       <div className="max-w-[1140px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="mb-14" style={{ maxWidth: 760 }}>
-          <p className="eyebrow mb-4">02 · The five activators</p>
+          <p className="eyebrow mb-4">4.2 · The five activators</p>
           <h2
             className="font-display font-bold text-[var(--color-ink)] mb-4"
             style={{ fontSize: 'clamp(30px, 4vw, 40px)', lineHeight: 1.15 }}
@@ -37,6 +37,10 @@ export function ActivatorsSection({ priorityActivators = [] }: ActivatorsSection
           <p className="text-[17px] leading-[1.65] text-[var(--color-secondary)]" style={{ maxWidth: 640 }}>
             These five activators bridge organization design and results — the
             right connections, the right conversations, and the right know-how.
+          </p>
+          <p className="mt-3 text-[13px] text-[var(--color-faint)]" style={{ maxWidth: 640 }}>
+            Adapted from Gregory Kesler and Amy Kates,{' '}
+            <cite>Bridging Organization Design and Performance</cite>.
           </p>
         </div>
 

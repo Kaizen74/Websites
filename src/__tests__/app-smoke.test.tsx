@@ -38,27 +38,47 @@ describe('App smoke tests', () => {
       screen.getByText(/Integrated Organizational Capability and Change Framework/i)
     ).toBeTruthy();
     expect(screen.getByText(/The three C's of change/i)).toBeTruthy();
-    // No framework-attribution label anywhere on the page
-    expect(screen.queryByText(/Kates/i)).toBeNull();
-    expect(screen.queryByText(/Kesler/i)).toBeNull();
+    // The five activators are credited to their source (operator decision,
+    // 2026-11-19, reversing the July framework-neutral request)
+    const activators = document.getElementById('activators')!;
+    expect(activators.textContent).toMatch(/Adapted from Gregory Kesler and Amy Kates/);
+    expect(activators.querySelector('cite')!.textContent).toBe(
+      'Bridging Organization Design and Performance'
+    );
   });
 
   test('AI-native section renders on the home view between change model and CTA', () => {
     render(<App />);
     expect(document.getElementById('ai-native')).not.toBeNull();
     expect(screen.getByText('AI redesigns the work, not the chart')).toBeTruthy();
-    expect(screen.getByText('04 · AI-native design')).toBeTruthy();
+    expect(screen.getByText('4.4 · AI-native design')).toBeTruthy();
   });
 
-  test('section numbering runs 01-05 with the diagnostic last', () => {
+  test('section numbering runs 01-05, playbook 4.1-4.4, diagnostic last', () => {
     render(<App />);
-    expect(screen.getByText('01 · The framework')).toBeTruthy();
-    expect(screen.getByText('02 · The five activators')).toBeTruthy();
-    expect(screen.getByText('03 · The change model')).toBeTruthy();
-    expect(screen.getByText('04 · AI-native design')).toBeTruthy();
+    expect(screen.getByText('01 · How I think')).toBeTruthy();
+    expect(screen.getByText('02 · How I work')).toBeTruthy();
+    expect(screen.getByText('03 · Required, chosen or inherited?')).toBeTruthy();
+    expect(screen.getByText('04 · The playbook')).toBeTruthy();
+    expect(screen.getByText('4.1 · The framework')).toBeTruthy();
+    expect(screen.getByText('4.2 · The five activators')).toBeTruthy();
+    expect(screen.getByText('4.3 · The change model')).toBeTruthy();
+    expect(screen.getByText('4.4 · AI-native design')).toBeTruthy();
     expect(screen.getByText('05 · The diagnostic')).toBeTruthy();
-    // The old numbering must be fully retired
+    // Earlier numbering schemes must be fully retired
     expect(screen.queryByText('04 · The diagnostic')).toBeNull();
+    expect(screen.queryByText('01 · The framework')).toBeNull();
+    expect(screen.queryByText('04 · AI-native design')).toBeNull();
+  });
+
+  test('sections render in the order of the argument', () => {
+    render(<App />);
+    const ids = Array.from(document.querySelectorAll('main section[id]')).map((s) => s.id);
+    const order = ['hero', 'principles', 'approach', 'differences', 'playbook',
+      'framework', 'activators', 'change-levers', 'ai-native', 'about'];
+    const positions = order.map((id) => ids.indexOf(id));
+    positions.forEach((pos) => expect(pos).toBeGreaterThanOrEqual(0));
+    expect([...positions].sort((a, b) => a - b)).toEqual(positions);
   });
 
   test('About-the-author section renders with entity and credibility links', () => {

@@ -40,7 +40,7 @@ export function AboutAuthor() {
         <div className="grid lg:grid-cols-[380px_1fr] gap-10 lg:gap-16 items-start">
           {/* ---------- Identity (sticky, as in the framework section) ---------- */}
           <div className="lg:sticky" style={{ top: 96 }}>
-            <p className="eyebrow mb-4">About the author</p>
+            <p className="eyebrow mb-4">About</p>
             <h2
               className="font-display font-bold text-[var(--color-ink)] mb-2"
               style={{ fontSize: 'clamp(28px, 3.6vw, 36px)', lineHeight: 1.15 }}
@@ -55,6 +55,14 @@ export function AboutAuthor() {
             </p>
             <p className="text-[var(--color-faint)] mb-5" style={{ fontSize: 13.5 }}>
               {profile.featuredRole}, {profile.worksFor} · {profile.location}
+            </p>
+
+            {/* In his own voice first; the third-person entity text follows */}
+            <p
+              className="font-display text-[var(--color-ink)] mb-4"
+              style={{ fontSize: 17, lineHeight: 1.5, fontStyle: 'italic', textWrap: 'pretty' }}
+            >
+              {profile.firstPersonNote}
             </p>
 
             <p
@@ -131,9 +139,21 @@ export function AboutAuthor() {
             </ul>
           </div>
 
-          {/* ---------- Signature quote + Q&A ---------- */}
+          {/* ---------- Portrait + signature quote, then Q&A ---------- */}
           <div>
-            <figure className="m-0 mb-12">
+            <div className="grid sm:grid-cols-[220px_1fr] gap-6 sm:gap-8 items-center mb-12">
+              {/* width/height reserve the 4:5 box before the image loads: no layout shift */}
+              <img
+                src="/images/eric-yim-portrait.webp"
+                width={640}
+                height={800}
+                alt="Eric Yim, organization design strategist"
+                loading="lazy"
+                decoding="async"
+                className="w-full h-auto"
+                style={{ maxWidth: 260, borderRadius: 2, border: '1px solid var(--color-hairline)' }}
+              />
+            <figure className="m-0">
               <blockquote
                 className="m-0 font-display italic text-[var(--color-ink)]"
                 style={{ fontSize: 26, lineHeight: 1.4, textWrap: 'pretty' }}
@@ -147,6 +167,7 @@ export function AboutAuthor() {
                 {signatureQuote.source}
               </figcaption>
             </figure>
+            </div>
 
             <p
               className="uppercase font-semibold text-[var(--color-faint)] mb-5"

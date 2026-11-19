@@ -2,6 +2,12 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <!-- First-screen faces: preloaded so the hero renders in its real fonts
+         and never rewraps. Fonts are CORS requests even same-origin, hence crossorigin. -->
+    <link rel="preload" href="/fonts/playfair-display-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/playfair-display-latin-700-italic.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/dm-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/dm-sans-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Matches --color-paper in src/index.css. Keep the two in sync. -->
@@ -23,14 +29,14 @@
 
     <!-- Open Graph -->
     <meta property="og:type" content="profile" />
-    <meta property="og:site_name" content="OrgDesign Playbook" />
+    <meta property="og:site_name" content="Eric Yim" />
     <meta property="og:title" content="Eric Yim — Organization Design Strategist | Human-AI Work Partnership" />
     <meta property="og:description" content="Eric Yim is an organization design strategist specializing in human-AI work partnership: how organizations divide work between people and machines." />
     <meta property="og:url" content="https://www.ericyim.sg/" />
     <meta property="og:image" content="https://www.ericyim.sg/og-image.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Eric Yim — Organization Design Strategist, specializing in human-AI work partnership" />
+    <meta property="og:image:alt" content="Eric Yim, organization design strategist, Singapore: I design organizations as systems that leaders can run." />
     <meta property="profile:first_name" content="Eric" />
     <meta property="profile:last_name" content="Yim" />
 
@@ -39,6 +45,7 @@
     <meta name="twitter:title" content="Eric Yim — Organization Design Strategist | Human-AI Work Partnership" />
     <meta name="twitter:description" content="Eric Yim is an organization design strategist specializing in human-AI work partnership: how organizations divide work between people and machines." />
     <meta name="twitter:image" content="https://www.ericyim.sg/og-image.png" />
+    <meta name="twitter:image:alt" content="Eric Yim, organization design strategist, Singapore: I design organizations as systems that leaders can run." />
 
     <!--
       Structured data for search and answer engines (GEO/AEO).
@@ -67,12 +74,18 @@
             },
             "homeLocation": {
               "@type": "Place",
-              "address": { "@type": "PostalAddress", "addressCountry": "SG", "addressLocality": "Singapore" }
+              "address": {
+                "@type": "PostalAddress",
+                "addressCountry": "SG",
+                "addressLocality": "Singapore"
+              }
             },
             "description": "Eric Yim is an organization design strategist specializing in human-AI work partnership — designing how organizations divide work between people and machines, and the structures, capabilities and behaviors that make that partnership work.",
             "disambiguatingDescription": "Organization design strategist specializing in human-AI work partnership; Global Head of OD and Talent at SATS Ltd. in Singapore, with 25 years in organizational development across Shell, Cargill and the Singapore public sector.",
             "url": "https://www.ericyim.sg/",
-            "mainEntityOfPage": { "@id": "https://www.ericyim.sg/#profilepage" },
+            "mainEntityOfPage": {
+              "@id": "https://www.ericyim.sg/#profilepage"
+            },
             "alumniOf": [
               {
                 "@type": "CollegeOrUniversity",
@@ -92,7 +105,10 @@
             "hasOccupation": {
               "@type": "Occupation",
               "name": "Organization Design Strategist",
-              "occupationLocation": { "@type": "Country", "name": "Singapore" },
+              "occupationLocation": {
+                "@type": "Country",
+                "name": "Singapore"
+              },
               "skills": "Organization design, human-AI work partnership, organizational development, change management, leadership development, strategy execution"
             },
             "hasCredential": [
@@ -139,30 +155,50 @@
                 "@type": "Article",
                 "name": "AI is a multiplier, and not a shortcut",
                 "url": "https://www.ntu.edu.sg/alumni/alumni-stories-news/detail/eric-yim-ntu-ai-workplace-advice",
-                "publisher": { "@type": "Organization", "name": "NTU Singapore" }
+                "publisher": {
+                  "@type": "Organization",
+                  "name": "NTU Singapore"
+                }
               },
               {
                 "@type": "Article",
                 "name": "Most OD Practitioners Hand Leaders a Report. Eric Yim Hands Them a System.",
                 "url": "https://www.atalent.com/news/trailblazer_EricYim",
                 "datePublished": "2026-07-17",
-                "publisher": { "@type": "Organization", "name": "aTalent" }
+                "publisher": {
+                  "@type": "Organization",
+                  "name": "aTalent"
+                }
               }
-            ]
+            ],
+            "image": {
+              "@id": "https://www.ericyim.sg/#portrait"
+            }
           },
           {
             "@type": "ProfilePage",
             "@id": "https://www.ericyim.sg/#profilepage",
             "url": "https://www.ericyim.sg/",
             "name": "Eric Yim — Organization Design Strategist",
-            "dateModified": "2026-08-27T00:00:00+08:00",
-            "mainEntity": { "@id": "https://www.ericyim.sg/#person" },
-            "isPartOf": { "@id": "https://www.ericyim.sg/#website" },
+            "dateModified": "2026-11-19T00:00:00+08:00",
+            "mainEntity": {
+              "@id": "https://www.ericyim.sg/#person"
+            },
+            "isPartOf": {
+              "@id": "https://www.ericyim.sg/#website"
+            },
             "speakable": {
               "@type": "SpeakableSpecification",
-              "cssSelector": ["#about h2", "#about h3", "#about p"]
+              "cssSelector": [
+                "#principles h3",
+                "#about h2",
+                "#about h3",
+                "#about p"
+              ]
             },
-            "primaryImageOfPage": { "@id": "https://www.ericyim.sg/#ogimage" }
+            "primaryImageOfPage": {
+              "@id": "https://www.ericyim.sg/#portrait"
+            }
           },
           {
             "@type": "ImageObject",
@@ -170,17 +206,34 @@
             "url": "https://www.ericyim.sg/og-image.png",
             "width": 1200,
             "height": 630,
-            "caption": "Eric Yim — Organization Design Strategist, specializing in human-AI work partnership"
+            "caption": "Eric Yim, organization design strategist, Singapore: I design organizations as systems that leaders can run."
+          },
+          {
+            "@type": "ImageObject",
+            "@id": "https://www.ericyim.sg/#portrait",
+            "url": "https://www.ericyim.sg/images/eric-yim.jpg",
+            "contentUrl": "https://www.ericyim.sg/images/eric-yim.jpg",
+            "width": 1000,
+            "height": 1333,
+            "caption": "Eric Yim, organization design strategist"
           },
           {
             "@type": "WebSite",
             "@id": "https://www.ericyim.sg/#website",
             "url": "https://www.ericyim.sg/",
-            "name": "OrgDesign Playbook",
-            "description": "An integrated organizational capability and change framework, with an 18-question organizational health diagnostic.",
+            "name": "Eric Yim",
+            "description": "The site of Eric Yim, organization design strategist: six principles, a six-stage method, the required, chosen and inherited lens for differences, an organizational design playbook and an 18-question organizational health diagnostic.",
             "inLanguage": "en",
-            "author": { "@id": "https://www.ericyim.sg/#person" },
-            "publisher": { "@id": "https://www.ericyim.sg/#person" }
+            "author": {
+              "@id": "https://www.ericyim.sg/#person"
+            },
+            "publisher": {
+              "@id": "https://www.ericyim.sg/#person"
+            },
+            "alternateName": [
+              "OrgDesign Playbook",
+              "www.ericyim.sg"
+            ]
           },
           {
             "@type": "Article",
@@ -188,20 +241,80 @@
             "headline": "AI redesigns the work, not the chart",
             "description": "Three moves make an AI-era organization design defensible: descend to the task, place every task on a four-level ladder from manual to reinvention, and gate every machine judgement before it reaches a decision-maker.",
             "url": "https://www.ericyim.sg/#ai-native",
-            "dateModified": "2026-08-27T00:00:00+08:00",
+            "dateModified": "2026-11-19T00:00:00+08:00",
             "inLanguage": "en",
-            "author": { "@id": "https://www.ericyim.sg/#person" },
-            "publisher": { "@id": "https://www.ericyim.sg/#person" },
-            "isPartOf": { "@id": "https://www.ericyim.sg/#website" },
+            "author": {
+              "@id": "https://www.ericyim.sg/#person"
+            },
+            "publisher": {
+              "@id": "https://www.ericyim.sg/#person"
+            },
+            "isPartOf": {
+              "@id": "https://www.ericyim.sg/#website"
+            },
             "about": [
-              { "@type": "Thing", "name": "Organization Design" },
-              { "@type": "Thing", "name": "Human-AI Work Partnership" }
+              {
+                "@type": "Thing",
+                "name": "Organization Design"
+              },
+              {
+                "@type": "Thing",
+                "name": "Human-AI Work Partnership"
+              }
             ]
+          },
+          {
+            "@type": "DefinedTermSet",
+            "@id": "https://www.ericyim.sg/#differences-terms",
+            "name": "Required, chosen and inherited differences",
+            "description": "Eric Yim's three labels for why the same work is done differently across markets, sites or acquired units. Each label leads to a different decision.",
+            "url": "https://www.ericyim.sg/#differences",
+            "inLanguage": "en",
+            "isPartOf": {
+              "@id": "https://www.ericyim.sg/#website"
+            },
+            "hasDefinedTerm": [
+              {
+                "@type": "DefinedTerm",
+                "@id": "https://www.ericyim.sg/#term-required",
+                "name": "Required",
+                "description": "Regulation, a customer contract or the physical site makes it so. Leave it local.",
+                "inDefinedTermSet": {
+                  "@id": "https://www.ericyim.sg/#differences-terms"
+                }
+              },
+              {
+                "@type": "DefinedTerm",
+                "@id": "https://www.ericyim.sg/#term-chosen",
+                "name": "Chosen",
+                "description": "A deliberate local decision, made for a reason someone can still state. Decide: keep or align.",
+                "inDefinedTermSet": {
+                  "@id": "https://www.ericyim.sg/#differences-terms"
+                }
+              },
+              {
+                "@type": "DefinedTerm",
+                "@id": "https://www.ericyim.sg/#term-inherited",
+                "name": "Inherited",
+                "description": "History, an acquisition or habit. Nobody decided it. Harmonize.",
+                "inDefinedTermSet": {
+                  "@id": "https://www.ericyim.sg/#differences-terms"
+                }
+              }
+            ],
+            "author": {
+              "@id": "https://www.ericyim.sg/#person"
+            },
+            "creator": {
+              "@id": "https://www.ericyim.sg/#person"
+            }
           },
           {
             "@type": "FAQPage",
             "@id": "https://www.ericyim.sg/#faq",
-            "isPartOf": { "@id": "https://www.ericyim.sg/#profilepage" },
+            "isPartOf": {
+              "@id": "https://www.ericyim.sg/#profilepage"
+            },
             "mainEntity": [
               {
                 "@type": "Question",
@@ -257,6 +370,30 @@
                 "acceptedAnswer": {
                   "@type": "Answer",
                   "text": "Because a multiplier amplifies whatever expertise already exists — and zero multiplied by any number is still zero. AI is most valuable to people with deep domain expertise to amplify, not to those merely quickest to adopt the tools. The discipline is discerning the right time and place to use AI."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What principles guide Eric Yim’s work?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Eric Yim works from six principles: every diagnosis ends in a plan; move all four domains together; ask why before you harmonize; script what each leader does differently; start AI at the task; and say what you know, and how you know it. Each one maps to a part of his organizational design playbook."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How does Eric Yim approach an organization design engagement?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Eric Yim works in six stages: Frame, Focus, Find, Dial, Design and Deliver. The first three establish what is true: the criteria the design will be judged on, where capability is weak where the money is made, and how the work really runs and who really decides. In the last three, leaders decide what should be one way everywhere and how much AI should do, score structure, role and system options against the agreed criteria, and track cycle by cycle whether capability is rising."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What are required, chosen and inherited differences?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Required, chosen and inherited are Eric Yim’s three labels for why the same work ends up done differently across markets, sites or acquired units. A required difference is imposed by regulation, a customer contract or the physical site, so it stays local. A chosen difference was a deliberate local decision, so leaders decide whether to keep it or align it. An inherited difference came from history, an acquisition or habit and nobody decided it, so it should be harmonized. Two questions sort any difference: is it required, and was it decided on purpose?"
                 }
               }
             ]

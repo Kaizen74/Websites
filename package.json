@@ -15,7 +15,9 @@
     "size:check": "npm run build && node scripts/check-size.js",
     "verify": "npm test && npm run build && npm run size:check",
     "build:nossg": "tsc -b && vite build",
-    "prerender": "node scripts/prerender.mjs"
+    "prerender": "node scripts/prerender.mjs",
+    "og:render": "node scripts/og/render.mjs",
+    "verify:site": "node scripts/verify-site.mjs"
   },
   "dependencies": {
     "lucide-react": "^0.562.0",

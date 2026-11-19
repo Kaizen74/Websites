@@ -9,7 +9,7 @@ import type {
 // component. Static teaching content: no scores, no state, no interactivity.
 
 export const sectionCopy = {
-  eyebrow: '04 · AI-native design',
+  eyebrow: '4.4 · AI-native design',
   heading: 'AI redesigns the work, not the chart',
   lede:
     'Structure follows work — and work is now shared with machines. Three moves make an AI-era design defensible: descend to the task, place every task on the ladder, and let no machine judgement reach a decision-maker unreviewed.',
@@ -33,7 +33,9 @@ export const sectionCopy = {
   },
   zoneHeading: 'Capability is only half the question',
   zoneFootnote:
-    'Physical work carries no software-agent overlay — it surfaces as a separate robotics and equipment lever, so the analysis never quietly automates a ramp.',
+    'Physical work carries no software-agent overlay — it surfaces as a separate robotics and equipment lever, so the analysis never quietly automates hands-on site work.',
+  zoneSource:
+    'Zones adapted from Stanford’s WORKBank study of what workers want automated and what AI can do (Shao et al., 2025).',
   provenanceOverline: 'Provenance — every claim carries its source',
 } as const;
 

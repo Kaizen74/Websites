@@ -75,6 +75,10 @@ export const MAX_COHORT_SIZE = 20;
 // Section IDs for navigation
 export const SECTION_IDS = {
   hero: 'hero',
+  principles: 'principles',
+  approach: 'approach',
+  differences: 'differences',
+  playbook: 'playbook',
   framework: 'framework',
   activators: 'activators',
   changeLevers: 'change-levers',
