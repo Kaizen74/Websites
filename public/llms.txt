@@ -13,22 +13,30 @@
 
 ## What this site covers
 
-A single-page playbook on organisational design and how AI changes it. The
-main sections, all on one page:
+The personal site of Eric Yim: what he believes about organizations, how he
+works, and the playbook and diagnostic he uses. All sections are on one page:
 
-- [The framework](https://www.ericyim.sg/#framework) — Integrated
-  Organizational Capability and Change Framework: four interdependent domains
-  around a leadership core.
-- [The five activators](https://www.ericyim.sg/#activators) — what turns an
-  organisation design into performance.
-- [The change model](https://www.ericyim.sg/#change-levers) — Communicate,
-  Co-create, Cadence, plus the T.C.C.A.R. team-health lens.
-- [AI-native design](https://www.ericyim.sg/#ai-native) — descend to the task,
-  place every task on an L0–L3 ladder, gate every machine judgement.
-- [About the author](https://www.ericyim.sg/#about) — entity, background and
-  common questions.
+- [How I think](https://www.ericyim.sg/#principles) — six principles behind
+  the work.
+- [How I work](https://www.ericyim.sg/#approach) — a six-stage method (Frame,
+  Focus, Find, Dial, Design, Deliver) and three evidence grades.
+- [Required, chosen or inherited?](https://www.ericyim.sg/#differences) — a
+  lens for deciding what to do about differences between markets, sites or
+  acquired units, with a two-question sorter.
+- [The playbook](https://www.ericyim.sg/#playbook) — four tools:
+  - [The framework](https://www.ericyim.sg/#framework) — Integrated
+    Organizational Capability and Change Framework: four interdependent
+    domains around a leadership core.
+  - [The five activators](https://www.ericyim.sg/#activators) — what turns an
+    organisation design into performance.
+  - [The change model](https://www.ericyim.sg/#change-levers) — Communicate,
+    Co-create, Cadence, plus the T.C.C.A.R. team-health lens.
+  - [AI-native design](https://www.ericyim.sg/#ai-native) — descend to the
+    task, place every task on an L0–L3 ladder, gate every machine judgement.
 - [The diagnostic](https://www.ericyim.sg/#diagnostic) — an 18-question
   organisational health assessment scored across five dimensions.
+- [About](https://www.ericyim.sg/#about) — entity, background and common
+  questions.
 
 ## Entity
 
@@ -47,8 +55,9 @@ main sections, all on one page:
   Acquisition (SATS Ltd.); Global Brandon Hall Silver Excellence for Blended
   Learning (2018, Shell Business Operations)
 - **LinkedIn:** https://www.linkedin.com/in/eric-yim-743910
-- **Site:** OrgDesign Playbook — an integrated organizational capability and
-  change framework with an 18-question organizational health diagnostic.
+- **Site:** www.ericyim.sg — his principles, six-stage method and the required,
+  chosen and inherited lens, plus the OrgDesign Playbook and an 18-question
+  organizational health diagnostic.
 
 ## Biography
 
@@ -70,6 +79,77 @@ Organization Design · Human-AI Work Partnership · Organizational Development �
 Operating Model Design · Organizational Capability · Change Management ·
 Workforce Transformation · Job Redesign · AI Adoption in the Workplace ·
 Strategy Execution · Leadership Development · Diversity and Inclusion
+
+## Principles
+
+Every diagnosis, design and plan on this site is built on these. Each one
+links to the part of the playbook that puts it to work.
+
+01. **A system, not a report.** A diagnosis is only worth what it hands leaders next: the decision, the
+    owner and the first move. The work ends in a plan that runs, not a deck
+    that sits.
+02. **One system, not four fixes.** Structure, people, process and mindset move together, held by leadership,
+    or they don’t move at all. A new chart on its own is a reorganization, not
+    a redesign.
+03. **Not every difference is a problem.** When two parts of a business work differently, ask why before you
+    harmonise. Some differences are required, some were chosen and some were
+    simply inherited, and each calls for a different decision.
+04. **Change is a behaviour, not an announcement.** People usually know the why. What’s missing is the specific move each
+    leader makes, the moment that makes it stick and the rhythm that keeps it
+    going.
+05. **AI redesigns the work, not the chart.** Go down to the task. Decide what is automated, assisted or kept human, and
+    let a person, not a model, make the final call.
+06. **Say what you know, and how you know it.** Separate what is confirmed from what is indicated and what is still a
+    hypothesis. A gap marked “not scored” is honest; a guessed score becomes a
+    false finding.
+
+## How Eric Yim works
+
+Every engagement follows the same arc. The first three stages establish what
+is actually true. The last three decide what to change, install it, and prove
+it worked.
+
+- **Stage 0 — Frame.** What are we building, and how will we judge the design? Produces: agreed
+  criteria, locked before the debate starts.
+- **Stage 1 — Focus.** Where must the model change, and where does it matter most? Produces: a
+  shortlist of where capability is weak where the value is made.
+- **Stage 2 — Find.** How does the work really run, and who really decides? Produces:
+  evidence-traced maps of paper versus practice.
+- **Stage 3 — Dial.** What should be one way everywhere, and how much should AI do? Produces: a
+  call on every difference and every task.
+- **Stage 4 — Design.** Which structure, roles and system do we install together? Produces: options
+  scored against the criteria from stage 0.
+- **Stage 5 — Deliver.** Is it lifting capability, cycle by cycle? Produces: a scoreboard that holds
+  each forecast to account.
+
+Stage 0 is deliberate: agree how the design will be judged before anyone
+argues for one.
+
+Every finding carries one of three grades, and the grade sets what it can be
+used for.
+
+- **Confirmed** — Verified at source. Use it to: decide.
+- **Indicated** — Supported, not yet verified. Use it to: decide with care, and say so.
+- **Hypothesis** — Still to test. Use it to: never decide on this alone.
+
+“Not scored” is a valid answer. A blank says we don’t know yet; a guess says
+something false with confidence.
+
+## Required, chosen and inherited differences
+
+As a business grows across markets, sites and acquisitions, the same work ends
+up done in different ways. Before harmonising anything, ask why each
+difference exists. The answer tells you what to do.
+
+- **Required** — Regulation, a customer contract or the physical site makes it so. Response:
+  leave it local.
+- **Chosen** — A deliberate local decision, made for a reason someone can still state.
+  Response: decide: keep or align.
+- **Inherited** — History, an acquisition or habit. Nobody decided it. Response: harmonise.
+
+Two questions sort any difference: is it required by regulation, a customer
+contract or the physical site; and if not, did someone decide it on purpose,
+for a reason they can still state today?
 
 ## Attributable quotes
 
@@ -160,6 +240,34 @@ Because a multiplier amplifies whatever expertise already exists — and zero
 multiplied by any number is still zero. AI is most valuable to people with deep
 domain expertise to amplify, not to those merely quickest to adopt the tools.
 The discipline is discerning the right time and place to use AI.
+
+### What principles guide Eric Yim’s work?
+
+Eric Yim works from six principles: a system, not a report; one system, not
+four fixes; not every difference is a problem; change is a behaviour, not an
+announcement; AI redesigns the work, not the chart; and say what you know, and
+how you know it. Each one is put to work in a part of his organizational
+design playbook.
+
+### How does Eric Yim approach an organization design engagement?
+
+In six stages. Frame agrees how the design will be judged before anyone argues
+for one. Focus finds where capability is weak where the value is made. Find
+maps how the work really runs and who really decides. Dial decides what should
+be one way everywhere and how much AI should do. Design scores structure, role
+and system options against the criteria agreed at the start. Deliver tracks,
+cycle by cycle, whether capability is actually lifting.
+
+### What are required, chosen and inherited differences?
+
+They are the three reasons the same work ends up done differently across
+markets, sites or acquired units, and each calls for a different response. A
+required difference is imposed by regulation, a customer contract or the
+physical site, so it stays local. A chosen difference was a deliberate local
+decision, so leaders decide whether to keep it or align it. An inherited
+difference came from history, an acquisition or habit and nobody decided it,
+so it should be harmonised. Two questions sort any difference: is it required,
+and was it decided on purpose?
 
 ## Framework published on this site
 

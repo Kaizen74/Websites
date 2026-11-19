@@ -7,6 +7,8 @@
 // PROVENANCE: every biographical fact below is sourced from one of the two
 // published features listed in `referenceArticles`. Nothing is inferred.
 
+import { principleNames } from './principles';
+
 export interface ReferenceArticle {
   publisher: string;
   title: string;
@@ -60,7 +62,7 @@ export const SITE_URL = 'https://www.ericyim.sg';
  * tracked at day resolution here, so this is midnight SGT on that day rather
  * than an invented clock time (spec constraint 6 — never guess a value).
  */
-export const CONTENT_LAST_MODIFIED_ISO = '2026-08-27T00:00:00+08:00';
+export const CONTENT_LAST_MODIFIED_ISO = '2026-11-19T00:00:00+08:00';
 
 /**
  * Date-only form, derived so the two can never disagree.
@@ -343,7 +345,28 @@ export const faqEntries: FaqEntry[] = [
     answer:
       'Because a multiplier amplifies whatever expertise already exists — and zero multiplied by any number is still zero. AI is most valuable to people with deep domain expertise to amplify, not to those merely quickest to adopt the tools. The discipline is discerning the right time and place to use AI.',
   },
+  {
+    question: 'What principles guide Eric Yim’s work?',
+    // Built from src/data/principles.ts so the answer cannot drift from the page
+    answer: `Eric Yim works from six principles: ${principleList()}. Each one is put to work in a part of his organizational design playbook.`,
+  },
+  {
+    question: 'How does Eric Yim approach an organization design engagement?',
+    answer:
+      'In six stages. Frame agrees how the design will be judged before anyone argues for one. Focus finds where capability is weak where the value is made. Find maps how the work really runs and who really decides. Dial decides what should be one way everywhere and how much AI should do. Design scores structure, role and system options against the criteria agreed at the start. Deliver tracks, cycle by cycle, whether capability is actually lifting.',
+  },
+  {
+    question: 'What are required, chosen and inherited differences?',
+    answer:
+      'They are the three reasons the same work ends up done differently across markets, sites or acquired units, and each calls for a different response. A required difference is imposed by regulation, a customer contract or the physical site, so it stays local. A chosen difference was a deliberate local decision, so leaders decide whether to keep it or align it. An inherited difference came from history, an acquisition or habit and nobody decided it, so it should be harmonised. Two questions sort any difference: is it required, and was it decided on purpose?',
+  },
 ];
+
+/** "a system, not a report; …; and say what you know, and how you know it" */
+function principleList(): string {
+  const names = principleNames.map((n) => (n.startsWith('AI ') ? n : n[0].toLowerCase() + n.slice(1)));
+  return `${names.slice(0, -1).join('; ')}; and ${names[names.length - 1]}`;
+}
 
 export default {
   profile,
