@@ -1,17 +1,17 @@
 # Graph Report - Websites  (2026-11-19)
 
 ## Corpus Check
-- 81 files · ~49,481 words
+- 81 files · ~52,893 words
 - Verdict: corpus is large enough that graph structure adds value.
-- Unclassified: 3 file(s) not represented in the graph (top: (none) 1, .xml 1, .css 1)
+- Unclassified: 13 file(s) not represented in the graph (top: .woff2 10, (none) 1, .xml 1)
 
 ## Summary
-- 517 nodes · 1028 edges · 25 communities (16 shown, 9 thin omitted)
-- Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 8 edges (avg confidence: 0.87)
+- 517 nodes · 1029 edges · 25 communities (16 shown, 9 thin omitted)
+- Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 8 edges (avg confidence: 0.88)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `616675ba`
+- Built from commit: `acc63838`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -47,15 +47,15 @@
 5. `react` - 16 edges
 6. `scripts` - 15 edges
 7. `LikertValue` - 14 edges
-8. `ResultsDashboard()` - 13 edges
-9. `DiagnosticResults` - 13 edges
+8. `DiagnosticResults` - 13 edges
+9. `ResultsDashboard()` - 13 edges
 10. `getScoreColor()` - 13 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `Render-time — will crash or mismatch under prerender (must be guarded)` --references--> `consumeFocusQuadrant()`  [INFERRED]
-  SEO_BASELINE.md → src/components/FrameworkSection.tsx
 - `Render-time — will crash or mismatch under prerender (must be guarded)` --references--> `loadCohort()`  [INFERRED]
   SEO_BASELINE.md → src/utils/cohort.ts
+- `Render-time — will crash or mismatch under prerender (must be guarded)` --references--> `consumeFocusQuadrant()`  [INFERRED]
+  SEO_BASELINE.md → src/components/FrameworkSection.tsx
 - `App()` --calls--> `AboutAuthor()`  [EXTRACTED]
   src/App.tsx → src/components/AboutAuthor.tsx
 - `App()` --calls--> `AiNativeSection()`  [EXTRACTED]
@@ -147,7 +147,7 @@ _Questions this graph is uniquely positioned to answer:_
 - **Should `profile.ts` be split into smaller, more focused modules?**
   _Cohesion score 0.05909090909090909 - nodes in this community are weakly interconnected._
 - **Why does `@testing-library/react` connect `package.json` to `App.tsx`, `index.ts`, `profile.ts`, `constants.ts`, `approach.ts`, `App.tsx`, `AiNativeSection.tsx`?**
-  _High betweenness centrality (0.127) - this node is a cross-community bridge._
+  _High betweenness centrality (0.128) - this node is a cross-community bridge._
 - **Should `constants.ts` be split into smaller, more focused modules?**
   _Cohesion score 0.11378353376503238 - nodes in this community are weakly interconnected._
 - **Should `compilerOptions` be split into smaller, more focused modules?**

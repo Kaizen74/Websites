@@ -330,9 +330,9 @@
     "semantic_hash": ""
   },
   "DECISIONS.md": {
-    "mtime": 1795073260.7435956,
-    "seen": 1795073278.2740004,
-    "ast_hash": "f314ac5b3f03a9afd044a9415553b306",
+    "mtime": 1795077654.8574154,
+    "seen": 1795077658.04049,
+    "ast_hash": "4d090311d9ba0c60738f5a6da5c07a4d",
     "semantic_hash": ""
   },
   "GUIDE.md": {
@@ -342,9 +342,9 @@
     "semantic_hash": ""
   },
   "PROJECT_STATE.md": {
-    "mtime": 1795073260.7431803,
-    "seen": 1795073278.274002,
-    "ast_hash": "95189e31090ee183534b8bdd8162ba70",
+    "mtime": 1795077654.857079,
+    "seen": 1795077658.0404918,
+    "ast_hash": "385841c67c41f476e3b23b06615d5819",
     "semantic_hash": ""
   },
   "README.md": {
@@ -354,9 +354,9 @@
     "semantic_hash": ""
   },
   "index.html": {
-    "mtime": 1795073075.7380338,
-    "seen": 1795073278.2740052,
-    "ast_hash": "8234ab13c9b619b7c09866437909c52f",
+    "mtime": 1795077405.493202,
+    "seen": 1795077658.0404956,
+    "ast_hash": "208dd8289af34893b614633729c0f9e0",
     "semantic_hash": ""
   },
   "public/vite.svg": {
@@ -378,9 +378,9 @@
     "semantic_hash": "00f6d4e1aefb8a0e37c44f6f01da7113"
   },
   "src/__tests__/seo-alignment.test.ts": {
-    "mtime": 1795068184.8286536,
-    "seen": 1795071515.5010676,
-    "ast_hash": "cb8d960fa8fb5d4c8679387a7ba1a335",
+    "mtime": 1795077477.315455,
+    "seen": 1795077658.0404472,
+    "ast_hash": "b89d32bcfa3486f0aa395a6253e546bc",
     "semantic_hash": ""
   },
   "src/components/AboutAuthor.tsx": {
@@ -486,15 +486,15 @@
     "semantic_hash": ""
   },
   "scripts/verify-site.mjs": {
-    "mtime": 1795073152.371841,
-    "seen": 1795073278.2739258,
-    "ast_hash": "69c3e105f48bc7ee66c419c0a133bfb0",
+    "mtime": 1795077500.6020072,
+    "seen": 1795077658.040429,
+    "ast_hash": "720f2f8a9060b86a90a9421f8364a3d7",
     "semantic_hash": ""
   },
   "src/__tests__/aeo-approach.test.tsx": {
-    "mtime": 1795073152.3622432,
-    "seen": 1795073278.273931,
-    "ast_hash": "804ff3515a4af750b560b18c88007ebe",
+    "mtime": 1795077477.315455,
+    "seen": 1795077658.0404322,
+    "ast_hash": "df1d5b54a69090c9ae1b3e8411fb801d",
     "semantic_hash": ""
   },
   "src/__tests__/approach.test.tsx": {
@@ -573,6 +573,24 @@
     "mtime": 1795072054.8063521,
     "seen": 1795073278.2740173,
     "ast_hash": "c419bd111833232a41938d60b348c44c",
+    "semantic_hash": ""
+  },
+  ".github/workflows/indexnow.yml": {
+    "mtime": 1795077446.9786363,
+    "seen": 1795077658.0404158,
+    "ast_hash": "c491b5d1c96a5d38e79443e3a8fc36bb",
+    "semantic_hash": ""
+  },
+  "scripts/indexnow.mjs": {
+    "mtime": 1795077441.8026361,
+    "seen": 1795077658.0404255,
+    "ast_hash": "9c6d4e013a907734ecdc1b9e4dece438",
+    "semantic_hash": ""
+  },
+  "SEO_PHASE6_PROPOSAL.md": {
+    "mtime": 1795077633.702643,
+    "seen": 1795077658.0404947,
+    "ast_hash": "5ea4e0003bdae1104dc9648772d8baaf",
     "semantic_hash": ""
   },
   "package-lock.json": {

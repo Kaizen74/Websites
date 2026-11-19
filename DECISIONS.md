@@ -4,6 +4,10 @@ One line of reasoning per decision, newest first.
 
 | Date | Decision | Why |
 |---|---|---|
+| 2026-11-19 | Person.sameAs → LinkedIn only; press features stay in subjectOf | sameAs asserts identity; an article about him is not him. Mixing them blurs entity resolution |
+| 2026-11-19 | Article.datePublished = 2026-08-26T19:14:10+08:00 (merge of PR #19) | A recorded timestamp from git, not an estimate. Corrects an earlier verbal claim of 2026-08-13, which was the DECISIONS-row date, not the ship date |
+| 2026-11-19 | IndexNow via a GitHub Action on `deployment_status` (Production, success), with `--verify-live` | Pinging before the deploy serves the key file earns a 403. No secrets needed; inputs come only from the repo |
+| 2026-11-19 | Phase 6 proposal: question H2s under unchanged numbered eyebrows; the "AI redesigns the work, not the chart" Article headline is kept | Keeps the editorial voice and route while matching reader queries. That line is a quotable, attributed phrase used in 7 places |
 | 2026-11-19 | Kates & Kesler credited on 4.2; the July "framework-neutral" guard test now requires the credit | Operator decision, reversing July. Protects credibility with OD readers who recognise the five activators |
 | 2026-11-19 | DefinedTermSet author + creator → Person; copy says "I call the three reasons…" | Operator confirmed required/chosen/inherited is his own coinage |
 | 2026-11-19 | Headshot: avatar in a hero byline, portrait beside the mission quote in About, Person.image (top-level ImageObject so every @id resolves), share card with a tight head-and-shoulders crop | Face plus name above the fold for a personal-name domain. The hero keeps the design skill's numbered index card. The card crop keeps the face legible at LinkedIn's ~550px feed width |

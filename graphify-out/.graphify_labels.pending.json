@@ -1,7 +1,12 @@
 {
+  "0": "ping",
   "5": "approach.ts",
   "8": "App.tsx",
+  "10": "indexnow.mjs",
+  "12": "prerender.mjs",
   "13": "package.json",
+  "15": "render.mjs",
   "16": "verify-site.mjs",
+  "17": "Phase 6 — Answer-shaped content proposal",
   "56": "tailwind.config.js"
 }

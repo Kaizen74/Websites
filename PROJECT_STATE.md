@@ -174,9 +174,9 @@ Testing Library. No charting library (plain-div bars). Deploys as a static
   and feeds the sitemap's `<lastmod>` and `COPYRIGHT_YEAR`; sitemap `<lastmod>`
   stays date-only by design and a test fails if the datetime form leaks there.
   Bump the ISO constant only — the date follows automatically.
-- **Tests:** 245 passing across 18 suites (unit, integration, App smoke,
+- **Tests:** 249 passing across 18 suites (unit, integration, App smoke,
   SEO/structured-data alignment, LinkedIn consistency, the new sections and
-  their AEO surfaces), plus `npm run verify:site` (132 end-to-end checks).
+  their AEO surfaces), plus `npm run verify:site` (134 end-to-end checks).
   **Build:** clean. **Lint:** 12 pre-existing errors (9 `no-explicit-any` in
   older tests, 3 `set-state-in-effect`), identical to main — do not add more.
 - **Known issue (pre-existing):** `scripts/check-size.js` fails on
@@ -222,8 +222,15 @@ working increment.
   own writing is British; site is US).
 - **After deploy:** refresh the LinkedIn preview via Post Inspector; add the
   Search Console / Bing verification tokens and submit the sitemap.
-- Phase 6 of the AI-search-visibility spec (answer-shaped headings proposal)
-  is still unstarted.
+- **Phase 6 proposal written** (`SEO_PHASE6_PROPOSAL.md`, 8 rows): awaiting
+  row-by-row approval. Ship nothing from it until approved.
+- **IndexNow** pings after each successful Production deploy
+  (`.github/workflows/indexnow.yml` → `scripts/indexnow.mjs --verify-live`).
+  First real run is unverified: check the Actions tab after the next deploy.
+  If the run never triggers, Vercel's environment name may differ from
+  `Production`; it can always be run by hand (workflow_dispatch).
+- **Operator to do:** Search Console + Bing verification tokens (still
+  placeholders); add www.ericyim.sg to LinkedIn contact info and Featured.
 
 - Optional: shareable results link (URL-encoded scores) for client
   conversations.
