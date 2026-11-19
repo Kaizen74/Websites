@@ -106,3 +106,33 @@ describe('llms.txt carries the new content', () => {
     differenceCategories.forEach((c) => expect(llms).toContain(c.definition));
   });
 });
+
+describe('Share card (Phase 4 gate, kept true after the refresh)', () => {
+  const png = readFileSync(join(ROOT, 'public', 'og-image.png'));
+
+  test('is a PNG of exactly 1200x630 and under 1 MB', () => {
+    expect(png.subarray(1, 4).toString('ascii')).toBe('PNG');
+    expect(png.readUInt32BE(16)).toBe(1200);
+    expect(png.readUInt32BE(20)).toBe(630);
+    expect(png.length).toBeLessThan(1024 * 1024);
+  });
+
+  test('alt text is identical across og, twitter and the ImageObject caption', () => {
+    const og = html.match(/<meta property="og:image:alt" content="([^"]*)"/)![1];
+    const tw = html.match(/<meta name="twitter:image:alt" content="([^"]*)"/)![1];
+    expect(tw).toBe(og);
+    expect(nodeOfType('ImageObject').caption).toBe(og);
+    // and it describes what the card actually says
+    expect(og).toContain(profile.name);
+    expect(og).toMatch(/They need a system\./);
+  });
+
+  test('the card source mirrors the live design tokens', () => {
+    const card = readFileSync(join(ROOT, 'scripts', 'og', 'card.html'), 'utf8');
+    const css = readFileSync(join(ROOT, 'src', 'index.css'), 'utf8');
+    const token = (name: string) => css.match(new RegExp(`--color-${name}:\\s*(#[0-9A-Fa-f]{6})`))![1].toUpperCase();
+    expect(card.toUpperCase()).toContain(`--PAPER:${token('paper')}`);
+    expect(card.toUpperCase()).toContain(`--INK:${token('ink')}`);
+    expect(card.toUpperCase()).toContain(`--PRIMARY:${token('primary')}`);
+  });
+});
