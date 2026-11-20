@@ -31,12 +31,10 @@ describe('01 · How I think — principles', () => {
     expect(headings.map((h) => h.textContent)).toEqual(principles.map((p) => p.title));
   });
 
-  test('every principle links to a section that exists on the home page', () => {
-    render(<App />);
+  test('every principle links to a section that exists on the playbook page', () => {
+    render(<App page="playbook" />);
     principles.forEach((p) => {
       const id = p.href.replace('#', '');
-      // the diagnostic is reached through the CTA band rather than a section id
-      if (id === 'diagnostic') return;
       expect(document.getElementById(id)).not.toBeNull();
     });
   });

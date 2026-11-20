@@ -19,6 +19,7 @@ const framework = read(join('src', 'components', 'FrameworkSection.tsx'));
 const main = read(join('src', 'main.tsx'));
 const prerender = read(join('scripts', 'prerender.mjs'));
 const entryServer = read(join('src', 'entry-server.tsx'));
+const footer = read(join('src', 'components', 'SiteFooter.tsx'));
 
 describe('Prerender is wired into the build', () => {
   test('npm run build runs the prerender step', () => {
@@ -50,10 +51,15 @@ describe('Prerender is wired into the build', () => {
   test('the SSR entry renders the same tree main.tsx mounts', () => {
     // If these drift, the prerendered markup stops matching what a visitor
     // sees, and crawlers get a page the site does not actually serve.
+    // Both pass the page explicitly: main.tsx from the URL, the prerender
+    // once per HTML file.
     for (const source of [entryServer, main]) {
       expect(source).toMatch(/<StrictMode>/);
-      expect(source).toMatch(/<App \/>/);
+      expect(source).toMatch(/<App page=\{[^}]+\} \/>/);
     }
+    expect(main).toContain('pageFromPath(window.location.pathname)');
+    expect(prerender).toMatch(/page: 'home', file: 'index.html'/);
+    expect(prerender).toMatch(/page: 'playbook', file: 'playbook.html'/);
   });
 
   test('the prerender script fails loudly rather than skipping', () => {
@@ -91,7 +97,8 @@ describe('No visitor state can be baked into the prerendered HTML', () => {
     // A build-time year baked into HTML would disagree with a client rendering
     // after New Year. COPYRIGHT_YEAR is derived from the content date instead.
     expect(app).not.toContain('new Date().getFullYear()');
-    expect(app).toContain('COPYRIGHT_YEAR');
+    expect(footer).not.toContain('new Date().getFullYear()');
+    expect(footer).toContain('COPYRIGHT_YEAR');
   });
 });
 

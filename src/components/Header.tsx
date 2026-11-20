@@ -1,18 +1,20 @@
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
-import { SECTION_IDS } from '../constants';
+import { PAGE_PATHS, SECTION_IDS, playbookHref } from '../constants';
 
 interface NavItem {
   label: string;
   href: string;
 }
 
-/** Follows the visitor's route: belief → method → reference → who */
+/**
+ * The same nav on both pages, so every link is absolute: /#about from the
+ * home page is an in-page jump, from the playbook a page change.
+ */
 const navItems: NavItem[] = [
-  { label: 'Principles', href: `#${SECTION_IDS.principles}` },
-  { label: 'How I work', href: `#${SECTION_IDS.approach}` },
-  { label: 'Playbook', href: `#${SECTION_IDS.playbook}` },
-  { label: 'About', href: `#${SECTION_IDS.about}` },
+  { label: 'Ideas', href: `${PAGE_PATHS.home}#${SECTION_IDS.questions}` },
+  { label: 'Playbook', href: PAGE_PATHS.playbook },
+  { label: 'About', href: `${PAGE_PATHS.home}#${SECTION_IDS.about}` },
 ];
 
 /** 2×2 mini-grid mark using the four quadrant colors */
@@ -51,7 +53,7 @@ export function Header() {
           {/* Wordmark */}
           {/* Wordmark is the person: visible at every width, including phones */}
           <a
-            href={`#${SECTION_IDS.hero}`}
+            href={PAGE_PATHS.home}
             className="flex items-center gap-3 text-[var(--color-ink)]"
           >
             <QuadrantMark />
@@ -70,7 +72,7 @@ export function Header() {
               </a>
             ))}
             <a
-              href={`#${SECTION_IDS.diagnostic}`}
+              href={playbookHref(SECTION_IDS.diagnostic)}
               className="btn btn-primary text-sm"
               style={{ padding: '10px 20px' }}
             >
@@ -106,7 +108,7 @@ export function Header() {
                 </a>
               ))}
               <a
-                href={`#${SECTION_IDS.diagnostic}`}
+                href={playbookHref(SECTION_IDS.diagnostic)}
                 onClick={handleNavClick}
                 className="btn btn-primary text-center mt-2"
               >

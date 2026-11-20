@@ -6,7 +6,7 @@
  * Not part of `npm run build` (it needs a local Chromium, which build hosts do
  * not have). Exits non-zero on any failure, and prints one line per check.
  *
- * Layer 1 — crawler: reads dist/index.html raw, the way a non-JS AI crawler
+ * Layer 1 — crawler: reads dist/index.html and dist/playbook.html raw, the way a non-JS AI crawler
  *   does. Content present, metadata, JSON-LD, canonical host, boundary rules.
  * Layer 2 — visitor: drives the page in Chromium. Console cleanliness, layout
  *   at four widths, every in-page link, the differences sorter, the full
@@ -31,22 +31,60 @@ if (!existsSync(join(DIST, 'index.html'))) {
 }
 
 // ======================================================= layer 1: crawler ===
-const raw = readFileSync(join(DIST, 'index.html'), 'utf8');
-const root = (raw.match(/<div id="root">([\s\S]*)<\/div>\s*<!--/) || raw.match(/<div id="root">([\s\S]*)<\/div>/))[1];
+// Two documents: the home page (index.html → /) and the playbook
+// (playbook.html → /playbook). Each is read raw, as a non-JS crawler sees it.
 const decode = (s) => s.replace(/<!--[\s\S]*?-->/g, '').replace(/<[^>]+>/g, ' ')
   .replace(/&#x27;|&#39;/g, "'").replace(/&quot;/g, '"').replace(/&amp;/g, '&')
   .replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/\s+/g, ' ').trim();
-const text = decode(root);
+const load = (file) => {
+  const raw = readFileSync(join(DIST, file), 'utf8');
+  const root = (raw.match(/<div id="root">([\s\S]*)<\/div>\s*<!--/) || raw.match(/<div id="root">([\s\S]*)<\/div>/))[1];
+  let graph = [];
+  try { graph = JSON.parse(raw.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1])['@graph']; } catch { graph = null; }
+  return { raw, root, text: decode(root), graph };
+};
+if (!existsSync(join(DIST, 'playbook.html'))) {
+  console.error('dist/playbook.html not found — run `npm run build` first.');
+  process.exit(1);
+}
+const home = load('index.html');
+const pb = load('playbook.html');
+const h1Of = (d) => decode((d.root.match(/<h1[\s\S]*?<\/h1>/) || [''])[0]);
+const sectionText = (d, id) => decode((d.root.match(new RegExp(`<section[^>]*id="${id}"[\\s\\S]*?</section>`)) || [''])[0]);
 
-check('crawler', '#root is server-rendered (not an empty shell)', text.length > 8000, `${text.length} chars`);
-check('crawler', 'exactly one <h1> in the rendered page', (root.match(/<h1[\s>]/g) || []).length === 1);
-check('crawler', 'H1 carries the thesis', /I design organizations as\s*systems\s*that leaders can run\./.test(decode((root.match(/<h1[\s\S]*?<\/h1>/) || [''])[0])));
-const nameAt = text.indexOf('Eric Yim');
-check('crawler', 'entity name appears in the first 1% of page text', nameAt >= 0 && nameAt / text.length < 0.01, `at char ${nameAt} of ${text.length}`);
+// --- home: short, the person and the questions he's drawn to
+check('crawler', 'home: #root is server-rendered', home.text.length > 3000, `${home.text.length} chars`);
+check('crawler', 'home: exactly one <h1>', (home.root.match(/<h1[\s>]/g) || []).length === 1);
+check('crawler', 'home: H1 is the question he is drawn to', h1Of(home) === 'What should an organization look like when people and machines share the work?', h1Of(home));
+const nameAt = home.text.indexOf('Eric Yim');
+check('crawler', 'home: entity name appears in the first 1% of page text', nameAt >= 0 && nameAt / home.text.length < 0.01, `at char ${nameAt} of ${home.text.length}`);
+for (const id of ['hero', 'questions', 'principles', 'playbook', 'connect', 'about']) {
+  check('crawler', `home: section #${id} is in the raw HTML`, home.root.includes(`id="${id}"`));
+}
+for (const id of ['approach', 'differences', 'framework', 'activators', 'change-levers', 'ai-native']) {
+  check('crawler', `home: method section #${id} lives on the playbook, not here`, !home.root.includes(`id="${id}"`));
+}
+const words = home.text.split(' ').length;
+check('crawler', 'home: under 1,700 words in total, FAQ answers included', words < 1700, `${words} words`);
+check('crawler', 'home: hero names no role, employer or offer',
+  !/Strategist|Head of|I help|clients?\b|services?\b|\bhire\b/i.test(sectionText(home, 'hero')) && !/\bSATS\b/.test(sectionText(home, 'hero')));
+for (const phrase of [
+  'Why do so many AI pilots leave the work exactly as it was?',
+  'When the same work is done five different ways, which differences should stay?',
+  'Why does a new org chart so often leave decisions where they were?',
+  'Every diagnosis ends in a plan.', 'Script what each leader does differently.',
+  'Say what you know, and how you know it.', 'Thinking about the same questions?',
+]) check('crawler', `home: crawler can read "${phrase.slice(0, 44)}"`, home.text.includes(phrase));
+check('crawler', 'home: FAQ answers ship in the HTML, folded', (home.root.match(/<details/g) || []).length === 10
+  && home.text.includes('Human-AI work partnership is the deliberate design'));
 
+// --- playbook: the method in full
+check('crawler', 'playbook: #root is server-rendered', pb.text.length > 8000, `${pb.text.length} chars`);
+check('crawler', 'playbook: exactly one <h1>', (pb.root.match(/<h1[\s>]/g) || []).length === 1);
+check('crawler', 'playbook: H1 names the playbook', h1Of(pb) === 'The OrgDesign Playbook', h1Of(pb));
 for (const id of ['hero', 'principles', 'approach', 'differences', 'playbook', 'framework',
-  'activators', 'change-levers', 'ai-native', 'about']) {
-  check('crawler', `section #${id} is in the raw HTML`, root.includes(`id="${id}"`));
+  'activators', 'change-levers', 'ai-native', 'diagnostic']) {
+  check('crawler', `playbook: section #${id} is in the raw HTML`, pb.root.includes(`id="${id}"`));
 }
 for (const phrase of [
   'Every diagnosis ends in a plan.', 'Move all four domains as one system.', 'Ask why before you harmonize.',
@@ -58,7 +96,7 @@ for (const phrase of [
   'Regulation, a customer contract or the physical site makes it so.',
   'A deliberate local decision, made for a reason someone can still state.',
   'History, an acquisition or habit. Nobody decided it.',
-]) check('crawler', `crawler can read: "${phrase.slice(0, 48)}"`, text.includes(phrase));
+]) check('crawler', `playbook: crawler can read "${phrase.slice(0, 44)}"`, pb.text.includes(phrase));
 
 // Phase 6: each question heading is followed directly by its answer in the raw HTML
 for (const [q, a] of [
@@ -70,71 +108,85 @@ for (const [q, a] of [
   ['How do you make organizational change stick?', 'Pull three levers at once.'],
   ['How does AI change organization design?', 'It moves the unit of design from the org chart to the task.'],
 ]) {
-  const qi = text.indexOf(q);
-  const ai = text.indexOf(a, qi);
-  check('crawler', `answer follows "${q.slice(0, 40)}"`, qi >= 0 && ai >= 0 && ai - (qi + q.length) <= 2, `gap ${ai - (qi + q.length)}`);
+  const qi = pb.text.indexOf(q);
+  const ai = pb.text.indexOf(a, qi);
+  check('crawler', `playbook: answer follows "${q.slice(0, 40)}"`, qi >= 0 && ai >= 0 && ai - (qi + q.length) <= 2, `gap ${ai - (qi + q.length)}`);
 }
-check('crawler', 'sorter ships in its unanswered state', text.includes('Answer the first question') && !root.includes('aria-pressed="true"'));
-check('crawler', 'no visitor state baked into HTML', !/cohort_results|diagnostic_responses/.test(root));
+check('crawler', 'playbook: sorter ships in its unanswered state', pb.text.includes('Answer the first question') && !pb.root.includes('aria-pressed="true"'));
+for (const [name, d] of [['home', home], ['playbook', pb]]) {
+  check('crawler', `${name}: no visitor state baked into HTML`, !/cohort_results|diagnostic_responses/.test(d.root));
+}
 
 // head + structured data
-const meta = (re) => (raw.match(re) || [])[1];
-check('crawler', 'title is not the scaffold', !/temp-project/i.test(raw));
-check('crawler', 'canonical is the canonical host', meta(/rel="canonical" href="([^"]+)"/) === `${CANONICAL}/`);
-check('crawler', 'og:url is the canonical host', meta(/property="og:url" content="([^"]+)"/) === `${CANONICAL}/`);
-check('crawler', 'og:site_name is the person', meta(/property="og:site_name" content="([^"]+)"/) === 'Eric Yim');
-check('crawler', 'no preview host anywhere in shipped HTML', !raw.includes('vercel.app'));
-check('crawler', 'no bare-apex or http origin', !/(?<!www\.)ericyim\.sg/.test(raw) && !raw.includes('http://www.ericyim.sg'));
-
-let graph = [];
-try {
-  graph = JSON.parse(raw.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1])['@graph'];
-  check('crawler', 'JSON-LD parses', true, `${graph.length} nodes`);
-} catch (e) { check('crawler', 'JSON-LD parses', false, e.message); }
-const node = (t) => graph.find((n) => n['@type'] === t) || {};
-for (const t of ['Person', 'ProfilePage', 'WebSite', 'Article', 'ImageObject', 'DefinedTermSet', 'FAQPage']) {
-  check('crawler', `JSON-LD has ${t}`, graph.some((n) => n['@type'] === t));
+for (const [name, d, url] of [['home', home, `${CANONICAL}/`], ['playbook', pb, `${CANONICAL}/playbook`]]) {
+  const meta = (re) => (d.raw.match(re) || [])[1];
+  check('crawler', `${name}: title is not the scaffold`, !/temp-project/i.test(d.raw));
+  check('crawler', `${name}: canonical is ${url}`, meta(/rel="canonical" href="([^"]+)"/) === url);
+  check('crawler', `${name}: og:url is ${url}`, meta(/property="og:url" content="([^"]+)"/) === url);
+  check('crawler', `${name}: og:site_name is the person`, meta(/property="og:site_name" content="([^"]+)"/) === 'Eric Yim');
+  check('crawler', `${name}: no preview host anywhere in shipped HTML`, !d.raw.includes('vercel.app'));
+  check('crawler', `${name}: no bare-apex or http origin`, !/(?<!www\.)ericyim\.sg/.test(d.raw) && !d.raw.includes('http://www.ericyim.sg'));
+  check('crawler', `${name}: JSON-LD parses`, Array.isArray(d.graph), d.graph ? `${d.graph.length} nodes` : 'parse failed');
+  const ids = JSON.stringify(d.graph || []).match(/"@id":\s*"[^"]+"/g) || [];
+  check('crawler', `${name}: every JSON-LD @id is on the canonical host`, ids.every((s) => s.includes(`${CANONICAL}/`)));
+  const ISO = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:Z|[+-]\d{2}:\d{2})$/;
+  check('crawler', `${name}: every dateModified is ISO 8601 with offset`, (d.graph || []).filter((n) => n.dateModified).every((n) => ISO.test(n.dateModified)));
 }
-const ISO = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:Z|[+-]\d{2}:\d{2})$/;
-check('crawler', 'every dateModified is ISO 8601 with offset', graph.filter((n) => n.dateModified).every((n) => ISO.test(n.dateModified)));
+const graph = home.graph || [];
+const pgraph = pb.graph || [];
+const node = (t) => graph.find((n) => n['@type'] === t) || {};
+const pnode = (t) => pgraph.find((n) => n['@type'] === t) || {};
+for (const t of ['Person', 'ProfilePage', 'WebSite', 'ImageObject', 'FAQPage']) {
+  check('crawler', `home JSON-LD has ${t}`, graph.some((n) => n['@type'] === t));
+}
+for (const t of ['WebPage', 'Article', 'DefinedTermSet', 'ImageObject']) {
+  check('crawler', `playbook JSON-LD has ${t}`, pgraph.some((n) => n['@type'] === t));
+}
+check('crawler', 'home JSON-LD no longer claims the Article or DefinedTermSet', !graph.some((n) => ['Article', 'DefinedTermSet'].includes(n['@type'])));
+check('crawler', 'playbook Person is the home page Person, by @id', pnode('Person')['@id'] === node('Person')['@id']);
 check('crawler', 'WebSite.name is the person', node('WebSite').name === 'Eric Yim');
 check('crawler', 'FAQPage has 10 answers', (node('FAQPage').mainEntity || []).length === 10);
-check('crawler', 'DefinedTermSet has 3 terms', (node('DefinedTermSet').hasDefinedTerm || []).length === 3);
+check('crawler', 'DefinedTermSet has 3 terms, at /playbook#differences', (pnode('DefinedTermSet').hasDefinedTerm || []).length === 3
+  && pnode('DefinedTermSet').url === `${CANONICAL}/playbook#differences`);
 const portraitId = (node('Person').image || {})['@id'];
 const portrait = graph.find((n) => n['@id'] === portraitId) || {};
 check('crawler', 'Person.image resolves to the portrait, and the file ships', portrait['@type'] === 'ImageObject'
   && existsSync(join(DIST, (portrait.url || '').replace(`${CANONICAL}/`, ''))), portrait.url);
 check('crawler', 'Person.sameAs lists identity profiles only (no press articles)',
   (node('Person').sameAs || []).every((u) => /linkedin\.com\/in\//.test(u)), JSON.stringify(node('Person').sameAs));
+const ISO = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:Z|[+-]\d{2}:\d{2})$/;
 check('crawler', 'Article has datePublished (ISO + offset, not after dateModified) and an image',
-  ISO.test(node('Article').datePublished || '') && Date.parse(node('Article').datePublished) <= Date.parse(node('Article').dateModified)
-  && graph.some((n) => n['@id'] === (node('Article').image || {})['@id'] && n['@type'] === 'ImageObject'));
-check('crawler', 'DefinedTermSet names Eric Yim as author', (node('DefinedTermSet').author || {})['@id'] === `${CANONICAL}/#person`);
-const allIds = JSON.stringify(graph).match(/"@id":\s*"[^"]+"/g) || [];
-check('crawler', 'every JSON-LD @id is on the canonical host', allIds.every((s) => s.includes(`${CANONICAL}/`)));
-
+  ISO.test(pnode('Article').datePublished || '') && Date.parse(pnode('Article').datePublished) <= Date.parse(pnode('Article').dateModified)
+  && pgraph.some((n) => n['@id'] === (pnode('Article').image || {})['@id'] && n['@type'] === 'ImageObject'));
+check('crawler', 'DefinedTermSet names Eric Yim as author', (pnode('DefinedTermSet').author || {})['@id'] === `${CANONICAL}/#person`);
 // crawler files
 const sitemap = readFileSync(join(DIST, 'sitemap.xml'), 'utf8');
 const robots = readFileSync(join(DIST, 'robots.txt'), 'utf8');
 const llms = readFileSync(join(DIST, 'llms.txt'), 'utf8');
 check('crawler', 'sitemap <lastmod> is date-only', /<lastmod>\d{4}-\d{2}-\d{2}<\/lastmod>/.test(sitemap));
-check('crawler', 'sitemap lists exactly the canonical home URL', (sitemap.match(/<loc>/g) || []).length === 1 && sitemap.includes(`<loc>${CANONICAL}/</loc>`));
+const locs = [...sitemap.matchAll(/<loc>([^<]*)<\/loc>/g)].map((m) => m[1]);
+check('crawler', 'sitemap lists exactly the two pages', locs.join(' ') === `${CANONICAL}/ ${CANONICAL}/playbook`, locs.join(' '));
 check('crawler', 'robots.txt points at the canonical sitemap', robots.includes(`Sitemap: ${CANONICAL}/sitemap.xml`));
-check('crawler', 'llms.txt indexes the new sections', ['#principles', '#approach', '#differences', '#playbook'].every((a) => llms.includes(`${CANONICAL}/${a}`)));
+check('crawler', 'llms.txt indexes each section on the page that holds it',
+  ['#principles', '#approach', '#differences', '#playbook', '#diagnostic'].every((a) => llms.includes(`${CANONICAL}/playbook${a}`))
+  && ['#questions', '#about'].every((a) => llms.includes(`${CANONICAL}/${a}`))
+  && !/ericyim\.sg\/#(approach|differences|framework|ai-native|diagnostic)\b/.test(llms));
 const png = readFileSync(join(DIST, 'og-image.png'));
 check('crawler', 'og-image.png is 1200x630 and under 1 MB', png.readUInt32BE(16) === 1200 && png.readUInt32BE(20) === 630 && png.length < 1048576, `${png.length} bytes`);
 
 // boundary rule + no commercial offering, on what actually ships
-const section = (id) => decode((root.match(new RegExp(`<section[^>]*id="${id}"[\\s\\S]*?</section>`)) || [''])[0]);
-const teaching = ['principles', 'approach', 'differences', 'playbook'].map(section).join(' ');
+const teaching = [
+  ...['principles', 'approach', 'differences', 'playbook'].map((id) => sectionText(pb, id)),
+  ...['hero', 'questions', 'principles', 'playbook', 'connect'].map((id) => sectionText(home, id)),
+].join(' ');
 const guards = JSON.parse(readFileSync(join(ROOT, 'scripts', 'guard-terms.json'), 'utf8'));
 const decodeAll = (list) => list.map((b64) => new RegExp(Buffer.from(b64, 'base64').toString(), 'i'));
 decodeAll(guards.boundary).forEach((re, i) =>
   check('crawler', `boundary: new teaching content clear of guarded term #${i + 1}`, !re.test(teaching)));
 decodeAll(guards.commercial).forEach((re, i) =>
-  check('crawler', `no commercial offering: page clear of guarded phrase #${i + 1}`, !re.test(text)));
-check('crawler', 'no commercial offering: no email capture field', !/type="email"/.test(raw));
-check('crawler', 'no commercial offering: no form posts anywhere', !/<form[^>]*action=/i.test(raw));
+  check('crawler', `no commercial offering: both pages clear of guarded phrase #${i + 1}`, !re.test(home.text) && !re.test(pb.text)));
+check('crawler', 'no commercial offering: no email capture field', !/type="email"/.test(home.raw + pb.raw));
+check('crawler', 'no commercial offering: no form posts anywhere', !/<form[^>]*action=/i.test(home.raw + pb.raw));
 
 // Phase 5: host redirect rules (model of Vercel's ordered, first-match routing)
 const vercel = JSON.parse(readFileSync(join(ROOT, 'vercel.json'), 'utf8'));
@@ -155,13 +207,18 @@ for (const [url, want] of [['/', `${CANONICAL}/`], ['/framework', `${CANONICAL}/
   check('crawler', `redirect preview ${url} → 308 ${want}`, r && r.status === 308 && r.location === want, r ? `${r.status} ${r.location}` : 'no match');
 }
 check('crawler', 'canonical host is never redirected', route('www.ericyim.sg', '/') === null);
+check('crawler', 'Vercel serves playbook.html at /playbook (cleanUrls, no trailing slash)', vercel.cleanUrls === true && vercel.trailingSlash === false);
 
 // ======================================================= layer 2: visitor ===
 const MIME = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript', '.css': 'text/css',
   '.svg': 'image/svg+xml', '.png': 'image/png', '.txt': 'text/plain', '.xml': 'application/xml' };
+// Serves dist the way Vercel does with cleanUrls: /playbook → playbook.html
 const server = createServer(async (req, res) => {
-  let p = join(DIST, decodeURIComponent(req.url.split('?')[0]));
-  if (req.url === '/' || !existsSync(p)) p = join(DIST, 'index.html');
+  const path = decodeURIComponent(req.url.split('?')[0]);
+  let p = join(DIST, path);
+  if (path === '/') p = join(DIST, 'index.html');
+  else if (/^\/playbook\/?$/.test(path)) p = join(DIST, 'playbook.html');
+  else if (!existsSync(p)) { res.writeHead(404); return res.end('not found'); }
   res.writeHead(200, { 'Content-Type': MIME[extname(p)] || 'application/octet-stream' });
   res.end(await readFile(p));
 });
@@ -171,32 +228,45 @@ const exe = [process.env.PLAYWRIGHT_CHROMIUM, '/opt/pw-browsers/chromium'].filte
 const browser = await chromium.launch(exe ? { executablePath: exe } : {});
 
 try {
-  // --- console, hydration, fonts
-  const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
-  const errors = [], hydration = [];
-  page.on('console', (m) => {
-    if (m.type() === 'error' && !/font|woff|Failed to load resource|net::ERR/i.test(m.text())) errors.push(m.text());
-    if (/hydrat|did not match|Minified React error #4(18|23|25)/i.test(m.text())) hydration.push(m.text());
-  });
-  page.on('pageerror', (e) => errors.push(`pageerror: ${e.message}`));
-  const thirdParty = [];
-  page.on('request', (r) => { if (!r.url().startsWith(BASE) && !r.url().startsWith('data:')) thirdParty.push(r.url()); });
-  await page.goto(BASE + '/', { waitUntil: 'load' });
-  await page.waitForSelector('#about');
-  await page.waitForTimeout(600);
-  check('visitor', 'zero console/page errors on load', errors.length === 0, errors.join(' | '));
-  check('visitor', 'zero hydration warnings', hydration.length === 0, hydration.join(' | '));
-  const fonts = await page.evaluate(async () => {
-    await document.fonts.ready;
-    const f = (sel) => getComputedStyle(document.querySelector(sel)).fontFamily;
-    return { wordmark: f('header a span.font-display'), h1: f('h1'), signature: f('footer .font-display') };
-  });
-  for (const [k, v] of Object.entries(fonts)) check('visitor', `${k} renders in Playfair Display`, /Playfair/.test(v), v);
-  const loadedFaces = await page.evaluate(() => [...document.fonts].filter((f) => f.status === 'loaded').length);
-  check('visitor', 'brand fonts load from the site itself', loadedFaces >= 4, `${loadedFaces} faces loaded`);
-  check('visitor', 'no third-party requests on load (no visitor data leaves the site)', thirdParty.length === 0, thirdParty.slice(0, 3).join(', '));
+  // --- console, hydration, fonts, third parties: both pages
+  for (const path of ['/', '/playbook']) {
+    const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
+    const errors = [], hydration = [], thirdParty = [];
+    page.on('console', (m) => {
+      if (m.type() === 'error' && !/font|woff|Failed to load resource|net::ERR/i.test(m.text())) errors.push(m.text());
+      if (/hydrat|did not match|Minified React error #4(18|23|25)/i.test(m.text())) hydration.push(m.text());
+    });
+    page.on('pageerror', (e) => errors.push(`pageerror: ${e.message}`));
+    page.on('request', (r) => { if (!r.url().startsWith(BASE) && !r.url().startsWith('data:')) thirdParty.push(r.url()); });
+    await page.goto(BASE + path, { waitUntil: 'load' });
+    await page.waitForSelector('footer');
+    await page.waitForTimeout(600);
+    check('visitor', `${path}: zero console/page errors on load`, errors.length === 0, errors.join(' | '));
+    check('visitor', `${path}: zero hydration warnings`, hydration.length === 0, hydration.join(' | '));
+    const fonts = await page.evaluate(async () => {
+      await document.fonts.ready;
+      const f = (sel) => getComputedStyle(document.querySelector(sel)).fontFamily;
+      return { wordmark: f('header a span.font-display'), h1: f('h1'), signature: f('footer .font-display') };
+    });
+    for (const [k, v] of Object.entries(fonts)) check('visitor', `${path}: ${k} renders in Playfair Display`, /Playfair/.test(v), v);
+    const loadedFaces = await page.evaluate(() => [...document.fonts].filter((f) => f.status === 'loaded').length);
+    check('visitor', `${path}: brand fonts load from the site itself`, loadedFaces >= 4, `${loadedFaces} faces loaded`);
+    check('visitor', `${path}: no third-party requests on load`, thirdParty.length === 0, thirdParty.slice(0, 3).join(', '));
+    // every heading on a dark band is readable (white), every other heading ink
+    const unreadable = await page.evaluate(() => [...document.querySelectorAll('h1,h2,h3')].filter((h) => {
+      const c = getComputedStyle(h).color;
+      let el = h, bg = 'rgba(0, 0, 0, 0)';
+      while (el && /rgba\(0, 0, 0, 0\)|transparent/.test(bg)) { bg = getComputedStyle(el).backgroundColor; el = el.parentElement; }
+      return c === bg;
+    }).map((h) => h.textContent));
+    check('visitor', `${path}: no heading is drawn in its own background colour`, unreadable.length === 0, unreadable.join(' | '));
+    await page.close();
+  }
 
   // --- photos: the lazy About portrait decodes once scrolled to; no shift on load
+  const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
+  await page.goto(BASE + '/', { waitUntil: 'load' });
+  await page.waitForTimeout(400);
   await page.locator('#about img').first().scrollIntoViewIfNeeded();
   await page.waitForTimeout(600);
   const portraitOk = await page.evaluate(() => { const i = document.querySelector('#about img'); return i.complete && i.naturalWidth === 640; });
@@ -204,15 +274,37 @@ try {
   const imgShift = await page.evaluate(() => performance.getEntriesByType('layout-shift')
     .filter((e) => (e.sources || []).some((s) => s.node && s.node.nodeName === 'IMG')).length);
   check('visitor', 'images cause no layout shift', imgShift === 0, `${imgShift} shifts`);
-  await page.evaluate(() => window.scrollTo({ top: 0, behavior: 'instant' }));
 
-  // --- every in-page link resolves, and lands below the fixed header
-  const hrefs = await page.evaluate(() => [...new Set([...document.querySelectorAll('a[href^="#"]')].map((a) => a.getAttribute('href')))]);
-  const dead = await page.evaluate((hs) => hs.filter((h) => h !== '#' && h !== '#diagnostic' && !document.getElementById(h.slice(1))), hrefs);
-  check('visitor', `all ${hrefs.length} in-page links resolve`, dead.length === 0, dead.join(', '));
+  // --- the FAQ folds open like a visitor expects, and its answer is real text
+  const faq = page.locator('#about details').first();
+  await faq.locator('summary').click();
+  check('visitor', 'About: a common question opens to show its answer', await faq.locator('p').isVisible());
+
+  // --- every link resolves on the page it points to (in-page and cross-page)
+  const HASH_VIEWS = ['#', '#diagnostic', '#survey', '#results', '#cohort'];
+  const anchorsOn = {};
+  for (const path of ['/', '/playbook']) {
+    const p = await browser.newPage({ viewport: { width: 1440, height: 900 } });
+    await p.goto(BASE + path, { waitUntil: 'load' });
+    anchorsOn[path] = await p.evaluate(() => [...document.querySelectorAll('[id]')].map((e) => e.id));
+    const hrefs = await p.evaluate(() => [...new Set([...document.querySelectorAll('a[href^="#"], a[href^="/"]')].map((a) => a.getAttribute('href')))]);
+    anchorsOn[`${path} hrefs`] = hrefs;
+    await p.close();
+  }
+  for (const path of ['/', '/playbook']) {
+    const hrefs = anchorsOn[`${path} hrefs`].filter((h) => !/\.(txt|xml|png|webp|jpg|svg)$/.test(h));
+    const dead = hrefs.filter((h) => {
+      const [target, hash = ''] = h.startsWith('#') ? [path, h.slice(1)] : h.split('#');
+      if (!['/', '/playbook'].includes(target)) return true;
+      if (!hash || HASH_VIEWS.includes(`#${hash}`)) return false;
+      return !anchorsOn[target].includes(hash);
+    });
+    check('visitor', `${path}: all ${hrefs.length} links resolve on the page they point to`, dead.length === 0, dead.join(', '));
+  }
+
   // The page uses smooth scrolling, so wait for the scroll to settle rather
   // than a fixed delay, and start every click from the top of the page.
-  const settle = () => page.evaluate(() => new Promise((done) => {
+  const settle = (pg) => pg.evaluate(() => new Promise((done) => {
     let last = -1, still = 0;
     const tick = () => {
       if (Math.abs(scrollY - last) < 1) { if (++still >= 6) return done(); } else still = 0;
@@ -220,29 +312,39 @@ try {
     };
     requestAnimationFrame(tick);
   }));
-  const links = [
-    ['header nav', 'principles'], ['header nav', 'approach'], ['header nav', 'playbook'], ['header nav', 'about'],
-    ['#hero nav', 'differences'], ['#playbook nav', 'ai-native'],
-  ];
-  for (const [scope, id] of links) {
+  for (const [path, scope, href, id] of [
+    ['/', 'header nav', '/#questions', 'questions'], ['/', 'header nav', '/#about', 'about'],
+    ['/', '#hero nav', '#principles', 'principles'], ['/', '#hero nav', '#connect', 'connect'],
+    ['/playbook', '#hero nav', '#differences', 'differences'], ['/playbook', '#playbook nav', '#ai-native', 'ai-native'],
+  ]) {
+    await page.goto(BASE + path, { waitUntil: 'load' });
+    await page.waitForTimeout(300);
     await page.evaluate(() => window.scrollTo({ top: 0, behavior: 'instant' }));
-    const link = page.locator(`${scope} a[href="#${id}"]`);
+    const link = page.locator(`${scope} a[href="${href}"]`);
     const exists = (await link.count()) === 1;
-    if (exists) { await link.click(); await settle(); }
-    const top = await page.evaluate((i) => Math.round(document.getElementById(i).getBoundingClientRect().top), id);
-    check('visitor', `${scope} → #${id} lands clear of the 64px header`, exists && top >= 63 && top <= 90,
+    if (exists) { await link.click(); await settle(page); }
+    const top = await page.evaluate((i) => Math.round(document.getElementById(i)?.getBoundingClientRect().top ?? -999), id);
+    check('visitor', `${path} ${scope} → ${href} lands clear of the 64px header`, exists && top >= 63 && top <= 90,
       exists ? `top=${top}px` : 'link not found');
   }
+  // cross-page: home → playbook section
+  await page.goto(BASE + '/', { waitUntil: 'load' });
+  await page.locator('#questions a[href="/playbook#differences"]').click();
+  await page.waitForURL('**/playbook#differences');
+  await page.waitForTimeout(3300);
+  check('visitor', 'home question → /playbook#differences lands at the section',
+    Math.abs(await page.evaluate(() => Math.round(document.getElementById('differences').getBoundingClientRect().top)) - 72) <= 2);
 
-  // --- deep links (e.g. a shared ericyim.sg/#differences) land under the header
-  //     once fonts settle, and never fight a visitor who starts scrolling
+  // --- deep links land under the header once fonts settle; links shared
+  //     before the split (/#differences) forward to the playbook
   for (const [w, h] of [[390, 844], [1440, 900]]) {
-    for (const id of ['differences', 'about']) {
+    for (const [url, id] of [['/playbook#differences', 'differences'], ['/#about', 'about'], ['/#differences', 'differences']]) {
       const p = await browser.newPage({ viewport: { width: w, height: h } });
-      await p.goto(`${BASE}/#${id}`, { waitUntil: 'networkidle' });
+      await p.goto(`${BASE}${url}`, { waitUntil: 'networkidle' });
       await p.waitForTimeout(3300);
-      const top = await p.evaluate((i) => Math.round(document.getElementById(i).getBoundingClientRect().top), id);
-      check('visitor', `${w}px deep link /#${id} lands at the header line`, Math.abs(top - 72) <= 2, `top=${top}px`);
+      const where = await p.evaluate((i) => ({ path: location.pathname, top: Math.round(document.getElementById(i)?.getBoundingClientRect().top ?? -999) }), id);
+      const wantPath = id === 'about' ? '/' : '/playbook';
+      check('visitor', `${w}px deep link ${url} lands at #${id} on ${wantPath}`, where.path === wantPath && Math.abs(where.top - 72) <= 2, `${where.path} top=${where.top}px`);
       await p.close();
     }
     const p = await browser.newPage({ viewport: { width: w, height: h } });
@@ -257,6 +359,7 @@ try {
   }
 
   // --- the sorter, clicked like a visitor
+  await page.goto(BASE + '/playbook', { waitUntil: 'load' });
   await page.evaluate(() => { localStorage.clear(); sessionStorage.clear(); });
   const sorter = page.getByTestId('difference-sorter');
   const click = async (step, label) => sorter.getByRole('group').nth(step - 1).getByRole('button', { name: label, exact: true }).click();
@@ -271,10 +374,12 @@ try {
   const stored = await page.evaluate(() => localStorage.length + sessionStorage.length);
   check('visitor', 'sorter stores nothing in the browser', stored === 0, `${stored} keys`);
 
-  // --- the diagnostic journey: persistence, auto-advance, reload, results, cohort
-  await page.goto(BASE + '/#diagnostic', { waitUntil: 'load' });
+  // --- the diagnostic journey: from the home page's link, through to cohort
+  await page.goto(BASE + '/', { waitUntil: 'load' });
+  await page.locator('#hero a', { hasText: 'Take the five-minute diagnostic' }).click();
+  await page.waitForURL('**/playbook#diagnostic');
   await page.waitForTimeout(600);
-  check('visitor', 'survey opens on #diagnostic', (await page.locator('.likert-option').count()) === 5);
+  check('visitor', 'home diagnostic link opens the survey on the playbook page', (await page.locator('.likert-option').count()) === 5);
   await page.locator('input[type="radio"][aria-label="Agree"]').first().check({ force: true });
   await page.waitForTimeout(700);
   const progress = await page.evaluate(() => localStorage.getItem('diagnostic_progress'));
@@ -300,22 +405,25 @@ try {
   await page.evaluate(() => { localStorage.clear(); sessionStorage.clear(); });
   await page.close();
 
-  // --- layout at four widths
+  // --- layout at four widths, both pages
   for (const [w, h] of [[390, 844], [768, 1024], [1024, 768], [1440, 900]]) {
-    const p = await browser.newPage({ viewport: { width: w, height: h } });
-    await p.goto(BASE + '/', { waitUntil: 'load' });
-    await p.waitForTimeout(500);
-    const m = await p.evaluate(() => ({
-      overflow: document.documentElement.scrollWidth - innerWidth,
-      wordmark: getComputedStyle([...document.querySelectorAll('header a span')].find((s) => s.textContent === 'Eric Yim')).display !== 'none',
-      nameInFirstScreen: (() => { const r = document.querySelector('[data-testid="hero-byline"]').getBoundingClientRect(); return r.top < innerHeight; })(),
-      faceInFirstScreen: (() => { const i = document.querySelector('[data-testid="hero-byline"] img'); const r = i.getBoundingClientRect(); return i.complete && i.naturalWidth > 0 && r.bottom < innerHeight; })(),
-    }));
-    check('visitor', `${w}px: no horizontal page overflow`, m.overflow <= 0, `${m.overflow}px`);
-    check('visitor', `${w}px: "Eric Yim" wordmark visible in header`, m.wordmark);
-    check('visitor', `${w}px: name is on the first screen`, m.nameInFirstScreen);
-    check('visitor', `${w}px: face (avatar) loaded and on the first screen`, m.faceInFirstScreen);
-    await p.close();
+    for (const path of ['/', '/playbook']) {
+      const p = await browser.newPage({ viewport: { width: w, height: h } });
+      await p.goto(BASE + path, { waitUntil: 'load' });
+      await p.waitForTimeout(500);
+      const byline = path === '/' ? '[data-testid="hero-byline"]' : '[data-testid="playbook-byline"]';
+      const m = await p.evaluate((sel) => ({
+        overflow: document.documentElement.scrollWidth - innerWidth,
+        wordmark: getComputedStyle([...document.querySelectorAll('header a span')].find((s) => s.textContent === 'Eric Yim')).display !== 'none',
+        nameInFirstScreen: (() => { const r = document.querySelector(sel).getBoundingClientRect(); return r.top < innerHeight; })(),
+        faceInFirstScreen: (() => { const i = document.querySelector(`${sel} img`); const r = i.getBoundingClientRect(); return i.complete && i.naturalWidth > 0 && r.bottom < innerHeight; })(),
+      }), byline);
+      check('visitor', `${w}px ${path}: no horizontal page overflow`, m.overflow <= 0, `${m.overflow}px`);
+      check('visitor', `${w}px ${path}: "Eric Yim" wordmark visible in header`, m.wordmark);
+      check('visitor', `${w}px ${path}: name is on the first screen`, m.nameInFirstScreen);
+      check('visitor', `${w}px ${path}: face (avatar) loaded and on the first screen`, m.faceInFirstScreen);
+      await p.close();
+    }
   }
 } finally {
   await browser.close();

@@ -1,0 +1,21 @@
+{
+  "1": "index.ts",
+  "2": "profile.ts",
+  "3": "constants.ts",
+  "4": "compilerOptions",
+  "6": "scripts",
+  "7": "compilerOptions",
+  "9": "AiNativeSection.tsx",
+  "11": "GUIDE.md — What the OrgDesign Playbook does and how to run it",
+  "14": "PROJECT_STATE.md — OrgDesign Playbook",
+  "20": "React + TypeScript + Vite",
+  "24": "tsconfig.json",
+  "25": "CLAUDE.md",
+  "26": ".claude/CLAUDE.md",
+  "28": "DECISIONS.md",
+  "51": "run_checks.sh",
+  "54": "jest.config.js",
+  "55": "postcss.config.js",
+  "58": "SEO_BASELINE.md — Phase 0 inventory and boundary audit",
+  "60": "vercel.json"
+}

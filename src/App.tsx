@@ -9,14 +9,18 @@ import { ResultsDashboard } from './components/ResultsDashboard';
 import { CohortDashboard } from './components/CohortDashboard';
 import { AiNativeSection } from './components/AiNativeSection';
 import { AboutAuthor } from './components/AboutAuthor';
-import { Signature } from './components/Signature';
+import { SiteFooter } from './components/SiteFooter';
+import { Questions } from './components/Questions';
+import { PlaybookBridge } from './components/PlaybookBridge';
+import { Connect } from './components/Connect';
+import { PlaybookHero } from './components/PlaybookHero';
 import { Principles } from './components/Principles';
 import { Approach } from './components/Approach';
 import { Differences } from './components/Differences';
 import { PlaybookIntro } from './components/PlaybookIntro';
 import type { DiagnosticResults, CohortMember } from './types';
-import { STORAGE_KEYS, SECTION_IDS } from './constants';
-import { COPYRIGHT_YEAR, ownedProfiles } from './data/profile';
+import { STORAGE_KEYS, SECTION_IDS, forwardToPlaybook } from './constants';
+import type { Page } from './constants';
 import { mapToActivators } from './utils/scoring';
 import {
   loadCohort,
@@ -28,7 +32,16 @@ import './index.css';
 
 type AppView = 'home' | 'survey' | 'results' | 'cohort';
 
-function App() {
+interface AppProps {
+  /**
+   * Which document is showing: the home page (/) or the playbook
+   * (/playbook). main.tsx reads it from the URL; the prerender passes it
+   * explicitly for each HTML file.
+   */
+  page?: Page;
+}
+
+function App({ page = 'home' }: AppProps) {
   const [currentView, setCurrentView] = useState<AppView>('home');
   const [results, setResults] = useState<DiagnosticResults | null>(null);
   const [priorityActivators, setPriorityActivators] = useState<string[]>([]);
@@ -61,6 +74,12 @@ function App() {
   useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash;
+      // The method and the diagnostic live on the playbook page
+      const forward = forwardToPlaybook(page, hash);
+      if (forward) {
+        window.location.replace(forward);
+        return;
+      }
       if (hash === '#diagnostic' || hash === '#survey') {
         setCurrentView('survey');
       } else if (hash === '#results' && results) {
@@ -75,7 +94,7 @@ function App() {
     handleHashChange();
     window.addEventListener('hashchange', handleHashChange);
     return () => window.removeEventListener('hashchange', handleHashChange);
-  }, [results, cohort.length]);
+  }, [results, cohort.length, page]);
 
   // When the home view mounts with a section hash (a deep link, or returning
   // from another view), scroll there with a fixed-header offset
@@ -245,17 +264,36 @@ function App() {
     );
   }
 
-  // Default: Home view
+  // Home page: the person and the questions he's drawn to, kept short.
+  // Everything detailed lives on the playbook page.
+  if (page === 'home') {
+    return (
+      <div className="min-h-screen">
+        <Header />
+        <main>
+          <Hero />
+          <Questions />
+          <Principles variant="home" />
+          <PlaybookBridge />
+          <Connect />
+          <AboutAuthor />
+        </main>
+        <SiteFooter />
+      </div>
+    );
+  }
+
+  // Playbook page: the method in full — 01 principles, 02 stages and
+  // evidence, 03 the differences lens, 04 the playbook (4.1–4.4), 05 the
+  // diagnostic.
   return (
     <div className="min-h-screen">
       <Header />
       <main>
-        <Hero />
-        {/* The argument: who, what he believes, how he works */}
+        <PlaybookHero />
         <Principles />
         <Approach />
         <Differences />
-        {/* The evidence: the playbook, 4.1–4.4 */}
         <PlaybookIntro />
         <FrameworkSection />
         <ActivatorsSection priorityActivators={priorityActivators} />
@@ -263,7 +301,11 @@ function App() {
         <AiNativeSection />
 
         {/* CTA Section — solid ink band */}
-        <section className="py-24" style={{ background: 'var(--color-ink)' }}>
+        <section
+          id={SECTION_IDS.diagnostic}
+          className="py-24"
+          style={{ background: 'var(--color-ink)' }}
+        >
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <p className="eyebrow mb-4" style={{ color: 'var(--color-red-on-dark)' }}>
               05 · The diagnostic
@@ -336,45 +378,8 @@ function App() {
           </div>
         </section>
 
-        <AboutAuthor />
-
-        {/* Footer — hairline on paper */}
-        <footer
-          className="py-12"
-          style={{
-            background: 'var(--color-paper)',
-            borderTop: '1px solid var(--color-hairline)',
-          }}
-        >
-          <div className="max-w-[1140px] mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
-              <span className="text-sm text-[var(--color-faint)] text-center sm:text-left">
-                Organization design · Human-AI work partnership · Singapore
-              </span>
-              {/* rel="me" ties this site and the profile together as one identity */}
-              <a
-                href={ownedProfiles[0].url}
-                target="_blank"
-                rel="me noopener noreferrer"
-                className="text-sm font-medium text-[var(--color-ink)] underline underline-offset-4 hover:text-[var(--color-primary)]"
-              >
-                Follow on LinkedIn ↗
-              </a>
-            </div>
-
-            {/* Personal brand sign-off */}
-            <div
-              className="mt-8 pt-8 flex flex-col sm:flex-row items-center justify-between gap-6"
-              style={{ borderTop: '1px solid var(--color-hairline)' }}
-            >
-              <Signature />
-              <span className="text-xs text-[var(--color-faint)] text-center sm:text-right">
-                © {COPYRIGHT_YEAR} Eric Yim · All rights reserved
-              </span>
-            </div>
-          </div>
-        </footer>
       </main>
+      <SiteFooter />
     </div>
   );
 }

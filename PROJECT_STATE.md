@@ -25,21 +25,31 @@ public, so never write the guarded names in plain text in tracked files.
 Testing Library. No charting library (plain-div bars). Deploys as a static
 `dist/` bundle (~248 KB, 76 KB gzipped).
 
-## Current state (2026-11-19)
+## Current state (2026-11-20)
 
-- **Page structure (Nov 2026 repositioning):** Header wordmark "Eric Yim"
-  (visible at every width) → Hero (name eyebrow, thesis H1 "Leaders don't
-  need another report. They need a system.", aTalent headline as linked proof,
-  index card 01–05) → **01 Principles** (`#principles`, `src/data/principles.ts`)
-  → **02 How I work** (`#approach`: six-stage HTML infographic + evidence
-  grades, `src/data/approach.ts`) → **03 Required, chosen or inherited?**
-  (`#differences`: definitions, two-question sorter with component state only,
-  paper-vs-practice example that restacks into cards below md) → **04 The
-  playbook** (`#playbook` intro + "In this playbook" index) → 4.1 Framework →
-  4.2 Activators → 4.3 Change model → 4.4 AI-native → **05** diagnostic CTA →
-  About (first-person note above the third-person entity text) → footer
-  (LinkedIn `rel="me"`). Hero index numbers must match section eyebrows;
-  `app-smoke.test.tsx` enforces numbering and order.
+- **Two pages (Nov 2026):** `index.html` → `/` and `playbook.html` →
+  `/playbook` (Vite multi-page input; Vercel `cleanUrls` + `trailingSlash:
+  false`). Both boot `src/main.tsx`, which passes `page` from the URL path
+  (`pageFromPath` in `src/constants.ts`); the prerender renders each file
+  with its page. Each file has its own head, canonical and JSON-LD.
+- **Home (`/`, short, ~1,000 words shown):** Hero (face + name, H1 is the
+  question he is drawn to, no role or offer; index card 01–04) → **01 What
+  I'm exploring** (`#questions`, three questions with his current thinking,
+  each linking into the playbook) → **02 How I think** (`#principles`, three
+  of the six principles) → **03 The playbook** (`#playbook` bridge) → **04
+  Compare notes** (`#connect`, the one dark band: conversation via LinkedIn,
+  no form or offer) → About (FAQ as fold-out panels; answers stay in the
+  HTML) → footer. Copy lives in `src/data/home.ts`.
+- **Playbook (`/playbook`):** PlaybookHero (H1 "The OrgDesign Playbook",
+  byline back to `/`, index card 01–05) → 01 Principles (all six) → 02 How I
+  work → 03 Required, chosen or inherited? → 04 The playbook (4.1–4.4) → 05
+  diagnostic CTA (`#diagnostic`). The survey, results and cohort views run
+  here; the home page forwards playbook-only hashes (`/#ai-native` →
+  `/playbook#ai-native`) so links shared before the split still work.
+  `app-smoke.test.tsx` pins both pages' order and numbering.
+- **Structured data:** home = Person, ProfilePage, WebSite, ImageObjects,
+  FAQPage. Playbook = WebPage, Article, DefinedTermSet (+ Person/WebSite by
+  @id). `seo-alignment.test.ts` pins both.
 - **Headshot:** `public/images/` — `eric-yim-avatar.webp` (hero byline,
   56px, alt="" beside the visible name), `eric-yim-portrait.webp` (About,
   4:5, lazy), `eric-yim.jpg` (Person.image / ProfilePage primary image,
@@ -222,8 +232,13 @@ working increment.
   it); required/chosen/inherited confirmed as his coinage (DefinedTermSet
   author + creator = Person; test requires it); headshot added; copy edited
   for voice. CLS fixed by self-hosting fonts (0.064 → 0.002).
-- **Open:** British vs American spelling across the whole site (operator's
-  own writing is British; site is US).
+- **Open (from the Nov 2026 review, awaiting approval):** B metadata and
+  title phrasing ("organisation design", "AI transformation"); C whether pro
+  bono can be offered (employer policy); D British spelling site-wide; E/F
+  further plain-language passes; H public, employer-free results for a proof
+  section. A (two-page split) is built.
+- **After deploy:** submit the sitemap again so engines pick up `/playbook`;
+  refresh the LinkedIn preview (new share card).
 - **After deploy:** refresh the LinkedIn preview via Post Inspector; add the
   Search Console / Bing verification tokens and submit the sitemap.
 - **Phase 6** (`SEO_PHASE6_PROPOSAL.md`): complete. Row 1 rejected; rows 2–8

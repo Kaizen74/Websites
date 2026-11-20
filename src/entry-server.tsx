@@ -1,6 +1,7 @@
 import { StrictMode } from 'react'
 import { renderToString } from 'react-dom/server'
 import App from './App.tsx'
+import type { Page } from './constants'
 
 /**
  * Server-render entry, used ONLY by the build-time prerender
@@ -16,10 +17,10 @@ import App from './App.tsx'
  * lives in an effect or an event handler, both of which are skipped by
  * renderToString.
  */
-export function render(): string {
+export function render(page: Page): string {
   return renderToString(
     <StrictMode>
-      <App />
+      <App page={page} />
     </StrictMode>
   )
 }

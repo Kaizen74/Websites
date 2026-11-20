@@ -2,6 +2,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.tsx'
+import { pageFromPath } from './constants'
 
 /**
  * The production build is prerendered (see scripts/prerender.mjs) so that
@@ -32,6 +33,6 @@ import App from './App.tsx'
  */
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <App />
+    <App page={pageFromPath(window.location.pathname)} />
   </StrictMode>,
 )

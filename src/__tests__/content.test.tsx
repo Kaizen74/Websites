@@ -3,17 +3,22 @@ import { Hero } from '../components/Hero';
 import { ActivatorsSection } from '../components/ActivatorsSection';
 import { ChangeLevers } from '../components/ChangeLevers';
 import { PlaybookIntro } from '../components/PlaybookIntro';
+import { PlaybookHero } from '../components/PlaybookHero';
+import { heroHeading } from '../data/home';
 
 describe('Static Content', () => {
-  test('Hero leads with the person and the thesis', () => {
+  test('Hero leads with a face, a name and the question he is drawn to', () => {
     render(<Hero />);
-    // The H1 is the argument, not a generic tagline
+    // The H1 is the question he keeps coming back to, not a role or a service
     const h1 = screen.getByRole('heading', { level: 1 });
-    expect(h1.textContent).toMatch(/I design organizations as systems that leaders\s+can run\./);
+    expect(h1.textContent).toBe(heroHeading);
+    expect(h1.textContent).toBe(
+      'What should an organization look like when people and machines share the work?'
+    );
     // The visitor sees a face and a name above the fold
     const byline = screen.getByTestId('hero-byline');
     expect(byline.textContent).toContain('Eric Yim');
-    expect(byline.textContent).toContain('Organization Design Strategist · Singapore');
+    expect(byline.textContent).toContain('Organization design and AI · Singapore');
     const avatar = byline.querySelector('img')!;
     expect(avatar.getAttribute('src')).toBe('/images/eric-yim-avatar.webp');
     // fixed dimensions reserve space before the image loads: no layout shift
@@ -21,10 +26,36 @@ describe('Static Content', () => {
     expect(avatar.getAttribute('height')).toBe('56');
     // decorative beside the visible name, so screen readers don't hear it twice
     expect(avatar.getAttribute('alt')).toBe('');
-    // Third-party proof, linked to its source
-    const proof = screen.getByText(/Hands Them a System/);
-    expect(proof).toBeTruthy();
-    expect(document.querySelector('a[href*="atalent.com"]')).not.toBeNull();
+  });
+
+  test('Hero says nothing about a current role, employer or offer', () => {
+    render(<Hero />);
+    const text = document.body.textContent!;
+    expect(text).not.toMatch(/Strategist|Head of|SATS|I help|clients?\b|services?\b|hire/i);
+  });
+
+  test('Hero CTAs lead to the playbook first, the diagnostic second', () => {
+    render(<Hero />);
+    expect(screen.getByText(/Explore the playbook/i).closest('a')!.getAttribute('href')).toBe('/playbook');
+    expect(
+      screen.getByText(/Take the five-minute diagnostic/i).closest('a')!.getAttribute('href')
+    ).toBe('/playbook#diagnostic');
+  });
+
+  test('Hero index card lists the home route 01-04', () => {
+    render(<Hero />);
+    const nav = screen.getByRole('navigation', { name: 'On this page' });
+    const hrefs = Array.from(nav.querySelectorAll('a')).map((a) => a.getAttribute('href'));
+    expect(hrefs).toEqual(['#questions', '#principles', '/playbook', '#connect']);
+  });
+
+  test('Playbook hero index card lists the playbook route 01-05, in sync with section ids', () => {
+    render(<PlaybookHero />);
+    expect(screen.getByRole('heading', { level: 1 }).textContent).toBe('The OrgDesign Playbook');
+    const nav = screen.getByRole('navigation', { name: 'On this page' });
+    const hrefs = Array.from(nav.querySelectorAll('a')).map((a) => a.getAttribute('href'));
+    expect(hrefs).toEqual(['#principles', '#approach', '#differences', '#playbook', '#diagnostic']);
+    expect(screen.getByTestId('playbook-byline').getAttribute('href')).toBe('/');
   });
 
   test('All 5 activators render', () => {
@@ -41,21 +72,6 @@ describe('Static Content', () => {
     // Use getAllByText since "CADENCE" appears in both the lever title and TCCAR section
     const cadenceElements = screen.getAllByText(/CADENCE/i);
     expect(cadenceElements.length).toBeGreaterThan(0);
-  });
-
-  test('Hero CTAs lead to the principles first, the diagnostic second', () => {
-    render(<Hero />);
-    expect(screen.getByText(/Read the principles/i).closest('a')!.getAttribute('href')).toBe('#principles');
-    expect(
-      screen.getByText(/Take the five-minute diagnostic/i).closest('a')!.getAttribute('href')
-    ).toBe('#diagnostic');
-  });
-
-  test('Hero index card lists the visitor route 01-05, in sync with section ids', () => {
-    render(<Hero />);
-    const nav = screen.getByRole('navigation', { name: 'On this site' });
-    const hrefs = Array.from(nav.querySelectorAll('a')).map((a) => a.getAttribute('href'));
-    expect(hrefs).toEqual(['#principles', '#approach', '#differences', '#playbook', '#diagnostic']);
   });
 
   test('Playbook intro keeps the playbook index and its framework link', () => {

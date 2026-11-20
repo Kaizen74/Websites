@@ -12,7 +12,7 @@ const playbookRows: IndexRow[] = [
   {
     number: '4.1',
     title: 'The framework',
-    description: 'Four interconnected dimensions around a leadership core',
+    description: 'Four interconnected domains around a leadership core',
     href: `#${SECTION_IDS.framework}`,
   },
   {

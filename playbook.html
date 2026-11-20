@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- First-screen faces: preloaded so the hero renders in its real fonts
+         and never rewraps. Fonts are CORS requests even same-origin, hence crossorigin. -->
+    <link rel="preload" href="/fonts/playfair-display-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/playfair-display-latin-700-italic.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/dm-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/dm-sans-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Matches --color-paper in src/index.css. Keep the two in sync. -->
+    <meta name="theme-color" content="#FAF7F3" />
+
+    <title>The OrgDesign Playbook — Eric Yim</title>
+    <meta name="description" content="Eric Yim's organization design playbook, free to use: six principles, a six-stage method, the required, chosen or inherited lens, four models and an 18-question organizational health diagnostic." />
+    <meta name="author" content="Eric Yim" />
+    <link rel="canonical" href="https://www.ericyim.sg/playbook" />
+    <link rel="alternate" type="text/plain" href="/llms.txt" title="Plain-text summary for AI assistants" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Eric Yim" />
+    <meta property="og:title" content="The OrgDesign Playbook — Eric Yim" />
+    <meta property="og:description" content="Eric Yim's organization design playbook, free to use: six principles, a six-stage method, the required, chosen or inherited lens, four models and an 18-question organizational health diagnostic." />
+    <meta property="og:url" content="https://www.ericyim.sg/playbook" />
+    <meta property="og:image" content="https://www.ericyim.sg/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Eric Yim, Singapore: What should an organization look like when people and machines share the work?" />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="The OrgDesign Playbook — Eric Yim" />
+    <meta name="twitter:description" content="Eric Yim's organization design playbook, free to use: six principles, a six-stage method, the required, chosen or inherited lens, four models and an 18-question organizational health diagnostic." />
+    <meta name="twitter:image" content="https://www.ericyim.sg/og-image.png" />
+    <meta name="twitter:image:alt" content="Eric Yim, Singapore: What should an organization look like when people and machines share the work?" />
+
+    <!--
+      Structured data for search and answer engines (GEO/AEO).
+      Kept static in index.html so crawlers that do not execute JavaScript
+      still receive the full entity graph. The playbook page carries the
+      method's own nodes (Article, DefinedTermSet) and refers to the Person and
+      WebSite defined on the home page by @id. seo-alignment.test.ts pins both.
+    -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebPage",
+            "@id": "https://www.ericyim.sg/playbook#webpage",
+            "url": "https://www.ericyim.sg/playbook",
+            "name": "The OrgDesign Playbook",
+            "description": "Eric Yim's organization design playbook, free to use: six principles, a six-stage method, the required, chosen or inherited lens, four models and an 18-question organizational health diagnostic.",
+            "inLanguage": "en",
+            "isPartOf": {
+              "@id": "https://www.ericyim.sg/#website"
+            },
+            "author": {
+              "@id": "https://www.ericyim.sg/#person"
+            },
+            "publisher": {
+              "@id": "https://www.ericyim.sg/#person"
+            },
+            "about": [
+              {
+                "@type": "Thing",
+                "name": "Organization Design"
+              },
+              {
+                "@type": "Thing",
+                "name": "Human-AI Work Partnership"
+              }
+            ],
+            "primaryImageOfPage": {
+              "@id": "https://www.ericyim.sg/#ogimage"
+            },
+            "dateModified": "2026-11-19T00:00:00+08:00",
+            "hasPart": [
+              {
+                "@id": "https://www.ericyim.sg/playbook#ai-native-article"
+              },
+              {
+                "@id": "https://www.ericyim.sg/playbook#differences-terms"
+              }
+            ],
+            "speakable": {
+              "@type": "SpeakableSpecification",
+              "cssSelector": [
+                "#principles h3",
+                "#approach h2",
+                "#approach h2 + p",
+                "#differences h2 + p",
+                "#ai-native h2 + p"
+              ]
+            }
+          },
+          {
+            "@type": "Person",
+            "@id": "https://www.ericyim.sg/#person",
+            "name": "Eric Yim",
+            "url": "https://www.ericyim.sg/",
+            "mainEntityOfPage": {
+              "@id": "https://www.ericyim.sg/#profilepage"
+            }
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://www.ericyim.sg/#website",
+            "url": "https://www.ericyim.sg/",
+            "name": "Eric Yim"
+          },
+          {
+            "@type": "ImageObject",
+            "@id": "https://www.ericyim.sg/#ogimage",
+            "url": "https://www.ericyim.sg/og-image.png",
+            "width": 1200,
+            "height": 630,
+            "caption": "Eric Yim, Singapore: What should an organization look like when people and machines share the work?"
+          },
+          {
+            "@type": "Article",
+            "@id": "https://www.ericyim.sg/playbook#ai-native-article",
+            "headline": "AI redesigns the work, not the chart",
+            "description": "Three moves keep an AI-era organization design sound: start from the task, place every task on a ladder from manual to reinvented, and have a person check every machine judgement before anyone acts on it.",
+            "url": "https://www.ericyim.sg/playbook#ai-native",
+            "dateModified": "2026-11-19T00:00:00+08:00",
+            "datePublished": "2026-08-26T19:14:10+08:00",
+            "inLanguage": "en",
+            "author": {
+              "@id": "https://www.ericyim.sg/#person"
+            },
+            "publisher": {
+              "@id": "https://www.ericyim.sg/#person"
+            },
+            "isPartOf": {
+              "@id": "https://www.ericyim.sg/playbook#webpage"
+            },
+            "about": [
+              {
+                "@type": "Thing",
+                "name": "Organization Design"
+              },
+              {
+                "@type": "Thing",
+                "name": "Human-AI Work Partnership"
+              }
+            ],
+            "image": {
+              "@id": "https://www.ericyim.sg/#ogimage"
+            }
+          },
+          {
+            "@type": "DefinedTermSet",
+            "@id": "https://www.ericyim.sg/playbook#differences-terms",
+            "name": "Required, chosen and inherited differences",
+            "description": "Eric Yim's three labels for why the same work is done differently across markets, sites or acquired units. Each label leads to a different decision.",
+            "url": "https://www.ericyim.sg/playbook#differences",
+            "inLanguage": "en",
+            "isPartOf": {
+              "@id": "https://www.ericyim.sg/playbook#webpage"
+            },
+            "hasDefinedTerm": [
+              {
+                "@type": "DefinedTerm",
+                "@id": "https://www.ericyim.sg/playbook#term-required",
+                "name": "Required",
+                "description": "Regulation, a customer contract or the physical site makes it so. Leave it local.",
+                "inDefinedTermSet": {
+                  "@id": "https://www.ericyim.sg/playbook#differences-terms"
+                }
+              },
+              {
+                "@type": "DefinedTerm",
+                "@id": "https://www.ericyim.sg/playbook#term-chosen",
+                "name": "Chosen",
+                "description": "A deliberate local decision, made for a reason someone can still state. Decide: keep or align.",
+                "inDefinedTermSet": {
+                  "@id": "https://www.ericyim.sg/playbook#differences-terms"
+                }
+              },
+              {
+                "@type": "DefinedTerm",
+                "@id": "https://www.ericyim.sg/playbook#term-inherited",
+                "name": "Inherited",
+                "description": "History, an acquisition or habit. Nobody decided it. Harmonize.",
+                "inDefinedTermSet": {
+                  "@id": "https://www.ericyim.sg/playbook#differences-terms"
+                }
+              }
+            ],
+            "author": {
+              "@id": "https://www.ericyim.sg/#person"
+            },
+            "creator": {
+              "@id": "https://www.ericyim.sg/#person"
+            }
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <!--
+      Static fallback for crawlers and readers without JavaScript. Same facts
+      as the rendered page and the structured data above — never hidden from
+      users with JS enabled, so this is a fallback, not cloaked content.
+    -->
+    <noscript>
+      <h1>The OrgDesign Playbook</h1>
+      <p>
+        Eric Yim's organization design playbook, free to use: six principles,
+        a six-stage method, the required, chosen or inherited lens, four models
+        and an 18-question organizational health diagnostic.
+      </p>
+      <p>
+        <a href="/">About Eric Yim</a> ·
+        A plain-text summary for AI assistants is available at
+        <a href="/llms.txt">/llms.txt</a>.
+      </p>
+    </noscript>
+
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
