@@ -486,9 +486,9 @@
     "semantic_hash": ""
   },
   "scripts/verify-site.mjs": {
-    "mtime": 1795137726.7479951,
-    "seen": 1795137907.0809145,
-    "ast_hash": "e1bb790b22dee5acd8f41bf50808ebb3",
+    "mtime": 1795138015.3786492,
+    "seen": 1795138095.141366,
+    "ast_hash": "c978f93ea76b8de5dddc85225569b302",
     "semantic_hash": ""
   },
   "src/__tests__/aeo-approach.test.tsx": {
@@ -660,9 +660,9 @@
     "semantic_hash": ""
   },
   "src/__tests__/thought-leadership.test.tsx": {
-    "mtime": 1795137687.9327416,
-    "seen": 1795137907.0809407,
-    "ast_hash": "aa78ef52969ff99eacda3d6910287b56",
+    "mtime": 1795138015.3781006,
+    "seen": 1795138095.141414,
+    "ast_hash": "c370bee49d707fb4e292384c33cf558a",
     "semantic_hash": ""
   },
   "package-lock.json": {

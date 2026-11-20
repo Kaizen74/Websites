@@ -27,12 +27,12 @@ export function FrameworkOverview({ onExploreQuadrant }: FrameworkOverviewProps)
         The overarching idea
       </p>
       <h3 className="font-display font-bold text-[26px] leading-tight text-[var(--color-ink)] mb-4">
-        One integrated system, not four separate fixes
+        Four domains that move as one system
       </h3>
 
       <p className="text-[15px] leading-relaxed text-[var(--color-secondary)] mb-4">
-        Most transformations stall because they treat organisational design as a
-        sequence of isolated moves — a new structure here, a training programme
+        Transformations stall when they treat organisation design as a
+        sequence of isolated moves: a new structure here, a training programme
         there, a values poster on the wall. This framework treats capability as a
         single integrated system: four interdependent domains, held together by
         leadership and expressed through the organisation's culture values.
@@ -65,18 +65,18 @@ export function FrameworkOverview({ onExploreQuadrant }: FrameworkOverviewProps)
 
       <p className="text-[15px] leading-relaxed text-[var(--color-secondary)] mb-4">
         <strong className="text-[var(--color-ink)] font-semibold">Leadership</strong>{' '}
-        sits at the centre as the integrating force — aligning the four domains
-        rather than optimising any one in isolation.{' '}
+        sits at the centre and holds the four domains in line, so no one of
+        them is tuned at the others' expense.{' '}
         <strong className="text-[var(--color-ink)] font-semibold">Culture values</strong>{' '}
         form the outer ring: the shared beliefs every domain operates within.
       </p>
 
       <p className="text-[15px] leading-relaxed text-[var(--color-secondary)]">
-        Change lands only when all four move together — which is why the change
-        model activates every domain at once instead of running them as phases.
-        Select a quadrant to explore its components, playbook modules, and the
-        diagnostic questions that measure it — or take the diagnostic to see how
-        your organisation scores across the whole system.
+        Change lands only when all four move together, which is why every
+        lever in the change model works on every domain. Select a domain to see
+        its components, playbook modules and the diagnostic questions that
+        measure it, or take the diagnostic to see how your organisation scores
+        across the whole system.
       </p>
     </div>
   );

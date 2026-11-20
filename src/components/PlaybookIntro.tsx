@@ -24,13 +24,13 @@ const playbookRows: IndexRow[] = [
   {
     number: '4.3',
     title: 'The change model',
-    description: 'Communicate, Co-create, Cadence — plus the T.C.C.A.R. lens',
+    description: 'Communicate, Co-create and Cadence, with a team-health check',
     href: `#${SECTION_IDS.changeLevers}`,
   },
   {
     number: '4.4',
     title: 'AI-native design',
-    description: "What AI changes — and what it doesn't",
+    description: 'What AI changes in the design, starting from the task',
     href: `#${SECTION_IDS.aiNative}`,
   },
 ];

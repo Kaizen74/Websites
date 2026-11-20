@@ -81,7 +81,7 @@ describe('Results Dashboard', () => {
       overallScore: 47,
     };
     render(<ResultsDashboard results={results} onReset={mockOnReset} />);
-    expect(screen.getByText(/sequence the alignment work first/i)).toBeTruthy();
+    expect(screen.getByText(/Do the alignment\s+work first/i)).toBeTruthy();
   });
 
   test('Next steps section is present', () => {

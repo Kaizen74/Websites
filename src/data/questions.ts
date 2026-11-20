@@ -10,7 +10,7 @@ export const diagnosticQuestions: DiagnosticQuestion[] = [
   {
     id: 'S2',
     dimension: 'structure',
-    text: 'Important decisions are made at the right organisational level— they are neither bottlenecked at the top nor fragmented at the bottom',
+    text: 'Important decisions are made at the right organisational level, neither bottlenecked at the top nor fragmented at the bottom',
   },
   {
     id: 'S3',

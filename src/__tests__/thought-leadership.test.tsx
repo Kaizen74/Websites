@@ -175,3 +175,42 @@ describe('F · the home questions are answer-shaped and speakable', () => {
     selectors.forEach((sel) => expect(document.querySelectorAll(sel).length).toBeGreaterThan(0));
   });
 });
+
+describe('Voice: the no-ai-slop patterns stay out of what readers see', () => {
+  // The skill's banned list. "leverage" is allowed only as the activators'
+  // term of art (scale leverage against agility), where no plainer word fits.
+  const BANNED =
+    /\b(delve|foster|utilis\w*|facilitat\w*|empower\w*|streamlin\w*|robust|cutting-edge|paradigm shift|game.?changer|tapestry|realm|beacon|multifaceted|meticulous|intricate|paramount|transformative|elevate|embark|supercharge|harness|ever-evolving|holistic)\b/i;
+
+  test.each(['home', 'playbook'] as const)('%s page uses none of the banned words', (page) => {
+    render(<App page={page} />);
+    expect(document.body.textContent!.match(BANNED)?.[0] ?? null).toBeNull();
+  });
+
+  test('no em dashes in the home copy, the FAQ answers or the About text', () => {
+    const strings = [
+      ...Object.values(connectCopy).flatMap((v) => (Array.isArray(v) ? v.flatMap((w) => [w.title, w.body]) : [v])),
+      ...exploringQuestions.flatMap((q) => [q.question, q.body]),
+      ...faqEntries.flatMap((e) => [e.question, e.answer]),
+      profile.description,
+      profile.metaDescription,
+      profile.experienceSummary,
+      profile.firstPersonNote,
+    ];
+    strings.forEach((s) => expect(s).not.toContain('—'));
+  });
+
+  test('answers do not open with throat-clearing or faux-insight setups', () => {
+    const openers = [...exploringQuestions.map((q) => q.body), ...faqEntries.map((e) => e.answer)];
+    openers.forEach((a) =>
+      expect(a).not.toMatch(/^(Here’s the thing|The truth is|The reality is|What most people|It’s worth noting|In today’s)/i)
+    );
+  });
+
+  test('his own words stay word for word', () => {
+    const multiplier = faqEntries.find((e) => /multiplier/.test(e.question))!.answer;
+    expect(multiplier).toContain('zero multiplied by any number is still zero');
+    expect(multiplier).toContain('discerning the right time and place to use AI');
+    expect(profile.firstPersonNote).toContain('I look at how the work really runs before I look at the org chart.');
+  });
+});

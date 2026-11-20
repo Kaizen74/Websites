@@ -130,10 +130,10 @@ export const profile = {
   firstPersonNote:
     'I came to organisation design through corporate banking and the public sector, and later studied business and organisational anthropology. That route left me with a habit I still rely on. I look at how the work really runs before I look at the org chart.',
   experienceSummary:
-    '25 years in organisational development — across Shell, Cargill, L’Oréal and the Singapore public sector.',
+    '25 years in organisational development, across Shell, Cargill, L’Oréal and the Singapore public sector.',
   /** Longer bio. Every clause is sourced from the two features below. */
   bio:
-    'Eric Yim has spent 25 years in the gap between diagnosing an organisation and redesigning it. He graduated from Nanyang Technological University in 1998 specialising in financial analysis, began in corporate banking, and moved into organisational development through the public sector — an unusual route that gave him a systems view of organisations. He has since led organisation development and effectiveness work at L’Oréal, Shell and Cargill across Asia-Pacific, EMEA and the Middle East, and is now Global Head of OD and Talent at SATS Ltd. in Singapore, working at the intersection of organisational development and AI adoption in the workplace.',
+    'Eric Yim has spent 25 years in the gap between diagnosing an organisation and redesigning it. He graduated from Nanyang Technological University in 1998 specialising in financial analysis, began in corporate banking, and moved into organisational development through the public sector, an unusual route that gave him a systems view of organisations. He has since led organisation development and effectiveness work at L’Oréal, Shell and Cargill across Asia-Pacific, EMEA and the Middle East, and is now Global Head of OD and Talent at SATS Ltd. in Singapore, working at the intersection of organisational development and AI adoption in the workplace.',
   alumniOf: {
     name: 'Nanyang Technological University Singapore',
     shortName: 'Nanyang Technological University',
@@ -322,7 +322,7 @@ export const faqEntries: FaqEntry[] = [
   {
     question: 'What is human-AI work partnership?',
     answer:
-      'Human-AI work partnership is the deliberate design of how people and machines share work at the task level. Rather than asking which jobs AI replaces, it asks which tasks move to the machine, which stay human, and what that reassignment does to roles, spans, decision rights and the operating model.',
+      'Human-AI work partnership is the deliberate design of how people and machines share work at the task level. It asks which tasks move to the machine, which stay human, and what that reassignment does to roles, spans, decision rights and the operating model.',
   },
   {
     question: 'What does an organisation design strategist do?',
@@ -352,7 +352,7 @@ export const faqEntries: FaqEntry[] = [
   {
     question: 'Why does Eric Yim say AI is a multiplier and not a shortcut?',
     answer:
-      'Because a multiplier amplifies whatever expertise already exists — and zero multiplied by any number is still zero. AI is most valuable to people with deep domain expertise to amplify, not to those merely quickest to adopt the tools. The discipline is discerning the right time and place to use AI.',
+      'Because a multiplier amplifies whatever expertise already exists, and zero multiplied by any number is still zero. AI adds most for people with deep domain expertise to amplify. Being quickest to adopt the tools counts for less. The discipline is discerning the right time and place to use AI.',
   },
   {
     question: 'What principles guide Eric Yim’s work?',
@@ -371,7 +371,7 @@ export const faqEntries: FaqEntry[] = [
   },
 ];
 
-/** "a system, not a report; …; and say what you know, and how you know it" */
+/** "every diagnosis ends in a plan; …; and say what you know, and how you know it" */
 function principleList(): string {
   const names = principleNames.map((n) => (n.startsWith('AI ') ? n : n[0].toLowerCase() + n.slice(1)));
   return `${names.slice(0, -1).join('; ')}; and ${names[names.length - 1]}`;

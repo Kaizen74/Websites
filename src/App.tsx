@@ -320,9 +320,9 @@ function App({ page = 'home' }: AppProps) {
               className="text-[16px] leading-relaxed mb-4 mx-auto"
               style={{ color: 'rgba(255,255,255,.72)', maxWidth: 560 }}
             >
-              Eighteen questions across five dimensions, in about five minutes —
-              a baseline read of organisational health, where to focus first,
-              and a targeted intervention for each weak spot.
+              Eighteen questions across five dimensions, in about five minutes.
+              You get a baseline read of organisational health, where to focus
+              first, and a targeted intervention for each weak spot.
             </p>
             <p
               className="text-[13px] leading-relaxed mb-9 mx-auto"

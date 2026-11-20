@@ -86,7 +86,7 @@ export const activators: Activator[] = [
     ],
     healthySignals: [
       'Decisions at appropriate levels',
-      'Governance adds value, not bureaucracy',
+      'Governance adds value without adding bureaucracy',
       'Matrix relationships work smoothly',
       'Power balanced across dimensions',
     ],

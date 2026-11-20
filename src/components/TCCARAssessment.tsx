@@ -90,7 +90,7 @@ export function TCCARAssessment() {
 
       <p className="text-sm text-[var(--color-faint)] mt-8">
         <strong className="text-[var(--color-ink)]">Quick check:</strong> which
-        dimension does your team struggle with most? Start there — trust is the
+        dimension does your team struggle with most? Start there. Trust is the
         foundation the other four are built on.
       </p>
     </div>

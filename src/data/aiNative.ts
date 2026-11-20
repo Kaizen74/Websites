@@ -108,7 +108,7 @@ export const scoringZones: ScoringZone[] = [
   {
     label: 'Red zone',
     labelColor: 'var(--color-score-red)',
-    line: 'Feasible but resisted. A change problem, not a build problem.',
+    line: 'Feasible but resisted. Treat it as a change problem.',
   },
   {
     label: 'R&D frontier',

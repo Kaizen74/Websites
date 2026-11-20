@@ -174,7 +174,7 @@ export function DiagnosticSurvey({ onComplete }: DiagnosticSurveyProps) {
         </div>
 
         <p className="text-center text-[13px] text-[var(--color-faint)] mt-8">
-          Your answers save automatically — you can leave and come back.
+          Your answers save automatically, so you can leave and come back.
         </p>
       </div>
     </section>

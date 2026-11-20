@@ -182,7 +182,7 @@ export const playbookModules: PlaybookModule[] = [
     id: 'process-workflows',
     quadrant: 'process',
     title: 'Workflow & Handoff Design',
-    description: 'Streamline cross-functional processes and eliminate friction points',
+    description: 'Simplify cross-functional processes and remove the points where work stalls',
     interventions: [
       'Process mapping and redesign',
       'Handoff optimisation',
@@ -233,7 +233,7 @@ export const quadrantDetails: QuadrantDetail[] = [
   {
     id: 'structure',
     title: 'Structure & Accountabilities',
-    summary: 'Who owns what — roles, layers, and the decision rights that let work move.',
+    summary: 'Who owns what: roles, layers and the decision rights that let work move.',
     items: [
       'Roles & Responsibilities',
       'Spans, Layers & Reporting Lines',
@@ -244,14 +244,14 @@ export const quadrantDetails: QuadrantDetail[] = [
   {
     id: 'people',
     title: 'People & Skills',
-    summary: 'Whether the organisation has — or can build — the capabilities its strategy demands.',
+    summary: 'Whether the organisation has, or can build, the capabilities its strategy demands.',
     items: ['Workforce Size & Location', 'Diversity', 'Knowledge & Skills'],
     color: 'var(--quad-people)',
   },
   {
     id: 'process',
     title: 'Process & Systems',
-    summary: 'How work actually flows — handoffs, tools, goals, and operating rhythm.',
+    summary: 'How work actually flows: handoffs, tools, goals and operating rhythm.',
     items: [
       'Performance Management',
       'Workflows & Handoffs',
@@ -276,7 +276,7 @@ export const dimensionInterventions: Record<Dimension, DimensionIntervention> = 
   structure: {
     title: 'Re-contract ownership & decision rights',
     description:
-      'Move activation accountability to named business leaders and make decision rights explicit — who decides, who is consulted, who executes.',
+      'Move activation accountability to named business leaders and make decision rights explicit: who decides, who is consulted, who executes.',
     timeframe: '2–3 weeks',
   },
   people: {
