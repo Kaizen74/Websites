@@ -10,7 +10,7 @@ export const diagnosticQuestions: DiagnosticQuestion[] = [
   {
     id: 'S2',
     dimension: 'structure',
-    text: 'Important decisions are made at the right organizational level— they are neither bottlenecked at the top nor fragmented at the bottom',
+    text: 'Important decisions are made at the right organisational level— they are neither bottlenecked at the top nor fragmented at the bottom',
   },
   {
     id: 'S3',
@@ -32,7 +32,7 @@ export const diagnosticQuestions: DiagnosticQuestion[] = [
   {
     id: 'P3',
     dimension: 'people',
-    text: 'Cross-functional skills (e.g. leadership, collaboration, influence, stakeholder management etc) are systematically developed across the organization',
+    text: 'Cross-functional skills (e.g. leadership, collaboration, influence, stakeholder management etc) are systematically developed across the organisation',
   },
   {
     id: 'P4',
@@ -59,15 +59,15 @@ export const diagnosticQuestions: DiagnosticQuestion[] = [
   {
     id: 'PR4',
     dimension: 'process',
-    text: 'Individual performance goals are systematically developed from team priorities, which are translated from organizational strategy',
+    text: 'Individual performance goals are systematically developed from team priorities, which are translated from organisational strategy',
   },
   {
     id: 'PR5',
     dimension: 'process',
-    text: 'Meetings are well organized with clear cadence, agendas and outcomes',
+    text: 'Meetings are well organised with clear cadence, agendas and outcomes',
   },
 
-  // MINDSET & BEHAVIORS (4 questions)
+  // MINDSET & BEHAVIOURS (4 questions)
   {
     id: 'M1',
     dimension: 'mindset',
@@ -93,12 +93,12 @@ export const diagnosticQuestions: DiagnosticQuestion[] = [
   {
     id: 'L1',
     dimension: 'leadership',
-    text: 'Senior leaders regularly and consistently communicate organizational strategy and priorities across all levels of the organization',
+    text: 'Senior leaders regularly and consistently communicate organisational strategy and priorities across all levels of the organisation',
   },
   {
     id: 'L2',
     dimension: 'leadership',
-    text: 'Leaders at all levels actively translate organizational strategy into specific, relevant goals and priorities for their teams',
+    text: 'Leaders at all levels actively translate organisational strategy into specific, relevant goals and priorities for their teams',
   },
 ];
 

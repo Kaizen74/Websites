@@ -17,7 +17,7 @@ export const DIMENSION_LABELS: Record<Dimension, string> = {
   structure: 'Structure & Accountabilities',
   people: 'People & Skills',
   process: 'Process & Systems',
-  mindset: 'Mindset & Behaviors',
+  mindset: 'Mindset & Behaviours',
   leadership: 'Leadership',
 };
 
@@ -26,7 +26,7 @@ export const QUADRANT_LABELS: Record<Quadrant, string> = {
   structure: 'Structure & Accountabilities',
   people: 'People & Skills',
   process: 'Process & Systems',
-  mindset: 'Mindset & Behaviors',
+  mindset: 'Mindset & Behaviours',
 };
 
 // Quadrant colors

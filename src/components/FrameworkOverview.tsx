@@ -31,11 +31,11 @@ export function FrameworkOverview({ onExploreQuadrant }: FrameworkOverviewProps)
       </h3>
 
       <p className="text-[15px] leading-relaxed text-[var(--color-secondary)] mb-4">
-        Most transformations stall because they treat organizational design as a
-        sequence of isolated moves — a new structure here, a training program
+        Most transformations stall because they treat organisational design as a
+        sequence of isolated moves — a new structure here, a training programme
         there, a values poster on the wall. This framework treats capability as a
         single integrated system: four interdependent domains, held together by
-        leadership and expressed through the organization's culture values.
+        leadership and expressed through the organisation's culture values.
       </p>
 
       {/* The four domains */}
@@ -65,8 +65,8 @@ export function FrameworkOverview({ onExploreQuadrant }: FrameworkOverviewProps)
 
       <p className="text-[15px] leading-relaxed text-[var(--color-secondary)] mb-4">
         <strong className="text-[var(--color-ink)] font-semibold">Leadership</strong>{' '}
-        sits at the center as the integrating force — aligning the four domains
-        rather than optimizing any one in isolation.{' '}
+        sits at the centre as the integrating force — aligning the four domains
+        rather than optimising any one in isolation.{' '}
         <strong className="text-[var(--color-ink)] font-semibold">Culture values</strong>{' '}
         form the outer ring: the shared beliefs every domain operates within.
       </p>
@@ -76,7 +76,7 @@ export function FrameworkOverview({ onExploreQuadrant }: FrameworkOverviewProps)
         model activates every domain at once instead of running them as phases.
         Select a quadrant to explore its components, playbook modules, and the
         diagnostic questions that measure it — or take the diagnostic to see how
-        your organization scores across the whole system.
+        your organisation scores across the whole system.
       </p>
     </div>
   );

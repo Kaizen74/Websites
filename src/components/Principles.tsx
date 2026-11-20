@@ -83,7 +83,7 @@ export function Principles({ variant = 'full' }: PrinciplesProps) {
                 className="text-[var(--color-secondary)] flex-1"
                 style={{ fontSize: 15, lineHeight: 1.6, textWrap: 'pretty' }}
               >
-                {p.body}
+                {home ? (p.plainBody ?? p.body) : p.body}
               </p>
               <a
                 href={hrefFor(p.href)}

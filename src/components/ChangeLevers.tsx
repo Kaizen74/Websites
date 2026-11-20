@@ -42,8 +42,8 @@ export function ChangeLevers() {
             {changeAnswer.answer}
           </p>
           <p className="text-[17px] leading-[1.65] text-[var(--color-secondary)]" style={{ maxWidth: 640 }}>
-            An operating system for driving organizational change — moving from
-            awareness to embedding new behaviors. Each lever activates all four
+            An operating system for driving organisational change — moving from
+            awareness to embedding new behaviours. Each lever activates all four
             framework dimensions at once; they are not sequential phases.
           </p>
         </div>
@@ -122,7 +122,7 @@ export function ChangeLevers() {
             <p className="text-[15px] leading-relaxed text-[var(--color-secondary)]" style={{ maxWidth: 640 }}>
               Trust, Conflict, Commitment, Accountability, Results — based on
               Patrick Lencioni's five dysfunctions model, adapted for
-              organizational design. Sustainable cadence depends on which of
+              organisational design. Sustainable cadence depends on which of
               these five foundations your team can rely on.
             </p>
           </div>

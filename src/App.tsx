@@ -314,21 +314,21 @@ function App({ page = 'home' }: AppProps) {
               className="font-display font-bold text-white mb-5"
               style={{ fontSize: 'clamp(30px, 4vw, 40px)', lineHeight: 1.15 }}
             >
-              Ready to assess your organization?
+              Ready to assess your organisation?
             </h2>
             <p
               className="text-[16px] leading-relaxed mb-4 mx-auto"
               style={{ color: 'rgba(255,255,255,.72)', maxWidth: 560 }}
             >
               Eighteen questions across five dimensions, in about five minutes —
-              a baseline read of organizational health, where to focus first,
+              a baseline read of organisational health, where to focus first,
               and a targeted intervention for each weak spot.
             </p>
             <p
               className="text-[13px] leading-relaxed mb-9 mx-auto"
               style={{ color: 'rgba(255,255,255,.55)', maxWidth: 560 }}
             >
-              Healthy organizations are roughly three times more likely to
+              Healthy organisations are roughly three times more likely to
               outperform their peers (McKinsey Organizational Health Index), and
               active, visible sponsorship is the top contributor to change
               success (Prosci benchmarking research).

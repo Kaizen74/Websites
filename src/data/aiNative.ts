@@ -12,12 +12,14 @@ export const sectionCopy = {
   // Phase 6 row 8: the visible heading is the reader's question. Eric's line
   // "AI redesigns the work, not the chart" stays as the Article headline in
   // the structured data and opens the matching FAQ answer.
-  heading: 'How does AI change organization design?',
+  heading: 'How does AI change organisation design?',
   tagline: 'AI redesigns the work, not the chart',
   answer:
     'It moves the unit of design from the org chart to the task. Each task goes on a ladder from manual to reinvented, and a person reviews every machine judgement before it reaches a decision-maker.',
   lede:
-    'Structure follows work, and work is now shared with machines. Three moves follow from that.',
+    // Opens with the tagline: it is the Article's headline in the playbook
+    // page's structured data, so it must be visible on that page.
+    'AI redesigns the work, not the chart. Structure follows work, and work is now shared with machines. Three moves follow from that.',
   moveOneOverline: 'Move one',
   moveOneHeading: 'Start from the task',
   descentNote:
@@ -33,7 +35,7 @@ export const sectionCopy = {
   ladderHeaders: {
     level: 'Level',
     task: 'What happens to the task',
-    cost: 'What it costs the organization',
+    cost: 'What it costs the organisation',
   },
   zoneHeading: 'Capability is only half the question',
   zoneSource:

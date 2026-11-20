@@ -8,6 +8,8 @@
  *
  * Layer 1 — crawler: reads dist/index.html and dist/playbook.html raw, the way a non-JS AI crawler
  *   does. Content present, metadata, JSON-LD, canonical host, boundary rules.
+ * Layer 3 — alignment: source data, JSON-LD, llms.txt, sitemap and the
+ *   rendered pages agree with each other (and prerender = client render).
  * Layer 2 — visitor: drives the page in Chromium. Console cleanliness, layout
  *   at four widths, every in-page link, the differences sorter, the full
  *   diagnostic journey, cohort save, and fonts.
@@ -55,7 +57,7 @@ const sectionText = (d, id) => decode((d.root.match(new RegExp(`<section[^>]*id=
 // --- home: short, the person and the questions he's drawn to
 check('crawler', 'home: #root is server-rendered', home.text.length > 3000, `${home.text.length} chars`);
 check('crawler', 'home: exactly one <h1>', (home.root.match(/<h1[\s>]/g) || []).length === 1);
-check('crawler', 'home: H1 is the question he is drawn to', h1Of(home) === 'What should an organization look like when people and machines share the work?', h1Of(home));
+check('crawler', 'home: H1 is the question he is drawn to', h1Of(home) === 'What should an organisation look like when people and machines share the work?', h1Of(home));
 const nameAt = home.text.indexOf('Eric Yim');
 check('crawler', 'home: entity name appears in the first 1% of page text', nameAt >= 0 && nameAt / home.text.length < 0.01, `at char ${nameAt} of ${home.text.length}`);
 for (const id of ['hero', 'questions', 'principles', 'playbook', 'connect', 'about']) {
@@ -75,8 +77,36 @@ for (const phrase of [
   'Every diagnosis ends in a plan.', 'Script what each leader does differently.',
   'Say what you know, and how you know it.', 'Thinking about the same questions?',
 ]) check('crawler', `home: crawler can read "${phrase.slice(0, 44)}"`, home.text.includes(phrase));
-check('crawler', 'home: FAQ answers ship in the HTML, folded', (home.root.match(/<details/g) || []).length === 10
+check('crawler', 'home: FAQ answers ship in the HTML, folded', (home.root.match(/<details/g) || []).length === 11
   && home.text.includes('Human-AI work partnership is the deliberate design'));
+
+// --- review items B–F, on what actually ships
+const homeTitle = (home.raw.match(/<title>([^<]*)<\/title>/) || [])[1] || '';
+check('crawler', 'B: home title names AI Transformation', /AI Transformation/.test(homeTitle), homeTitle);
+check('crawler', 'B: home snippet is thought leadership ("writes about organisation design and AI transformation")',
+  /content="Eric Yim writes about organisation design and AI transformation/.test(home.raw));
+check('crawler', 'B: Person.knowsAbout includes AI Transformation', JSON.stringify(home.graph).includes('"AI Transformation"'));
+check('crawler', 'B: home page text says "AI transformation"', /AI transformation/.test(home.text));
+check('crawler', 'C: compare-notes band offers three ways, no form and no offer',
+  (sectionText(home, 'connect').match(/Compare notes|Use the playbook|Follow the thinking/g) || []).length >= 3
+  && !/<form|type="email"|mailto:/.test((home.root.match(/<section[^>]*id="connect"[\s\S]*?<\/section>/) || [''])[0])
+  && !/pro bono|consult|services?\b|\bhire\b|\bfees?\b|book a call/i.test(sectionText(home, 'connect')));
+const KEEP = ['Bridging Organization Design and Performance', 'McKinsey Organizational Health Index', 'Organization Effectiveness APAC & EMEA'];
+const US = /\b(organiz\w*|standardiz\w*|harmoniz\w*|behaviors?|behavioral|optimiz\w*|specializ\w*|analyz\w*|prioritiz\w*|centraliz\w*|minimiz\w*|visualiz\w*|modeling)\b/i;
+for (const [name, d] of [['home', home], ['playbook', pb]]) {
+  const t = KEEP.reduce((a, k) => a.split(k).join(''), d.text);
+  check('crawler', `D: ${name} page text is in British spelling`, !US.test(t), (t.match(US) || [])[0]);
+}
+check('crawler', 'E: home page keeps playbook labels on the playbook',
+  !/activator|T\.C\.C\.A\.R|AI-native|\bConfirmed\b|\bIndicated\b|\bHypothesis\b|evidence grade/i.test(
+    ['hero', 'questions', 'principles', 'playbook', 'connect'].map((id) => sectionText(home, id)).join(' ')));
+for (const q of ['Why do so many AI pilots leave the work exactly as it was?',
+  'When the same work is done five different ways, which differences should stay?',
+  'Why does a new org chart so often leave decisions where they were?']) {
+  const qi = home.text.indexOf(q);
+  const next = home.text.slice(qi + q.length, qi + q.length + 12).trim();
+  check('crawler', `F: home answer follows "${q.slice(0, 36)}"`, qi >= 0 && /^(Most|Only|Because)/.test(next), next);
+}
 
 // --- playbook: the method in full
 check('crawler', 'playbook: #root is server-rendered', pb.text.length > 8000, `${pb.text.length} chars`);
@@ -87,10 +117,10 @@ for (const id of ['hero', 'principles', 'approach', 'differences', 'playbook', '
   check('crawler', `playbook: section #${id} is in the raw HTML`, pb.root.includes(`id="${id}"`));
 }
 for (const phrase of [
-  'Every diagnosis ends in a plan.', 'Move all four domains as one system.', 'Ask why before you harmonize.',
+  'Every diagnosis ends in a plan.', 'Move all four domains as one system.', 'Ask why before you harmonise.',
   'Script what each leader does differently.', 'Start AI at the task.',
   'Say what you know, and how you know it.', 'Adapted from Gregory Kesler and Amy Kates',
-  'Where should an organization design start?', 'With the current state.',
+  'Where should an organisation design start?', 'With the current state.',
   'The three also set the order of the work.',
   'Frame', 'Focus', 'Find', 'Decide', 'Design', 'Deliver', 'Confirmed', 'Indicated', 'Hypothesis',
   'Regulation, a customer contract or the physical site makes it so.',
@@ -100,13 +130,13 @@ for (const phrase of [
 
 // Phase 6: each question heading is followed directly by its answer in the raw HTML
 for (const [q, a] of [
-  ['Where should an organization design start?', 'With the current state.'],
+  ['Where should an organisation design start?', 'With the current state.'],
   ['How much should a leader trust a diagnostic finding?', 'As much as its evidence grade allows.'],
-  ['Should you standardize how different parts of a business work?', 'Only once you know why each difference exists.'],
-  ['What makes an organization design work?', 'Structure, people, process and mindset move as one system'],
-  ['What turns an organization design into performance?', 'Five activators, adapted from Kesler and Kates:'],
-  ['How do you make organizational change stick?', 'Pull three levers at once.'],
-  ['How does AI change organization design?', 'It moves the unit of design from the org chart to the task.'],
+  ['Should you standardise how different parts of a business work?', 'Only once you know why each difference exists.'],
+  ['What makes an organisation design work?', 'Structure, people, process and mindset move as one system'],
+  ['What turns an organisation design into performance?', 'Five activators, adapted from Kesler and Kates:'],
+  ['How do you make organisational change stick?', 'Pull three levers at once.'],
+  ['How does AI change organisation design?', 'It moves the unit of design from the org chart to the task.'],
 ]) {
   const qi = pb.text.indexOf(q);
   const ai = pb.text.indexOf(a, qi);
@@ -145,7 +175,7 @@ for (const t of ['WebPage', 'Article', 'DefinedTermSet', 'ImageObject']) {
 check('crawler', 'home JSON-LD no longer claims the Article or DefinedTermSet', !graph.some((n) => ['Article', 'DefinedTermSet'].includes(n['@type'])));
 check('crawler', 'playbook Person is the home page Person, by @id', pnode('Person')['@id'] === node('Person')['@id']);
 check('crawler', 'WebSite.name is the person', node('WebSite').name === 'Eric Yim');
-check('crawler', 'FAQPage has 10 answers', (node('FAQPage').mainEntity || []).length === 10);
+check('crawler', 'FAQPage has 11 answers', (node('FAQPage').mainEntity || []).length === 11);
 check('crawler', 'DefinedTermSet has 3 terms, at /playbook#differences', (pnode('DefinedTermSet').hasDefinedTerm || []).length === 3
   && pnode('DefinedTermSet').url === `${CANONICAL}/playbook#differences`);
 const portraitId = (node('Person').image || {})['@id'];
@@ -370,7 +400,7 @@ try {
   await click(1, 'No'); await click(2, 'Yes');
   check('visitor', 'sorter: chosen → "Decide: keep or align."', await sorter.getByText('Decide: keep or align.').isVisible());
   await click(2, 'No');
-  check('visitor', 'sorter: inherited → "Harmonize."', await sorter.getByText('Harmonize.').isVisible());
+  check('visitor', 'sorter: inherited → "Harmonise."', await sorter.getByText('Harmonise.').isVisible());
   const stored = await page.evaluate(() => localStorage.length + sessionStorage.length);
   check('visitor', 'sorter stores nothing in the browser', stored === 0, `${stored} keys`);
 
@@ -425,6 +455,86 @@ try {
       await p.close();
     }
   }
+
+  // ===================================================== layer 3: alignment ===
+  // Source data, structured data, llms.txt and the rendered pages must tell
+  // the same story. Each check reads one surface against another.
+  const pages = { '/': home, '/playbook': pb };
+  const live = {};
+  for (const path of Object.keys(pages)) {
+    const p = await browser.newPage({ viewport: { width: 1440, height: 900 } });
+    await p.goto(BASE + path, { waitUntil: 'networkidle' });
+    await p.waitForTimeout(300);
+    live[path] = await p.evaluate((graphJson) => {
+      const norm = (t) => t.replace(/\s+/g, ' ').trim();
+      const graph = JSON.parse(graphJson);
+      const speak = graph.flatMap((n) => (n.speakable ? n.speakable.cssSelector : []));
+      return {
+        text: norm(document.getElementById('root').textContent),
+        ids: [...document.querySelectorAll('[id]')].map((e) => e.id),
+        speakable: speak.map((sel) => [sel, document.querySelectorAll(sel).length]),
+      };
+    }, JSON.stringify(pages[path].graph));
+    await p.close();
+  }
+  const norm = (t) => t.replace(/\s+/g, ' ').trim();
+  for (const path of Object.keys(pages)) {
+    // decode() puts a space at every tag edge; compare with all whitespace removed
+    const server = pages[path].text.replace(/\s+/g, '');
+    const client = live[path].text.replace(/\s+/g, '');
+    check('alignment', `${path}: prerendered HTML says exactly what the browser renders`, server === client,
+      server === client ? '' : `server ${server.length} chars, client ${client.length} chars`);
+    const dead = live[path].speakable.filter(([, n]) => n === 0).map(([sel]) => sel);
+    check('alignment', `${path}: every speakable selector matches live content`, live[path].speakable.length > 0 && dead.length === 0, dead.join(', '));
+  }
+  // FAQPage answers must be visible content on the page that carries them
+  const faqLd = node('FAQPage').mainEntity || [];
+  const missingFaq = faqLd.filter((q) => !live['/'].text.includes(q.name) || !live['/'].text.includes(norm(q.acceptedAnswer.text)));
+  check('alignment', `home: all ${faqLd.length} FAQPage questions and answers are on the page`, faqLd.length > 0 && missingFaq.length === 0, missingFaq.map((q) => q.name).join(' | '));
+  const terms = pnode('DefinedTermSet').hasDefinedTerm || [];
+  check('alignment', 'playbook: every DefinedTerm name and definition is on the page',
+    terms.length === 3 && terms.every((t) => live['/playbook'].text.includes(t.name) && live['/playbook'].text.includes(t.description.split('. ')[0])));
+  check('alignment', 'playbook: the Article headline is on the page', live['/playbook'].text.includes(pnode('Article').headline), pnode('Article').headline);
+  check('alignment', 'home: Person.knowsAbout featured topics are on the page',
+    ['Organisation Design', 'AI Transformation', 'Human-AI Work Partnership'].every((t) => live['/'].text.includes(t)));
+  // every @id reference resolves to a node defined on one of the two pages
+  const defined = new Set([...graph, ...pgraph].flatMap(function walk(n) {
+    if (!n || typeof n !== 'object') return [];
+    const own = n['@id'] && Object.keys(n).length > 1 ? [n['@id']] : [];
+    return [...own, ...Object.values(n).flatMap((v) => (Array.isArray(v) ? v.flatMap(walk) : walk(v)))];
+  }));
+  const refs = JSON.stringify([graph, pgraph]).match(/\{"@id":"[^"]+"\}/g) || [];
+  const dangling = [...new Set(refs.map((r) => JSON.parse(r)['@id']))].filter((id) => !defined.has(id));
+  check('alignment', `every JSON-LD @id reference resolves (${refs.length} references)`, dangling.length === 0, dangling.join(', '));
+  // every JSON-LD image and page URL on the site is served
+  const siteUrls = [...new Set((JSON.stringify([graph, pgraph]).match(/https:\/\/www\.ericyim\.sg\/[^"#]*/g) || []))];
+  const unserved = [];
+  for (const u of siteUrls) {
+    const r = await fetch(BASE + u.replace(CANONICAL, ''));
+    if (r.status !== 200) unserved.push(`${u} → ${r.status}`);
+  }
+  check('alignment', `every site URL in the structured data is served (${siteUrls.length} URLs)`, unserved.length === 0, unserved.join(', '));
+  // every llms.txt and sitemap link lands on a real page and, if it has one, a real anchor
+  const siteLinks = [...new Set([...(llms.match(/https:\/\/www\.ericyim\.sg\/[^\s)>\]]*/g) || []), ...locs])];
+  const broken = siteLinks.filter((u) => {
+    const [path, hash] = u.replace(CANONICAL, '').split('#');
+    const page = path === '' || path === '/' ? '/' : path;
+    if (page.endsWith('.xml') || page.endsWith('.txt')) return false;
+    if (!live[page]) return true;
+    return hash ? !live[page].ids.includes(hash) && !['diagnostic'].includes(hash) : false;
+  });
+  check('alignment', `every llms.txt and sitemap link lands on a real page and section (${siteLinks.length} links)`, broken.length === 0, broken.join(', '));
+  // canonical of each sitemap URL is itself, and the page answers 200
+  for (const u of locs) {
+    const r = await fetch(BASE + (u.replace(CANONICAL, '') || '/'));
+    const body = await r.text();
+    const canon = (body.match(/rel="canonical" href="([^"]+)"/) || [])[1];
+    check('alignment', `sitemap ${u} serves 200 and declares itself canonical`, r.status === 200 && canon === u, `${r.status} ${canon}`);
+  }
+  // robots.txt lets the answer engines in and points at the sitemap
+  for (const bot of ['GPTBot', 'OAI-SearchBot', 'ClaudeBot', 'PerplexityBot', 'Google-Extended', 'Bingbot']) {
+    check('alignment', `robots.txt allows ${bot}`, new RegExp(`User-agent: ${bot}\\s+Allow: /`).test(robots));
+  }
 } finally {
   await browser.close();
   server.close();
@@ -432,7 +542,7 @@ try {
 
 // ================================================================ report ===
 const failed = results.filter((r) => !r.pass);
-for (const layer of ['crawler', 'visitor']) {
+for (const layer of ['crawler', 'visitor', 'alignment']) {
   const rs = results.filter((r) => r.layer === layer);
   console.log(`\n${layer.toUpperCase()} — ${rs.filter((r) => r.pass).length}/${rs.length} passed`);
   rs.forEach((r) => console.log(`  ${r.pass ? '✓' : '✗'} ${r.name}${r.detail && !r.pass ? `  [${r.detail}]` : ''}`));

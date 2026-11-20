@@ -35,9 +35,9 @@ describe('App smoke tests', () => {
     render(<App page="playbook" />);
     expect(screen.getByText(/In this playbook/i)).toBeTruthy();
     expect(
-      screen.getByText(/Integrated Organizational Capability and Change Framework/i)
+      screen.getByText(/Integrated Organisational Capability and Change Framework/i)
     ).toBeTruthy();
-    expect(screen.getByRole('heading', { name: 'How do you make organizational change stick?' })).toBeTruthy();
+    expect(screen.getByRole('heading', { name: 'How do you make organisational change stick?' })).toBeTruthy();
     // The five activators are credited to their source (operator decision,
     // 2026-11-19, reversing the July framework-neutral request)
     const activators = document.getElementById('activators')!;
@@ -50,7 +50,7 @@ describe('App smoke tests', () => {
   test('AI-native section renders on the playbook page between change model and CTA', () => {
     render(<App page="playbook" />);
     expect(document.getElementById('ai-native')).not.toBeNull();
-    expect(screen.getByRole('heading', { level: 2, name: 'How does AI change organization design?' })).toBeTruthy();
+    expect(screen.getByRole('heading', { level: 2, name: 'How does AI change organisation design?' })).toBeTruthy();
     expect(screen.getByText('4.4 · AI-native design')).toBeTruthy();
   });
 
@@ -85,7 +85,7 @@ describe('App smoke tests', () => {
     render(<App />);
     const about = document.getElementById('about');
     expect(about).not.toBeNull();
-    expect(about!.textContent).toContain('Organization Design Strategist');
+    expect(about!.textContent).toContain('Organisation Design Strategist');
     expect(about!.textContent).toContain('human-AI work partnership');
     expect(about!.querySelector('a[href*="ntu.edu.sg"]')).not.toBeNull();
     expect(about!.querySelector('a[href*="atalent.com"]')).not.toBeNull();

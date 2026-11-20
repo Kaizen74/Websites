@@ -4,12 +4,12 @@
   reading it. It is a static text file that costs nothing to serve and may do
   nothing. Keep it accurate; do not rely on it as the only place a fact lives.
 -->
-# Eric Yim — Organization Design Strategist
+# Eric Yim — Organisation Design and AI Transformation
 
-> Eric Yim is an organization design strategist specializing in human-AI work
-> partnership — designing how organizations divide work between people and
-> machines, and the structures, capabilities and behaviors that make that
-> partnership work.
+> Eric Yim is a Singapore-based organisation design strategist who writes
+> about AI transformation and human-AI work partnership: how organisations
+> divide work between people and machines, and the structures, capabilities
+> and behaviours that make that partnership work.
 
 ## What this site covers
 
@@ -18,8 +18,9 @@ The personal site of Eric Yim, in two pages. The home page
 
 - [What I'm exploring](https://www.ericyim.sg/#questions) — three questions he keeps coming
   back to.
-- [Compare notes](https://www.ericyim.sg/#connect) — he welcomes conversations with
-  executives and founders, through LinkedIn.
+- [Compare notes](https://www.ericyim.sg/#connect) — the site exists to share
+  ideas: compare notes with him on LinkedIn, use the playbook freely, or
+  follow new thinking as it takes shape.
 - [About](https://www.ericyim.sg/#about) — entity, background and common questions.
 
 The playbook (https://www.ericyim.sg/playbook) sets out how he works, free to use:
@@ -33,7 +34,7 @@ The playbook (https://www.ericyim.sg/playbook) sets out how he works, free to us
   acquired units, with a two-question sorter.
 - [The playbook](https://www.ericyim.sg/playbook#playbook) — four tools:
   - [The framework](https://www.ericyim.sg/playbook#framework) — Integrated
-    Organizational Capability and Change Framework: four interdependent
+    Organisational Capability and Change Framework: four interdependent
     domains around a leadership core.
   - [The five activators](https://www.ericyim.sg/playbook#activators) — what turns an
     organisation design into performance; adapted from Gregory Kesler and Amy
@@ -49,12 +50,13 @@ The playbook (https://www.ericyim.sg/playbook) sets out how he works, free to us
 ## Entity
 
 - **Name:** Eric Yim
-- **Role:** Organization Design Strategist
+- **Role:** Organisation Design Strategist
+- **Writes about:** Organisation design and AI transformation
 - **Specialism:** Human-AI work partnership
 - **Current role:** Global Head of OD and Talent, SATS Ltd. (since Dec 2024)
 - **Location:** Singapore
 - **Also described as:** Global OD, OE and Talent Leader (LinkedIn)
-- **Experience:** 25 years in organizational development
+- **Experience:** 25 years in organisational development
 - **Education:** Nanyang Technological University Singapore, Bachelor of
   Business — Financial Analysis, 1998; University of North Texas, Business
   and Organisation Anthropology, 2022
@@ -65,33 +67,34 @@ The playbook (https://www.ericyim.sg/playbook) sets out how he works, free to us
 - **LinkedIn:** https://www.linkedin.com/in/eric-yim-743910
 - **Site:** www.ericyim.sg — his principles, six-stage method and the required,
   chosen and inherited lens, plus the OrgDesign Playbook and an 18-question
-  organizational health diagnostic.
+  organisational health diagnostic.
 
 ## Biography
 
-Eric Yim has spent 25 years in the gap between diagnosing an organization and
+Eric Yim has spent 25 years in the gap between diagnosing an organisation and
 redesigning it. He graduated from Nanyang Technological University in 1998
-specializing in financial analysis, began in corporate banking, and moved into
-organizational development through the public sector — an unusual route that
-gave him a systems view of organizations. He has since led organization
+specialising in financial analysis, began in corporate banking, and moved into
+organisational development through the public sector — an unusual route that
+gave him a systems view of organisations. He has since led organisation
 development and effectiveness work at L'Oréal, Shell and Cargill across
 Asia-Pacific, EMEA and the Middle East, and is now Global Head of OD and
 Talent at SATS Ltd. in Singapore, working at the intersection of
-organizational development and AI adoption in the workplace. His talent work
+organisational development and AI adoption in the workplace. His talent work
 at SATS was recognised with Gold for Talent Management & Acquisition at the
 SHRI Singapore HR Awards 2025.
 
 ## Areas of expertise
 
-Organization Design · Human-AI Work Partnership · Organizational Development ·
-Operating Model Design · Organizational Capability · Change Management ·
-Workforce Transformation · Job Redesign · AI Adoption in the Workplace ·
-Strategy Execution · Leadership Development · Diversity and Inclusion
+Organisation Design · AI Transformation · Human-AI Work Partnership ·
+Organisational Development · Operating Model Design · Organisational
+Capability · Change Management · Workforce Transformation · Job Redesign · AI
+Adoption in the Workplace · Strategy Execution · Leadership Development ·
+Diversity and Inclusion · Organization Design
 
 ## What Eric Yim is exploring
 
-“What should an organization look like when people and machines share the
-work?” is the question I keep coming back to after 25 years in organizational
+“What should an organisation look like when people and machines share the
+work?” is the question I keep coming back to after 25 years in organisational
 development. My short answer: AI redesigns the work, not the chart. This site
 is where I work out the longer one, in the open and free to use.
 
@@ -103,15 +106,16 @@ and keep a person accountable for every judgement that reaches a decision.
 
 ### When the same work is done five different ways, which differences should stay?
 
-Growth and acquisitions leave every business with local variations. Some are
-required, some were chosen and some were simply inherited. Asking which is
-which, before standardizing anything, is the most useful habit I know.
+Only the ones that are required, or chosen for a reason someone can still
+state. Growth and acquisitions leave plenty of differences that were simply
+inherited. Asking which is which before standardising anything is the most
+useful habit I know.
 
 ### Why does a new org chart so often leave decisions where they were?
 
-Boxes move faster than behavior. Structure, people, process and mindset have
-to move as one system, and each leader needs to know the specific thing they
-will do differently on Monday.
+Because boxes move faster than behaviour. Structure, people, process and
+mindset have to move as one system, and each leader needs to know the specific
+thing they will do differently on Monday.
 
 ## Principles
 
@@ -124,7 +128,7 @@ to where I apply it on the site.
 02. **Move all four domains as one system.** Structure, people, process and
     mindset are held together by leadership. They all have to move, though not
     all at once. The current state tells you which to move first and how fast.
-03. **Ask why before you harmonize.** When two parts of a business work
+03. **Ask why before you harmonise.** When two parts of a business work
     differently, find out why first. Some differences are required, some were
     chosen and some were inherited. Each needs a different decision.
 04. **Script what each leader does differently.** People usually know the why.
@@ -139,9 +143,9 @@ to where I apply it on the site.
 
 ## How Eric Yim works
 
-### Where should an organization design start?
+### Where should an organisation design start?
 
-With the current state. I map where the organization and its operating system
+With the current state. I map where the organisation and its operating system
 create and lose value, and why its parts work differently, before deciding
 which of the four domains to move, in what order and when.
 
@@ -186,14 +190,14 @@ confidence.
 
 ## Required, chosen and inherited differences
 
-### Should you standardize how different parts of a business work?
+### Should you standardise how different parts of a business work?
 
 Only once you know why each difference exists. Required differences stay
 local, chosen ones need a decision to keep or align, and inherited ones, which
-nobody decided, should be harmonized.
+nobody decided, should be harmonised.
 
 A lens coined by Eric Yim. As a business grows across markets, sites and
-acquisitions, the same work ends up done in different ways. Before harmonizing
+acquisitions, the same work ends up done in different ways. Before harmonising
 anything, I sort each difference by why it exists. I call the three reasons
 required, chosen and inherited, and each one leads to a different decision.
 
@@ -202,10 +206,10 @@ required, chosen and inherited, and each one leads to a different decision.
 - **Chosen**: A deliberate local decision, made for a reason someone can still
   state. Response: decide: keep or align.
 - **Inherited**: History, an acquisition or habit. Nobody decided it.
-  Response: harmonize.
+  Response: harmonise.
 
 The three also set the order of the work. Required differences mark what the
-design can’t change, inherited ones are where harmonizing starts, and chosen
+design can’t change, inherited ones are where harmonising starts, and chosen
 ones wait for a leadership decision.
 
 Two questions sort any difference: is it required by regulation, a customer
@@ -252,9 +256,9 @@ reason they can still state today?
 
 ### Who is Eric Yim?
 
-Eric Yim is an organization design strategist specializing in human-AI work
-partnership. He has spent 25 years working between organizational diagnosis
-and redesign, and works at the intersection of organizational development and
+Eric Yim is an organisation design strategist specialising in human-AI work
+partnership. He has spent 25 years working between organisational diagnosis
+and redesign, and works at the intersection of organisational development and
 AI adoption in the workplace.
 
 ### What is human-AI work partnership?
@@ -264,26 +268,33 @@ share work at the task level. Rather than asking which jobs AI replaces, it
 asks which tasks move to the machine, which stay human, and what that
 reassignment does to roles, spans, decision rights and the operating model.
 
-### What does an organization design strategist do?
+### What does an organisation design strategist do?
 
-An organization design strategist aligns an organization’s structure and
+An organisation design strategist aligns an organisation’s structure and
 accountabilities, people and skills, process and systems, and mindset and
-behaviors so it can execute its strategy. The work spans diagnosis, operating
+behaviours so it can execute its strategy. The work spans diagnosis, operating
 model design, and the change activation needed to make a new design real.
 
-### How does AI change organization design?
+### How does AI change organisation design?
 
 AI redesigns the work, not the chart. It moves the unit of design from the org
 chart to the task. Each task goes on a ladder from manual to reinvented, and a
 person reviews every machine judgement before it reaches a decision-maker.
 Structure follows work, and work is now shared with machines.
 
+### How does Eric Yim think about AI transformation?
+
+As organisation design work. The tools matter less than how work, roles and
+decisions are redesigned around them. He starts from the task, asks why units
+work differently before standardising anything, and keeps a person accountable
+for every machine judgement that reaches a decision.
+
 ### What is Eric Yim’s background?
 
 Eric Yim graduated from Nanyang Technological University in 1998 with a
-Bachelor of Business specializing in financial analysis, and began his career
-in corporate banking at Mizuho. He moved into organizational development
-through the Civil Service College, then held organization development and
+Bachelor of Business specialising in financial analysis, and began his career
+in corporate banking at Mizuho. He moved into organisational development
+through the Civil Service College, then held organisation development and
 effectiveness roles at L’Oréal, Shell and Cargill before becoming Global Head
 of OD and Talent at SATS Ltd.
 
@@ -291,8 +302,8 @@ of OD and Talent at SATS Ltd.
 
 Eric Yim is Global Head of OD and Talent at SATS Ltd. in Singapore, which he
 joined in December 2024. He previously spent over nine years at Shell in
-global and regional organizational development leadership roles, and four
-years at Cargill in organization effectiveness consulting.
+global and regional organisational development leadership roles, and four
+years at Cargill in organisation effectiveness consulting.
 
 ### Why does Eric Yim say AI is a multiplier and not a shortcut?
 
@@ -304,11 +315,11 @@ tools. The discipline is discerning the right time and place to use AI.
 ### What principles guide Eric Yim’s work?
 
 Eric Yim works from six principles: every diagnosis ends in a plan; move all
-four domains as one system; ask why before you harmonize; script what each
+four domains as one system; ask why before you harmonise; script what each
 leader does differently; start AI at the task; and say what you know, and how
-you know it. Each one maps to a part of his organizational design playbook.
+you know it. Each one maps to a part of his organisational design playbook.
 
-### How does Eric Yim approach an organization design engagement?
+### How does Eric Yim approach an organisation design engagement?
 
 Eric Yim works in six stages: Frame, Focus, Find, Decide, Design and Deliver.
 The first three establish what is true: the criteria the design will be judged
@@ -326,14 +337,14 @@ required difference is imposed by regulation, a customer contract or the
 physical site, so it stays local. A chosen difference was a deliberate local
 decision, so leaders decide whether to keep it or align it. An inherited
 difference came from history, an acquisition or habit and nobody decided it,
-so it should be harmonized. Two questions sort any difference: is it required,
+so it should be harmonised. Two questions sort any difference: is it required,
 and was it decided on purpose?
 
 ## Framework published on this site
 
-The Integrated Organizational Capability and Change Framework: four
+The Integrated Organisational Capability and Change Framework: four
 interdependent domains — Structure & Accountabilities, People & Skills,
-Process & Systems, Mindset & Behaviors — around a Leadership core, inside a
+Process & Systems, Mindset & Behaviours — around a Leadership core, inside a
 ring of culture values. Supporting models: five activators that turn design
 into performance (adapted from Kesler and Kates); a three-lever change model (Communicate, Co-create,
 Cadence); an AI-native design section (start from the task, a four-level ladder
@@ -341,20 +352,20 @@ from manual to reinvented, and a person checking every machine judgement); and
 an 18-question diagnostic
 scored across five dimensions.
 
-### What makes an organization design work?
+### What makes an organisation design work?
 
 Structure, people, process and mindset move as one system around a leadership
-core, expressed through the organization’s culture values. I map those four
-domains in the Integrated Organizational Capability and Change Framework.
+core, expressed through the organisation’s culture values. I map those four
+domains in the Integrated Organisational Capability and Change Framework.
 
-### What turns an organization design into performance?
+### What turns an organisation design into performance?
 
 Five activators, adapted from Kesler and Kates: value-adding layers,
 innovation and execution networks, the business handshake, governance and
 decision rights, and matrix-ready leaders.
 
-### How do you make organizational change stick?
+### How do you make organisational change stick?
 
 Pull three levers at once. Communicate a future people can picture, co-create
 the design with the people who will run it, and set a cadence of rituals that
-reinforce the new behaviors.
+reinforce the new behaviours.

@@ -8,13 +8,13 @@
 import { PAGE_PATHS, SECTION_IDS, playbookHref } from '../constants';
 
 export const heroCopy = {
-  byline: 'Organization design and AI · Singapore',
+  byline: 'Organisation design · AI transformation · Singapore',
   /** H1, split so the design can set one word in italic red */
-  headingBefore: 'What should an organization look like when people and machines ',
+  headingBefore: 'What should an organisation look like when people and machines ',
   headingEmphasis: 'share',
   headingAfter: ' the work?',
   lede:
-    'It’s the question I keep coming back to after 25 years in organizational development. My short answer: AI redesigns the work, not the chart. This site is where I work out the longer one, in the open and free to use.',
+    'It’s the question I keep coming back to after 25 years in organisational development. My short answer: AI redesigns the work, not the chart. This site is where I work out the longer one, in the open and free to use.',
 };
 
 /** The H1 as plain text, for tests, llms.txt and the share card */
@@ -66,7 +66,7 @@ export const questionsCopy = {
   eyebrow: '01 · What I’m exploring',
   heading: 'Three questions I keep coming back to',
   lede:
-    'They come up in almost every organization that takes AI seriously. Here is where my thinking stands, with a link to the detail behind each.',
+    'They come up in almost every organisation going through an AI transformation. Here is where my thinking stands, with a link to the detail behind each.',
 };
 
 export const exploringQuestions: ExploringQuestion[] = [
@@ -80,14 +80,14 @@ export const exploringQuestions: ExploringQuestion[] = [
   {
     question: 'When the same work is done five different ways, which differences should stay?',
     body:
-      'Growth and acquisitions leave every business with local variations. Some are required, some were chosen and some were simply inherited. Asking which is which, before standardizing anything, is the most useful habit I know.',
+      'Only the ones that are required, or chosen for a reason someone can still state. Growth and acquisitions leave plenty of differences that were simply inherited. Asking which is which before standardising anything is the most useful habit I know.',
     href: playbookHref(SECTION_IDS.differences),
     linkLabel: 'Sort a difference in two questions',
   },
   {
     question: 'Why does a new org chart so often leave decisions where they were?',
     body:
-      'Boxes move faster than behavior. Structure, people, process and mindset have to move as one system, and each leader needs to know the specific thing they will do differently on Monday.',
+      'Because boxes move faster than behaviour. Structure, people, process and mindset have to move as one system, and each leader needs to know the specific thing they will do differently on Monday.',
     href: playbookHref(SECTION_IDS.framework),
     linkLabel: 'See the four domains',
   },
@@ -107,17 +107,49 @@ export const playbookBridgeCopy = {
   eyebrow: '03 · The playbook',
   heading: 'The frameworks behind the work',
   lede:
-    'Everything above, worked through in detail: six principles, a six-stage method, the required, chosen or inherited lens, four models and an 18-question diagnostic. Free to use.',
+    'Everything above, worked through in detail and free to use: how I think, how I work, how to decide what to standardise, four models for design and change, and a five-minute diagnostic.',
   cta: 'Open the playbook',
   href: PAGE_PATHS.playbook,
 };
 
+export interface ConnectWay {
+  title: string;
+  body: string;
+  label: string;
+  /** 'linkedin' resolves to the owned LinkedIn profile at render time */
+  href: string;
+}
+
+/**
+ * Home 04 · Compare notes. Knowledge sharing only: a conversation, the free
+ * playbook, and following new thinking. Deliberately no consulting, pro bono,
+ * speaking or any other offer: he is employed, and those need his employer's
+ * agreement first.
+ */
 export const connectCopy = {
   eyebrow: '04 · Compare notes',
   heading: 'Thinking about the same questions?',
-  body:
-    'I’m always glad to compare notes with executives and founders working out how AI changes their organization, and to share what I’ve learned. A message on LinkedIn is the best way to reach me.',
-  cta: 'Message me on LinkedIn',
+  body: 'This site exists to share ideas. Three ways to take them further.',
+  ways: [
+    {
+      title: 'Compare notes',
+      body: 'Working through the same questions in your organisation? Send me a message. I enjoy the conversation and I’ll share what I’ve learned.',
+      label: 'Message me on LinkedIn',
+      href: 'linkedin',
+    },
+    {
+      title: 'Use the playbook',
+      body: 'Everything on this site is free to use with your team. If it helps, I’d like to hear how it went.',
+      label: 'Open the playbook',
+      href: PAGE_PATHS.playbook,
+    },
+    {
+      title: 'Follow the thinking',
+      body: 'Follow along on LinkedIn for new thinking as it takes shape, and push back where you see it differently.',
+      label: 'Follow on LinkedIn',
+      href: 'linkedin',
+    },
+  ] as ConnectWay[],
 };
 
 /** The playbook page's own intro (its H1) */
@@ -125,7 +157,7 @@ export const playbookPageCopy = {
   eyebrow: 'The playbook',
   heading: 'The OrgDesign Playbook',
   lede:
-    'How I think about designing and changing organizations, written down so anyone can use it: six principles, a six-stage method, a lens for deciding what to standardize, four models and an 18-question diagnostic.',
+    'How I think about designing and changing organisations, written down so anyone can use it: six principles, a six-stage method, a lens for deciding what to standardise, four models and an 18-question diagnostic.',
   byline: 'By Eric Yim',
 };
 
@@ -137,7 +169,7 @@ export const playbookPageCopy = {
  */
 export const playbookIndexRows: (Omit<HomeIndexRow, 'href'> & { id: string })[] = [
   { number: '01', title: 'How I think', description: 'Six principles behind the work', id: SECTION_IDS.principles },
-  { number: '02', title: 'How I work', description: 'Six stages, one evidence trail', id: SECTION_IDS.approach },
+  { number: '02', title: 'How I work', description: 'Six stages, from first question to proof it worked', id: SECTION_IDS.approach },
   {
     number: '03',
     title: 'Required, chosen or inherited?',
@@ -147,13 +179,13 @@ export const playbookIndexRows: (Omit<HomeIndexRow, 'href'> & { id: string })[] 
   {
     number: '04',
     title: 'The playbook',
-    description: 'Framework, activators, change model, AI-native design',
+    description: 'How the parts fit, what makes a design perform, how change sticks, and AI',
     id: SECTION_IDS.playbook,
   },
   {
     number: '05',
     title: 'The diagnostic',
-    description: '18 questions, scored across five dimensions, saved locally',
+    description: 'Five minutes, 18 questions, a read on where to start',
     id: SECTION_IDS.diagnostic,
   },
 ];

@@ -13,12 +13,12 @@ describe('Static Content', () => {
     const h1 = screen.getByRole('heading', { level: 1 });
     expect(h1.textContent).toBe(heroHeading);
     expect(h1.textContent).toBe(
-      'What should an organization look like when people and machines share the work?'
+      'What should an organisation look like when people and machines share the work?'
     );
     // The visitor sees a face and a name above the fold
     const byline = screen.getByTestId('hero-byline');
     expect(byline.textContent).toContain('Eric Yim');
-    expect(byline.textContent).toContain('Organization design and AI · Singapore');
+    expect(byline.textContent).toContain('Organisation design · AI transformation · Singapore');
     const avatar = byline.querySelector('img')!;
     expect(avatar.getAttribute('src')).toBe('/images/eric-yim-avatar.webp');
     // fixed dimensions reserve space before the image loads: no layout shift

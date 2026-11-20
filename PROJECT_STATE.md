@@ -63,7 +63,9 @@ Testing Library. No charting library (plain-div bars). Deploys as a static
   user input (wheel/touch/key/pointer). `verify-site` checks both.
 - **Voice:** new copy follows the operator's voice (plain, imperative, no
   "X, not Y" slogans, no em dashes). `aeo-approach.test.tsx` has a voice guard.
-  Spelling is US for consistency with the existing site and LinkedIn title.
+  Spelling is British (Nov 2026, operator's own usage); quoted titles, schema
+  type names, URLs and code identifiers keep their spelling.
+  `thought-leadership.test.tsx` and verify-site fail on US spellings in prose.
 - **Typography:** `.font-display` is defined explicitly in `src/index.css`
   (Tailwind never generated it because `--font-display` lives in `:root`, not
   `@theme`). Display numbers use lining figures. Fonts load from `index.html`
@@ -232,11 +234,11 @@ working increment.
   it); required/chosen/inherited confirmed as his coinage (DefinedTermSet
   author + creator = Person; test requires it); headshot added; copy edited
   for voice. CLS fixed by self-hosting fonts (0.064 → 0.002).
-- **Open (from the Nov 2026 review, awaiting approval):** B metadata and
-  title phrasing ("organisation design", "AI transformation"); C whether pro
-  bono can be offered (employer policy); D British spelling site-wide; E/F
-  further plain-language passes; H public, employer-free results for a proof
-  section. A (two-page split) is built.
+- **Nov 2026 review:** A–F built (two pages; search phrasing as thought
+  leadership; knowledge-sharing connect band; British spelling; plain home
+  copy; answer-first home questions). `thought-leadership.test.tsx` pins B–F.
+  **Open:** H, public employer-free results for a proof section (needs the
+  operator's facts); pro bono or speaking only if his employer agrees.
 - **After deploy:** submit the sitemap again so engines pick up `/playbook`;
   refresh the LinkedIn preview (new share card).
 - **After deploy:** refresh the LinkedIn preview via Post Inspector; add the

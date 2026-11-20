@@ -99,7 +99,7 @@ describe('FAQ answers stay in step with the content they summarise', () => {
   });
 
   test('the method answer names all six stages, in order', () => {
-    const a = answerTo(/approach an organization design engagement/);
+    const a = answerTo(/approach an organisation design engagement/);
     const positions = allStages.map((s) => a.indexOf(s.name));
     positions.forEach((p) => expect(p).toBeGreaterThanOrEqual(0));
     expect([...positions].sort((x, y) => x - y)).toEqual(positions);
@@ -107,7 +107,7 @@ describe('FAQ answers stay in step with the content they summarise', () => {
 
   test('the differences answer carries every category and its response', () => {
     const a = answerTo(/required, chosen and inherited/).toLowerCase();
-    ['required', 'chosen', 'inherited', 'stays local', 'keep it or align it', 'harmonized'].forEach(
+    ['required', 'chosen', 'inherited', 'stays local', 'keep it or align it', 'harmonised'].forEach(
       (s) => expect(a).toContain(s)
     );
   });
@@ -326,7 +326,7 @@ describe('Phase 6 — approved answer-shaped content', () => {
   test('row 2: the How I work heading is a question, answered first in 40 words or fewer', () => {
     render(<App page="playbook" />);
     const h2 = document.querySelector('#approach h2')!;
-    expect(h2.textContent).toBe('Where should an organization design start?');
+    expect(h2.textContent).toBe('Where should an organisation design start?');
     // the answer is the very first paragraph after the heading
     expect(h2.nextElementSibling!.textContent).toBe(approachCopy.answer);
     expect(approachCopy.answer.split(/\s+/).length).toBeLessThanOrEqual(40);

@@ -60,7 +60,7 @@ export function PlaybookIntro() {
               className="text-[17px] leading-[1.65] text-[var(--color-secondary)] mb-7"
               style={{ maxWidth: 560, textWrap: 'pretty' }}
             >
-              Four tools I use to design and change organizations, free to
+              Four tools I use to design and change organisations, free to
               explore. Start anywhere. Each one stands on its own.
             </p>
             <a

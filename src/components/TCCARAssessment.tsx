@@ -54,15 +54,15 @@ export function TCCARAssessment() {
             className="text-[11px] uppercase font-semibold mb-3"
             style={{ letterSpacing: '.16em', color: 'var(--color-score-green)' }}
           >
-            Healthy behaviors
+            Healthy behaviours
           </p>
           <ul className="space-y-2">
-            {activeItem.healthyBehaviors.map((behavior, i) => (
+            {activeItem.healthyBehaviors.map((behaviour, i) => (
               <li key={i} className="flex items-start gap-2 text-sm text-[var(--color-secondary)]">
                 <span className="font-bold" style={{ color: 'var(--color-score-green)' }}>
                   ✓
                 </span>
-                {behavior}
+                {behaviour}
               </li>
             ))}
           </ul>

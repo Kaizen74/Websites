@@ -139,7 +139,7 @@ export function ResultsDashboard({
             className="font-display font-bold text-[var(--color-ink)] mb-2"
             style={{ fontSize: 'clamp(32px, 4.5vw, 44px)', lineHeight: 1.12 }}
           >
-            Your organizational health snapshot
+            Your organisational health snapshot
           </h2>
           <p className="text-sm text-[var(--color-faint)]">
             Completed on {new Date(results.completedAt).toLocaleDateString()}

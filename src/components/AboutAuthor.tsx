@@ -147,7 +147,7 @@ export function AboutAuthor() {
                 src="/images/eric-yim-portrait.webp"
                 width={640}
                 height={800}
-                alt="Eric Yim, organization design strategist"
+                alt="Eric Yim, organisation design strategist"
                 loading="lazy"
                 decoding="async"
                 className="w-full h-auto"

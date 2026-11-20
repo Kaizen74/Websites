@@ -14,7 +14,7 @@ export function SiteFooter() {
       <div className="max-w-[1140px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
           <span className="text-sm text-[var(--color-faint)] text-center sm:text-left">
-            Organization design · Human-AI work partnership · Singapore
+            Organisation design · AI transformation · Singapore
           </span>
           {/* rel="me" ties this site and the profile together as one identity */}
           <a

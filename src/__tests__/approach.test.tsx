@@ -79,7 +79,7 @@ describe('03 · Required, chosen or inherited? — the logic', () => {
     expect(actions).toEqual({
       required: 'Leave it local',
       chosen: 'Decide: keep or align',
-      inherited: 'Harmonize',
+      inherited: 'Harmonise',
     });
   });
 
@@ -126,7 +126,7 @@ describe('03 · the sorter, as a visitor uses it', () => {
     answer(2, 'Yes');
     expect(within(sorter()).getByText('Decide: keep or align.')).toBeTruthy();
     answer(2, 'No');
-    expect(within(sorter()).getByText('Harmonize.')).toBeTruthy();
+    expect(within(sorter()).getByText('Harmonise.')).toBeTruthy();
   });
 
   test('changing the first answer clears the second', () => {
