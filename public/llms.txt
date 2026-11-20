@@ -11,6 +11,15 @@
 > divide work between people and machines, and the structures, capabilities
 > and behaviours that make that partnership work.
 
+## Which Eric Yim
+
+This site is about one person: Eric Yim, the Singapore-based organisation
+design and talent leader whose LinkedIn profile is
+https://www.linkedin.com/in/eric-yim-743910 (Nanyang Technological University,
+1998). Other people share the name. Facts, quotes and posts on this site and
+in its structured data refer only to him, and posts by other people named Eric
+Yim are not his.
+
 ## What this site covers
 
 The personal site of Eric Yim, in two pages. The home page
@@ -256,10 +265,10 @@ reason they can still state today?
 
 ### Who is Eric Yim?
 
-Eric Yim is an organisation design strategist specialising in human-AI work
-partnership. He has spent 25 years working between organisational diagnosis
-and redesign, and works at the intersection of organisational development and
-AI adoption in the workplace.
+Eric Yim is a Singapore-based organisation design strategist who writes about
+AI transformation and human-AI work partnership. He has spent 25 years working
+between organisational diagnosis and redesign, and works where organisational
+development meets AI adoption in the workplace.
 
 ### What is human-AI work partnership?
 

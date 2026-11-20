@@ -214,3 +214,54 @@ describe('Voice: the no-ai-slop patterns stay out of what readers see', () => {
     expect(profile.firstPersonNote).toContain('I look at how the work really runs before I look at the org chart.');
   });
 });
+
+describe('Identity: who he is, and which Eric Yim', () => {
+  const LI = `https://www.linkedin.com/in/${profile.linkedInId}`;
+  const person = (doc: string) =>
+    graphOf(doc).find((n) => n['@type'] === 'Person') as unknown as {
+      sameAs: string[];
+      disambiguatingDescription: string;
+      identifier: { propertyID: string; value: string; url: string }[];
+    };
+
+  test('"Who is Eric Yim?" answers with Singapore and AI transformation, mirrored everywhere', () => {
+    const who = faqEntries.find((e) => e.question === 'Who is Eric Yim?')!.answer;
+    expect(who).toMatch(/^Eric Yim is a Singapore-based organisation design strategist who writes about AI transformation/);
+    const ld = homeNode('FAQPage').mainEntity!.find((q) => q.name === 'Who is Eric Yim?')!;
+    expect(ld.acceptedAnswer.text).toBe(who);
+    expect(llms).toContain(who);
+  });
+
+  test.each([
+    ['home', html],
+    ['playbook', playbookHtml],
+  ])('%s page names the same person by the same identifiers', (_name, doc) => {
+    const p = person(doc);
+    expect(p.sameAs).toContain(LI);
+    expect(p.identifier).toEqual([{ '@type': 'PropertyValue', propertyID: 'LinkedIn', value: profile.linkedInId, url: LI }]);
+    expect(p.disambiguatingDescription).toBe(profile.disambiguatingDescription);
+    expect(doc).toContain(`<link rel="me" href="${LI}" />`);
+  });
+
+  test('the disambiguation uses only facts already on the site', () => {
+    const d = profile.disambiguatingDescription;
+    expect(d).toContain('Singapore');
+    expect(d).toContain(profile.worksFor);
+    expect(d).toContain(profile.linkedInId);
+    expect(d).toContain(profile.alumniOf.year);
+    // no employer data beyond his role (the boundary rule)
+    expect(d).not.toMatch(/\d{2},\d{3}|employees|countries/);
+  });
+
+  test('llms.txt says which Eric Yim the site is about, near the top', () => {
+    expect(llms).toContain('## Which Eric Yim');
+    expect(llms.indexOf('## Which Eric Yim')).toBeLessThan(llms.indexOf('## What this site covers'));
+    expect(llms).toContain(`whose LinkedIn profile is ${LI}`);
+  });
+
+  test('no talk or appearance list was added (operator decision, 2026-11-20)', () => {
+    const coverage = graphOf(html).find((n) => n['@type'] === 'Person') as unknown as { subjectOf: unknown[] };
+    expect(coverage.subjectOf).toHaveLength(2);
+    expect(llms).not.toMatch(/LearnToLead|People Matters/);
+  });
+});

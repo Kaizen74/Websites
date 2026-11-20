@@ -174,6 +174,13 @@ for (const t of ['WebPage', 'Article', 'DefinedTermSet', 'ImageObject']) {
 }
 check('crawler', 'home JSON-LD no longer claims the Article or DefinedTermSet', !graph.some((n) => ['Article', 'DefinedTermSet'].includes(n['@type'])));
 check('crawler', 'playbook Person is the home page Person, by @id', pnode('Person')['@id'] === node('Person')['@id']);
+const LI = 'https://www.linkedin.com/in/eric-yim-743910';
+for (const [name, d, n] of [['home', home, node('Person')], ['playbook', pb, pnode('Person')]]) {
+  check('crawler', `${name}: Person carries the LinkedIn identifier and sameAs (tells namesakes apart)`,
+    (n.sameAs || []).includes(LI) && (n.identifier || []).some((i) => i.value === 'eric-yim-743910' && i.url === LI)
+    && /Singapore-based organisation design and talent leader/.test(n.disambiguatingDescription || ''));
+  check('crawler', `${name}: head links the LinkedIn profile with rel="me"`, d.raw.includes(`<link rel="me" href="${LI}" />`));
+}
 check('crawler', 'WebSite.name is the person', node('WebSite').name === 'Eric Yim');
 check('crawler', 'FAQPage has 11 answers', (node('FAQPage').mainEntity || []).length === 11);
 check('crawler', 'DefinedTermSet has 3 terms, at /playbook#differences', (pnode('DefinedTermSet').hasDefinedTerm || []).length === 3
@@ -193,6 +200,7 @@ check('crawler', 'DefinedTermSet names Eric Yim as author', (pnode('DefinedTermS
 const sitemap = readFileSync(join(DIST, 'sitemap.xml'), 'utf8');
 const robots = readFileSync(join(DIST, 'robots.txt'), 'utf8');
 const llms = readFileSync(join(DIST, 'llms.txt'), 'utf8');
+check('crawler', 'llms.txt opens by saying which Eric Yim it describes', llms.indexOf('## Which Eric Yim') > 0 && llms.indexOf('## Which Eric Yim') < llms.indexOf('## What this site covers'));
 check('crawler', 'sitemap <lastmod> is date-only', /<lastmod>\d{4}-\d{2}-\d{2}<\/lastmod>/.test(sitemap));
 const locs = [...sitemap.matchAll(/<loc>([^<]*)<\/loc>/g)].map((m) => m[1]);
 check('crawler', 'sitemap lists exactly the two pages', locs.join(' ') === `${CANONICAL}/ ${CANONICAL}/playbook`, locs.join(' '));

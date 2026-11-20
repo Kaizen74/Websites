@@ -1,7 +1,7 @@
 # Graph Report - Websites  (2026-11-20)
 
 ## Corpus Check
-- 95 files · ~65,443 words
+- 95 files · ~66,151 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 13 file(s) not represented in the graph (top: .woff2 10, (none) 1, .xml 1)
 
@@ -11,7 +11,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `78643832`
+- Built from commit: `865bda2d`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -53,8 +53,8 @@
 5. `react` - 16 edges
 6. `scripts` - 15 edges
 7. `LikertValue` - 14 edges
-8. `ResultsDashboard()` - 13 edges
-9. `DiagnosticResults` - 13 edges
+8. `DiagnosticResults` - 13 edges
+9. `ResultsDashboard()` - 13 edges
 10. `getScoreColor()` - 13 edges
 
 ## Surprising Connections (you probably didn't know these)
@@ -66,8 +66,8 @@
   PROJECT_STATE.md → src/constants.ts
 - `DimensionChartProps` --references--> `DimensionScores`  [EXTRACTED]
   src/components/DimensionChart.tsx → src/types/index.ts
-- `App()` --calls--> `AboutAuthor()`  [EXTRACTED]
-  src/App.tsx → src/components/AboutAuthor.tsx
+- `QuadrantSpec` --references--> `Quadrant`  [EXTRACTED]
+  src/components/FrameworkDiagram.tsx → src/types/index.ts
 
 ## Import Cycles
 - None detected.
