@@ -10,7 +10,7 @@ export const activators: Activator[] = [
       "Clear 'anchor layer' for P&L decisions",
       "Defined 'docking stations' for global-local interaction",
       'Each layer adds unique value rather than duplicating work',
-      'Spans of control optimized for decision speed',
+      'Spans of control optimised for decision speed',
     ],
     healthySignals: [
       'Decisions made without excessive escalation',
@@ -22,7 +22,7 @@ export const activators: Activator[] = [
       "'Manager of managers' with 1-2 reports",
       'Multiple approval layers for routine decisions',
       'Unclear which level owns what decisions',
-      'Bottlenecks at specific organizational layers',
+      'Bottlenecks at specific organisational layers',
     ],
   },
   {
@@ -30,7 +30,7 @@ export const activators: Activator[] = [
     title: 'Innovation & Execution Networks',
     tagline: 'Best ideas move fast across boundaries',
     principles: [
-      'Center-led coordination (not centralized)',
+      'Center-led coordination (not centralised)',
       'Hub-and-spoke capability sharing',
       'Lift-and-shift mechanisms for scaling',
       'Communities of practice across silos',
@@ -86,7 +86,7 @@ export const activators: Activator[] = [
     ],
     healthySignals: [
       'Decisions at appropriate levels',
-      'Governance adds value, not bureaucracy',
+      'Governance adds value without adding bureaucracy',
       'Matrix relationships work smoothly',
       'Power balanced across dimensions',
     ],
@@ -104,14 +104,14 @@ export const activators: Activator[] = [
     principles: [
       'Learning agility, trust-building, influence',
       'Development through experience',
-      'Executive engagement modeling behaviors',
+      'Executive engagement modelling behaviours',
       'Comfort with ambiguity and shared power',
       'Collaborative mindset over territorial control',
     ],
     healthySignals: [
       'Leaders navigate ambiguity, build trust',
       'Influence works across reporting lines',
-      'Executives model collaborative behaviors',
+      'Executives model collaborative behaviours',
       'Leaders develop other matrix-ready leaders',
     ],
     dysfunctionSignals: [

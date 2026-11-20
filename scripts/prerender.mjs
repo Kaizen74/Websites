@@ -36,7 +36,11 @@ import { pathToFileURL } from 'node:url';
 const ROOT = resolve(process.cwd());
 const DIST = join(ROOT, 'dist');
 const SSR_ENTRY = join(ROOT, 'dist-ssr', 'entry-server.js');
-const INDEX = join(DIST, 'index.html');
+// Every document the site serves, and the page each one renders
+const PAGES = [
+  { page: 'home', file: 'index.html' },
+  { page: 'playbook', file: 'playbook.html' },
+];
 
 function fail(message, err) {
   console.error(`\n[prerender] FAILED: ${message}`);
@@ -46,8 +50,8 @@ function fail(message, err) {
   process.exit(1);
 }
 
-if (!existsSync(INDEX)) {
-  fail('dist/index.html not found — run vite build first.');
+for (const { file } of PAGES) {
+  if (!existsSync(join(DIST, file))) fail(`dist/${file} not found — run vite build first.`);
 }
 if (!existsSync(SSR_ENTRY)) {
   fail(
@@ -57,15 +61,23 @@ if (!existsSync(SSR_ENTRY)) {
 }
 
 // --- render --------------------------------------------------------------
-let markup;
+let render;
 try {
-  const { render } = await import(pathToFileURL(SSR_ENTRY).href);
+  ({ render } = await import(pathToFileURL(SSR_ENTRY).href));
   if (typeof render !== 'function') {
     throw new Error('the SSR bundle does not export a render() function');
   }
-  markup = render();
 } catch (err) {
-  fail('could not server-render the app.', err);
+  fail('could not load the SSR bundle.', err);
+}
+
+for (const { page, file } of PAGES) {
+const INDEX = join(DIST, file);
+let markup;
+try {
+  markup = render(page);
+} catch (err) {
+  fail(`could not server-render the ${page} page.`, err);
 }
 
 if (typeof markup !== 'string' || markup.trim().length < 2000) {
@@ -83,8 +95,8 @@ let html = await readFile(INDEX, 'utf8');
 const ROOT_DIV = /<div id="root">\s*<\/div>/;
 if (!ROOT_DIV.test(html)) {
   fail(
-    'could not find an empty <div id="root"></div> in dist/index.html.\n' +
-      '           Either index.html changed shape, or this build was already prerendered.'
+    `could not find an empty <div id="root"></div> in dist/${file}.\n` +
+      `           Either ${file} changed shape, or this build was already prerendered.`
   );
 }
 
@@ -104,5 +116,6 @@ await writeFile(INDEX, html, 'utf8');
 const paragraphs = (html.match(/<p[\s>]/g) || []).length;
 const kb = Math.round(Buffer.byteLength(html) / 1024);
 console.log(
-  `[prerender] wrote dist/index.html — ${kb} KB, ${paragraphs} <p> elements, #root populated`
+  `[prerender] wrote dist/${file} — ${kb} KB, ${paragraphs} <p> elements, #root populated`
 );
+}

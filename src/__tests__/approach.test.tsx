@@ -31,12 +31,10 @@ describe('01 · How I think — principles', () => {
     expect(headings.map((h) => h.textContent)).toEqual(principles.map((p) => p.title));
   });
 
-  test('every principle links to a section that exists on the home page', () => {
-    render(<App />);
+  test('every principle links to a section that exists on the playbook page', () => {
+    render(<App page="playbook" />);
     principles.forEach((p) => {
       const id = p.href.replace('#', '');
-      // the diagnostic is reached through the CTA band rather than a section id
-      if (id === 'diagnostic') return;
       expect(document.getElementById(id)).not.toBeNull();
     });
   });
@@ -81,7 +79,7 @@ describe('03 · Required, chosen or inherited? — the logic', () => {
     expect(actions).toEqual({
       required: 'Leave it local',
       chosen: 'Decide: keep or align',
-      inherited: 'Harmonize',
+      inherited: 'Harmonise',
     });
   });
 
@@ -128,7 +126,7 @@ describe('03 · the sorter, as a visitor uses it', () => {
     answer(2, 'Yes');
     expect(within(sorter()).getByText('Decide: keep or align.')).toBeTruthy();
     answer(2, 'No');
-    expect(within(sorter()).getByText('Harmonize.')).toBeTruthy();
+    expect(within(sorter()).getByText('Harmonise.')).toBeTruthy();
   });
 
   test('changing the first answer clears the second', () => {

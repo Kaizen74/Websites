@@ -45,15 +45,15 @@ const statusColor = {
  */
 function interpretation(overall: number, weakestLabel: string): string {
   if (overall >= 80) {
-    return `A strong foundation — protect what got you here, and use ${weakestLabel} as your stretch dimension.`;
+    return `A strong foundation. Protect what got you here, and use ${weakestLabel} as your stretch dimension.`;
   }
   if (overall >= 65) {
-    return `Conditionally ready for change — proceed, with named interventions on ${weakestLabel} sequenced before or alongside launch.`;
+    return `Ready for change, with conditions. Proceed, and sequence named interventions on ${weakestLabel} before or alongside launch.`;
   }
   if (overall >= 50) {
-    return `At risk — run a focused readiness sprint on ${weakestLabel} before launching major change.`;
+    return `At risk. Run a focused readiness sprint on ${weakestLabel} before launching major change.`;
   }
-  return `Foundations first — fix the fundamentals, starting with ${weakestLabel}, and re-measure in 8–12 weeks before any large-scale launch.`;
+  return `Foundations first. Fix the fundamentals, starting with ${weakestLabel}, and re-measure in 8–12 weeks before any large-scale launch.`;
 }
 
 export function ResultsDashboard({
@@ -139,7 +139,7 @@ export function ResultsDashboard({
             className="font-display font-bold text-[var(--color-ink)] mb-2"
             style={{ fontSize: 'clamp(32px, 4.5vw, 44px)', lineHeight: 1.12 }}
           >
-            Your organizational health snapshot
+            Your organisational health snapshot
           </h2>
           <p className="text-sm text-[var(--color-faint)]">
             Completed on {new Date(results.completedAt).toLocaleDateString()}
@@ -279,14 +279,14 @@ export function ResultsDashboard({
             </p>
             <p className="text-[15px] text-[var(--color-secondary)] mb-2" style={{ maxWidth: 640 }}>
               A targeted intervention for each of your two lowest-scoring
-              dimensions. Targeted beats comprehensive — never run more than two
-              interventions at once in the same population.
+              dimensions. Run no more than two interventions at once in the same
+              population.
             </p>
             {(sortedDimensions.some(([dimension]) => dimension === 'leadership') ||
               dimensionScores.leadership < 50) && (
               <p className="text-[13px] font-medium text-[var(--color-primary)] mb-2">
-                Leadership is among your weakest dimensions — sequence the
-                alignment work first; other interventions fail without it.
+                Leadership is among your weakest dimensions. Do the alignment
+                work first, because the other interventions depend on it.
               </p>
             )}
 
@@ -403,7 +403,7 @@ export function ResultsDashboard({
             {[
               {
                 n: '1',
-                text: 'Share these results with the leaders who own the weakest dimensions — alignment at the top comes before any intervention.',
+                text: 'Share these results with the leaders who own the weakest dimensions. Align at the top before any intervention starts.',
               },
               {
                 n: '2',
@@ -411,7 +411,7 @@ export function ResultsDashboard({
               },
               {
                 n: '3',
-                text: 'Export the results as your baseline and re-run the diagnostic in 3–6 months — readiness is re-measured, not assumed.',
+                text: 'Export the results as your baseline and re-run the diagnostic in 3–6 months to measure readiness again.',
               },
             ].map((step) => (
               <div key={step.n}>

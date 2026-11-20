@@ -17,7 +17,7 @@ export const DIMENSION_LABELS: Record<Dimension, string> = {
   structure: 'Structure & Accountabilities',
   people: 'People & Skills',
   process: 'Process & Systems',
-  mindset: 'Mindset & Behaviors',
+  mindset: 'Mindset & Behaviours',
   leadership: 'Leadership',
 };
 
@@ -26,7 +26,7 @@ export const QUADRANT_LABELS: Record<Quadrant, string> = {
   structure: 'Structure & Accountabilities',
   people: 'People & Skills',
   process: 'Process & Systems',
-  mindset: 'Mindset & Behaviors',
+  mindset: 'Mindset & Behaviours',
 };
 
 // Quadrant colors
@@ -73,8 +73,48 @@ export const STORAGE_KEYS = {
 export const MAX_COHORT_SIZE = 20;
 
 // Section IDs for navigation
+/**
+ * The site's two documents. Each has its own HTML file (index.html,
+ * playbook.html), its own head and structured data, and is prerendered
+ * separately. The app reads the page from the URL path; anchors and
+ * hash-driven views (#diagnostic, #results, #cohort) work on both.
+ */
+export type Page = 'home' | 'playbook';
+
+export const PAGE_PATHS: Record<Page, string> = {
+  home: '/',
+  playbook: '/playbook',
+};
+
+/** Which page a URL path shows: /playbook, /playbook/ and /playbook.html */
+export function pageFromPath(pathname: string): Page {
+  return /^\/playbook(\.html)?\/?$/.test(pathname) ? 'playbook' : 'home';
+}
+
+/**
+ * Anchors that exist only on the playbook page, plus the hash-driven views
+ * (the diagnostic and its results), which run there. The home page forwards
+ * these to /playbook so links shared before the split keep working.
+ */
+export const PLAYBOOK_ONLY_HASHES = [
+  'approach', 'differences', 'framework', 'activators', 'change-levers',
+  'ai-native', 'diagnostic', 'survey', 'results', 'cohort',
+].map((id) => `#${id}`);
+
+/** Where the home page sends a hash that lives on the playbook, or null */
+export function forwardToPlaybook(page: Page, hash: string): string | null {
+  return page === 'home' && PLAYBOOK_ONLY_HASHES.includes(hash)
+    ? `${PAGE_PATHS.playbook}${hash}`
+    : null;
+}
+
+/** A link to an anchor on the playbook page, from either page */
+export const playbookHref = (id: string) => `${PAGE_PATHS.playbook}#${id}`;
+
 export const SECTION_IDS = {
   hero: 'hero',
+  questions: 'questions',
+  connect: 'connect',
   principles: 'principles',
   approach: 'approach',
   differences: 'differences',

@@ -82,7 +82,7 @@ export const COPYRIGHT_YEAR = CONTENT_LAST_MODIFIED.slice(0, 4);
 export const profile = {
   name: 'Eric Yim',
   /** Primary entity claim — how search and answer engines should classify him */
-  jobTitle: 'Organization Design Strategist',
+  jobTitle: 'Organisation Design Strategist',
   /**
    * Every title this person is described by across sources. Emitted as a
    * schema.org jobTitle array so entity-resolution engines see the site,
@@ -90,7 +90,7 @@ export const profile = {
    * conflict. Order matters: the positioning claim leads.
    */
   jobTitles: [
-    'Organization Design Strategist',
+    'Organisation Design Strategist',
     'Global Head of OD and Talent',
     'Global OD, OE and Talent Leader',
   ],
@@ -111,10 +111,10 @@ export const profile = {
    * is the entity definition. Length is enforced by host-canonical.test.ts.
    */
   metaDescription:
-    'Eric Yim is an organization design strategist specializing in human-AI work partnership: how organizations divide work between people and machines.',
+    'Eric Yim writes about organisation design and AI transformation from Singapore: how organisations should change when people and machines share the work.',
   /** Full entity definition — used in JSON-LD and the visible About section */
   description:
-    'Eric Yim is an organization design strategist specializing in human-AI work partnership — designing how organizations divide work between people and machines, and the structures, capabilities and behaviors that make that partnership work.',
+    'Eric Yim is a Singapore-based organisation design strategist who writes about AI transformation and human-AI work partnership: how organisations divide work between people and machines, and the structures, capabilities and behaviours that make that partnership work.',
   /**
    * One-line experience proof shown in the curated About section. The full
    * `bio` and `career` below remain the machine-facing record (llms.txt and
@@ -128,12 +128,12 @@ export const profile = {
    * is voice, not a factual claim.
    */
   firstPersonNote:
-    'I came to organization design through corporate banking and the public sector, and later studied business and organizational anthropology. That route left me with a habit I still rely on. I look at how the work really runs before I look at the org chart.',
+    'I came to organisation design through corporate banking and the public sector, and later studied business and organisational anthropology. That route left me with a habit I still rely on. I look at how the work really runs before I look at the org chart.',
   experienceSummary:
-    '25 years in organizational development — across Shell, Cargill, L’Oréal and the Singapore public sector.',
+    '25 years in organisational development, across Shell, Cargill, L’Oréal and the Singapore public sector.',
   /** Longer bio. Every clause is sourced from the two features below. */
   bio:
-    'Eric Yim has spent 25 years in the gap between diagnosing an organization and redesigning it. He graduated from Nanyang Technological University in 1998 specializing in financial analysis, began in corporate banking, and moved into organizational development through the public sector — an unusual route that gave him a systems view of organizations. He has since led organization development and effectiveness work at L’Oréal, Shell and Cargill across Asia-Pacific, EMEA and the Middle East, and is now Global Head of OD and Talent at SATS Ltd. in Singapore, working at the intersection of organizational development and AI adoption in the workplace.',
+    'Eric Yim has spent 25 years in the gap between diagnosing an organisation and redesigning it. He graduated from Nanyang Technological University in 1998 specialising in financial analysis, began in corporate banking, and moved into organisational development through the public sector, an unusual route that gave him a systems view of organisations. He has since led organisation development and effectiveness work at L’Oréal, Shell and Cargill across Asia-Pacific, EMEA and the Middle East, and is now Global Head of OD and Talent at SATS Ltd. in Singapore, working at the intersection of organisational development and AI adoption in the workplace.',
   alumniOf: {
     name: 'Nanyang Technological University Singapore',
     shortName: 'Nanyang Technological University',
@@ -157,7 +157,7 @@ export const profile = {
   ],
   /**
    * Awards, most recent first. Verified from LinkedIn. Each names the awarding
-   * programme, tier, category, year and the organization the work was done in
+   * programme, tier, category, year and the organisation the work was done in
    * — accurate attribution matters more than a bigger-sounding claim.
    */
   awards: [
@@ -166,11 +166,13 @@ export const profile = {
   ],
   /** Topical entity associations for knowledge-graph disambiguation */
   knowsAbout: [
-    'Organization Design',
+    'Organisation Design',
+    // His own words on LinkedIn: "leading people with AI transformation"
+    'AI Transformation',
     'Human-AI Work Partnership',
-    'Organizational Development',
+    'Organisational Development',
     'Operating Model Design',
-    'Organizational Capability',
+    'Organisational Capability',
     'Change Management',
     'Workforce Transformation',
     'Job Redesign',
@@ -178,6 +180,8 @@ export const profile = {
     'Strategy Execution',
     'Leadership Development',
     'Diversity and Inclusion',
+    // US spelling of the first topic, so a search in either spelling matches
+    'Organization Design',
   ],
   /**
    * The subset shown as chips in the About section. `knowsAbout` above stays
@@ -185,12 +189,12 @@ export const profile = {
    * section from becoming a tag cloud. Must be a subset — enforced by test.
    */
   featuredTopics: [
-    'Organization Design',
+    'Organisation Design',
+    'AI Transformation',
     'Human-AI Work Partnership',
     'Operating Model Design',
     'Change Management',
     'Job Redesign',
-    'AI Adoption in the Workplace',
   ],
 } as const;
 
@@ -254,7 +258,7 @@ export const ownedProfiles: ReferenceArticle[] = [
 export const credentials: CredentialEntry[] = [
   {
     label: 'Nanyang Technological University · 1998',
-    detail: 'Bachelor of Business, specializing in financial analysis.',
+    detail: 'Bachelor of Business, specialising in financial analysis.',
   },
   {
     label: 'University of North Texas · 2022',
@@ -262,7 +266,7 @@ export const credentials: CredentialEntry[] = [
   },
   {
     label: 'Certified Prompt Engineer™',
-    detail: 'Applied to organizational development practice.',
+    detail: 'Applied to organisational development practice.',
   },
 ];
 
@@ -313,56 +317,61 @@ export const faqEntries: FaqEntry[] = [
   {
     question: 'Who is Eric Yim?',
     answer:
-      'Eric Yim is an organization design strategist specializing in human-AI work partnership. He has spent 25 years working between organizational diagnosis and redesign, and works at the intersection of organizational development and AI adoption in the workplace.',
+      'Eric Yim is an organisation design strategist specialising in human-AI work partnership. He has spent 25 years working between organisational diagnosis and redesign, and works at the intersection of organisational development and AI adoption in the workplace.',
   },
   {
     question: 'What is human-AI work partnership?',
     answer:
-      'Human-AI work partnership is the deliberate design of how people and machines share work at the task level. Rather than asking which jobs AI replaces, it asks which tasks move to the machine, which stay human, and what that reassignment does to roles, spans, decision rights and the operating model.',
+      'Human-AI work partnership is the deliberate design of how people and machines share work at the task level. It asks which tasks move to the machine, which stay human, and what that reassignment does to roles, spans, decision rights and the operating model.',
   },
   {
-    question: 'What does an organization design strategist do?',
+    question: 'What does an organisation design strategist do?',
     answer:
-      'An organization design strategist aligns an organization’s structure and accountabilities, people and skills, process and systems, and mindset and behaviors so it can execute its strategy. The work spans diagnosis, operating model design, and the change activation needed to make a new design real.',
+      'An organisation design strategist aligns an organisation’s structure and accountabilities, people and skills, process and systems, and mindset and behaviours so it can execute its strategy. The work spans diagnosis, operating model design, and the change activation needed to make a new design real.',
   },
   {
-    question: 'How does AI change organization design?',
+    question: 'How does AI change organisation design?',
     answer:
       'AI redesigns the work, not the chart. It moves the unit of design from the org chart to the task. Each task goes on a ladder from manual to reinvented, and a person reviews every machine judgement before it reaches a decision-maker. Structure follows work, and work is now shared with machines.',
   },
   {
+    question: 'How does Eric Yim think about AI transformation?',
+    answer:
+      'As organisation design work. The tools matter less than how work, roles and decisions are redesigned around them. He starts from the task, asks why units work differently before standardising anything, and keeps a person accountable for every machine judgement that reaches a decision.',
+  },
+  {
     question: 'What is Eric Yim’s background?',
     answer:
-      'Eric Yim graduated from Nanyang Technological University in 1998 with a Bachelor of Business specializing in financial analysis, and began his career in corporate banking at Mizuho. He moved into organizational development through the Civil Service College, then held organization development and effectiveness roles at L’Oréal, Shell and Cargill before becoming Global Head of OD and Talent at SATS Ltd.',
+      'Eric Yim graduated from Nanyang Technological University in 1998 with a Bachelor of Business specialising in financial analysis, and began his career in corporate banking at Mizuho. He moved into organisational development through the Civil Service College, then held organisation development and effectiveness roles at L’Oréal, Shell and Cargill before becoming Global Head of OD and Talent at SATS Ltd.',
   },
   {
     question: 'Where does Eric Yim work?',
     answer:
-      'Eric Yim is Global Head of OD and Talent at SATS Ltd. in Singapore, which he joined in December 2024. He previously spent over nine years at Shell in global and regional organizational development leadership roles, and four years at Cargill in organization effectiveness consulting.',
+      'Eric Yim is Global Head of OD and Talent at SATS Ltd. in Singapore, which he joined in December 2024. He previously spent over nine years at Shell in global and regional organisational development leadership roles, and four years at Cargill in organisation effectiveness consulting.',
   },
   {
     question: 'Why does Eric Yim say AI is a multiplier and not a shortcut?',
     answer:
-      'Because a multiplier amplifies whatever expertise already exists — and zero multiplied by any number is still zero. AI is most valuable to people with deep domain expertise to amplify, not to those merely quickest to adopt the tools. The discipline is discerning the right time and place to use AI.',
+      'Because a multiplier amplifies whatever expertise already exists, and zero multiplied by any number is still zero. AI adds most for people with deep domain expertise to amplify. Being quickest to adopt the tools counts for less. The discipline is discerning the right time and place to use AI.',
   },
   {
     question: 'What principles guide Eric Yim’s work?',
     // Built from src/data/principles.ts so the answer cannot drift from the page
-    answer: `Eric Yim works from six principles: ${principleList()}. Each one maps to a part of his organizational design playbook.`,
+    answer: `Eric Yim works from six principles: ${principleList()}. Each one maps to a part of his organisational design playbook.`,
   },
   {
-    question: 'How does Eric Yim approach an organization design engagement?',
+    question: 'How does Eric Yim approach an organisation design engagement?',
     answer:
       'Eric Yim works in six stages: Frame, Focus, Find, Decide, Design and Deliver. The first three establish what is true: the criteria the design will be judged on, where capability is weak where the money is made, and how the work really runs and who really decides. In the last three, leaders decide what should be one way everywhere and how much AI should do, compare structure, role and system options against the agreed criteria, and check regularly that capability is rising.',
   },
   {
     question: 'What are required, chosen and inherited differences?',
     answer:
-      'Required, chosen and inherited are Eric Yim’s three labels for why the same work ends up done differently across markets, sites or acquired units. A required difference is imposed by regulation, a customer contract or the physical site, so it stays local. A chosen difference was a deliberate local decision, so leaders decide whether to keep it or align it. An inherited difference came from history, an acquisition or habit and nobody decided it, so it should be harmonized. Two questions sort any difference: is it required, and was it decided on purpose?',
+      'Required, chosen and inherited are Eric Yim’s three labels for why the same work ends up done differently across markets, sites or acquired units. A required difference is imposed by regulation, a customer contract or the physical site, so it stays local. A chosen difference was a deliberate local decision, so leaders decide whether to keep it or align it. An inherited difference came from history, an acquisition or habit and nobody decided it, so it should be harmonised. Two questions sort any difference: is it required, and was it decided on purpose?',
   },
 ];
 
-/** "a system, not a report; …; and say what you know, and how you know it" */
+/** "every diagnosis ends in a plan; …; and say what you know, and how you know it" */
 function principleList(): string {
   const names = principleNames.map((n) => (n.startsWith('AI ') ? n : n[0].toLowerCase() + n.slice(1)));
   return `${names.slice(0, -1).join('; ')}; and ${names[names.length - 1]}`;

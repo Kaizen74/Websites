@@ -4,6 +4,7 @@ import { render } from '@testing-library/react';
 import App from '../App';
 import { profile, faqEntries, SITE_URL } from '../data/profile';
 import { principles, principleNames } from '../data/principles';
+import { exploringQuestions, heroHeading, homePrinciplesCopy } from '../data/home';
 import { allStages, differenceCategories, evidenceGrades } from '../data/approach';
 
 /**
@@ -37,6 +38,12 @@ const graph: LdNode[] = JSON.parse(
   html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)![1]
 )['@graph'];
 const nodeOfType = (t: string): LdNode => graph.find((n) => n["@type"] === t)!;
+// The playbook page carries the method's own nodes (Article, DefinedTermSet)
+const playbookHtml = readFileSync(join(ROOT, 'playbook.html'), 'utf8');
+const playbookGraph: LdNode[] = JSON.parse(
+  playbookHtml.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)![1]
+)['@graph'];
+const playbookNode = (t: string): LdNode => playbookGraph.find((n) => n['@type'] === t)!;
 const answerTo = (q: RegExp) => faqEntries.find((e) => q.test(e.question))!.answer;
 
 describe('Site name is the person', () => {
@@ -53,7 +60,12 @@ describe('Site name is the person', () => {
 });
 
 describe('Required / chosen / inherited as a DefinedTermSet', () => {
-  const set = nodeOfType('DefinedTermSet');
+  const set = playbookNode('DefinedTermSet');
+
+  test('lives on the playbook page, where the lens is, not on the home page', () => {
+    expect(nodeOfType('DefinedTermSet')).toBeUndefined();
+    expect(set).toBeDefined();
+  });
 
   test('one term per category, name and definition verbatim from the data', () => {
     expect(set.hasDefinedTerm).toHaveLength(differenceCategories.length);
@@ -68,8 +80,8 @@ describe('Required / chosen / inherited as a DefinedTermSet', () => {
   });
 
   test('points at the on-page section and the canonical host', () => {
-    expect(set.url).toBe(`${SITE_URL}/#differences`);
-    expect(set['@id']?.startsWith(`${SITE_URL}/`)).toBe(true);
+    expect(set.url).toBe(`${SITE_URL}/playbook#differences`);
+    expect(set['@id']?.startsWith(`${SITE_URL}/playbook#`)).toBe(true);
   });
 
   test('names Eric Yim as author and creator of the lens', () => {
@@ -87,7 +99,7 @@ describe('FAQ answers stay in step with the content they summarise', () => {
   });
 
   test('the method answer names all six stages, in order', () => {
-    const a = answerTo(/approach an organization design engagement/);
+    const a = answerTo(/approach an organisation design engagement/);
     const positions = allStages.map((s) => a.indexOf(s.name));
     positions.forEach((p) => expect(p).toBeGreaterThanOrEqual(0));
     expect([...positions].sort((x, y) => x - y)).toEqual(positions);
@@ -95,27 +107,47 @@ describe('FAQ answers stay in step with the content they summarise', () => {
 
   test('the differences answer carries every category and its response', () => {
     const a = answerTo(/required, chosen and inherited/).toLowerCase();
-    ['required', 'chosen', 'inherited', 'stays local', 'keep it or align it', 'harmonized'].forEach(
+    ['required', 'chosen', 'inherited', 'stays local', 'keep it or align it', 'harmonised'].forEach(
       (s) => expect(a).toContain(s)
     );
   });
 });
 
 describe('Speakable regions resolve to real content', () => {
-  test('the principles are a speakable region, and the selector matches six headings', () => {
+  test('home: every ProfilePage selector matches, and the three home principles are speakable', () => {
     const selectors: string[] = nodeOfType('ProfilePage').speakable?.cssSelector ?? [];
     expect(selectors).toContain('#principles h3');
     render(<App />);
+    selectors.forEach((sel) => expect(document.querySelectorAll(sel).length).toBeGreaterThan(0));
+    expect(document.querySelectorAll('#principles h3')).toHaveLength(homePrinciplesCopy.numbers.length);
+  });
+
+  test('playbook: every WebPage selector matches, and all six principles are speakable', () => {
+    const selectors: string[] = playbookNode('WebPage').speakable?.cssSelector ?? [];
+    expect(selectors).toContain('#principles h3');
+    render(<App page="playbook" />);
     selectors.forEach((sel) => expect(document.querySelectorAll(sel).length).toBeGreaterThan(0));
     expect(document.querySelectorAll('#principles h3')).toHaveLength(principles.length);
   });
 });
 
 describe('llms.txt carries the new content', () => {
-  test('section index links every new section on the canonical host', () => {
-    ['#principles', '#approach', '#differences', '#playbook'].forEach((a) =>
-      expect(llms).toContain(`${SITE_URL}/${a}`)
+  test('section index links every section on the page that holds it', () => {
+    ['#principles', '#approach', '#differences', '#playbook', '#diagnostic'].forEach((a) =>
+      expect(llms).toContain(`${SITE_URL}/playbook${a}`)
     );
+    ['#questions', '#connect', '#about'].forEach((a) => expect(llms).toContain(`${SITE_URL}/${a}`));
+    // no link points at a home-page anchor that moved to the playbook
+    ['approach', 'differences', 'framework', 'ai-native', 'diagnostic'].forEach((id) =>
+      expect(llms).not.toContain(`${SITE_URL}/#${id}`)
+    );
+  });
+
+  test('the three questions on the home page are stated with where his thinking stands', () => {
+    exploringQuestions.forEach((q) => {
+      expect(llms).toContain(`### ${q.question}`);
+      expect(llms).toContain(q.body);
+    });
   });
 
   test('every principle, stage, evidence grade and difference category is stated', () => {
@@ -143,7 +175,9 @@ describe('Share card (Phase 4 gate, kept true after the refresh)', () => {
     expect(nodeOfType('ImageObject').caption).toBe(og);
     // and it describes what the card actually says
     expect(og).toContain(profile.name);
-    expect(og).toMatch(/I design organizations as systems that leaders can run\./);
+    expect(og).toContain(heroHeading);
+    // the playbook page shares the same card, described the same way
+    expect(playbookHtml).toContain(`<meta property="og:image:alt" content="${og}" />`);
   });
 
   test('the card source mirrors the live design tokens', () => {
@@ -290,9 +324,9 @@ describe('Phase 6 — approved answer-shaped content', () => {
   /* eslint-enable @typescript-eslint/no-require-imports */
 
   test('row 2: the How I work heading is a question, answered first in 40 words or fewer', () => {
-    render(<App />);
+    render(<App page="playbook" />);
     const h2 = document.querySelector('#approach h2')!;
-    expect(h2.textContent).toBe('Where should an organization design start?');
+    expect(h2.textContent).toBe('Where should an organisation design start?');
     // the answer is the very first paragraph after the heading
     expect(h2.nextElementSibling!.textContent).toBe(approachCopy.answer);
     expect(approachCopy.answer.split(/\s+/).length).toBeLessThanOrEqual(40);
@@ -302,7 +336,7 @@ describe('Phase 6 — approved answer-shaped content', () => {
   test('rows 2-8: every answer heading is a question, answered by the very next element in 40 words or fewer', () => {
     /* eslint-disable-next-line @typescript-eslint/no-require-imports */
     const { pageAnswers } = require('../data/answers');
-    render(<App />);
+    render(<App page="playbook" />);
     expect(pageAnswers).toHaveLength(7);
     pageAnswers.forEach((a: { anchor: string; question: string; answer: string }) => {
       expect(a.question.endsWith('?')).toBe(true);
@@ -331,7 +365,7 @@ describe('Phase 6 — approved answer-shaped content', () => {
   });
 
   test('row 1 was rejected: the principles heading stays editorial', () => {
-    render(<App />);
+    render(<App page="playbook" />);
     expect(document.querySelector('#principles h2')!.textContent).toBe('Six principles behind the work');
   });
 
@@ -343,7 +377,7 @@ describe('Phase 6 — approved answer-shaped content', () => {
   });
 
   test('the differences section says how the lens sets the order of the work', () => {
-    render(<App />);
+    render(<App page="playbook" />);
     const text = document.getElementById('differences')!.textContent!;
     expect(text).toContain(differencesCopy.sequencing);
     expect(llms).toContain('The three also set the order of the work.');

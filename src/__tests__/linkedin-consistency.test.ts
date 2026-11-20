@@ -52,7 +52,7 @@ describe('Site entity is consistent with the LinkedIn profile', () => {
 
   test('jobTitle set reconciles the site positioning with LinkedIn and the press', () => {
     // The site leads with its chosen positioning…
-    expect(profile.jobTitles[0]).toBe('Organization Design Strategist');
+    expect(profile.jobTitles[0]).toBe('Organisation Design Strategist');
     // …but must also carry the titles LinkedIn and the features use, so the
     // entity corroborates instead of conflicting.
     expect(profile.jobTitles).toContain(LINKEDIN.headline);

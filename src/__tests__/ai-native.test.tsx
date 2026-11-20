@@ -5,7 +5,7 @@ import { descentSteps, aiLevels, scoringZones } from '../data/aiNative';
 describe('AI-native design section', () => {
   test('renders the section headline', () => {
     render(<AiNativeSection />);
-    expect(screen.getByRole('heading', { level: 2, name: 'How does AI change organization design?' })).toBeTruthy();
+    expect(screen.getByRole('heading', { level: 2, name: 'How does AI change organisation design?' })).toBeTruthy();
   });
 
   test('renders the four descent labels in order', () => {

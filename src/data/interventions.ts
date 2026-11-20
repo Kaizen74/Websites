@@ -11,11 +11,11 @@ export const changeLevers: ChangeLever[] = [
   {
     id: 1,
     title: 'COMMUNICATE',
-    goal: "Move from 'telling' to 'visualizing'",
+    goal: "Move from 'telling' to 'visualising'",
     method: 'Destination Postcard - visual blueprints that paint the future state',
     tool: 'Transformation Portal (single source of truth)',
     description:
-      'Create compelling narratives and visual representations of the desired future state. Use storytelling and imagery to help people see themselves in the new organization.',
+      'Create compelling narratives and visual representations of the desired future state. Use storytelling and imagery to help people see themselves in the new organisation.',
   },
   {
     id: 2,
@@ -23,16 +23,16 @@ export const changeLevers: ChangeLever[] = [
     goal: 'Enlist stakeholders to reduce resistance',
     method: 'Scenario-Based Sprints - stress-test designs before go-live',
     description:
-      'Engage employees at all levels in designing the new organization. Use rapid prototyping and iteration to test ideas. Align with Agile Change Management principles.',
+      'Engage employees at all levels in designing the new organisation. Use rapid prototyping and iteration to test ideas. Align with Agile Change Management principles.',
   },
   {
     id: 3,
     title: 'CADENCE',
-    goal: 'Align goals and embed new behaviors into daily rhythm',
+    goal: 'Align goals and embed new behaviours into daily rhythm',
     method: 'Goal-setting alignment; T.C.C.A.R. Integration (Trust, Conflict, Commitment, Accountability, Results)',
     tool: 'Flash Pulse Checks after key meetings',
     description:
-      'Establish regular rhythms and rituals that reinforce desired behaviors. Use quick feedback loops to maintain momentum and course-correct as needed.',
+      'Establish regular rhythms and rituals that reinforce desired behaviours. Use quick feedback loops to maintain momentum and course-correct as needed.',
   },
 ];
 
@@ -92,7 +92,7 @@ export const tccarItems: TCCARItem[] = [
   {
     id: 'accountability',
     title: 'Accountability',
-    description: 'Team members hold each other to high standards and call out behavior issues',
+    description: 'Team members hold each other to high standards and call out behaviour issues',
     healthyBehaviors: [
       'Poor performers feel pressure to improve',
       'Quick identification of potential problems',
@@ -112,7 +112,7 @@ export const tccarItems: TCCARItem[] = [
     description: 'Collective focus on outcomes over individual ego, career advancement, or department goals',
     healthyBehaviors: [
       'Retention of achievement-oriented employees',
-      'Individual ego minimized',
+      'Individual ego minimised',
       'Team celebrates collective wins',
       'Rarely fails to achieve objectives',
     ],
@@ -132,7 +132,7 @@ export const playbookModules: PlaybookModule[] = [
     id: 'structure-roles',
     quadrant: 'structure',
     title: 'Role Clarity & RACI',
-    description: 'Define clear roles, responsibilities, and decision rights across the organization',
+    description: 'Define clear roles, responsibilities, and decision rights across the organisation',
     interventions: [
       'RACI matrix development',
       'Job architecture design',
@@ -143,21 +143,21 @@ export const playbookModules: PlaybookModule[] = [
   {
     id: 'structure-layers',
     quadrant: 'structure',
-    title: 'Spans & Layers Optimization',
+    title: 'Spans & Layers Optimisation',
     description: 'Right-size reporting relationships for agility and effectiveness',
     interventions: [
       'Span of control analysis',
       'Delayering assessment',
       'Manager effectiveness audit',
     ],
-    tools: ['Span Calculator', 'Org Chart Analyzer', 'Layers Benchmark Tool'],
+    tools: ['Span Calculator', 'Org Chart Analyser', 'Layers Benchmark Tool'],
   },
   // People Quadrant
   {
     id: 'people-skills',
     quadrant: 'people',
     title: 'Skills & Capability Building',
-    description: 'Develop the competencies needed for the future organization',
+    description: 'Develop the competencies needed for the future organisation',
     interventions: [
       'Skills gap analysis',
       'Learning pathway design',
@@ -173,7 +173,7 @@ export const playbookModules: PlaybookModule[] = [
     interventions: [
       'Demand forecasting',
       'Location strategy',
-      'Contingent workforce optimization',
+      'Contingent workforce optimisation',
     ],
     tools: ['Workforce Model', 'Location Scorecard', 'Talent Flow Analysis'],
   },
@@ -182,10 +182,10 @@ export const playbookModules: PlaybookModule[] = [
     id: 'process-workflows',
     quadrant: 'process',
     title: 'Workflow & Handoff Design',
-    description: 'Streamline cross-functional processes and eliminate friction points',
+    description: 'Simplify cross-functional processes and remove the points where work stalls',
     interventions: [
       'Process mapping and redesign',
-      'Handoff optimization',
+      'Handoff optimisation',
       'Automation opportunity identification',
     ],
     tools: ['Process Canvas', 'Handoff Checklist', 'Automation Readiness Assessment'],
@@ -194,7 +194,7 @@ export const playbookModules: PlaybookModule[] = [
     id: 'process-performance',
     quadrant: 'process',
     title: 'Performance Management',
-    description: 'Align individual performance with organizational objectives',
+    description: 'Align individual performance with organisational objectives',
     interventions: [
       'OKR implementation',
       'Continuous feedback systems',
@@ -207,19 +207,19 @@ export const playbookModules: PlaybookModule[] = [
     id: 'mindset-culture',
     quadrant: 'mindset',
     title: 'Culture & Ways of Working',
-    description: 'Shape behaviors and norms that support the desired organization',
+    description: 'Shape behaviours and norms that support the desired organisation',
     interventions: [
       'Culture diagnostic and design',
-      'Behavioral norm setting',
+      'Behavioural norm setting',
       'Ritual and ceremony design',
     ],
-    tools: ['Culture Canvas', 'Behavior Cards', 'Ritual Playbook'],
+    tools: ['Culture Canvas', 'Behaviour Cards', 'Ritual Playbook'],
   },
   {
     id: 'mindset-leadership',
     quadrant: 'mindset',
     title: 'Leadership Development',
-    description: 'Build leaders who can navigate and drive organizational change',
+    description: 'Build leaders who can navigate and drive organisational change',
     interventions: [
       'Leadership assessment',
       'Executive coaching',
@@ -233,7 +233,7 @@ export const quadrantDetails: QuadrantDetail[] = [
   {
     id: 'structure',
     title: 'Structure & Accountabilities',
-    summary: 'Who owns what — roles, layers, and the decision rights that let work move.',
+    summary: 'Who owns what: roles, layers and the decision rights that let work move.',
     items: [
       'Roles & Responsibilities',
       'Spans, Layers & Reporting Lines',
@@ -244,14 +244,14 @@ export const quadrantDetails: QuadrantDetail[] = [
   {
     id: 'people',
     title: 'People & Skills',
-    summary: 'Whether the organization has — or can build — the capabilities its strategy demands.',
+    summary: 'Whether the organisation has, or can build, the capabilities its strategy demands.',
     items: ['Workforce Size & Location', 'Diversity', 'Knowledge & Skills'],
     color: 'var(--quad-people)',
   },
   {
     id: 'process',
     title: 'Process & Systems',
-    summary: 'How work actually flows — handoffs, tools, goals, and operating rhythm.',
+    summary: 'How work actually flows: handoffs, tools, goals and operating rhythm.',
     items: [
       'Performance Management',
       'Workflows & Handoffs',
@@ -262,8 +262,8 @@ export const quadrantDetails: QuadrantDetail[] = [
   },
   {
     id: 'mindset',
-    title: 'Mindset & Behaviors',
-    summary: 'The daily behaviors, habits, and conversations that make the design real.',
+    title: 'Mindset & Behaviours',
+    summary: 'The daily behaviours, habits, and conversations that make the design real.',
     items: ['Ways of Working', 'Comms & Engagement', 'Habits'],
     color: 'var(--quad-mindset)',
   },
@@ -276,7 +276,7 @@ export const dimensionInterventions: Record<Dimension, DimensionIntervention> = 
   structure: {
     title: 'Re-contract ownership & decision rights',
     description:
-      'Move activation accountability to named business leaders and make decision rights explicit — who decides, who is consulted, who executes.',
+      'Move activation accountability to named business leaders and make decision rights explicit: who decides, who is consulted, who executes.',
     timeframe: '2–3 weeks',
   },
   people: {

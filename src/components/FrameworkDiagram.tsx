@@ -35,7 +35,7 @@ const quadrantSpecs: QuadrantSpec[] = [
   },
   {
     id: 'mindset',
-    lines: ['Mindset &', 'Behaviors'],
+    lines: ['Mindset &', 'Behaviours'],
     radius: '0 0 0 100%',
     labelCenter: { left: '43%', top: '60%' },
     color: 'var(--quad-mindset)',

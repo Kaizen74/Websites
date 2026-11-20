@@ -13,6 +13,11 @@ export interface Principle {
   body: string;
   /** Anchor of the section that proves the principle */
   href: string;
+  /**
+   * Plainer wording for the home page, where a principle's own body would use
+   * a playbook label (the evidence grades). The playbook shows `body`.
+   */
+  plainBody?: string;
   linkLabel: string;
 }
 
@@ -42,7 +47,7 @@ export const principles: Principle[] = [
   },
   {
     number: '03',
-    title: 'Ask why before you harmonize.',
+    title: 'Ask why before you harmonise.',
     body:
       'When two parts of a business work differently, find out why first. Some differences are required, some were chosen and some were inherited. Each needs a different decision.',
     href: '#differences',
@@ -69,6 +74,8 @@ export const principles: Principle[] = [
     title: 'Say what you know, and how you know it.',
     body:
       'Grade every finding as confirmed, indicated or a hypothesis. Admitting a gap is honest; a guess becomes a false finding.',
+    plainBody:
+      'Be clear about how sure you are. Act on what has been checked, take care with what is only likely, and say “we don’t know yet” before you guess.',
     href: '#approach',
     linkLabel: 'See how I grade evidence',
   },

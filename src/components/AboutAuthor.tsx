@@ -147,7 +147,7 @@ export function AboutAuthor() {
                 src="/images/eric-yim-portrait.webp"
                 width={640}
                 height={800}
-                alt="Eric Yim, organization design strategist"
+                alt="Eric Yim, organisation design strategist"
                 loading="lazy"
                 decoding="async"
                 className="w-full h-auto"
@@ -176,25 +176,36 @@ export function AboutAuthor() {
               Common questions
             </p>
             <div style={{ borderTop: '1px solid var(--color-hairline)' }}>
+              {/* Disclosure panels keep the page short; every answer stays in the
+                  HTML, so crawlers and the FAQPage markup still see it */}
               {faqEntries.map((entry) => (
-                <div
+                <details
                   key={entry.question}
-                  className="py-5"
+                  className="faq-item group"
                   style={{ borderBottom: '1px solid var(--color-hairline)' }}
                 >
-                  <h3
-                    className="font-display font-bold text-[var(--color-ink)] mb-1.5"
-                    style={{ fontSize: 19, lineHeight: 1.25 }}
-                  >
-                    {entry.question}
-                  </h3>
+                  <summary className="flex items-start justify-between gap-4 py-5 cursor-pointer list-none">
+                    <h3
+                      className="font-display font-bold text-[var(--color-ink)] group-hover:text-[var(--color-primary)] transition-colors"
+                      style={{ fontSize: 19, lineHeight: 1.25 }}
+                    >
+                      {entry.question}
+                    </h3>
+                    <span
+                      aria-hidden="true"
+                      className="faq-marker font-display text-[var(--color-primary)] flex-shrink-0"
+                      style={{ fontSize: 22, lineHeight: 1 }}
+                    >
+                      +
+                    </span>
+                  </summary>
                   <p
-                    className="text-[var(--color-secondary)]"
+                    className="text-[var(--color-secondary)] pb-5"
                     style={{ fontSize: 14.5, lineHeight: 1.6, textWrap: 'pretty' }}
                   >
                     {entry.answer}
                   </p>
-                </div>
+                </details>
               ))}
             </div>
           </div>

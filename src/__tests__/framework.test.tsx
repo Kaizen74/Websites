@@ -76,7 +76,7 @@ describe('FrameworkSection (homepage — educational, never scored)', () => {
   test('shows the overview narrative by default, before any quadrant is clicked', () => {
     render(<FrameworkSection />);
     expect(screen.getByTestId('framework-overview')).toBeTruthy();
-    expect(screen.getByText(/One integrated system, not four separate fixes/i)).toBeTruthy();
+    expect(screen.getByText(/Four domains that move as one system/i)).toBeTruthy();
     expect(screen.queryByTestId('quadrant-detail-panel')).toBeNull();
   });
 

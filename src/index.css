@@ -157,10 +157,15 @@ body {
   font-variant-numeric: lining-nums;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-display);
-  font-weight: 700;
-  color: var(--color-ink);
+/* In the base layer so a colour utility on a heading wins (text-white on the
+   dark bands). Unlayered, this rule beat every utility: both dark-band
+   headings rendered ink on ink. */
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: var(--color-ink);
+  }
 }
 
 a { text-decoration: none; }
@@ -291,3 +296,11 @@ section[id] { scroll-margin-top: 72px; }
     -webkit-print-color-adjust: exact;
   }
 }
+
+/* About · common questions: disclosure panels. Hide the native marker
+   (Safari still draws it without the -webkit- rule) and turn the red +
+   into × when a panel is open. */
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item .faq-marker { transition: transform .2s ease; }
+.faq-item[open] .faq-marker { transform: rotate(45deg); }
+.faq-item summary:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 2px; }

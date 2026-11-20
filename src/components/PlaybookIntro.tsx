@@ -12,7 +12,7 @@ const playbookRows: IndexRow[] = [
   {
     number: '4.1',
     title: 'The framework',
-    description: 'Four interconnected dimensions around a leadership core',
+    description: 'Four interconnected domains around a leadership core',
     href: `#${SECTION_IDS.framework}`,
   },
   {
@@ -24,13 +24,13 @@ const playbookRows: IndexRow[] = [
   {
     number: '4.3',
     title: 'The change model',
-    description: 'Communicate, Co-create, Cadence — plus the T.C.C.A.R. lens',
+    description: 'Communicate, Co-create and Cadence, with a team-health check',
     href: `#${SECTION_IDS.changeLevers}`,
   },
   {
     number: '4.4',
     title: 'AI-native design',
-    description: "What AI changes — and what it doesn't",
+    description: 'What AI changes in the design, starting from the task',
     href: `#${SECTION_IDS.aiNative}`,
   },
 ];
@@ -60,7 +60,7 @@ export function PlaybookIntro() {
               className="text-[17px] leading-[1.65] text-[var(--color-secondary)] mb-7"
               style={{ maxWidth: 560, textWrap: 'pretty' }}
             >
-              Four tools I use to design and change organizations, free to
+              Four tools I use to design and change organisations, free to
               explore. Start anywhere. Each one stands on its own.
             </p>
             <a

@@ -28,6 +28,21 @@ function getJsonLd(): Record<string, unknown> {
   return JSON.parse(match[1]);
 }
 
+const playbookHtml = readFileSync(join(ROOT, 'playbook.html'), 'utf8');
+/** A JSON-LD node, typed the same way nodeOfType returns one */
+type LdNode = ReturnType<typeof nodeOfType>;
+/** The playbook page's own JSON-LD graph (WebPage, Article, DefinedTermSet) */
+function playbookGraph(): LdNode[] {
+  return JSON.parse(
+    playbookHtml.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)![1]
+  )['@graph'];
+}
+function playbookNode(type: string): LdNode {
+  const node = playbookGraph().find((n) => n['@type'] === type);
+  if (!node) throw new Error(`No ${type} node in the playbook JSON-LD @graph`);
+  return node;
+}
+
 function nodeOfType(type: string): Record<string, any> {
   const graph = getJsonLd()['@graph'] as Record<string, any>[];
   const node = graph.find((n) => n['@type'] === type);
@@ -192,7 +207,7 @@ describe('Verified biography is reflected in structured data', () => {
 
 describe('Additional GEO/AEO mechanisms', () => {
   test('site content is attributed to the Person as author (Article schema)', () => {
-    const article = nodeOfType('Article');
+    const article = playbookNode('Article');
     expect(article.author['@id']).toBe(`${SITE_URL}/#person`);
     expect(article.headline).toBe('AI redesigns the work, not the chart');
   });
@@ -205,16 +220,17 @@ describe('Additional GEO/AEO mechanisms', () => {
 
   test('freshness signals use the full-datetime constant', () => {
     expect(nodeOfType('ProfilePage').dateModified).toBe(CONTENT_LAST_MODIFIED_ISO);
-    expect(nodeOfType('Article').dateModified).toBe(CONTENT_LAST_MODIFIED_ISO);
+    expect(playbookNode('Article').dateModified).toBe(CONTENT_LAST_MODIFIED_ISO);
+    expect(playbookNode('WebPage').dateModified).toBe(CONTENT_LAST_MODIFIED_ISO);
   });
 
   test('the Article carries a recorded publication date and an image', () => {
-    const article = nodeOfType('Article');
+    const article = playbookNode('Article');
     // The merge of PR #19 into main: a recorded timestamp, not a guess
     expect(article.datePublished).toBe('2026-08-26T19:14:10+08:00');
     expect(Date.parse(article.datePublished)).toBeLessThanOrEqual(Date.parse(article.dateModified));
     // image must resolve to a real ImageObject in the graph
-    const graph = getJsonLd()['@graph'] as { '@id'?: string; '@type'?: string }[];
+    const graph = playbookGraph() as { '@id'?: string; '@type'?: string }[];
     expect(graph.some((n) => n['@id'] === article.image['@id'] && n['@type'] === 'ImageObject')).toBe(true);
   });
 
@@ -373,14 +389,18 @@ describe('Crawler-facing files', () => {
     expect(lastmod).not.toContain('+08:00');
   });
 
-  test('sitemap lists exactly one URL and no anchor fragments', () => {
-    expect((sitemap.match(/<url>/g) || [])).toHaveLength(1);
+  test('sitemap lists the two pages, each dated, and no anchor fragments', () => {
+    const locs = [...sitemap.matchAll(/<loc>([^<]*)<\/loc>/g)].map((m) => m[1]);
+    expect(locs).toEqual([`${SITE_URL}/`, `${SITE_URL}/playbook`]);
     expect(sitemap).not.toMatch(/<loc>[^<]*#/);
+    const lastmods = [...sitemap.matchAll(/<lastmod>([^<]*)<\/lastmod>/g)].map((m) => m[1]);
+    expect(lastmods).toEqual([CONTENT_LAST_MODIFIED, CONTENT_LAST_MODIFIED]);
   });
 
-  test('llms.txt carries a linked index of every main section', () => {
-    ['#framework', '#activators', '#change-levers', '#ai-native', '#about', '#diagnostic']
-      .forEach((frag) => expect(llms).toContain(`${SITE_URL}/${frag}`));
+  test('llms.txt carries a linked index of every main section, on the page that holds it', () => {
+    ['#framework', '#activators', '#change-levers', '#ai-native', '#diagnostic']
+      .forEach((frag) => expect(llms).toContain(`${SITE_URL}/playbook${frag}`));
+    expect(llms).toContain(`${SITE_URL}/#about`);
   });
 
   test('llms.txt states that the convention has unconfirmed adoption', () => {
@@ -404,5 +424,38 @@ describe('Crawler-facing files', () => {
     faqEntries.forEach((entry) =>
       expect(flat).toContain(entry.question.replace(/\s+/g, ' '))
     );
+  });
+});
+
+describe('The playbook page is its own document', () => {
+  test('its own title, canonical and og:url, on the canonical host', () => {
+    expect(playbookHtml).toContain('<title>The OrgDesign Playbook — Eric Yim</title>');
+    expect(playbookHtml).toContain(`<link rel="canonical" href="${SITE_URL}/playbook" />`);
+    expect(playbookHtml).toContain(`<meta property="og:url" content="${SITE_URL}/playbook" />`);
+    // ownership verification belongs to the home page only
+    expect(playbookHtml).not.toContain('google-site-verification');
+  });
+
+  test('a WebPage that belongs to the site and the Person, and contains the method nodes', () => {
+    const page = playbookNode('WebPage');
+    expect(page.url).toBe(`${SITE_URL}/playbook`);
+    expect(page.isPartOf['@id']).toBe(`${SITE_URL}/#website`);
+    expect(page.author['@id']).toBe(`${SITE_URL}/#person`);
+    const ids = playbookGraph().map((n) => n['@id']);
+    page.hasPart.forEach((p: { '@id': string }) => expect(ids).toContain(p['@id']));
+    // the Person it refers to is the one defined on the home page
+    expect(playbookNode('Person')['@id']).toBe(nodeOfType('Person')['@id']);
+  });
+
+  test('the home page no longer claims the method nodes', () => {
+    const types = (getJsonLd()['@graph'] as { '@type': string }[]).map((n) => n['@type']);
+    expect(types).not.toContain('Article');
+    expect(types).not.toContain('DefinedTermSet');
+  });
+
+  test('Vercel serves playbook.html at /playbook and folds /playbook/ into it', () => {
+    const vercel = JSON.parse(readFileSync(join(ROOT, 'vercel.json'), 'utf8'));
+    expect(vercel.cleanUrls).toBe(true);
+    expect(vercel.trailingSlash).toBe(false);
   });
 });

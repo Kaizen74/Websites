@@ -100,11 +100,11 @@ export function DiagnosticSurvey({ onComplete }: DiagnosticSurveyProps) {
             className="font-display font-bold text-[var(--color-ink)] mb-3"
             style={{ fontSize: 'clamp(28px, 4vw, 38px)', lineHeight: 1.15 }}
           >
-            Organizational health diagnostic
+            Organisational health diagnostic
           </h2>
           <p className="text-[15px] text-[var(--color-secondary)]">
             Answer each statement honestly for an accurate read of your
-            organization. Takes about five minutes.
+            organisation. Takes about five minutes.
           </p>
         </div>
 
@@ -174,7 +174,7 @@ export function DiagnosticSurvey({ onComplete }: DiagnosticSurveyProps) {
         </div>
 
         <p className="text-center text-[13px] text-[var(--color-faint)] mt-8">
-          Your answers save automatically — you can leave and come back.
+          Your answers save automatically, so you can leave and come back.
         </p>
       </div>
     </section>

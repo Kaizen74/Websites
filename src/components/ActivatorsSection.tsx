@@ -42,8 +42,8 @@ export function ActivatorsSection({ priorityActivators = [] }: ActivatorsSection
             {activatorsAnswer.answer}
           </p>
           <p className="text-[17px] leading-[1.65] text-[var(--color-secondary)]" style={{ maxWidth: 640 }}>
-            These five activators bridge organization design and results — the
-            right connections, the right conversations, and the right know-how.
+            They connect a design to results through the right connections, the
+            right conversations and the right know-how.
           </p>
           <p className="mt-3 text-[13px] text-[var(--color-faint)]" style={{ maxWidth: 640 }}>
             Adapted from Gregory Kesler and Amy Kates,{' '}

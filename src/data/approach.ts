@@ -6,7 +6,7 @@
 //
 // BOUNDARY RULE: every example here is fictional and deliberately set in a
 // neutral sector (a software company selling in three made-up markets). No
-// employer, no real organization, no app or product names, no figures.
+// employer, no real organisation, no app or product names, no figures.
 
 // ---------------------------------------------------------------- stages ---
 
@@ -26,9 +26,9 @@ export const approachCopy = {
   eyebrow: '02 · How I work',
   // Phase 6, row 2 (approved 2026-11-19): the heading is the question a reader
   // types; `answer` is the first sentence under it and answers it in full.
-  heading: 'Where should an organization design start?',
+  heading: 'Where should an organisation design start?',
   answer:
-    'With the current state. I map where the organization and its operating system create and lose value, and why its parts work differently, before deciding which of the four domains to move, in what order and when.',
+    'With the current state. I map where the organisation and its operating system create and lose value, and why its parts work differently, before deciding which of the four domains to move, in what order and when.',
   lede:
     'I run every engagement the same way. The first three stages establish what is true. In the last three, leaders decide what to change, install it and check that it worked.',
   stageZeroNote:
@@ -124,17 +124,17 @@ export interface DifferenceCategory {
 
 export const differencesCopy = {
   eyebrow: '03 · Required, chosen or inherited?',
-  heading: 'Should you standardize how different parts of a business work?',
+  heading: 'Should you standardise how different parts of a business work?',
   answer:
-    'Only once you know why each difference exists. Required differences stay local, chosen ones need a decision to keep or align, and inherited ones, which nobody decided, should be harmonized.',
+    'Only once you know why each difference exists. Required differences stay local, chosen ones need a decision to keep or align, and inherited ones, which nobody decided, should be harmonised.',
   lede:
-    'As a business grows across markets, sites and acquisitions, the same work ends up done in different ways. Before harmonizing anything, I sort each difference by why it exists. I call the three reasons required, chosen and inherited, and each one leads to a different decision.',
+    'As a business grows across markets, sites and acquisitions, the same work ends up done in different ways. Before harmonising anything, I sort each difference by why it exists. I call the three reasons required, chosen and inherited, and each one leads to a different decision.',
   // How the lens sets the order of the work (operator-confirmed 2026-11-19)
   sequencing:
-    'The three also set the order of the work. Required differences mark what the design can’t change, inherited ones are where harmonizing starts, and chosen ones wait for a leadership decision.',
+    'The three also set the order of the work. Required differences mark what the design can’t change, inherited ones are where harmonising starts, and chosen ones wait for a leadership decision.',
   sorterHeading: 'Sort a difference in two questions',
   sorterLede:
-    'Think of one thing your organization does differently in two places, then answer for it.',
+    'Think of one thing your organisation does differently in two places, then answer for it.',
 };
 
 export const differenceCategories: DifferenceCategory[] = [
@@ -156,7 +156,7 @@ export const differenceCategories: DifferenceCategory[] = [
     kind: 'inherited',
     label: 'Inherited',
     definition: 'History, an acquisition or habit. Nobody decided it.',
-    action: 'Harmonize',
+    action: 'Harmonise',
     labelColor: 'var(--color-primary)',
   },
 ];
@@ -201,7 +201,7 @@ export const exampleCopy = {
   lede:
     'A fictional software company sells in three markets. Here is who decides three things on paper, and who actually does.',
   verdict:
-    'Harmonize the discount authority. Decide whether the local customer-success team should become the model. Leave data residency alone.',
+    'Harmonise the discount authority. Decide whether the local customer-success team should become the model. Leave data residency alone.',
   disclaimer: 'Illustrative and fictional: the company, markets and decisions are made up.',
 };
 
