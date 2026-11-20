@@ -95,8 +95,11 @@ describe('C · ways to connect are knowledge sharing only', () => {
     hrefs.forEach((h) => expect([ownedProfiles[0].url, '/playbook']).toContain(h));
     expect(connect.querySelector('form, input, textarea')).toBeNull();
     expect(connect.querySelector('a[href^="mailto:"]')).toBeNull();
-    expect(connect.textContent).not.toMatch(
-      /pro bono|consult|services?\b|hire|fees?\b|rates?\b|book a call|speaking|engag(e|ement) me/i
+    expect(connect.textContent).not.toMatch(/pro bono|consult|services?\b|hire|fees?\b|rates?\b|speaking/i);
+    // and none of the repository's guarded commercial phrases
+    const guards = JSON.parse(read(join('scripts', 'guard-terms.json')));
+    (guards.commercial as string[]).forEach((b64) =>
+      expect(connect.textContent).not.toMatch(new RegExp(Buffer.from(b64, 'base64').toString(), 'i'))
     );
   });
 });

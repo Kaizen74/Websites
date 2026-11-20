@@ -90,7 +90,7 @@ check('crawler', 'B: home page text says "AI transformation"', /AI transformatio
 check('crawler', 'C: compare-notes band offers three ways, no form and no offer',
   (sectionText(home, 'connect').match(/Compare notes|Use the playbook|Follow the thinking/g) || []).length >= 3
   && !/<form|type="email"|mailto:/.test((home.root.match(/<section[^>]*id="connect"[\s\S]*?<\/section>/) || [''])[0])
-  && !/pro bono|consult|services?\b|\bhire\b|\bfees?\b|book a call/i.test(sectionText(home, 'connect')));
+  && !/pro bono|consult|services?\b|\bhire\b|\bfees?\b/i.test(sectionText(home, 'connect')));
 const KEEP = ['Bridging Organization Design and Performance', 'McKinsey Organizational Health Index', 'Organization Effectiveness APAC & EMEA'];
 const US = /\b(organiz\w*|standardiz\w*|harmoniz\w*|behaviors?|behavioral|optimiz\w*|specializ\w*|analyz\w*|prioritiz\w*|centraliz\w*|minimiz\w*|visualiz\w*|modeling)\b/i;
 for (const [name, d] of [['home', home], ['playbook', pb]]) {
