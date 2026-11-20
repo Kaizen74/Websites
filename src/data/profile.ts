@@ -112,6 +112,16 @@ export const profile = {
    */
   metaDescription:
     'Eric Yim writes about organisation design and AI transformation from Singapore: how organisations should change when people and machines share the work.',
+  /**
+   * Tells this Eric Yim apart from others who share the name (an answer
+   * engine has cited a namesake's LinkedIn post). Only facts already public
+   * on this site and his LinkedIn: no new employer detail. Emitted as
+   * Person.disambiguatingDescription and as the llms.txt identity note.
+   */
+  disambiguatingDescription:
+    'The Singapore-based organisation design and talent leader who writes about AI transformation and human-AI work partnership; Global Head of OD and Talent at SATS Ltd., with 25 years in organisational development across Shell, Cargill and the Singapore public sector; Nanyang Technological University, 1998; LinkedIn: eric-yim-743910.',
+  /** The LinkedIn public profile ID: a stable identifier no namesake shares */
+  linkedInId: 'eric-yim-743910',
   /** Full entity definition — used in JSON-LD and the visible About section */
   description:
     'Eric Yim is a Singapore-based organisation design strategist who writes about AI transformation and human-AI work partnership: how organisations divide work between people and machines, and the structures, capabilities and behaviours that make that partnership work.',
@@ -317,7 +327,7 @@ export const faqEntries: FaqEntry[] = [
   {
     question: 'Who is Eric Yim?',
     answer:
-      'Eric Yim is an organisation design strategist specialising in human-AI work partnership. He has spent 25 years working between organisational diagnosis and redesign, and works at the intersection of organisational development and AI adoption in the workplace.',
+      'Eric Yim is a Singapore-based organisation design strategist who writes about AI transformation and human-AI work partnership. He has spent 25 years working between organisational diagnosis and redesign, and works where organisational development meets AI adoption in the workplace.',
   },
   {
     question: 'What is human-AI work partnership?',

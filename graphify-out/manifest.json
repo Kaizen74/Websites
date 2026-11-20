@@ -330,9 +330,9 @@
     "semantic_hash": ""
   },
   "DECISIONS.md": {
-    "mtime": 1795138398.0777733,
-    "seen": 1795138399.5365355,
-    "ast_hash": "a668f3edd647da9bed24848cdb4dd61c",
+    "mtime": 1795139959.3426049,
+    "seen": 1795139960.9508116,
+    "ast_hash": "835a74978e9bdcb4aabdd9fa429a53bf",
     "semantic_hash": ""
   },
   "GUIDE.md": {
@@ -354,9 +354,9 @@
     "semantic_hash": ""
   },
   "index.html": {
-    "mtime": 1795138318.9292579,
-    "seen": 1795138399.5365417,
-    "ast_hash": "383e6a446c41c7c8160ab9aaf2351d3f",
+    "mtime": 1795139919.2796972,
+    "seen": 1795139960.9508216,
+    "ast_hash": "0fd270e3e6aabb082c126c4756a26d31",
     "semantic_hash": ""
   },
   "public/vite.svg": {
@@ -390,15 +390,15 @@
     "semantic_hash": ""
   },
   "src/data/profile.ts": {
-    "mtime": 1795138328.3407931,
-    "seen": 1795138399.5365188,
-    "ast_hash": "b2335a87936f8f554c432ac744d7ac55",
+    "mtime": 1795139917.6929915,
+    "seen": 1795139960.9507833,
+    "ast_hash": "1896b60562eba59dc50bb35ecdcff240",
     "semantic_hash": ""
   },
   "public/llms.txt": {
-    "mtime": 1795138330.8607635,
-    "seen": 1795138399.5365474,
-    "ast_hash": "27b9edf091cac417b4641714578a97fd",
+    "mtime": 1795139919.2810159,
+    "seen": 1795139960.9508314,
+    "ast_hash": "4e229e5247d75a29b7397bce20775b3c",
     "semantic_hash": ""
   },
   "public/robots.txt": {
@@ -486,9 +486,9 @@
     "semantic_hash": ""
   },
   "scripts/verify-site.mjs": {
-    "mtime": 1795138015.3786492,
-    "seen": 1795138095.141366,
-    "ast_hash": "c978f93ea76b8de5dddc85225569b302",
+    "mtime": 1795139939.4269125,
+    "seen": 1795139960.950665,
+    "ast_hash": "5e4d1210e66a73a6dca073113e997cd2",
     "semantic_hash": ""
   },
   "src/__tests__/aeo-approach.test.tsx": {
@@ -654,15 +654,15 @@
     "semantic_hash": ""
   },
   "playbook.html": {
-    "mtime": 1795137424.3528047,
-    "seen": 1795137907.0810137,
-    "ast_hash": "3450991bffcd063d12ef24c42d5e65ad",
+    "mtime": 1795139919.2804642,
+    "seen": 1795139960.9508228,
+    "ast_hash": "bfad199a57f1542533f24089b04acf04",
     "semantic_hash": ""
   },
   "src/__tests__/thought-leadership.test.tsx": {
-    "mtime": 1795138365.728311,
-    "seen": 1795138399.536479,
-    "ast_hash": "70bf4a6d4268bfddbcf9d09d464e1c97",
+    "mtime": 1795139934.4899476,
+    "seen": 1795139960.950699,
+    "ast_hash": "185a3654a7d0fdcb50016ca798954221",
     "semantic_hash": ""
   },
   "package-lock.json": {
